@@ -1,196 +1,558 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Matteo & Sebiana – 1 settembre 2026</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Matteo & Sebiana — 1 settembre 2026</title>
+  <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 1 settembre 2026." />
+  <meta name="theme-color" content="#4E8C78" />
 
   <style>
     :root{
-      --sage:#8FAFA3;
-      --sage-dark:#6F8F84;
-      --bg:#ffffff;
-      --paper:#fbfbf9;
-      --text:#2e332f;
-      --muted:#6f756f;
-      --border:#e5e8e4;
+      /* Palette più “vivace” ma elegante */
+      --sage:#4E8C78;        /* eucalipto (accento) */
+      --sage2:#2F6E5B;       /* più scuro */
+      --cream:#FFF7EE;       /* crema */
+      --sand:#F2E2CF;        /* beige/sabbia */
+      --white:#FFFFFF;
+
+      --text:#22302A;
+      --muted:#5E6B64;
+      --border:rgba(34,48,42,.12);
+
       --radius:22px;
-      --shadow:0 18px 40px rgba(0,0,0,.08);
-      --max:960px;
-      --serif:"Georgia", serif;
-      --sans:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      --shadow:0 18px 40px rgba(0,0,0,.09);
+      --max:980px;
+
+      --serif: ui-serif, "Georgia", "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      /* colori “cartoon” (soft) */
+      --skin:#F2C9A7;
+      --hair:#2A1B16;        /* moro */
+      --shirt:#ffffff;
+      --suit:#0B1B3A;        /* blu notte */
+      --dress:#FFF1E6;       /* ✅ avorio/crema (micro-ritocco) */
+      --accent:#4E8C78;
     }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
 
     body{
       margin:0;
-      font-family:var(--sans);
       color:var(--text);
-      background:linear-gradient(180deg,var(--paper),var(--bg));
+      font-family:var(--sans);
+      background:
+        radial-gradient(900px 400px at 15% 0%, rgba(78,140,120,.18), transparent 55%),
+        radial-gradient(900px 400px at 90% 10%, rgba(242,226,207,.55), transparent 55%),
+        linear-gradient(180deg, var(--cream), var(--white) 40%, #ffffff 100%);
     }
 
-    .wrap{max-width:var(--max);margin:auto;padding:0 18px}
-    header{text-align:center;padding:90px 0 40px}
-    h1{font-family:var(--serif);font-size:52px;margin:0}
-    .subtitle{color:var(--muted);margin-top:10px}
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
 
-    section{padding:28px 0}
+    /* Header */
+    header{
+      padding:90px 0 40px;
+      text-align:center;
+    }
+    .name-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    h1{
+      margin:0;
+      font-family:var(--serif);
+      font-weight:500;
+      letter-spacing:1px;
+      font-size:56px;
+      line-height:1.05;
+    }
+    .subtitle{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:16px;
+      letter-spacing:.2px;
+    }
 
+    @media (max-width:520px){
+      header{ padding:78px 0 34px; }
+      h1{ font-size:46px; }
+      .subtitle{ font-size:15px; }
+    }
+
+    /* Cards */
+    section{ padding:26px 0; }
     .card{
-      background:#ffffff;
+      background:rgba(255,255,255,.94);
       border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:28px;
-      margin-bottom:22px;
+      padding:26px;
+      overflow:hidden;
     }
+    .stack{ display:grid; gap:18px; }
 
-    h2{
-      font-family:var(--serif);
-      margin:0 0 14px;
-      font-weight:500;
+    /* Title with icon */
+    .title{
       display:flex;
       align-items:center;
       gap:12px;
+      margin:0 0 12px;
+      font-family:var(--serif);
+      font-weight:500;
+      letter-spacing:.4px;
+      font-size:22px;
     }
 
-    .icon{
-      width:26px;
-      height:26px;
-      fill:var(--sage-dark); /* ✅ verde salvia, non viola */
-      flex-shrink:0;
+    /* Section icons (church/villa/gift) */
+    .ico{
+      width:30px;
+      height:30px;
+      flex:0 0 30px;
+      stroke:var(--sage2);
+      fill:none;
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,.07));
+    }
+    .ico.fill-soft{ fill:rgba(78,140,120,.14); }
+
+    /* Sposi */
+    .avatar{
+      width:70px;
+      height:70px;
+      flex:0 0 70px;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.12));
+    }
+    .avatar.bride{
+      width:66px;
+      height:66px;
+      flex:0 0 66px;
+    }
+    @media (max-width:520px){
+      .avatar{ width:62px; height:62px; flex:0 0 62px; }
+      .avatar.bride{ width:58px; height:58px; flex:0 0 58px; }
     }
 
-    p{line-height:1.65;margin:10px 0}
-    .muted{color:var(--muted)}
+    p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
+    .muted{ color:var(--muted); }
 
-    .map-link{
-      display:inline-block;
+    /* Event layout */
+    .event-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:6px;
+    }
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:baseline;
+      flex-wrap:wrap;
+    }
+    .label{
+      font-weight:700;
+      font-size:13px;
+      color:var(--sage2);
+      letter-spacing:.25px;
+      min-width:74px;
+    }
+    .value{
+      color:var(--text);
+      font-size:14.7px;
+    }
+
+    /* Buttons */
+    .btn-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
       margin-top:14px;
-      color:var(--sage-dark);
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
       text-decoration:none;
-      border-bottom:1px dashed var(--sage-dark);
       font-size:14px;
+      border:1px solid rgba(47,110,91,.25);
+      background:rgba(78,140,120,.10);
+      color:var(--sage2);
+      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(47,110,91,.45);
+      background:rgba(78,140,120,.14);
     }
 
+    /* Gift box */
     .gift-box{
-      background:#f6f8f6;
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:16px;
-      margin-top:14px;
+      margin-top:12px;
+      padding:14px 14px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(242,226,207,.45), rgba(255,255,255,.85));
+      border:1px solid rgba(34,48,42,.10);
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:13.6px;
+      word-break:break-word;
+    }
+    .copy{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(34,48,42,.14);
+      background:rgba(255,255,255,.86);
+      border-radius:999px;
+      padding:9px 12px;
+      font-size:13px;
+      cursor:pointer;
+      margin-top:12px;
     }
 
+    /* Footer */
     footer{
       text-align:center;
-      padding:60px 20px;
+      padding:56px 18px 64px;
       color:var(--muted);
+    }
+    .finale{
       font-family:var(--serif);
-      font-size:16px;
+      font-size:18px;
+      color:var(--text);
+      margin:0 0 8px;
+      letter-spacing:.2px;
     }
     footer small{
       display:block;
-      font-family:var(--sans);
       font-size:13px;
       margin-top:10px;
+    }
+
+    a.softlink{
+      color:var(--sage2);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(47,110,91,.45);
+    }
+    a.softlink:hover{ border-bottom-style:solid; }
+
+    /* Password overlay */
+    #lock{
+      position:fixed; inset:0; z-index:9999;
+      display:flex; align-items:center; justify-content:center;
+      padding:18px;
+      background:
+        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.85), transparent 60%),
+        linear-gradient(180deg, var(--cream), rgba(255,255,255,.96));
+    }
+    .lock-box{
+      width:min(420px, 100%);
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(34,48,42,.12);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:28px 24px 22px;
+      text-align:center;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      margin:0 auto 12px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(47,110,91,.25);
+      background:rgba(78,140,120,.10);
+      font-size:13px;
+      color:var(--sage2);
+    }
+    .lock-box h2{
+      margin:0 0 6px;
+      font-family:var(--serif);
+      font-weight:500;
+      letter-spacing:.4px;
+    }
+    .lock-box p{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+    .lock-row{ display:flex; gap:10px; margin-top:10px; }
+    .lock-row input{
+      flex:1;
+      border-radius:999px;
+      border:1px solid rgba(34,48,42,.18);
+      padding:12px 14px;
+      font-size:14px;
+      outline:none;
+      background:white;
+    }
+    .lock-row button{
+      border-radius:999px;
+      border:0;
+      padding:12px 16px;
+      font-size:14px;
+      cursor:pointer;
+      background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
+      color:white;
+      white-space:nowrap;
+    }
+    .error{
+      margin-top:10px;
+      color:#8a2f2f;
+      font-size:13px;
+      min-height:18px;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Matteo &amp; Sebiana</h1>
-  <p class="subtitle">Martedì, 1 settembre 2026</p>
-</header>
-
-<main class="wrap">
-
-  <!-- BENVENUTI -->
-  <section>
-    <div class="card">
-      <h2>Benvenuti</h2>
-      <p>
-        Siamo felici di condividere con voi questo giorno speciale.
-        Qui trovate le informazioni essenziali su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
-      </p>
+  <div id="lock">
+    <div class="lock-box">
+      <div class="badge">🔒 Accesso riservato agli invitati</div>
+      <h2>Matteo & Sebiana</h2>
+      <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
+      <div class="lock-row">
+        <input id="pw" type="password" placeholder="Password" autocomplete="off" />
+        <button id="btnEnter" type="button">Accedi</button>
+      </div>
+      <div id="err" class="error"></div>
+      <p class="muted" style="margin-top:10px;font-size:12.5px;">(La password verrà richiesta ad ogni accesso)</p>
     </div>
-  </section>
+  </div>
 
-  <!-- CERIMONIA -->
-  <section>
-    <div class="card">
-      <h2>
-        <!-- icona chiesa – verde salvia -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2 5 7v15h14V7z"/>
+  <header>
+    <div class="wrap">
+      <div class="name-row">
+
+        <!-- Matteo (sposo) -->
+        <svg class="avatar" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="38" r="18" fill="var(--skin)"/>
+          <path d="M44 36c1-12 9-20 16-20s15 8 16 20c-4-6-12-8-16-8s-12 2-16 8z" fill="var(--hair)"/>
+          <path d="M46 46c2 12 8 18 14 18s12-6 14-18c-2 2-6 6-14 6s-12-4-14-6z" fill="#1F1411" opacity=".95"/>
+          <path d="M42 40c-2 1-3 3-3 6s1 5 3 6" stroke="rgba(0,0,0,.12)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M78 40c2 1 3 3 3 6s-1 5-3 6" stroke="rgba(0,0,0,.12)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <rect x="54" y="54" width="12" height="10" rx="5" fill="var(--skin)"/>
+          <path d="M30 104c2-18 12-32 30-36h0c18 4 28 18 30 36" fill="var(--suit)"/>
+          <path d="M50 68h20l-10 14z" fill="var(--shirt)"/>
+          <path d="M60 68l5 7-5 7-5-7z" fill="var(--accent)"/>
+          <circle cx="74" cy="78" r="3.3" fill="var(--accent)" opacity=".95"/>
+          <path d="M74 81c-2 2-4 3-6 3" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M30 104c2-18 12-32 30-36 18 4 28 18 30 36" stroke="rgba(0,0,0,.08)" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
-        Cerimonia
-      </h2>
-      <p><strong>Ore:</strong> 16:00</p>
-      <p>Chiesa Madre, Canicattini Bagni (SR)</p>
-      <p class="muted">Via XX Settembre, 96010</p>
-      <a class="map-link" target="_blank"
-         href="https://www.google.com/maps?q=Chiesa+Madre+Via+XX+Settembre+Canicattini+Bagni">
-        🗺️ Apri su Google Maps
-      </a>
-    </div>
-  </section>
 
-  <!-- FESTEGGIAMENTI -->
-  <section>
-    <div class="card">
-      <h2>
-        <!-- icona villa -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M3 11l9-9 9 9v11H3z"/>
+        <h1>Matteo &amp; Sebiana</h1>
+
+        <!-- Sebiana (sposa) -->
+        <svg class="avatar bride" viewBox="0 0 120 120" aria-hidden="true">
+          <path d="M28 46c4-22 18-34 32-34s28 12 32 34c-8-14-20-18-32-18s-24 4-32 18z" fill="rgba(242,226,207,.85)"/>
+          <circle cx="60" cy="40" r="17" fill="var(--skin)"/>
+          <path d="M40 42c0-16 9-25 20-25s20 9 20 25c-3-8-10-12-20-12s-17 4-20 12z" fill="var(--hair)"/>
+          <path d="M39 44c2 18 12 26 21 26s19-8 21-26c-6 6-12 9-21 9s-15-3-21-9z" fill="var(--hair)" opacity=".95"/>
+          <rect x="54" y="56" width="12" height="10" rx="5" fill="var(--skin)"/>
+          <path d="M36 104c3-20 16-34 24-38h0c8 4 21 18 24 38" fill="var(--dress)"/>
+          <path d="M44 78h32" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="82" cy="86" r="5" fill="rgba(78,140,120,.35)"/>
+          <circle cx="88" cy="84" r="4" fill="rgba(78,140,120,.35)"/>
+          <circle cx="86" cy="90" r="4" fill="rgba(78,140,120,.35)"/>
+          <path d="M84 92l-4 8" stroke="rgba(78,140,120,.65)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M36 104c3-20 16-34 24-38 8 4 21 18 24 38" stroke="rgba(0,0,0,.08)" stroke-width="2" fill="none" stroke-linecap="round"/>
         </svg>
-        Festeggiamenti
-      </h2>
-      <p>Dopo la cerimonia ci sposteremo presso</p>
-      <p><strong>Villa Anna eventi e ricevimenti</strong></p>
-      <p class="muted">c.da Graffetta, 97014 Ispica (RG)</p>
-      <a class="map-link" target="_blank"
-         href="https://www.google.com/maps?q=Villa+Anna+eventi+e+ricevimenti+Ispica">
-        🗺️ Apri su Google Maps
-      </a>
-    </div>
-  </section>
 
-  <!-- REGALO -->
-  <section>
-    <div class="card">
-      <h2>
-        <!-- icona regalo -->
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M2 7h20v15H2z"/>
-        </svg>
-        Un pensiero per noi
-      </h2>
-
-      <p>
-        La vostra presenza è per noi il regalo più grande.
-        Se desiderate accompagnarci con un pensiero, potete contribuire al nostro progetto di vita insieme.
-      </p>
-
-      <div class="gift-box">
-        <p><strong>IBAN:</strong> ITXX XXXX XXXX XXXX XXXX XXXX XXX</p>
-        <p><strong>Intestatario:</strong> Matteo Loene</p>
       </div>
 
-      <p class="muted" style="margin-top:16px;">
-        Se invece preferite farci <strong>un dono</strong>, potete fare riferimento alla nostra lista nozze
-        presso <strong>Floresta</strong>, a Siracusa.
-      </p>
+      <p class="subtitle">Martedì, 1 settembre 2026</p>
     </div>
-  </section>
+  </header>
 
-</main>
+  <main class="wrap">
+    <section class="stack">
 
-<footer>
-  Non vediamo l’ora di condividere questo giorno con voi.<br>
-  Grazie di cuore per esserci.
-  <small>Matteo &amp; Sebiana · 1 settembre 2026</small>
-</footer>
+      <div class="card">
+        <div class="title">Benvenuti</div>
+        <p>
+          Siamo felici di condividere con voi questo giorno speciale.
+          Qui trovate le informazioni essenziali su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="title">
+          <svg class="ico fill-soft" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M24 6v9"/><path d="M20 11h8"/><path d="M12 22l12-10 12 10"/>
+            <path d="M14 22v18h20V22"/><path d="M22 40V30c0-2 1.6-3.6 3.6-3.6S29.2 28 29.2 30v10"/>
+            <path d="M18 28h6"/><path d="M24 28h6"/>
+          </svg>
+          Cerimonia
+        </div>
+
+        <div class="event-grid">
+          <div class="row"><div class="label">Ore</div><div class="value">16:00</div></div>
+          <div class="row"><div class="label">Luogo</div><div class="value">Chiesa Madre, Canicattini Bagni (SR)</div></div>
+          <div class="row"><div class="label">Indirizzo</div><div class="value" id="churchAddr"></div></div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn" id="mapChurch" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">
+          <svg class="ico fill-soft" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M10 22l14-12 14 12"/><path d="M14 22v18h20V22"/><path d="M21 40V28h6v12"/>
+            <path d="M18 28h2"/><path d="M30 28h2"/><path d="M34 18v-6h4v10"/><path d="M12 40h24"/>
+          </svg>
+          Festeggiamenti
+        </div>
+
+        <div class="event-grid">
+          <div class="row"><div class="label">Quando</div><div class="value">Dopo la cerimonia</div></div>
+          <div class="row"><div class="label">Luogo</div><div class="value">Villa Anna eventi e ricevimenti</div></div>
+          <div class="row"><div class="label">Indirizzo</div><div class="value" id="villaAddr"></div></div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn" id="mapVilla" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">
+          <svg class="ico fill-soft" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M8 22h32v18H8z"/><path d="M24 22v18"/><path d="M8 22v-8h32v8"/>
+            <path d="M18 14c-3 0-6-2.2-6-5 0-2 1.6-3.6 3.6-3.6 2.5 0 4.7 2.6 6.4 8.6"/>
+            <path d="M30 14c3 0 6-2.2 6-5 0-2-1.6-3.6-3.6-3.6-2.5 0-4.7 2.6-6.4 8.6"/>
+          </svg>
+          Un pensiero per noi
+        </div>
+
+        <p>
+          La vostra presenza è per noi il regalo più grande.
+          Se desiderate accompagnarci con un pensiero, potete contribuire al nostro progetto di vita insieme.
+        </p>
+
+        <div class="gift-box">
+          <div class="muted" style="font-size:12.8px;margin-bottom:6px;">IBAN</div>
+          <div class="mono" id="ibanText"></div>
+
+          <div class="muted" style="font-size:12.8px;margin:12px 0 6px;">Intestatario</div>
+          <div class="mono" id="ibanName"></div>
+
+          <button class="copy" type="button" id="copyIban">Copia IBAN</button>
+          <div class="muted" style="font-size:12.8px;margin-top:10px;">
+            Causale suggerita: <span class="mono">Regalo di nozze</span>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:16px;">
+          Se invece preferite farci <strong>un dono</strong>, potete fare riferimento alla nostra lista nozze presso <strong>Floresta</strong>, a Siracusa.
+        </p>
+
+        <div class="gift-box" style="margin-top:12px;">
+          <div class="muted" style="font-size:12.8px;margin-bottom:6px;">Lista nozze – Floresta</div>
+          <div class="mono" id="florestaAddr"></div>
+          <div class="muted" style="margin-top:10px;">
+            Tel. <a class="softlink" id="florestaPhoneText">0931 586747</a>
+          </div>
+
+          <div class="btn-row" style="margin-top:12px;">
+            <a class="btn" id="mapFloresta" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+            <a class="btn" id="telFloresta">☎️ Chiama</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="title">Contatti</div>
+        <p><strong>Matteo</strong> — <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a></p>
+        <p><strong>Sebiana</strong> — <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a></p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p class="finale">Non vediamo l’ora di condividere questo giorno con voi.</p>
+    <p class="muted" style="margin:0;">Grazie di cuore per esserci.</p>
+    <small>Matteo &amp; Sebiana · 1 settembre 2026</small>
+  </footer>
+
+  <script>
+    const PASSWORD = "villaanna2026";
+
+    const CHURCH_ADDRESS   = "Via XX Settembre, 96010 Canicattini Bagni (SR)";
+    const VILLA_ADDRESS    = "Villa Anna eventi e ricevimenti, c.da Graffetta, 97014 Ispica (RG)";
+    const FLORESTA_ADDRESS = "Viale Polibio 59/B, 96100 Siracusa (SR)";
+    const FLORESTA_PHONE   = "+390931586747";
+
+    const MAP_CHURCH   = "https://www.google.com/maps?q=" + encodeURIComponent("Chiesa Madre, " + CHURCH_ADDRESS);
+    const MAP_VILLA    = "https://www.google.com/maps?q=" + encodeURIComponent(VILLA_ADDRESS);
+    const MAP_FLORESTA = "https://www.google.com/maps?q=" + encodeURIComponent("Floresta, " + FLORESTA_ADDRESS);
+
+    const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
+    const IBAN_NAME = "Matteo Loene";
+
+    const lock = document.getElementById("lock");
+    const pw = document.getElementById("pw");
+    const err = document.getElementById("err");
+    const btnEnter = document.getElementById("btnEnter");
+
+    function unlock(){ lock.style.display = "none"; }
+    function check(){
+      err.textContent = "";
+      const v = (pw.value || "").trim();
+      if(v === PASSWORD) unlock();
+      else err.textContent = "Password non corretta. Riprova.";
+    }
+    btnEnter.addEventListener("click", check);
+    pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
+
+    document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
+    document.getElementById("villaAddr").textContent = VILLA_ADDRESS;
+    document.getElementById("florestaAddr").textContent = "Floresta, " + FLORESTA_ADDRESS;
+
+    document.getElementById("mapChurch").href = MAP_CHURCH;
+    document.getElementById("mapVilla").href = MAP_VILLA;
+
+    document.getElementById("mapFloresta").href = MAP_FLORESTA;
+    document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
+
+    document.getElementById("florestaPhoneText").href = "tel:" + FLORESTA_PHONE;
+
+    document.getElementById("ibanText").textContent = IBAN;
+    document.getElementById("ibanName").textContent = IBAN_NAME;
+
+    const copyBtn = document.getElementById("copyIban");
+    copyBtn.addEventListener("click", async ()=>{
+      try{
+        await navigator.clipboard.writeText(IBAN);
+        copyBtn.textContent = "Copiato ✓";
+        setTimeout(()=> copyBtn.textContent = "Copia IBAN", 1600);
+      }catch(e){
+        const t = document.createElement("textarea");
+        t.value = IBAN;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand("copy");
+        document.body.removeChild(t);
+        copyBtn.textContent = "Copiato ✓";
+        setTimeout(()=> copyBtn.textContent = "Copia IBAN", 1600);
+      }
+    });
+  </script>
 
 </body>
 </html>
