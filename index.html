@@ -7,259 +7,133 @@
   <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 1 settembre 2026." />
   <meta name="theme-color" content="#A7B8AD" />
 
-  <meta property="og:title" content="Matteo & Sebiana — 1 settembre 2026" />
-  <meta property="og:description" content="Cerimonia e festeggiamenti: informazioni essenziali per gli invitati." />
-  <meta property="og:type" content="website" />
-
   <style>
     :root{
       --sage:#A7B8AD;
-      --sage-2:#7F978A;
+      --sage-2:#6a8576;
       --butter:#F6F1E7;
-      --beige:#E9E1D3;
       --paper:#FFFEFC;
-
       --text:#2D3431;
       --muted:#66706A;
       --line:rgba(45,52,49,.10);
-
       --radius:22px;
       --shadow:0 18px 45px rgba(0,0,0,.10);
-      --max:980px;
-
-      --serif: ui-serif, "Georgia", "Times New Roman", serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --max:960px;
+      --serif:"Georgia", serif;
+      --sans:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
+      font-family:var(--sans);
       color:var(--text);
       background:
-        radial-gradient(1100px 450px at 50% -180px, var(--beige), transparent 65%),
-        radial-gradient(900px 380px at 15% 0%, rgba(167,184,173,.45), transparent 55%),
-        linear-gradient(180deg, var(--butter), var(--paper) 45%, #ffffff 100%);
+        radial-gradient(1100px 450px at 50% -180px, rgba(233,225,211,.9), transparent 65%),
+        linear-gradient(180deg,var(--butter),var(--paper));
     }
 
-    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
-
-    /* ===== Ribbon ===== */
-    .ribbon{
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:saturate(1.2) blur(10px);
-      background:rgba(255,255,255,.72);
-      border-bottom:1px solid var(--line);
-    }
-    .ribbon-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
-      padding:10px 0;
-    }
-    .brand{
-      display:flex; align-items:baseline; gap:10px;
-      letter-spacing:.35px;
-      white-space:nowrap;
-    }
-    .brand strong{ font-family:var(--serif); font-weight:500; }
-    .brand span{ font-family:var(--sans); font-size:13px; color:var(--muted); }
-
-    nav{
-      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
-    }
-    nav a{
-      text-decoration:none;
-      color:var(--text);
-      font-family:var(--sans);
-      font-size:13px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(45,52,49,.10);
-      background:rgba(255,255,255,.68);
-      transition:transform .15s ease, border-color .15s ease, background .15s ease;
-    }
-    nav a:hover{
-      transform:translateY(-1px);
-      border-color:rgba(127,151,138,.40);
-      background:rgba(246,241,231,.82);
+    .wrap{max-width:var(--max);margin:auto;padding:0 18px}
+    header{padding:92px 0 42px;text-align:center}
+    h1{font-family:var(--serif);font-size:52px;margin:0;letter-spacing:.6px}
+    .subtitle{color:var(--muted);font-size:16px;margin-top:10px}
+    /* ✅ Micro‑ritocco: sottotitolo più piccolo su mobile (-1px) */
+    @media (max-width:520px){
+      h1{font-size:46px}
+      .subtitle{font-size:15px}
     }
 
-    /* ===== Hero ===== */
-    header{ padding:98px 0 36px; }
-    .hero{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:18px;
-      align-items:center;
-      text-align:center;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      margin:0 auto;
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(127,151,138,.35);
-      background:rgba(255,255,255,.60);
-      font-family:var(--sans);
-      font-size:13px;
-      color:var(--sage-2);
-    }
-    h1{
-      margin:10px 0 6px;
-      font-family:var(--serif);
-      font-weight:500;
-      letter-spacing:1.1px;
-      font-size:48px;
-      line-height:1.05;
-    }
-    .subtitle{
-      margin:0;
-      font-family:var(--sans);
-      font-size:16px;
-      color:var(--muted);
-      letter-spacing:.2px;
-    }
-    .hero-cta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:18px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      text-decoration:none;
-      font-family:var(--sans);
-      font-size:14px;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid rgba(45,52,49,.12);
-      background:rgba(255,255,255,.72);
-      color:var(--text);
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
-    .btn:hover{
-      transform:translateY(-1px);
-      border-color:rgba(127,151,138,.45);
-      box-shadow:0 12px 26px rgba(0,0,0,.08);
-    }
-    .btn.primary{
-      background:linear-gradient(180deg, rgba(167,184,173,.95), rgba(127,151,138,.92));
-      color:white;
-      border-color:rgba(127,151,138,.35);
-    }
+    section{padding:26px 0}
 
-    /* ===== Sections / Cards ===== */
-    section{ padding:24px 0; }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(12, 1fr);
-      gap:16px;
-    }
     .card{
-      grid-column:span 12;
-      background:rgba(255,255,255,.80);
-      border:1px solid rgba(45,52,49,.10);
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:26px 24px;
-      overflow:hidden;
-    }
-    @media (min-width:820px){
-      .card.half{ grid-column:span 6; }
-      header{ padding:112px 0 40px; }
-      h1{ font-size:58px; }
-      .subtitle{ font-size:17px; }
-      section{ padding:28px 0; }
+      padding:26px;
+      margin-bottom:18px;
     }
 
-    .card h2{
-      margin:0 0 10px;
+    h2{
       font-family:var(--serif);
+      margin:0 0 10px;
       font-weight:500;
-      letter-spacing:.45px;
-      font-size:22px;
+      letter-spacing:.35px;
     }
-    .card p{
-      margin:10px 0;
-      line-height:1.7;
-      font-family:var(--sans);
-      color:var(--text);
-      font-size:14.7px;
-    }
-    .muted{ color:var(--muted)!important; }
-    .sep{ height:1px; background:var(--line); margin:16px 0; }
 
-    /* Gift box (IBAN) */
-    .iban-box{
-      margin-top:12px;
-      padding:14px 14px;
-      border-radius:16px;
-      background:rgba(246,241,231,.78);
-      border:1px solid rgba(233,225,211,.95);
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .iban-row{
+    p{line-height:1.65;margin:10px 0}
+    .muted{color:var(--muted)}
+    .sep{height:1px;background:var(--line);margin:16px 0}
+
+    /* ✅ Link mappa: allineati e puliti */
+    .link-row{
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:12px;
+      gap:10px;
+      margin-top:12px;
       flex-wrap:wrap;
+    }
+    a.map{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--sage-2);
+      text-decoration:none;
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(246,241,231,.85);
+      border:1px solid rgba(106,133,118,.25);
+      transition:transform .15s ease, border-color .15s ease;
+    }
+    a.map:hover{
+      transform:translateY(-1px);
+      border-color:rgba(106,133,118,.45);
+    }
+
+    /* Gift box */
+    .gift{
+      background:rgba(246,241,231,.88);
+      border:1px solid rgba(233,225,211,.95);
+      border-radius:18px;
+      padding:14px 14px;
+      margin-top:12px;
     }
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size:13.5px;
-      color:#2b2f2d;
       word-break:break-word;
     }
     .copy{
       border:1px solid rgba(45,52,49,.14);
-      background:rgba(255,255,255,.75);
+      background:rgba(255,255,255,.8);
       border-radius:999px;
       padding:9px 12px;
       font-family:var(--sans);
       font-size:13px;
       cursor:pointer;
-      transition:transform .15s ease, border-color .15s ease;
-      white-space:nowrap;
+      margin-top:10px;
     }
-    .copy:hover{
-      transform:translateY(-1px);
-      border-color:rgba(127,151,138,.45);
-    }
-    .small{
-      font-family:var(--sans);
-      font-size:12.8px;
-      color:var(--muted);
-      margin-top:8px;
-    }
-
-    a.link{
-      color:var(--sage-2);
-      text-decoration:none;
-      border-bottom:1px dashed rgba(127,151,138,.45);
-    }
-    a.link:hover{ border-bottom-style:solid; }
 
     footer{
-      padding:26px 0 52px;
       text-align:center;
       color:var(--muted);
+      padding:48px 0;
+      font-family:var(--serif);
+      font-size:15px;
+      letter-spacing:.3px;
+    }
+    footer small{
+      display:block;
+      margin-top:10px;
       font-family:var(--sans);
       font-size:13px;
+      letter-spacing:0;
     }
 
-    /* ===== Password overlay ===== */
+    /* ===== Password overlay (semplice, richiesta sempre) ===== */
     #lock{
       position:fixed;
       inset:0;
@@ -269,17 +143,30 @@
       justify-content:center;
       padding:18px;
       background:
-        radial-gradient(900px 380px at 50% -80px, var(--beige), transparent 60%),
-        linear-gradient(180deg, var(--butter), rgba(255,255,255,.95));
+        radial-gradient(900px 380px at 50% -80px, rgba(233,225,211,.95), transparent 60%),
+        linear-gradient(180deg, var(--butter), rgba(255,255,255,.96));
     }
     .lock-box{
       width:min(420px, 100%);
-      background:rgba(255,255,255,.88);
+      background:rgba(255,255,255,.92);
       border:1px solid rgba(45,52,49,.12);
       border-radius:22px;
       box-shadow:var(--shadow);
       padding:28px 24px 22px;
       text-align:center;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      margin:0 auto 12px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(106,133,118,.30);
+      background:rgba(255,255,255,.70);
+      font-size:13px;
+      color:var(--sage-2);
     }
     .lock-box h2{
       margin:0 0 6px;
@@ -289,7 +176,6 @@
     }
     .lock-box p{
       margin:0 0 16px;
-      font-family:var(--sans);
       color:var(--muted);
       font-size:14px;
       line-height:1.45;
@@ -300,7 +186,6 @@
       border-radius:999px;
       border:1px solid rgba(45,52,49,.18);
       padding:12px 14px;
-      font-family:var(--sans);
       font-size:14px;
       outline:none;
       background:white;
@@ -309,36 +194,27 @@
       border-radius:999px;
       border:0;
       padding:12px 16px;
-      font-family:var(--sans);
       font-size:14px;
       cursor:pointer;
       background:linear-gradient(180deg, rgba(167,184,173,.95), rgba(127,151,138,.92));
       color:white;
       white-space:nowrap;
     }
-    .lock-row button:hover{ filter:brightness(.98); }
     .error{
       margin-top:10px;
       color:#8a2f2f;
-      font-family:var(--sans);
       font-size:13px;
       min-height:18px;
-    }
-
-    .reveal{ animation:fadeUp .45s ease both; }
-    @keyframes fadeUp{
-      from{ opacity:0; transform:translateY(10px); }
-      to{ opacity:1; transform:translateY(0); }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 🔒 Password screen -->
+  <!-- 🔒 Accesso riservato (password richiesta sempre) -->
   <div id="lock">
-    <div class="lock-box reveal">
-      <div class="badge" style="margin-bottom:12px;">🔒 Accesso riservato agli invitati</div>
+    <div class="lock-box">
+      <div class="badge">🔒 Accesso riservato agli invitati</div>
       <h2>Matteo & Sebiana</h2>
       <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
       <div class="lock-row">
@@ -346,208 +222,127 @@
         <button id="btnEnter" type="button">Accedi</button>
       </div>
       <div id="err" class="error"></div>
-      <div class="muted" style="font-family:var(--sans); font-size:12.5px; margin-top:6px;">
-        (La password verrà richiesta ad ogni accesso)
-      </div>
-    </div>
-  </div>
-
-  <!-- Top navigation -->
-  <div class="ribbon">
-    <div class="wrap ribbon-inner">
-      <div class="brand">
-        <strong>Matteo & Sebiana</strong>
-        <span>1 settembre 2026</span>
-      </div>
-      <nav aria-label="Navigazione">
-        <a href="#programma">Programma</a>
-        <a href="#location">Location</a>
-        <a href="#regalo">Regalo</a>
-        <a href="#contatti">Contatti</a>
-      </nav>
+      <p class="muted" style="margin-top:10px;font-size:12.5px;">(La password verrà richiesta ad ogni accesso)</p>
     </div>
   </div>
 
   <header>
-    <div class="wrap hero">
-      <div class="badge reveal">💍 Con grande gioia</div>
-      <h1 class="reveal">Matteo &amp; Sebiana</h1>
-      <p class="subtitle reveal">Martedì, 1 settembre 2026</p>
-      <div class="hero-cta reveal">
-        <a class="btn primary" href="#programma">Vedi il programma</a>
-        <a class="btn" id="mapVillaTop" href="#" target="_blank" rel="noopener">Apri mappa Villa Anna</a>
-      </div>
+    <div class="wrap">
+      <h1>Matteo &amp; Sebiana</h1>
+      <p class="subtitle">Martedì, 1 settembre 2026</p>
     </div>
   </header>
 
   <main class="wrap">
 
-    <!-- Intro -->
+    <!-- BENVENUTI (testo accorciato) -->
     <section>
-      <div class="grid">
-        <div class="card reveal">
-          <h2>Benvenuti</h2>
-          <p>
-            Siamo felici di condividere con voi questo giorno speciale.
-            In questa pagina trovate le informazioni essenziali su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
-          </p>
-          <p class="muted">
-            Eventuali aggiornamenti saranno pubblicati qui.
-          </p>
+      <div class="card">
+        <h2>Benvenuti</h2>
+        <p>
+          Siamo felici di condividere con voi questo giorno speciale.
+          Qui trovate le informazioni essenziali su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- CERIMONIA -->
+    <section>
+      <div class="card">
+        <h2>Cerimonia</h2>
+        <p><strong>Ore:</strong> 16:00</p>
+        <p><strong>Dove:</strong> Chiesa Madre — Canicattini Bagni (SR)</p>
+        <p class="muted" id="churchAddr"></p>
+
+        <div class="link-row">
+          <a class="map" id="mapChurch" href="#" target="_blank" rel="noopener noreferrer">🗺️ Apri su Google Maps</a>
         </div>
       </div>
     </section>
 
-    <!-- Programma -->
-    <section id="programma">
-      <div class="grid">
-        <div class="card half reveal">
-          <h2>Cerimonia</h2>
-          <p><strong>Ore:</strong> 16:00</p>
-          <p><strong>Dove:</strong> Chiesa Madre — Canicattini Bagni (SR)</p>
-          <div class="sep"></div>
-          <p class="muted">Celebrazione in chiesa.</p>
-          <p style="margin-top:14px;">
-            <a class="btn" id="mapChurchCard" href="#" target="_blank" rel="noopener">Apri mappa Chiesa</a>
-          </p>
-        </div>
+    <!-- FESTEGGIAMENTI -->
+    <section>
+      <div class="card">
+        <h2>Festeggiamenti</h2>
+        <p>Dopo la cerimonia ci sposteremo presso:</p>
+        <p><strong>Villa Anna eventi e ricevimenti</strong></p>
+        <p class="muted" id="villaAddr"></p>
 
-        <div class="card half reveal">
-          <h2>Festeggiamenti</h2>
-          <p><strong>Dopo la cerimonia</strong> ci sposteremo a:</p>
-          <p><strong>Villa Anna</strong> — Ragusa (RG)</p>
-          <div class="sep"></div>
-          <p class="muted">Ricevimento e festeggiamenti presso la location.</p>
-          <p style="margin-top:14px;">
-            <a class="btn" id="mapVillaCard" href="#" target="_blank" rel="noopener">Apri mappa Villa Anna</a>
-          </p>
+        <div class="link-row">
+          <a class="map" id="mapVilla" href="#" target="_blank" rel="noopener noreferrer">🗺️ Apri su Google Maps</a>
         </div>
       </div>
     </section>
 
-    <!-- Location -->
-    <section id="location">
-      <div class="grid">
-        <div class="card half reveal">
-          <h2>Chiesa (cerimonia)</h2>
-          <p><strong>Chiesa Madre</strong> — Canicattini Bagni (SR)</p>
-          <p class="muted" id="churchAddrText"></p>
-          <div class="sep"></div>
-          <p>
-            <a class="link" id="mapChurchMid" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
-          </p>
+    <!-- REGALO -->
+    <section>
+      <div class="card">
+        <h2>Un pensiero per noi</h2>
+        <p>
+          La vostra presenza è per noi il regalo più grande.
+          Se desiderate accompagnarci con un pensiero:
+        </p>
+
+        <div class="gift">
+          <div class="muted" style="font-size:12.8px;margin-bottom:6px;">IBAN</div>
+          <div class="mono" id="ibanText"></div>
+
+          <div class="muted" style="font-size:12.8px;margin:12px 0 6px;">Intestatario</div>
+          <div class="mono" id="ibanName"></div>
+
+          <button class="copy" type="button" id="copyIban">Copia IBAN</button>
+          <div class="muted" style="font-size:12.8px;margin-top:10px;">Causale suggerita: <span class="mono">Regalo di nozze</span></div>
         </div>
 
-        <div class="card half reveal">
-          <h2>Villa (festeggiamenti)</h2>
-          <p><strong>Villa Anna eventi e ricevimenti</strong></p>
-          <p class="muted" id="villaAddrText"></p>
-          <div class="sep"></div>
-          <p>
-            <a class="link" id="mapVillaMid" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
-          </p>
-        </div>
-      </div>
-    </section>
+        <div class="sep"></div>
 
-    <!-- Regalo / IBAN + Lista nozze -->
-    <section id="regalo">
-      <div class="grid">
-        <div class="card half reveal">
-          <h2>Un pensiero per noi</h2>
-          <p>
-            La vostra presenza è per noi il regalo più grande.
-            Se desiderate accompagnarci con un pensiero, potete contribuire al nostro progetto di vita insieme.
-          </p>
+        <h2 style="margin-top:0;">Lista nozze</h2>
+        <p class="muted" id="florestaAddr"></p>
 
-          <div class="iban-box" aria-label="Dati IBAN">
-            <div class="iban-row">
-              <div>
-                <div class="muted" style="font-family:var(--sans); font-size:12.8px; margin-bottom:6px;">IBAN</div>
-                <div class="mono" id="ibanText"></div>
-              </div>
-              <button class="copy" type="button" id="copyIban">Copia IBAN</button>
-            </div>
-
-            <div>
-              <div class="muted" style="font-family:var(--sans); font-size:12.8px; margin-bottom:6px;">Intestato a</div>
-              <div class="mono" id="ibanName"></div>
-            </div>
-
-            <div class="small">
-              Causale suggerita: <span class="mono">Regalo di nozze</span>
-            </div>
-          </div>
-
-          <p class="small">
-            (In alternativa, è disponibile la lista nozze in negozio: trovate i dettagli qui accanto.)
-          </p>
-        </div>
-
-        <div class="card half reveal">
-          <h2>Lista nozze</h2>
-          <p>
-            La lista nozze è disponibile presso il negozio <strong>Floresta</strong> di <strong>Siracusa</strong>.
-          </p>
-          <p class="muted" id="florestaText"></p>
-          <div class="sep"></div>
-          <p>
-            <a class="link" id="mapFloresta" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
-            <span class="muted"> · </span>
-            <a class="link" id="telFloresta" href="#">☎️ Chiama</a>
-          </p>
+        <div class="link-row">
+          <a class="map" id="mapFloresta" href="#" target="_blank" rel="noopener noreferrer">🗺️ Apri su Google Maps</a>
+          <a class="map" id="telFloresta" href="#">☎️ Chiama</a>
         </div>
       </div>
     </section>
 
-    <!-- Contatti -->
-    <section id="contatti">
-      <div class="grid">
-        <div class="card half reveal">
-          <h2>Contatti</h2>
-          <p><strong>Matteo</strong><br>
-            <a class="link" href="tel:+393200750337">+39 320 075 0337</a>
-          </p>
-          <p><strong>Sebiana</strong><br>
-            <a class="link" href="tel:+393888843281">+39 388 884 3281</a>
-          </p>
-        </div>
-
-        <div class="card half reveal">
-          <h2>Grazie</h2>
-          <p>Non vediamo l’ora di condividere questo giorno con voi.</p>
-          <p class="muted">Grazie di cuore per esserci.</p>
-        </div>
+    <!-- CONTATTI -->
+    <section>
+      <div class="card">
+        <h2>Contatti</h2>
+        <p><strong>Matteo</strong> — <a class="map" href="tel:+393200750337">+39 320 075 0337</a></p>
+        <p><strong>Sebiana</strong> — <a class="map" href="tel:+393888843281">+39 388 884 3281</a></p>
       </div>
     </section>
 
   </main>
 
   <footer>
-    Matteo &amp; Sebiana · 1 settembre 2026
+    Con affetto,<br>
+    Matteo &amp; Sebiana
+    <small>1 settembre 2026 · Canicattini Bagni – Ispica</small>
   </footer>
 
   <script>
     /**********************************************************
-     * PASSWORD (cambiala qui se vuoi)
-     * ✅ ora viene richiesta SEMPRE: nessuna memorizzazione
+     * 1) PASSWORD (cambiala qui se vuoi)
      **********************************************************/
     const PASSWORD = "villaanna2026";
 
     /**********************************************************
-     * INDIRIZZI (inseriti con fonti pubbliche)
+     * 2) Indirizzi (testi + mappe)
      **********************************************************/
-    const CHURCH_ADDRESS = "Chiesa Madre, Via XX Settembre, 96010 Canicattini Bagni (SR)"; // [1](http://azionecattolica.arcidiocesi.siracusa.it/wd-annuario-enti/vicariato-di-palazzolo-acreide-632/parrocchia-s-m-degli-angeli-e-s-michele-arc-chiesa-madre-275/)
-    const VILLA_ADDRESS   = "Villa Anna eventi e ricevimenti, c.da Graffetta, 97014 Ispica (RG)";
-    const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa (SR)"; // [2](https://www.paginegialle.it/siracusa-sr/floresta-home-s-r-l)
-    const FLORESTA_PHONE = "+390931586747"; // [2](https://www.paginegialle.it/siracusa-sr/floresta-home-s-r-l)
+    const CHURCH_ADDRESS   = "Chiesa Madre, Via XX Settembre, 96010 Canicattini Bagni (SR)";
+    const VILLA_ADDRESS    = "Villa Anna eventi e ricevimenti, c.da Graffetta, 97014 Ispica (RG)";
+    const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa (SR)";
+    const FLORESTA_PHONE   = "+390931586747";
 
     const MAP_CHURCH   = "https://www.google.com/maps?q=" + encodeURIComponent(CHURCH_ADDRESS);
     const MAP_VILLA    = "https://www.google.com/maps?q=" + encodeURIComponent(VILLA_ADDRESS);
     const MAP_FLORESTA = "https://www.google.com/maps?q=" + encodeURIComponent(FLORESTA_ADDRESS);
 
     /**********************************************************
-     * IBAN (placeholder fittizio come richiesto)
+     * 3) IBAN (placeholder fittizio come richiesto)
      **********************************************************/
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Loene";
@@ -560,32 +355,25 @@
     const err = document.getElementById("err");
     const btnEnter = document.getElementById("btnEnter");
 
-    function unlock() { lock.style.display = "none"; }
-
-    function check() {
+    function unlock(){ lock.style.display = "none"; }
+    function check(){
       err.textContent = "";
-      const value = (pw.value || "").trim();
-      if (value === PASSWORD) unlock();
+      const v = (pw.value || "").trim();
+      if(v === PASSWORD) unlock();
       else err.textContent = "Password non corretta. Riprova.";
     }
-
     btnEnter.addEventListener("click", check);
-    pw.addEventListener("keydown", (e) => { if (e.key === "Enter") check(); });
+    pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 
     /**********************************************************
-     * Inject: testi + link mappe
+     * Inject contenuti + link
      **********************************************************/
-    document.getElementById("churchAddrText").textContent = CHURCH_ADDRESS;
-    document.getElementById("villaAddrText").textContent = VILLA_ADDRESS;
+    document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
+    document.getElementById("villaAddr").textContent = VILLA_ADDRESS;
+    document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS + " · Tel. 0931 586747";
 
-    document.getElementById("mapChurchCard").href = MAP_CHURCH;
-    document.getElementById("mapChurchMid").href  = MAP_CHURCH;
-
-    document.getElementById("mapVillaTop").href  = MAP_VILLA;
-    document.getElementById("mapVillaCard").href = MAP_VILLA;
-    document.getElementById("mapVillaMid").href  = MAP_VILLA;
-
-    document.getElementById("florestaText").textContent = FLORESTA_ADDRESS + " · Tel. 0931 586747";
+    document.getElementById("mapChurch").href = MAP_CHURCH;
+    document.getElementById("mapVilla").href = MAP_VILLA;
     document.getElementById("mapFloresta").href = MAP_FLORESTA;
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
@@ -593,23 +381,23 @@
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
     /**********************************************************
-     * Copy IBAN button
+     * Copia IBAN
      **********************************************************/
     const copyBtn = document.getElementById("copyIban");
-    copyBtn.addEventListener("click", async () => {
+    copyBtn.addEventListener("click", async ()=>{
       try{
         await navigator.clipboard.writeText(IBAN);
         copyBtn.textContent = "Copiato ✓";
-        setTimeout(() => copyBtn.textContent = "Copia IBAN", 1600);
-      } catch(e){
-        const temp = document.createElement("textarea");
-        temp.value = IBAN;
-        document.body.appendChild(temp);
-        temp.select();
+        setTimeout(()=> copyBtn.textContent = "Copia IBAN", 1600);
+      }catch(e){
+        const t = document.createElement("textarea");
+        t.value = IBAN;
+        document.body.appendChild(t);
+        t.select();
         document.execCommand("copy");
-        document.body.removeChild(temp);
+        document.body.removeChild(t);
         copyBtn.textContent = "Copiato ✓";
-        setTimeout(() => copyBtn.textContent = "Copia IBAN", 1600);
+        setTimeout(()=> copyBtn.textContent = "Copia IBAN", 1600);
       }
     });
   </script>
