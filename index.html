@@ -18,11 +18,12 @@
       --butter:#F6F1E7;
       --beige:#E9E1D3;
       --paper:#FFFEFC;
+
       --text:#2D3431;
       --muted:#66706A;
       --line:rgba(45,52,49,.10);
 
-      --radius:20px;
+      --radius:22px;
       --shadow:0 18px 45px rgba(0,0,0,.10);
       --max:980px;
 
@@ -49,7 +50,7 @@
       top:0;
       z-index:50;
       backdrop-filter:saturate(1.2) blur(10px);
-      background:rgba(255,255,255,.70);
+      background:rgba(255,255,255,.72);
       border-bottom:1px solid var(--line);
     }
     .ribbon-inner{
@@ -59,7 +60,7 @@
     }
     .brand{
       display:flex; align-items:baseline; gap:10px;
-      letter-spacing:.4px;
+      letter-spacing:.35px;
       white-space:nowrap;
     }
     .brand strong{ font-family:var(--serif); font-weight:500; }
@@ -76,21 +77,21 @@
       padding:8px 12px;
       border-radius:999px;
       border:1px solid rgba(45,52,49,.10);
-      background:rgba(255,255,255,.65);
+      background:rgba(255,255,255,.68);
       transition:transform .15s ease, border-color .15s ease, background .15s ease;
     }
     nav a:hover{
       transform:translateY(-1px);
       border-color:rgba(127,151,138,.40);
-      background:rgba(246,241,231,.75);
+      background:rgba(246,241,231,.82);
     }
 
     /* ===== Hero ===== */
-    header{ padding:76px 0 26px; }
+    header{ padding:98px 0 36px; }
     .hero{
       display:grid;
       grid-template-columns:1fr;
-      gap:16px;
+      gap:18px;
       align-items:center;
       text-align:center;
     }
@@ -112,8 +113,8 @@
       margin:10px 0 6px;
       font-family:var(--serif);
       font-weight:500;
-      letter-spacing:1px;
-      font-size:46px;
+      letter-spacing:1.1px;
+      font-size:48px;
       line-height:1.05;
     }
     .subtitle{
@@ -141,7 +142,7 @@
       padding:12px 16px;
       border-radius:14px;
       border:1px solid rgba(45,52,49,.12);
-      background:rgba(255,255,255,.70);
+      background:rgba(255,255,255,.72);
       color:var(--text);
       transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
     }
@@ -156,8 +157,8 @@
       border-color:rgba(127,151,138,.35);
     }
 
-    /* ===== Cards ===== */
-    section{ padding:18px 0; }
+    /* ===== Sections / Cards ===== */
+    section{ padding:24px 0; }
     .grid{
       display:grid;
       grid-template-columns:repeat(12, 1fr);
@@ -165,40 +166,93 @@
     }
     .card{
       grid-column:span 12;
-      background:rgba(255,255,255,.78);
+      background:rgba(255,255,255,.80);
       border:1px solid rgba(45,52,49,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:22px 22px;
+      padding:26px 24px;
       overflow:hidden;
     }
     @media (min-width:820px){
       .card.half{ grid-column:span 6; }
-      .card.third{ grid-column:span 4; }
-      header{ padding:92px 0 28px; }
-      h1{ font-size:56px; }
+      header{ padding:112px 0 40px; }
+      h1{ font-size:58px; }
       .subtitle{ font-size:17px; }
+      section{ padding:28px 0; }
     }
 
     .card h2{
       margin:0 0 10px;
       font-family:var(--serif);
       font-weight:500;
-      letter-spacing:.4px;
+      letter-spacing:.45px;
       font-size:22px;
     }
     .card p{
-      margin:8px 0;
-      line-height:1.65;
+      margin:10px 0;
+      line-height:1.7;
       font-family:var(--sans);
       color:var(--text);
-      font-size:14.5px;
+      font-size:14.7px;
     }
     .muted{ color:var(--muted)!important; }
-    .sep{ height:1px; background:var(--line); margin:14px 0; }
+    .sep{ height:1px; background:var(--line); margin:16px 0; }
+
+    /* Gift box (IBAN) */
+    .iban-box{
+      margin-top:12px;
+      padding:14px 14px;
+      border-radius:16px;
+      background:rgba(246,241,231,.78);
+      border:1px solid rgba(233,225,211,.95);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .iban-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:13.5px;
+      color:#2b2f2d;
+      word-break:break-word;
+    }
+    .copy{
+      border:1px solid rgba(45,52,49,.14);
+      background:rgba(255,255,255,.75);
+      border-radius:999px;
+      padding:9px 12px;
+      font-family:var(--sans);
+      font-size:13px;
+      cursor:pointer;
+      transition:transform .15s ease, border-color .15s ease;
+      white-space:nowrap;
+    }
+    .copy:hover{
+      transform:translateY(-1px);
+      border-color:rgba(127,151,138,.45);
+    }
+    .small{
+      font-family:var(--sans);
+      font-size:12.8px;
+      color:var(--muted);
+      margin-top:8px;
+    }
+
+    a.link{
+      color:var(--sage-2);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(127,151,138,.45);
+    }
+    a.link:hover{ border-bottom-style:solid; }
 
     footer{
-      padding:28px 0 50px;
+      padding:26px 0 52px;
       text-align:center;
       color:var(--muted);
       font-family:var(--sans);
@@ -220,7 +274,7 @@
     }
     .lock-box{
       width:min(420px, 100%);
-      background:rgba(255,255,255,.85);
+      background:rgba(255,255,255,.88);
       border:1px solid rgba(45,52,49,.12);
       border-radius:22px;
       box-shadow:var(--shadow);
@@ -293,7 +347,7 @@
       </div>
       <div id="err" class="error"></div>
       <div class="muted" style="font-family:var(--sans); font-size:12.5px; margin-top:6px;">
-        (L’accesso può restare memorizzato su questo dispositivo)
+        (La password verrà richiesta ad ogni accesso)
       </div>
     </div>
   </div>
@@ -308,6 +362,7 @@
       <nav aria-label="Navigazione">
         <a href="#programma">Programma</a>
         <a href="#location">Location</a>
+        <a href="#regalo">Regalo</a>
         <a href="#contatti">Contatti</a>
       </nav>
     </div>
@@ -320,14 +375,14 @@
       <p class="subtitle reveal">Martedì, 1 settembre 2026</p>
       <div class="hero-cta reveal">
         <a class="btn primary" href="#programma">Vedi il programma</a>
-        <a class="btn" id="mapTop" href="#" target="_blank" rel="noopener">Apri la mappa di Villa Anna</a>
+        <a class="btn" id="mapVillaTop" href="#" target="_blank" rel="noopener">Apri mappa Villa Anna</a>
       </div>
     </div>
   </header>
 
   <main class="wrap">
 
-    <!-- Intro (romantico sobrio, essenziale) -->
+    <!-- Intro -->
     <section>
       <div class="grid">
         <div class="card reveal">
@@ -352,6 +407,9 @@
           <p><strong>Dove:</strong> Chiesa Madre — Canicattini Bagni (SR)</p>
           <div class="sep"></div>
           <p class="muted">Celebrazione in chiesa.</p>
+          <p style="margin-top:14px;">
+            <a class="btn" id="mapChurchCard" href="#" target="_blank" rel="noopener">Apri mappa Chiesa</a>
+          </p>
         </div>
 
         <div class="card half reveal">
@@ -360,6 +418,9 @@
           <p><strong>Villa Anna</strong> — Ragusa (RG)</p>
           <div class="sep"></div>
           <p class="muted">Ricevimento e festeggiamenti presso la location.</p>
+          <p style="margin-top:14px;">
+            <a class="btn" id="mapVillaCard" href="#" target="_blank" rel="noopener">Apri mappa Villa Anna</a>
+          </p>
         </div>
       </div>
     </section>
@@ -367,13 +428,73 @@
     <!-- Location -->
     <section id="location">
       <div class="grid">
-        <div class="card reveal">
-          <h2>Location festeggiamenti</h2>
-          <p><strong>Villa Anna eventi e ricevimenti</strong></p>
-          <p class="muted" id="addrText">c.da Graffetta, 97014 Ispica (RG)</p>
+        <div class="card half reveal">
+          <h2>Chiesa (cerimonia)</h2>
+          <p><strong>Chiesa Madre</strong> — Canicattini Bagni (SR)</p>
+          <p class="muted" id="churchAddrText"></p>
           <div class="sep"></div>
           <p>
-            <a class="btn" id="mapMid" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
+            <a class="link" id="mapChurchMid" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
+          </p>
+        </div>
+
+        <div class="card half reveal">
+          <h2>Villa (festeggiamenti)</h2>
+          <p><strong>Villa Anna eventi e ricevimenti</strong></p>
+          <p class="muted" id="villaAddrText"></p>
+          <div class="sep"></div>
+          <p>
+            <a class="link" id="mapVillaMid" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regalo / IBAN + Lista nozze -->
+    <section id="regalo">
+      <div class="grid">
+        <div class="card half reveal">
+          <h2>Un pensiero per noi</h2>
+          <p>
+            La vostra presenza è per noi il regalo più grande.
+            Se desiderate accompagnarci con un pensiero, potete contribuire al nostro progetto di vita insieme.
+          </p>
+
+          <div class="iban-box" aria-label="Dati IBAN">
+            <div class="iban-row">
+              <div>
+                <div class="muted" style="font-family:var(--sans); font-size:12.8px; margin-bottom:6px;">IBAN</div>
+                <div class="mono" id="ibanText"></div>
+              </div>
+              <button class="copy" type="button" id="copyIban">Copia IBAN</button>
+            </div>
+
+            <div>
+              <div class="muted" style="font-family:var(--sans); font-size:12.8px; margin-bottom:6px;">Intestato a</div>
+              <div class="mono" id="ibanName"></div>
+            </div>
+
+            <div class="small">
+              Causale suggerita: <span class="mono">Regalo di nozze</span>
+            </div>
+          </div>
+
+          <p class="small">
+            (In alternativa, è disponibile la lista nozze in negozio: trovate i dettagli qui accanto.)
+          </p>
+        </div>
+
+        <div class="card half reveal">
+          <h2>Lista nozze</h2>
+          <p>
+            La lista nozze è disponibile presso il negozio <strong>Floresta</strong> di <strong>Siracusa</strong>.
+          </p>
+          <p class="muted" id="florestaText"></p>
+          <div class="sep"></div>
+          <p>
+            <a class="link" id="mapFloresta" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
+            <span class="muted"> · </span>
+            <a class="link" id="telFloresta" href="#">☎️ Chiama</a>
           </p>
         </div>
       </div>
@@ -384,15 +505,18 @@
       <div class="grid">
         <div class="card half reveal">
           <h2>Contatti</h2>
-          <p><strong>Matteo</strong><br><a href="tel:+393200750337" style="color:inherit; text-decoration:none;">+39 320 075 0337</a></p>
-          <p><strong>Sebiana</strong><br><a href="tel:+393888843281" style="color:inherit; text-decoration:none;">+39 388 884 3281</a></p>
+          <p><strong>Matteo</strong><br>
+            <a class="link" href="tel:+393200750337">+39 320 075 0337</a>
+          </p>
+          <p><strong>Sebiana</strong><br>
+            <a class="link" href="tel:+393888843281">+39 388 884 3281</a>
+          </p>
         </div>
 
         <div class="card half reveal">
-          <h2>Nota</h2>
-          <p class="muted">
-            Per qualsiasi esigenza organizzativa, potete contattarci ai numeri indicati.
-          </p>
+          <h2>Grazie</h2>
+          <p>Non vediamo l’ora di condividere questo giorno con voi.</p>
+          <p class="muted">Grazie di cuore per esserci.</p>
         </div>
       </div>
     </section>
@@ -400,35 +524,43 @@
   </main>
 
   <footer>
-    Con affetto, Matteo &amp; Sebiana · 2026
+    Matteo &amp; Sebiana · 1 settembre 2026
   </footer>
 
   <script>
     /**********************************************************
      * PASSWORD (cambiala qui se vuoi)
+     * ✅ ora viene richiesta SEMPRE: nessuna memorizzazione
      **********************************************************/
-    const PASSWORD = "villaanna2026";   // <-- cambia questa password
+    const PASSWORD = "villaanna2026";
 
     /**********************************************************
-     * Google Maps link (quello fornito da te)
+     * INDIRIZZI (inseriti con fonti pubbliche)
      **********************************************************/
-    const VILLA_ANNA_MAPS_URL =
-      "https://www.google.com/maps/dir//Villa+Anna+eventi+e+ricevimenti,+c.da+Graffetta,+97014+Ispica+RG/@45.5606272,8.0510976,10z/data=!4m8!4m7!1m0!1m5!1m1!1s0x13118dc0cd9eb67f:0x69b03c81bce8d229!2m2!1d14.8744516!2d36.7637799?entry=ttu";
+    const CHURCH_ADDRESS = "Chiesa Madre, Via XX Settembre, 96010 Canicattini Bagni (SR)"; // [1](http://azionecattolica.arcidiocesi.siracusa.it/wd-annuario-enti/vicariato-di-palazzolo-acreide-632/parrocchia-s-m-degli-angeli-e-s-michele-arc-chiesa-madre-275/)
+    const VILLA_ADDRESS   = "Villa Anna eventi e ricevimenti, c.da Graffetta, 97014 Ispica (RG)";
+    const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa (SR)"; // [2](https://www.paginegialle.it/siracusa-sr/floresta-home-s-r-l)
+    const FLORESTA_PHONE = "+390931586747"; // [2](https://www.paginegialle.it/siracusa-sr/floresta-home-s-r-l)
+
+    const MAP_CHURCH   = "https://www.google.com/maps?q=" + encodeURIComponent(CHURCH_ADDRESS);
+    const MAP_VILLA    = "https://www.google.com/maps?q=" + encodeURIComponent(VILLA_ADDRESS);
+    const MAP_FLORESTA = "https://www.google.com/maps?q=" + encodeURIComponent(FLORESTA_ADDRESS);
 
     /**********************************************************
-     * Password logic: memorizza accesso su questo device
+     * IBAN (placeholder fittizio come richiesto)
      **********************************************************/
-    const LOCK_KEY = "wedding_site_unlocked_v2";
+    const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
+    const IBAN_NAME = "Matteo Loene";
 
+    /**********************************************************
+     * Password logic (semplice, senza storage)
+     **********************************************************/
     const lock = document.getElementById("lock");
     const pw = document.getElementById("pw");
     const err = document.getElementById("err");
     const btnEnter = document.getElementById("btnEnter");
 
-    function unlock() {
-      localStorage.setItem(LOCK_KEY, "1");
-      lock.style.display = "none";
-    }
+    function unlock() { lock.style.display = "none"; }
 
     function check() {
       err.textContent = "";
@@ -438,19 +570,49 @@
     }
 
     btnEnter.addEventListener("click", check);
-    pw.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") check();
+    pw.addEventListener("keydown", (e) => { if (e.key === "Enter") check(); });
+
+    /**********************************************************
+     * Inject: testi + link mappe
+     **********************************************************/
+    document.getElementById("churchAddrText").textContent = CHURCH_ADDRESS;
+    document.getElementById("villaAddrText").textContent = VILLA_ADDRESS;
+
+    document.getElementById("mapChurchCard").href = MAP_CHURCH;
+    document.getElementById("mapChurchMid").href  = MAP_CHURCH;
+
+    document.getElementById("mapVillaTop").href  = MAP_VILLA;
+    document.getElementById("mapVillaCard").href = MAP_VILLA;
+    document.getElementById("mapVillaMid").href  = MAP_VILLA;
+
+    document.getElementById("florestaText").textContent = FLORESTA_ADDRESS + " · Tel. 0931 586747";
+    document.getElementById("mapFloresta").href = MAP_FLORESTA;
+    document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
+
+    document.getElementById("ibanText").textContent = IBAN;
+    document.getElementById("ibanName").textContent = IBAN_NAME;
+
+    /**********************************************************
+     * Copy IBAN button
+     **********************************************************/
+    const copyBtn = document.getElementById("copyIban");
+    copyBtn.addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(IBAN);
+        copyBtn.textContent = "Copiato ✓";
+        setTimeout(() => copyBtn.textContent = "Copia IBAN", 1600);
+      } catch(e){
+        const temp = document.createElement("textarea");
+        temp.value = IBAN;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+        copyBtn.textContent = "Copiato ✓";
+        setTimeout(() => copyBtn.textContent = "Copia IBAN", 1600);
+      }
     });
-
-    if (localStorage.getItem(LOCK_KEY) === "1") {
-      lock.style.display = "none";
-    }
-
-    // Inject maps links
-    document.getElementById("mapTop").href = VILLA_ANNA_MAPS_URL;
-    document.getElementById("mapMid").href = VILLA_ANNA_MAPS_URL;
   </script>
 
 </body>
 </html>
-``
