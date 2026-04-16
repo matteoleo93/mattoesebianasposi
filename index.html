@@ -3,225 +3,573 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Matteo & Sebiana – 1 settembre 2026</title>
-  <meta name="description" content="Informazioni sul matrimonio di Matteo e Sebiana – 1 settembre 2026, Villa Anna." />
+  <title>Matteo & Sebiana — 1 settembre 2026</title>
+  <meta name="description" content="Informazioni sul matrimonio di Matteo e Sebiana — 1 settembre 2026, Villa Anna." />
+  <meta name="theme-color" content="#A7B8AD" />
+
+  <!-- Optional: social preview (puoi aggiungere un'immagine più avanti) -->
+  <meta property="og:title" content="Matteo & Sebiana — 1 settembre 2026" />
+  <meta property="og:description" content="Informazioni per gli invitati: orari, location e dettagli utili." />
+  <meta property="og:type" content="website" />
 
   <style>
     :root{
-      --sage:#a8b9ae;
-      --sage-dark:#7f988a;
-      --butter:#f6f1e7;
-      --beige:#e9e1d3;
-      --white:#ffffff;
-      --text:#2f3532;
-      --muted:#6b746e;
-      --max:920px;
-      --radius:18px;
-      --shadow:0 10px 26px rgba(0,0,0,.08);
-      font-family: "Georgia", "Times New Roman", serif;
+      /* Palette tenue: salvia / burro / beige */
+      --sage:#A7B8AD;
+      --sage-2:#7F978A;
+      --butter:#F6F1E7;
+      --beige:#E9E1D3;
+      --paper:#FFFEFC;
+      --text:#2D3431;
+      --muted:#66706A;
+      --line:rgba(45,52,49,.10);
+
+      --radius:20px;
+      --shadow:0 18px 45px rgba(0,0,0,.10);
+      --max:980px;
+
+      --serif: ui-serif, "Georgia", "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       color:var(--text);
       background:
-        radial-gradient(900px 300px at 50% -120px, var(--beige), transparent 70%),
-        linear-gradient(180deg, var(--butter), var(--white));
+        radial-gradient(1100px 450px at 50% -180px, var(--beige), transparent 65%),
+        radial-gradient(900px 380px at 15% 0%, rgba(167,184,173,.45), transparent 55%),
+        linear-gradient(180deg, var(--butter), var(--paper) 45%, #ffffff 100%);
     }
 
-    /* ===== PASSWORD OVERLAY ===== */
-    #password-screen{
-      position:fixed;
-      inset:0;
-      background:linear-gradient(180deg,var(--butter),var(--beige));
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-    }
-    #password-box{
-      background:var(--white);
-      padding:36px 32px;
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      text-align:center;
-      max-width:360px;
-      width:100%;
-    }
-    #password-box h2{
-      margin:0 0 10px;
-      font-weight:normal;
-      letter-spacing:.5px;
-    }
-    #password-box p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:15px;
-    }
-    #password-box input{
-      width:100%;
-      padding:12px 14px;
-      border-radius:999px;
-      border:1px solid #ccc;
-      font-size:15px;
-      margin-bottom:14px;
-    }
-    #password-box button{
-      width:100%;
-      padding:12px;
-      border-radius:999px;
-      border:0;
-      background:var(--sage);
-      color:white;
-      font-size:15px;
-      cursor:pointer;
-    }
+    /* ===== Layout ===== */
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
 
-    header{
-      padding:70px 16px 40px;
-      text-align:center;
+    /* ===== Top ribbon ===== */
+    .ribbon{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:saturate(1.2) blur(10px);
+      background:rgba(255,255,255,.70);
+      border-bottom:1px solid var(--line);
     }
-
-    h1{
-      font-size:44px;
-      margin:0 0 8px;
-      font-weight:normal;
-      letter-spacing:1px;
+    .ribbon-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      padding:10px 0;
     }
-
-    .subtitle{
-      font-size:18px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    main{
-      padding:0 16px 60px;
-    }
-
-    section{
-      max-width:var(--max);
-      margin:28px auto;
-    }
-
-    .card{
-      background:var(--white);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:26px 28px;
-    }
-
-    h2{
-      margin:0 0 14px;
-      font-weight:normal;
+    .brand{
+      display:flex; align-items:baseline; gap:10px;
       letter-spacing:.4px;
+      white-space:nowrap;
+    }
+    .brand strong{ font-family:var(--serif); font-weight:500; }
+    .brand span{ font-family:var(--sans); font-size:13px; color:var(--muted); }
+
+    nav{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    nav a{
+      text-decoration:none;
+      color:var(--text);
+      font-family:var(--sans);
+      font-size:13px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(45,52,49,.10);
+      background:rgba(255,255,255,.65);
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    nav a:hover{
+      transform:translateY(-1px);
+      border-color:rgba(127,151,138,.40);
+      background:rgba(246,241,231,.75);
     }
 
-    p{
-      margin:8px 0;
-      line-height:1.6;
+    /* ===== Hero ===== */
+    header{
+      padding:70px 0 26px;
     }
-
-    .divider{
-      height:1px;
-      background:rgba(0,0,0,.08);
-      margin:18px 0;
-    }
-
-    .info-grid{
+    .hero{
       display:grid;
       grid-template-columns:1fr;
-      gap:18px;
+      gap:16px;
+      align-items:center;
+      text-align:center;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      margin:0 auto;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(127,151,138,.35);
+      background:rgba(255,255,255,.60);
+      font-family:var(--sans);
+      font-size:13px;
+      color:var(--sage-2);
+    }
+    h1{
+      margin:10px 0 6px;
+      font-family:var(--serif);
+      font-weight:500;
+      letter-spacing:1px;
+      font-size:46px;
+      line-height:1.05;
+    }
+    .subtitle{
+      margin:0;
+      font-family:var(--sans);
+      font-size:16px;
+      color:var(--muted);
+      letter-spacing:.2px;
+    }
+    .hero-cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      font-family:var(--sans);
+      font-size:14px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(45,52,49,.12);
+      background:rgba(255,255,255,.70);
+      color:var(--text);
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(127,151,138,.45);
+      box-shadow:0 12px 26px rgba(0,0,0,.08);
+    }
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(167,184,173,.95), rgba(127,151,138,.92));
+      color:white;
+      border-color:rgba(127,151,138,.35);
     }
 
-    @media(min-width:760px){
-      .info-grid{
-        grid-template-columns:repeat(3,1fr);
-      }
+    /* ===== Cards & Sections ===== */
+    section{ padding:18px 0; }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:16px;
+    }
+    .card{
+      grid-column:span 12;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(45,52,49,.10);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px 22px;
+      overflow:hidden;
+    }
+    @media (min-width:820px){
+      .card.half{ grid-column:span 6; }
+      .card.third{ grid-column:span 4; }
+      header{ padding:88px 0 28px; }
+      h1{ font-size:56px; }
+      .subtitle{ font-size:17px; }
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-family:var(--serif);
+      font-weight:500;
+      letter-spacing:.4px;
+      font-size:22px;
+    }
+    .card p{
+      margin:8px 0;
+      line-height:1.65;
+      font-family:var(--sans);
+      color:var(--text);
+      font-size:14.5px;
+    }
+    .muted{ color:var(--muted)!important; }
+    .sep{
+      height:1px;
+      background:var(--line);
+      margin:14px 0;
+    }
+
+    .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(246,241,231,.75);
+      border:1px solid rgba(233,225,211,.85);
+      font-family:var(--sans);
+      font-size:13px;
+      color:#3a423f;
+      white-space:nowrap;
+    }
+
+    .list{ margin:10px 0 0; padding-left:18px; }
+    .list li{ margin:8px 0; font-family:var(--sans); font-size:14px; color:var(--text); }
+    .list a{ color:var(--sage-2); text-decoration:none; border-bottom:1px dashed rgba(127,151,138,.45); }
+    .list a:hover{ border-bottom-style:solid; }
+
+    .note{
+      margin-top:10px;
+      font-family:var(--sans);
+      font-size:12.5px;
+      color:var(--muted);
     }
 
     footer{
+      padding:28px 0 50px;
       text-align:center;
-      padding:28px 16px;
+      color:var(--muted);
+      font-family:var(--sans);
+      font-size:13px;
+    }
+
+    /* ===== Password overlay ===== */
+    #lock{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:
+        radial-gradient(900px 380px at 50% -80px, var(--beige), transparent 60%),
+        linear-gradient(180deg, var(--butter), rgba(255,255,255,.95));
+    }
+    .lock-box{
+      width:min(420px, 100%);
+      background:rgba(255,255,255,.85);
+      border:1px solid rgba(45,52,49,.12);
+      border-radius:22px;
+      box-shadow:var(--shadow);
+      padding:28px 24px 22px;
+      text-align:center;
+    }
+    .lock-box h2{
+      margin:0 0 6px;
+      font-family:var(--serif);
+      font-weight:500;
+      letter-spacing:.4px;
+    }
+    .lock-box p{
+      margin:0 0 16px;
+      font-family:var(--sans);
       color:var(--muted);
       font-size:14px;
+      line-height:1.45;
+    }
+    .lock-row{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+    }
+    .lock-row input{
+      flex:1;
+      border-radius:999px;
+      border:1px solid rgba(45,52,49,.18);
+      padding:12px 14px;
+      font-family:var(--sans);
+      font-size:14px;
+      outline:none;
+      background:white;
+    }
+    .lock-row button{
+      border-radius:999px;
+      border:0;
+      padding:12px 16px;
+      font-family:var(--sans);
+      font-size:14px;
+      cursor:pointer;
+      background:linear-gradient(180deg, rgba(167,184,173,.95), rgba(127,151,138,.92));
+      color:white;
+      white-space:nowrap;
+    }
+    .lock-row button:hover{ filter:brightness(.98); }
+    .error{
+      margin-top:10px;
+      color:#8a2f2f;
+      font-family:var(--sans);
+      font-size:13px;
+      min-height:18px;
+    }
+
+    /* Subtle reveal animation */
+    .reveal{
+      animation:fadeUp .45s ease both;
+    }
+    @keyframes fadeUp{
+      from{ opacity:0; transform:translateY(10px); }
+      to{ opacity:1; transform:translateY(0); }
     }
   </style>
 </head>
+
 <body>
 
-<!-- PASSWORD -->
-<div id="password-screen">
-  <div id="password-box">
-    <h2>Benvenuti</h2>
-    <p>Inserisci la password per accedere al sito</p>
-    <input type="password" id="pw" placeholder="Password">
-    <button onclick="checkPassword()">Accedi</button>
+  <!-- 🔒 Password screen -->
+  <div id="lock">
+    <div class="lock-box reveal">
+      <div class="badge" style="margin-bottom:12px;">🔒 Accesso riservato agli invitati</div>
+      <h2>Matteo & Sebiana</h2>
+      <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
+      <div class="lock-row">
+        <input id="pw" type="password" placeholder="Password" autocomplete="off" />
+        <button id="btnEnter" type="button">Accedi</button>
+      </div>
+      <div id="err" class="error"></div>
+      <div class="note">Suggerimento: puoi memorizzare l’accesso su questo dispositivo.</div>
+    </div>
   </div>
-</div>
 
-<header>
-  <h1>Matteo & Sebiana</h1>
-  <p class="subtitle">1 settembre 2026 · Villa Anna</p>
-</header>
-
-<main>
-
-  <section>
-    <div class="card">
-      <h2>Un giorno speciale</h2>
-      <p>
-        Siamo felici di condividere con voi le informazioni
-        sul nostro matrimonio.
-      </p>
-      <p class="muted">
-        Qui troverete i dettagli su orari, luogo e indicazioni utili.
-      </p>
+  <!-- Top navigation -->
+  <div class="ribbon">
+    <div class="wrap ribbon-inner">
+      <div class="brand">
+        <strong>Matteo & Sebiana</strong>
+        <span>1 settembre 2026 · Villa Anna</span>
+      </div>
+      <nav aria-label="Navigazione">
+        <a href="#programma">Programma</a>
+        <a href="#location">Location</a>
+        <a href="#info">Info utili</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <div class="info-grid">
-      <div class="card">
-        <h2>Cerimonia</h2>
-        <p><strong>Data:</strong> 1 settembre 2026</p>
-        <p><strong>Luogo:</strong> Villa Anna</p>
-        <p><strong>Orario:</strong> da definire</p>
-      </div>
-
-      <div class="card">
-        <h2>Ricevimento</h2>
-        <p>Il ricevimento si svolgerà presso la stessa location.</p>
-        <p>Seguiranno aperitivo, cena e festeggiamenti.</p>
-      </div>
-
-      <div class="card">
-        <h2>Informazioni utili</h2>
-        <p>Dress code: elegante / comodo</p>
-        <p>Parcheggio disponibile in loco</p>
-        <p>Ulteriori dettagli saranno aggiornati qui</p>
+  <header>
+    <div class="wrap hero">
+      <div class="badge reveal">💍 Ci sposiamo</div>
+      <h1 class="reveal">Matteo &amp; Sebiana</h1>
+      <p class="subtitle reveal">Martedì, 1 settembre 2026 · Villa Anna</p>
+      <div class="hero-cta reveal">
+        <a class="btn primary" href="#programma">Vedi il programma</a>
+        <a class="btn" id="mapTop" href="#" target="_blank" rel="noopener">Apri la mappa</a>
       </div>
     </div>
-  </section>
+  </header>
 
-</main>
+  <main class="wrap">
 
-<footer>
-  Con affetto, Matteo & Sebiana
-</footer>
+    <!-- Intro -->
+    <section>
+      <div class="grid">
+        <div class="card half reveal">
+          <h2>Benvenuti</h2>
+          <p>
+            Siamo felici di condividere con voi questo giorno speciale.
+            In questa pagina trovate tutte le informazioni utili su <strong>orari</strong>,
+            <strong>location</strong> e dettagli pratici.
+          </p>
+          <div class="sep"></div>
+          <p class="muted">
+            Il sito è pensato per essere essenziale e chiaro.
+            Aggiorneremo qui eventuali ultime note.
+          </p>
+        </div>
 
-<script>
-  const PASSWORD = "matteoesebianasposi"; // ⬅️ CAMBIA QUI LA PASSWORD
+        <div class="card half reveal">
+          <h2>In breve</h2>
+          <div class="pill-row">
+            <span class="pill">📍 Villa Anna</span>
+            <span class="pill">📅 01/09/2026</span>
+            <span class="pill">🕰️ Orari: da definire</span>
+            <span class="pill">🅿️ Parcheggio in loco</span>
+            <span class="pill">👗 Dress code: elegante &amp; comodo</span>
+          </div>
+          <p class="note">
+            Personalizza facilmente: modifica “orari” e indirizzo della location.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  function checkPassword(){
-    const input = document.getElementById("pw").value;
-    if(input === PASSWORD){
-      document.getElementById("password-screen").style.display = "none";
-    } else {
-      alert("Password non corretta");
+    <!-- Programma -->
+    <section id="programma">
+      <div class="grid">
+        <div class="card third reveal">
+          <h2>Cerimonia</h2>
+          <p><strong>Ore:</strong> da definire</p>
+          <p><strong>Dove:</strong> Villa Anna</p>
+          <div class="sep"></div>
+          <p class="muted">Consigliamo di arrivare 15 minuti prima.</p>
+        </div>
+
+        <div class="card third reveal">
+          <h2>Ricevimento</h2>
+          <p><strong>Ore:</strong> a seguire</p>
+          <p><strong>Dove:</strong> Villa Anna</p>
+          <div class="sep"></div>
+          <p class="muted">Aperitivo, cena e festa.</p>
+        </div>
+
+        <div class="card third reveal">
+          <h2>Festa</h2>
+          <p><strong>Start:</strong> dopo cena</p>
+          <p><strong>Musica:</strong> 🎶</p>
+          <div class="sep"></div>
+          <p class="muted">Scarpe comode consigliate 🙂</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section id="location">
+      <div class="grid">
+        <div class="card half reveal">
+          <h2>Location</h2>
+          <p><strong>Villa Anna</strong></p>
+          <p class="muted" id="addrText">Indirizzo: (inserire indirizzo completo)</p>
+          <div class="sep"></div>
+          <p>
+            <a class="btn" id="mapMid" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
+          </p>
+          <p class="note">
+            Appena mi dai l’indirizzo esatto di Villa Anna, te lo inserisco io (o lo incolli nella variabile in fondo).
+          </p>
+        </div>
+
+        <div class="card half reveal">
+          <h2>Come arrivare</h2>
+          <ul class="list">
+            <li><strong>Auto:</strong> parcheggio disponibile presso la location.</li>
+            <li><strong>Taxi / NCC:</strong> consigliato per chi non guida.</li>
+            <li><strong>Indicazioni:</strong> usa il link “Apri su Google Maps”.</li>
+          </ul>
+          <div class="sep"></div>
+          <p class="muted">
+            Se prevediamo navette o punti di ritrovo, li indicheremo qui.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info utili -->
+    <section id="info">
+      <div class="grid">
+        <div class="card half reveal">
+          <h2>Informazioni utili</h2>
+          <ul class="list">
+            <li><strong>Dress code:</strong> elegante &amp; comodo (colori chiari benvenuti).</li>
+            <li><strong>Allergie / intolleranze:</strong> comunicacele direttamente.</li>
+            <li><strong>Meteo:</strong> evento all’aperto/interno (da confermare).</li>
+          </ul>
+          <p class="note">Se vuoi, aggiungo una mini‑FAQ (accompagnatori, bambini, orari).</p>
+        </div>
+
+        <div class="card half reveal">
+          <h2>Alloggi</h2>
+          <p class="muted">Se vieni da fuori, ecco qualche idea (puoi aggiungere link):</p>
+          <ul class="list">
+            <li><a href="#" onclick="return false;">Hotel 1</a> — (da compilare)</li>
+            <li><a href="#" onclick="return false;">Hotel 2</a> — (da compilare)</li>
+            <li><a href="#" onclick="return false;">B&amp;B 3</a> — (da compilare)</li>
+          </ul>
+          <p class="note">Se mi dici la città/zona, te li propongo io già pronti.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contatti -->
+    <section id="contatti">
+      <div class="grid">
+        <div class="card third reveal">
+          <h2>Contatti</h2>
+          <p><strong>Matteo</strong><br><span class="muted">Telefono: (inserire)</span></p>
+          <p><strong>Sebiana</strong><br><span class="muted">Telefono: (inserire)</span></p>
+        </div>
+
+        <div class="card third reveal">
+          <h2>Referente</h2>
+          <p class="muted">Per urgenze il giorno dell’evento:</p>
+          <p><strong>Nome</strong><br><span class="muted">Telefono: (inserire)</span></p>
+        </div>
+
+        <div class="card third reveal">
+          <h2>Foto &amp; ricordi</h2>
+          <p class="muted">Se vuoi, possiamo aggiungere un hashtag:</p>
+          <p><strong>#MatteoESebiana</strong></p>
+          <p class="note">Oppure una mini‑galleria post evento.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Con affetto, Matteo &amp; Sebiana · 2026
+  </footer>
+
+  <script>
+    /**********************************************************
+     * 1) PASSWORD (cambiala qui)
+     **********************************************************/
+    const PASSWORD = "villaanna2026";   // <-- cambia questa password
+
+    /**********************************************************
+     * 2) LOCATION (inserisci l'indirizzo completo qui sotto)
+     *    Esempio: "Villa Anna, Via Roma 10, 10100 Torino"
+     **********************************************************/
+    const LOCATION_ADDRESS = "Villa Anna, (inserire indirizzo completo)";
+
+    // === Password logic: memorizza accesso su questo device
+    const LOCK_KEY = "wedding_site_unlocked_v1";
+
+    const lock = document.getElementById("lock");
+    const pw = document.getElementById("pw");
+    const err = document.getElementById("err");
+    const btnEnter = document.getElementById("btnEnter");
+
+    function unlock() {
+      localStorage.setItem(LOCK_KEY, "1");
+      lock.style.display = "none";
     }
-  }
-</script>
+
+    function check() {
+      err.textContent = "";
+      const value = (pw.value || "").trim();
+      if (value === PASSWORD) unlock();
+      else err.textContent = "Password non corretta. Riprova.";
+    }
+
+    btnEnter.addEventListener("click", check);
+    pw.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") check();
+    });
+
+    // Auto-unlock se già sbloccato
+    if (localStorage.getItem(LOCK_KEY) === "1") {
+      lock.style.display = "none";
+    }
+
+    // === Map links
+    const encoded = encodeURIComponent(LOCATION_ADDRESS);
+    const mapsUrl = "https://www.google.com/maps?q=" + encoded;
+
+    document.getElementById("mapTop").href = mapsUrl;
+    document.getElementById("mapMid").href = mapsUrl;
+
+    const addrText = document.getElementById("addrText");
+    addrText.textContent = "Indirizzo: " + LOCATION_ADDRESS;
+  </script>
 
 </body>
 </html>
