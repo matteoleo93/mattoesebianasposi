@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it"> 
+<html lang="it">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -51,7 +51,7 @@
       flex-wrap:wrap;
     }
 
-    /* ✅ Titolo: grassetto corsivo */
+    /* Titolo: grassetto corsivo */
     h1{
       margin:0;
       font-family:var(--serif);
@@ -62,7 +62,7 @@
       line-height:1.05;
     }
 
-    /* ✅ Data: 01.09.2026 più grande e centrata */
+    /* Data: grande e centrata */
     .subtitle{
       margin:14px 0 0;
       color:var(--sage2);
@@ -112,7 +112,7 @@
     }
     .ico.fill-soft{ fill:rgba(78,140,120,.14); }
 
-    /* ✅ Icone Chiesa/Villa/Regalo più grandi e più colorate */
+    /* Icone più grandi e più “vive” (solo le icone) */
     .ico.pop{
       width:46px;
       height:46px;
@@ -155,14 +155,14 @@
       border:1px solid rgba(34,48,42,.10);
     }
 
-    /* (monospace SOLO per l’IBAN) */
+    /* monospace SOLO per IBAN */
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size:13.6px;
       word-break:break-word;
     }
 
-    /* ✅ Bottone copia */
+    /* Bottone copia */
     .copy{
       display:inline-flex; align-items:center; gap:8px;
       border:1px solid rgba(34,48,42,.14);
@@ -184,21 +184,20 @@
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
-    /* ✅ IMMAGINI SPOSI (assets) + STICKER */
+    /* ✅ Sticker veri: SOLO PNG trasparente (niente box) */
     .avatar-img{
-      width:138px;
+      width:150px;
       height:auto;
-      max-height:150px;
+      max-height:170px;
       object-fit:contain;
-      border-radius:18px;
-      background:rgba(255,255,255,.92);
-      padding:6px;
-      outline:6px solid rgba(255,255,255,.98);
-      outline-offset:-2px;
-      box-shadow: 0 18px 36px rgba(0,0,0,.16);
+      background:transparent;
+      padding:0;
+      border:none;
+      outline:none;
+      box-shadow: 0 18px 34px rgba(0,0,0,.14); /* ombra leggera ok */
     }
     @media (max-width:520px){
-      .avatar-img{ width:116px; max-height:130px; }
+      .avatar-img{ width:125px; max-height:145px; }
     }
 
     /* Password overlay */
@@ -264,9 +263,9 @@
   <header>
     <div class="wrap">
       <div class="name-row">
-        <img src="assets/sposo.png" class="avatar-img" alt="Sposo">
+        <img class="avatar-img" src="assets/sposo.png" alt="Sticker sposo" />
         <h1>Matteo &amp; Sebiana</h1>
-        <img src="assets/sposa.png" class="avatar-img" alt="Sposa">
+        <img class="avatar-img" src="assets/sposa.png" alt="Sticker sposa" />
       </div>
       <p class="subtitle">01.09.2026</p>
     </div>
@@ -285,7 +284,7 @@
 
       <div class="card">
         <div class="title">
-          <!-- ✅ Chiesa più grande/colorata -->
+          <!-- Chiesa -->
           <svg class="ico fill-soft pop" viewBox="0 0 48 48" aria-hidden="true">
             <path d="M24 6v9"/><path d="M20 11h8"/><path d="M12 22l12-10 12 10"/>
             <path d="M14 22v18h20V22"/><path d="M22 40V30c0-2 1.6-3.6 3.6-3.6S29.2 28 29.2 30v10"/>
@@ -307,7 +306,7 @@
 
       <div class="card">
         <div class="title">
-          <!-- ✅ Villa più grande/colorata -->
+          <!-- Villa -->
           <svg class="ico fill-soft pop" viewBox="0 0 48 48" aria-hidden="true">
             <path d="M8 22L24 10l16 12"/>
             <path d="M12 22v18h24V22"/>
@@ -335,7 +334,7 @@
 
       <div class="card">
         <div class="title">
-          <!-- ✅ Regalo più grande/colorato -->
+          <!-- Regalo -->
           <svg class="ico fill-soft pop" viewBox="0 0 48 48" aria-hidden="true">
             <path d="M8 22h32v18H8z"/>
             <path d="M24 22v18"/>
@@ -355,7 +354,7 @@
           <div class="muted" style="font-size:12.8px;margin-bottom:6px;">IBAN</div>
           <div class="mono" id="ibanText"></div>
 
-          <!-- ✅ COPIA vicino all’IBAN -->
+          <!-- Copia IBAN vicino all’IBAN -->
           <div style="margin-top:10px;">
             <button class="copy" type="button" id="copyIban">Copia IBAN</button>
           </div>
@@ -374,8 +373,6 @@
 
         <div class="gift-box" style="margin-top:12px;">
           <div class="muted" style="font-size:12.8px;margin-bottom:6px;">Lista nozze – Floresta</div>
-
-          <!-- ✅ Floresta stesso font di villa/chiesa -->
           <div class="value" id="florestaAddr"></div>
 
           <div class="muted" style="margin-top:10px;">
@@ -450,7 +447,7 @@
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
-    // Copia IBAN (ora vicino all’IBAN)
+    // Copia IBAN vicino all’IBAN
     const copyBtn = document.getElementById("copyIban");
     copyBtn.addEventListener("click", async ()=>{
       try{
@@ -472,4 +469,3 @@
 
 </body>
 </html>
-``
