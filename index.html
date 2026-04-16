@@ -4,17 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Matteo & Sebiana — 1 settembre 2026</title>
-  <meta name="description" content="Informazioni sul matrimonio di Matteo e Sebiana — 1 settembre 2026, Villa Anna." />
+  <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 1 settembre 2026." />
   <meta name="theme-color" content="#A7B8AD" />
 
-  <!-- Optional: social preview (puoi aggiungere un'immagine più avanti) -->
   <meta property="og:title" content="Matteo & Sebiana — 1 settembre 2026" />
-  <meta property="og:description" content="Informazioni per gli invitati: orari, location e dettagli utili." />
+  <meta property="og:description" content="Cerimonia e festeggiamenti: informazioni essenziali per gli invitati." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
-      /* Palette tenue: salvia / burro / beige */
       --sage:#A7B8AD;
       --sage-2:#7F978A;
       --butter:#F6F1E7;
@@ -43,10 +41,9 @@
         linear-gradient(180deg, var(--butter), var(--paper) 45%, #ffffff 100%);
     }
 
-    /* ===== Layout ===== */
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
 
-    /* ===== Top ribbon ===== */
+    /* ===== Ribbon ===== */
     .ribbon{
       position:sticky;
       top:0;
@@ -89,9 +86,7 @@
     }
 
     /* ===== Hero ===== */
-    header{
-      padding:70px 0 26px;
-    }
+    header{ padding:76px 0 26px; }
     .hero{
       display:grid;
       grid-template-columns:1fr;
@@ -161,7 +156,7 @@
       border-color:rgba(127,151,138,.35);
     }
 
-    /* ===== Cards & Sections ===== */
+    /* ===== Cards ===== */
     section{ padding:18px 0; }
     .grid{
       display:grid;
@@ -180,7 +175,7 @@
     @media (min-width:820px){
       .card.half{ grid-column:span 6; }
       .card.third{ grid-column:span 4; }
-      header{ padding:88px 0 28px; }
+      header{ padding:92px 0 28px; }
       h1{ font-size:56px; }
       .subtitle{ font-size:17px; }
     }
@@ -200,38 +195,7 @@
       font-size:14.5px;
     }
     .muted{ color:var(--muted)!important; }
-    .sep{
-      height:1px;
-      background:var(--line);
-      margin:14px 0;
-    }
-
-    .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(246,241,231,.75);
-      border:1px solid rgba(233,225,211,.85);
-      font-family:var(--sans);
-      font-size:13px;
-      color:#3a423f;
-      white-space:nowrap;
-    }
-
-    .list{ margin:10px 0 0; padding-left:18px; }
-    .list li{ margin:8px 0; font-family:var(--sans); font-size:14px; color:var(--text); }
-    .list a{ color:var(--sage-2); text-decoration:none; border-bottom:1px dashed rgba(127,151,138,.45); }
-    .list a:hover{ border-bottom-style:solid; }
-
-    .note{
-      margin-top:10px;
-      font-family:var(--sans);
-      font-size:12.5px;
-      color:var(--muted);
-    }
+    .sep{ height:1px; background:var(--line); margin:14px 0; }
 
     footer{
       padding:28px 0 50px;
@@ -276,11 +240,7 @@
       font-size:14px;
       line-height:1.45;
     }
-    .lock-row{
-      display:flex;
-      gap:10px;
-      margin-top:10px;
-    }
+    .lock-row{ display:flex; gap:10px; margin-top:10px; }
     .lock-row input{
       flex:1;
       border-radius:999px;
@@ -311,10 +271,7 @@
       min-height:18px;
     }
 
-    /* Subtle reveal animation */
-    .reveal{
-      animation:fadeUp .45s ease both;
-    }
+    .reveal{ animation:fadeUp .45s ease both; }
     @keyframes fadeUp{
       from{ opacity:0; transform:translateY(10px); }
       to{ opacity:1; transform:translateY(0); }
@@ -335,7 +292,9 @@
         <button id="btnEnter" type="button">Accedi</button>
       </div>
       <div id="err" class="error"></div>
-      <div class="note">Suggerimento: puoi memorizzare l’accesso su questo dispositivo.</div>
+      <div class="muted" style="font-family:var(--sans); font-size:12.5px; margin-top:6px;">
+        (L’accesso può restare memorizzato su questo dispositivo)
+      </div>
     </div>
   </div>
 
@@ -344,12 +303,11 @@
     <div class="wrap ribbon-inner">
       <div class="brand">
         <strong>Matteo & Sebiana</strong>
-        <span>1 settembre 2026 · Villa Anna</span>
+        <span>1 settembre 2026</span>
       </div>
       <nav aria-label="Navigazione">
         <a href="#programma">Programma</a>
         <a href="#location">Location</a>
-        <a href="#info">Info utili</a>
         <a href="#contatti">Contatti</a>
       </nav>
     </div>
@@ -357,46 +315,29 @@
 
   <header>
     <div class="wrap hero">
-      <div class="badge reveal">💍 Ci sposiamo</div>
+      <div class="badge reveal">💍 Con grande gioia</div>
       <h1 class="reveal">Matteo &amp; Sebiana</h1>
-      <p class="subtitle reveal">Martedì, 1 settembre 2026 · Villa Anna</p>
+      <p class="subtitle reveal">Martedì, 1 settembre 2026</p>
       <div class="hero-cta reveal">
         <a class="btn primary" href="#programma">Vedi il programma</a>
-        <a class="btn" id="mapTop" href="#" target="_blank" rel="noopener">Apri la mappa</a>
+        <a class="btn" id="mapTop" href="#" target="_blank" rel="noopener">Apri la mappa di Villa Anna</a>
       </div>
     </div>
   </header>
 
   <main class="wrap">
 
-    <!-- Intro -->
+    <!-- Intro (romantico sobrio, essenziale) -->
     <section>
       <div class="grid">
-        <div class="card half reveal">
+        <div class="card reveal">
           <h2>Benvenuti</h2>
           <p>
             Siamo felici di condividere con voi questo giorno speciale.
-            In questa pagina trovate tutte le informazioni utili su <strong>orari</strong>,
-            <strong>location</strong> e dettagli pratici.
+            In questa pagina trovate le informazioni essenziali su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
           </p>
-          <div class="sep"></div>
           <p class="muted">
-            Il sito è pensato per essere essenziale e chiaro.
-            Aggiorneremo qui eventuali ultime note.
-          </p>
-        </div>
-
-        <div class="card half reveal">
-          <h2>In breve</h2>
-          <div class="pill-row">
-            <span class="pill">📍 Villa Anna</span>
-            <span class="pill">📅 01/09/2026</span>
-            <span class="pill">🕰️ Orari: da definire</span>
-            <span class="pill">🅿️ Parcheggio in loco</span>
-            <span class="pill">👗 Dress code: elegante &amp; comodo</span>
-          </div>
-          <p class="note">
-            Personalizza facilmente: modifica “orari” e indirizzo della location.
+            Eventuali aggiornamenti saranno pubblicati qui.
           </p>
         </div>
       </div>
@@ -405,28 +346,20 @@
     <!-- Programma -->
     <section id="programma">
       <div class="grid">
-        <div class="card third reveal">
+        <div class="card half reveal">
           <h2>Cerimonia</h2>
-          <p><strong>Ore:</strong> da definire</p>
-          <p><strong>Dove:</strong> Villa Anna</p>
+          <p><strong>Ore:</strong> 16:00</p>
+          <p><strong>Dove:</strong> Chiesa Madre — Canicattini Bagni (SR)</p>
           <div class="sep"></div>
-          <p class="muted">Consigliamo di arrivare 15 minuti prima.</p>
+          <p class="muted">Celebrazione in chiesa.</p>
         </div>
 
-        <div class="card third reveal">
-          <h2>Ricevimento</h2>
-          <p><strong>Ore:</strong> a seguire</p>
-          <p><strong>Dove:</strong> Villa Anna</p>
+        <div class="card half reveal">
+          <h2>Festeggiamenti</h2>
+          <p><strong>Dopo la cerimonia</strong> ci sposteremo a:</p>
+          <p><strong>Villa Anna</strong> — Ragusa (RG)</p>
           <div class="sep"></div>
-          <p class="muted">Aperitivo, cena e festa.</p>
-        </div>
-
-        <div class="card third reveal">
-          <h2>Festa</h2>
-          <p><strong>Start:</strong> dopo cena</p>
-          <p><strong>Musica:</strong> 🎶</p>
-          <div class="sep"></div>
-          <p class="muted">Scarpe comode consigliate 🙂</p>
+          <p class="muted">Ricevimento e festeggiamenti presso la location.</p>
         </div>
       </div>
     </section>
@@ -434,56 +367,14 @@
     <!-- Location -->
     <section id="location">
       <div class="grid">
-        <div class="card half reveal">
-          <h2>Location</h2>
-          <p><strong>Villa Anna</strong></p>
-          <p class="muted" id="addrText">Indirizzo: (inserire indirizzo completo)</p>
+        <div class="card reveal">
+          <h2>Location festeggiamenti</h2>
+          <p><strong>Villa Anna eventi e ricevimenti</strong></p>
+          <p class="muted" id="addrText">c.da Graffetta, 97014 Ispica (RG)</p>
           <div class="sep"></div>
           <p>
             <a class="btn" id="mapMid" href="#" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
           </p>
-          <p class="note">
-            Appena mi dai l’indirizzo esatto di Villa Anna, te lo inserisco io (o lo incolli nella variabile in fondo).
-          </p>
-        </div>
-
-        <div class="card half reveal">
-          <h2>Come arrivare</h2>
-          <ul class="list">
-            <li><strong>Auto:</strong> parcheggio disponibile presso la location.</li>
-            <li><strong>Taxi / NCC:</strong> consigliato per chi non guida.</li>
-            <li><strong>Indicazioni:</strong> usa il link “Apri su Google Maps”.</li>
-          </ul>
-          <div class="sep"></div>
-          <p class="muted">
-            Se prevediamo navette o punti di ritrovo, li indicheremo qui.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Info utili -->
-    <section id="info">
-      <div class="grid">
-        <div class="card half reveal">
-          <h2>Informazioni utili</h2>
-          <ul class="list">
-            <li><strong>Dress code:</strong> elegante &amp; comodo (colori chiari benvenuti).</li>
-            <li><strong>Allergie / intolleranze:</strong> comunicacele direttamente.</li>
-            <li><strong>Meteo:</strong> evento all’aperto/interno (da confermare).</li>
-          </ul>
-          <p class="note">Se vuoi, aggiungo una mini‑FAQ (accompagnatori, bambini, orari).</p>
-        </div>
-
-        <div class="card half reveal">
-          <h2>Alloggi</h2>
-          <p class="muted">Se vieni da fuori, ecco qualche idea (puoi aggiungere link):</p>
-          <ul class="list">
-            <li><a href="#" onclick="return false;">Hotel 1</a> — (da compilare)</li>
-            <li><a href="#" onclick="return false;">Hotel 2</a> — (da compilare)</li>
-            <li><a href="#" onclick="return false;">B&amp;B 3</a> — (da compilare)</li>
-          </ul>
-          <p class="note">Se mi dici la città/zona, te li propongo io già pronti.</p>
         </div>
       </div>
     </section>
@@ -491,23 +382,17 @@
     <!-- Contatti -->
     <section id="contatti">
       <div class="grid">
-        <div class="card third reveal">
+        <div class="card half reveal">
           <h2>Contatti</h2>
-          <p><strong>Matteo</strong><br><span class="muted">Telefono: (inserire)</span></p>
-          <p><strong>Sebiana</strong><br><span class="muted">Telefono: (inserire)</span></p>
+          <p><strong>Matteo</strong><br><a href="tel:+393200750337" style="color:inherit; text-decoration:none;">+39 320 075 0337</a></p>
+          <p><strong>Sebiana</strong><br><a href="tel:+393888843281" style="color:inherit; text-decoration:none;">+39 388 884 3281</a></p>
         </div>
 
-        <div class="card third reveal">
-          <h2>Referente</h2>
-          <p class="muted">Per urgenze il giorno dell’evento:</p>
-          <p><strong>Nome</strong><br><span class="muted">Telefono: (inserire)</span></p>
-        </div>
-
-        <div class="card third reveal">
-          <h2>Foto &amp; ricordi</h2>
-          <p class="muted">Se vuoi, possiamo aggiungere un hashtag:</p>
-          <p><strong>#MatteoESebiana</strong></p>
-          <p class="note">Oppure una mini‑galleria post evento.</p>
+        <div class="card half reveal">
+          <h2>Nota</h2>
+          <p class="muted">
+            Per qualsiasi esigenza organizzativa, potete contattarci ai numeri indicati.
+          </p>
         </div>
       </div>
     </section>
@@ -520,18 +405,20 @@
 
   <script>
     /**********************************************************
-     * 1) PASSWORD (cambiala qui)
+     * PASSWORD (cambiala qui se vuoi)
      **********************************************************/
     const PASSWORD = "villaanna2026";   // <-- cambia questa password
 
     /**********************************************************
-     * 2) LOCATION (inserisci l'indirizzo completo qui sotto)
-     *    Esempio: "Villa Anna, Via Roma 10, 10100 Torino"
+     * Google Maps link (quello fornito da te)
      **********************************************************/
-    const LOCATION_ADDRESS = "Villa Anna, (inserire indirizzo completo)";
+    const VILLA_ANNA_MAPS_URL =
+      "https://www.google.com/maps/dir//Villa+Anna+eventi+e+ricevimenti,+c.da+Graffetta,+97014+Ispica+RG/@45.5606272,8.0510976,10z/data=!4m8!4m7!1m0!1m5!1m1!1s0x13118dc0cd9eb67f:0x69b03c81bce8d229!2m2!1d14.8744516!2d36.7637799?entry=ttu";
 
-    // === Password logic: memorizza accesso su questo device
-    const LOCK_KEY = "wedding_site_unlocked_v1";
+    /**********************************************************
+     * Password logic: memorizza accesso su questo device
+     **********************************************************/
+    const LOCK_KEY = "wedding_site_unlocked_v2";
 
     const lock = document.getElementById("lock");
     const pw = document.getElementById("pw");
@@ -555,21 +442,15 @@
       if (e.key === "Enter") check();
     });
 
-    // Auto-unlock se già sbloccato
     if (localStorage.getItem(LOCK_KEY) === "1") {
       lock.style.display = "none";
     }
 
-    // === Map links
-    const encoded = encodeURIComponent(LOCATION_ADDRESS);
-    const mapsUrl = "https://www.google.com/maps?q=" + encoded;
-
-    document.getElementById("mapTop").href = mapsUrl;
-    document.getElementById("mapMid").href = mapsUrl;
-
-    const addrText = document.getElementById("addrText");
-    addrText.textContent = "Indirizzo: " + LOCATION_ADDRESS;
+    // Inject maps links
+    document.getElementById("mapTop").href = VILLA_ANNA_MAPS_URL;
+    document.getElementById("mapMid").href = VILLA_ANNA_MAPS_URL;
   </script>
 
 </body>
 </html>
+``
