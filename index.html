@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Matteo & Sebiana — 1 settembre 2026</title>
-  <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 1 settembre 2026." />
+  <title>Matteo & Sebiana — 01.09.2026</title>
+  <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
   <meta name="theme-color" content="#4E8C78" />
 
   <style>
@@ -12,7 +12,6 @@
       --sage:#4E8C78;
       --sage2:#2F6E5B;
       --cream:#FFF7EE;
-      --sand:#F2E2CF;
       --white:#FFFFFF;
 
       --text:#22302A;
@@ -25,17 +24,6 @@
 
       --serif: ui-serif, "Georgia", "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-
-      --skin:#F2C9A7;
-      --hair:#2A1B16;
-
-      --shirt:#ffffff;
-      --suit:#0B1B3A;          /* blu notte */
-      --vest:#D7D9DE;          /* gilet grigio chiaro */
-      --tie:#D7D9DE;           /* cravatta grigio chiaro */
-      --dress:#FFF6F0;         /* abito più chiaro */
-      --veil:#FFFFFF;          /* velo */
-      --accent:#4E8C78;
     }
 
     *{ box-sizing:border-box; }
@@ -53,18 +41,45 @@
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
 
-    header{ padding:90px 0 40px; text-align:center; }
-    .name-row{ display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap; }
-    h1{ margin:0; font-family:var(--serif); font-weight:500; letter-spacing:1px; font-size:56px; line-height:1.05; }
-    .subtitle{ margin:12px 0 0; color:var(--muted); font-size:16px; letter-spacing:.2px; }
+    header{ padding:84px 0 30px; text-align:center; }
+
+    .name-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    /* ✅ Titolo: grassetto corsivo */
+    h1{
+      margin:0;
+      font-family:var(--serif);
+      font-style:italic;
+      font-weight:800;
+      letter-spacing:1px;
+      font-size:56px;
+      line-height:1.05;
+    }
+
+    /* ✅ Data: 01.09.2026 più grande e centrata */
+    .subtitle{
+      margin:14px 0 0;
+      color:var(--sage2);
+      font-size:22px;
+      letter-spacing:.8px;
+      font-weight:800;
+      text-align:center;
+    }
 
     @media (max-width:520px){
-      header{ padding:78px 0 34px; }
-      h1{ font-size:46px; }
-      .subtitle{ font-size:15px; }
+      header{ padding:74px 0 26px; }
+      h1{ font-size:44px; }
+      .subtitle{ font-size:20px; }
     }
 
     section{ padding:26px 0; }
+
     .card{
       background:rgba(255,255,255,.94);
       border:1px solid var(--border);
@@ -88,38 +103,24 @@
 
     .ico{
       width:30px; height:30px; flex:0 0 30px;
-      stroke:var(--sage2); fill:none; stroke-width:2.2;
-      stroke-linecap:round; stroke-linejoin:round;
+      stroke:var(--sage2);
+      fill:none;
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
       filter: drop-shadow(0 4px 10px rgba(0,0,0,.07));
     }
     .ico.fill-soft{ fill:rgba(78,140,120,.14); }
 
-    /* ✅ SOLO per icone Festeggiamenti + Regalo: più grandi e più “colorate” */
+    /* ✅ Icone Chiesa/Villa/Regalo più grandi e più colorate */
     .ico.pop{
-      width:38px;
-      height:38px;
-      flex:0 0 38px;
+      width:46px;
+      height:46px;
+      flex:0 0 46px;
       stroke:var(--sage);
-      fill:rgba(242,226,207,.75);
-      stroke-width:2.35;
-      filter: drop-shadow(0 6px 14px rgba(0,0,0,.10));
-    }
-
-    /* ✅ Nuovi “sposi” in alto: MOLTO più grandi e visibili (sticker) */
-    .avatar{
-      width:104px;
-      height:104px;
-      flex:0 0 104px;
-      filter: drop-shadow(0 14px 26px rgba(0,0,0,.14));
-    }
-    .avatar.bride{
-      width:104px;
-      height:104px;
-      flex:0 0 104px;
-    }
-    @media (max-width:520px){
-      .avatar{ width:92px; height:92px; flex:0 0 92px; }
-      .avatar.bride{ width:92px; height:92px; flex:0 0 92px; }
+      fill:rgba(78,140,120,.18);
+      stroke-width:2.6;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.14));
     }
 
     p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
@@ -140,7 +141,11 @@
       color:var(--sage2);
       transition:transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .btn:hover{ transform:translateY(-1px); border-color:rgba(47,110,91,.45); background:rgba(78,140,120,.14); }
+    .btn:hover{
+      transform:translateY(-1px);
+      border-color:rgba(47,110,91,.45);
+      background:rgba(78,140,120,.14);
+    }
 
     .gift-box{
       margin-top:12px;
@@ -149,25 +154,54 @@
       background:linear-gradient(180deg, rgba(242,226,207,.45), rgba(255,255,255,.85));
       border:1px solid rgba(34,48,42,.10);
     }
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13.6px; word-break:break-word; }
+
+    /* (monospace SOLO per l’IBAN) */
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:13.6px;
+      word-break:break-word;
+    }
+
+    /* ✅ Bottone copia */
     .copy{
       display:inline-flex; align-items:center; gap:8px;
       border:1px solid rgba(34,48,42,.14);
-      background:rgba(255,255,255,.86);
+      background:rgba(255,255,255,.90);
       border-radius:999px;
       padding:9px 12px;
       font-size:13px;
       cursor:pointer;
-      margin-top:12px;
     }
 
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
     .finale{ font-family:var(--serif); font-size:18px; color:var(--text); margin:0 0 8px; letter-spacing:.2px; }
     footer small{ display:block; font-size:13px; margin-top:10px; }
 
-    a.softlink{ color:var(--sage2); text-decoration:none; border-bottom:1px dashed rgba(47,110,91,.45); }
+    a.softlink{
+      color:var(--sage2);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(47,110,91,.45);
+    }
     a.softlink:hover{ border-bottom-style:solid; }
 
+    /* ✅ IMMAGINI SPOSI (assets) + STICKER */
+    .avatar-img{
+      width:138px;
+      height:auto;
+      max-height:150px;
+      object-fit:contain;
+      border-radius:18px;
+      background:rgba(255,255,255,.92);
+      padding:6px;
+      outline:6px solid rgba(255,255,255,.98);
+      outline-offset:-2px;
+      box-shadow: 0 18px 36px rgba(0,0,0,.16);
+    }
+    @media (max-width:520px){
+      .avatar-img{ width:116px; max-height:130px; }
+    }
+
+    /* Password overlay */
     #lock{
       position:fixed; inset:0; z-index:9999;
       display:flex; align-items:center; justify-content:center;
@@ -203,7 +237,8 @@
     }
     .lock-row button{
       border-radius:999px; border:0; padding:12px 16px; font-size:14px;
-      cursor:pointer; background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
+      cursor:pointer;
+      background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
       color:white; white-space:nowrap;
     }
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
@@ -229,87 +264,11 @@
   <header>
     <div class="wrap">
       <div class="name-row">
-
-        <!-- ✅ NUOVA ICONA “SPOSO” (più grande, più visibile, blu notte, barba più corta, gilet/cravatta grigio chiaro) -->
-        <svg class="avatar" viewBox="0 0 140 140" aria-hidden="true">
-          <!-- sticker outline -->
-          <g opacity="1">
-            <path d="M70 10c24 0 44 20 44 44v2c12 8 18 22 18 38v16c0 10-8 18-18 18H26c-10 0-18-8-18-18V94c0-16 6-30 18-38v-2c0-24 20-44 44-44z"
-                  fill="rgba(255,255,255,.92)"/>
-          </g>
-
-          <!-- head -->
-          <circle cx="70" cy="52" r="20" fill="var(--skin)"/>
-          <!-- hair (short, dark) -->
-          <path d="M48 52c1-18 13-30 22-30s21 12 22 30c-5-8-14-11-22-11s-17 3-22 11z" fill="var(--hair)"/>
-          <!-- beard (shorter) -->
-          <path d="M54 64c2 9 8 14 16 14s14-5 16-14c-4 3-9 5-16 5s-12-2-16-5z" fill="#1F1411" opacity=".92"/>
-          <!-- neck -->
-          <rect x="62" y="72" width="16" height="12" rx="7" fill="var(--skin)"/>
-
-          <!-- suit body (navy) -->
-          <path d="M30 132c2-22 14-38 40-42 26 4 38 20 40 42" fill="var(--suit)"/>
-          <!-- shirt triangle -->
-          <path d="M58 90h24l-12 16z" fill="var(--shirt)"/>
-          <!-- vest (light grey) -->
-          <path d="M48 132c2-18 10-30 22-34h0c12 4 20 16 22 34" fill="var(--vest)" opacity=".98"/>
-          <!-- tie (light grey) -->
-          <path d="M70 92l6 8-6 10-6-10z" fill="var(--tie)"/>
-          <!-- boutonniere (sage) -->
-          <circle cx="92" cy="104" r="4" fill="var(--accent)"/>
-          <path d="M90 108c-2 3-5 5-8 5" stroke="rgba(255,255,255,.65)" stroke-width="3" stroke-linecap="round"/>
-          <!-- outline -->
-          <path d="M30 132c2-22 14-38 40-42 26 4 38 20 40 42" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="2"/>
-        </svg>
-
+        <img src="assets/sposo.png" class="avatar-img" alt="Sposo">
         <h1>Matteo &amp; Sebiana</h1>
-
-        <!-- ✅ NUOVA ICONA “SPOSA” (velo più lungo, abito più chiaro, riga centrale, niente frangetta) -->
-        <svg class="avatar bride" viewBox="0 0 140 140" aria-hidden="true">
-          <!-- sticker outline -->
-          <g opacity="1">
-            <path d="M70 10c24 0 44 20 44 44v2c12 8 18 22 18 38v16c0 10-8 18-18 18H26c-10 0-18-8-18-18V94c0-16 6-30 18-38v-2c0-24 20-44 44-44z"
-                  fill="rgba(255,255,255,.92)"/>
-          </g>
-
-          <!-- longer veil -->
-          <path d="M34 62c6-26 22-40 36-40s30 14 36 40c-10-16-23-22-36-22s-26 6-36 22z"
-                fill="rgba(255,255,255,.95)"/>
-          <path d="M30 70c2 40 20 58 40 58s38-18 40-58c-12 18-26 26-40 26S42 88 30 70z"
-                fill="rgba(255,255,255,.92)"/>
-
-          <!-- head -->
-          <circle cx="70" cy="54" r="19" fill="var(--skin)"/>
-
-          <!-- hair (dark, center part, bob, no bangs) -->
-          <path d="M48 56c0-18 10-28 22-28s22 10 22 28c-4-9-12-13-22-13s-18 4-22 13z"
-                fill="var(--hair)"/>
-          <!-- center part line -->
-          <path d="M70 28v22" stroke="rgba(255,255,255,.20)" stroke-width="2" stroke-linecap="round"/>
-          <!-- bob silhouette -->
-          <path d="M46 60c2 18 12 26 24 26s22-8 24-26c-7 8-14 12-24 12S53 68 46 60z"
-                fill="var(--hair)" opacity=".97"/>
-
-          <!-- neck -->
-          <rect x="62" y="72" width="16" height="12" rx="7" fill="var(--skin)"/>
-
-          <!-- dress (lighter) -->
-          <path d="M34 132c3-24 18-40 36-44h0c18 4 33 20 36 44" fill="var(--dress)"/>
-          <!-- sage belt -->
-          <path d="M48 104h44" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"/>
-          <!-- bouquet -->
-          <circle cx="96" cy="112" r="6" fill="rgba(78,140,120,.35)"/>
-          <circle cx="104" cy="110" r="5" fill="rgba(78,140,120,.35)"/>
-          <circle cx="102" cy="118" r="5" fill="rgba(78,140,120,.35)"/>
-          <path d="M98 120l-4 10" stroke="rgba(78,140,120,.70)" stroke-width="4" stroke-linecap="round"/>
-
-          <!-- outline -->
-          <path d="M34 132c3-24 18-40 36-44 18 4 33 20 36 44" fill="none" stroke="rgba(0,0,0,.08)" stroke-width="2"/>
-        </svg>
-
+        <img src="assets/sposa.png" class="avatar-img" alt="Sposa">
       </div>
-
-      <p class="subtitle">Martedì, 1 settembre 2026</p>
+      <p class="subtitle">01.09.2026</p>
     </div>
   </header>
 
@@ -326,9 +285,11 @@
 
       <div class="card">
         <div class="title">
-          <svg class="ico fill-soft" viewBox="0 0 48 48" aria-hidden="true">
+          <!-- ✅ Chiesa più grande/colorata -->
+          <svg class="ico fill-soft pop" viewBox="0 0 48 48" aria-hidden="true">
             <path d="M24 6v9"/><path d="M20 11h8"/><path d="M12 22l12-10 12 10"/>
             <path d="M14 22v18h20V22"/><path d="M22 40V30c0-2 1.6-3.6 3.6-3.6S29.2 28 29.2 30v10"/>
+            <path d="M18 28h6"/><path d="M24 28h6"/>
           </svg>
           Cerimonia
         </div>
@@ -346,7 +307,7 @@
 
       <div class="card">
         <div class="title">
-          <!-- ✅ Festeggiamenti: villa chiara + pop -->
+          <!-- ✅ Villa più grande/colorata -->
           <svg class="ico fill-soft pop" viewBox="0 0 48 48" aria-hidden="true">
             <path d="M8 22L24 10l16 12"/>
             <path d="M12 22v18h24V22"/>
@@ -374,7 +335,7 @@
 
       <div class="card">
         <div class="title">
-          <!-- ✅ Regalo: pop -->
+          <!-- ✅ Regalo più grande/colorato -->
           <svg class="ico fill-soft pop" viewBox="0 0 48 48" aria-hidden="true">
             <path d="M8 22h32v18H8z"/>
             <path d="M24 22v18"/>
@@ -394,10 +355,14 @@
           <div class="muted" style="font-size:12.8px;margin-bottom:6px;">IBAN</div>
           <div class="mono" id="ibanText"></div>
 
-          <div class="muted" style="font-size:12.8px;margin:12px 0 6px;">Intestatario</div>
-          <div class="mono" id="ibanName"></div>
+          <!-- ✅ COPIA vicino all’IBAN -->
+          <div style="margin-top:10px;">
+            <button class="copy" type="button" id="copyIban">Copia IBAN</button>
+          </div>
 
-          <button class="copy" type="button" id="copyIban">Copia IBAN</button>
+          <div class="muted" style="font-size:12.8px;margin:14px 0 6px;">Intestatario</div>
+          <div class="value" id="ibanName"></div>
+
           <div class="muted" style="font-size:12.8px;margin-top:10px;">
             Causale suggerita: <span class="mono">Regalo di nozze</span>
           </div>
@@ -409,7 +374,10 @@
 
         <div class="gift-box" style="margin-top:12px;">
           <div class="muted" style="font-size:12.8px;margin-bottom:6px;">Lista nozze – Floresta</div>
-          <div class="mono" id="florestaAddr"></div>
+
+          <!-- ✅ Floresta stesso font di villa/chiesa -->
+          <div class="value" id="florestaAddr"></div>
+
           <div class="muted" style="margin-top:10px;">
             Tel. <a class="softlink" id="florestaPhoneText">0931 586747</a>
           </div>
@@ -433,7 +401,7 @@
   <footer>
     <p class="finale">Non vediamo l’ora di condividere questo giorno con voi.</p>
     <p class="muted" style="margin:0;">Grazie di cuore per esserci.</p>
-    <small>Matteo &amp; Sebiana · 1 settembre 2026</small>
+    <small>Matteo &amp; Sebiana · 01.09.2026</small>
   </footer>
 
   <script>
@@ -451,6 +419,7 @@
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Loene";
 
+    // Password (richiesta sempre)
     const lock = document.getElementById("lock");
     const pw = document.getElementById("pw");
     const err = document.getElementById("err");
@@ -466,6 +435,7 @@
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 
+    // Testi + link
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
     document.getElementById("villaAddr").textContent = "c.da Graffetta, 97014 Ispica (RG)";
     document.getElementById("florestaAddr").textContent = "Floresta, " + FLORESTA_ADDRESS;
@@ -480,6 +450,7 @@
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
+    // Copia IBAN (ora vicino all’IBAN)
     const copyBtn = document.getElementById("copyIban");
     copyBtn.addEventListener("click", async ()=>{
       try{
@@ -501,3 +472,4 @@
 
 </body>
 </html>
+``
