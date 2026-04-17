@@ -59,12 +59,29 @@
     /* ===== Header ===== */
     header{ padding:84px 0 30px; text-align:center; }
 
+    /* (Lasciamo .name-row perché era nel file originale, ma non viene più usata) */
     .name-row{
       display:flex;
       align-items:center;
       justify-content:center;
       gap:18px;
       flex-wrap:wrap;
+    }
+
+    /* ✅ NUOVO: immagini vicine sopra, nomi sotto */
+    .couple-row{
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      gap:8px;              /* immagini vicine */
+      margin:0 0 10px;
+    }
+    .couple-name{
+      margin:0;
+      text-align:center;
+    }
+    @media (max-width:520px){
+      .couple-row{ gap:6px; margin:0 0 8px; }
     }
 
     h1{
@@ -117,7 +134,6 @@
     section{ padding:26px 0; }
     .stack{ display:grid; gap:18px; }
 
-    /* ✅ STEP 1: card “burro/salvia” + shadow morbida + transizioni */
     .card{
       background:
         linear-gradient(180deg,
@@ -449,7 +465,7 @@
 
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
 
-    /* ===== STEP 1: animazione elegante on-scroll (classi) ===== */
+    /* ===== reveal on scroll ===== */
     .reveal{
       opacity:0;
       transform: translateY(10px);
@@ -468,68 +484,6 @@
       html{ scroll-behavior:auto; }
       .card{ transition:none !important; }
     }
-
-    /* =====================================================
-       AFFINAMENTI (A+B+C+D) — SOLO OVERRIDE, NO STRAVOLGIMENTI
-       ===================================================== */
-
-    /* A) più burro, meno sabbia */
-    :root{
-      --cream:#FFF8F1;
-      --butter:#FFF9EE;
-      --butter2:#FFFCF6;
-      --sagewash:#F4F9F6;
-      --border:rgba(34,48,42,.10);
-    }
-
-    body{
-      background:
-        radial-gradient(1200px 560px at 12% -6%, rgba(78,140,120,.18), transparent 62%),
-        radial-gradient(1040px 560px at 92% 0%, rgba(255,242,226,.62), transparent 60%),
-        radial-gradient(980px 460px at 50% 18%, rgba(78,140,120,.06), transparent 66%),
-        linear-gradient(180deg, var(--cream), var(--butter2) 44%, #ffffff 100%);
-    }
-
-    /* D) più “web”: respiro e ritmo */
-    section{ padding:32px 0; }
-    .stack{ gap:22px; }
-    @media (max-width:520px){
-      section{ padding:28px 0; }
-      .stack{ gap:18px; }
-    }
-
-    /* C) card più editorial (meno box) */
-    .card{
-      background: linear-gradient(180deg, rgba(255,252,246,.96), rgba(243,249,246,.96));
-      border:1px solid rgba(34,48,42,.08);
-      padding:28px;
-    }
-    @media (max-width:520px){
-      .card{ padding:24px; }
-    }
-
-    /* B) bottoni premium */
-    .btn{
-      padding:11px 18px;
-      font-weight:500;
-      border:1px solid rgba(47,110,91,.30);
-      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(243,249,246,.62));
-      box-shadow: 0 6px 14px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.86);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-    }
-    .btn:hover{
-      border-color: rgba(47,110,91,.42);
-      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(243,249,246,.72));
-    }
-    @media (hover:hover) and (pointer:fine){
-      .btn:hover{
-        transform: translateY(-1px);
-        box-shadow: 0 10px 22px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.92);
-      }
-    }
-
   </style>
 </head>
 
@@ -567,11 +521,16 @@
     <!-- ===== Header con sticker PNG ===== -->
     <header>
       <div class="wrap">
-        <div class="name-row">
-          <img class="avatar-img" src="assets/matteo.png" alt="Sticker Matteo" />
-          <h1>Matteo &amp; Sebiana</h1>
-          <img class="avatar-img" src="assets/sebiana.png" alt="Sticker Sebiana" />
+
+        <!-- ✅ Nuovo: immagini vicine sopra -->
+        <div class="couple-row" aria-hidden="true">
+          <img class="avatar-img" src="assets/matteo.png" alt="" />
+          <img class="avatar-img" src="assets/sebiana.png" alt="" />
         </div>
+
+        <!-- ✅ Nuovo: nomi sotto -->
+        <h1 class="couple-name">Matteo &amp; Sebiana</h1>
+
         <p class="subtitle">01.09.2026</p>
       </div>
     </header>
@@ -665,6 +624,7 @@
             </div>
           </div>
         </div>
+
         <!-- Regalo -->
         <div class="card reveal">
           <div class="title">
@@ -772,8 +732,6 @@
       lock.style.display = "none";
       site.hidden = false;
       setLocked(false);
-
-      // attiva reveal quando si sblocca
       setupReveal();
     }
 
@@ -848,7 +806,6 @@
       }
     });
 
-    /* ===== reveal on scroll (elegante e leggero) ===== */
     function setupReveal(){
       const cards = document.querySelectorAll(".reveal");
       if(!cards.length) return;
