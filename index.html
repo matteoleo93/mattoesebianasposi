@@ -207,7 +207,7 @@
       white-space:nowrap;
     }
 
-    /* ✅ miglior wrap generale nelle value (utile su mobile) */
+    /* Wrap sicuro per testi lunghi su mobile */
     .event-row .value{
       min-width:0;
       line-height:1.55;
@@ -242,7 +242,7 @@
       .event-row{ grid-template-columns: 110px 1fr; }
     }
 
-    /* ✅ Fix specifico: indirizzo chiesa deve andare a capo su mobile */
+    /* ✅ Fix: indirizzo chiesa deve andare a capo su mobile (no taglio) */
     #churchAddr{
       white-space:normal;
       overflow-wrap:anywhere;
@@ -300,9 +300,26 @@
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
+    /* Contatti: niente tratteggio */
     .contacts a.softlink{ border-bottom:none !important; }
+
+    /* ✅ Evita spezzare i numeri telefono */
+    .contacts a.softlink{ white-space:nowrap; }
+
+    /* ✅ Mobile: Sebiana va a capo (righe separate) */
+    @media (max-width:520px){
+      .contacts p{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+      }
+      .contacts .sep{ display:none; }
+    }
+
+    /* Telefono Floresta più piccolo */
     .small-phone{ font-size:13px; }
 
+    /* Footer */
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
     .finale{ font-family:var(--serif); font-size:18px; color:var(--text); margin:0 0 8px; letter-spacing:.2px; }
     footer small{ display:block; font-size:13px; margin-top:10px; }
@@ -312,13 +329,10 @@
       position:fixed; inset:0; z-index:9999;
       display:flex; align-items:center; justify-content:center;
       padding:18px;
-
-      /* ✅ più coprente: evita “trasparenze” percepite */
       background:
         radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.92), transparent 60%),
         linear-gradient(180deg, rgba(255,247,238,.98), rgba(255,255,255,.98));
     }
-
     .lock-box{
       width:min(420px, 100%);
       background:rgba(255,255,255,.96);
@@ -338,6 +352,7 @@
       color:var(--sage2);
     }
 
+    /* Login title: stesso font wedding */
     .lock-box h2{
       margin:0 0 6px;
       font-family:var(--wedding);
@@ -348,8 +363,10 @@
     }
 
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
+
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
 
+    /* Wrapper input + occhio */
     .pw-wrap{
       flex:1;
       position:relative;
@@ -361,10 +378,11 @@
       width:100%;
       border-radius:999px;
       border:1px solid rgba(34,48,42,.18);
-      padding:12px 44px 12px 14px;
+      padding:12px 44px 12px 14px; /* spazio per l’occhio */
       font-size:14px; outline:none; background:white;
     }
 
+    /* ✅ Occhietto */
     .pw-toggle{
       position:absolute;
       right:10px;
@@ -428,7 +446,7 @@
     </div>
   </div>
 
-  <!-- ✅ SITO: nascosto finché non sblocchi (evita “intravedere” sotto il login) -->
+  <!-- ✅ SITO: nascosto finché non sblocchi -->
   <div id="site" hidden>
 
     <!-- ===== Header con sticker PNG ===== -->
@@ -557,7 +575,7 @@
             <div class="value" id="ibanName"></div>
 
             <div class="muted" style="font-size:12.8px;margin-top:10px;">
-              Causale suggerita: <span class="mono">Regalo di nozze</span>
+              Causale suggerita: <span class="value">Regalo di nozze</span>
             </div>
           </div>
 
@@ -566,7 +584,7 @@
           </p>
 
           <div class="gift-box" style="margin-top:12px;">
-            <div class="muted" style="font-size:12.8px;margin-bottom:6px;">Lista nozze – Floresta</div>
+            <!-- ✅ RIMOSSO: "Lista nozze – Floresta" (ridondante) -->
             <div class="value" id="florestaAddr"></div>
 
             <div class="muted small-phone" style="margin-top:10px;">
@@ -588,9 +606,9 @@
           </div>
 
           <p style="margin:0;">
-            <strong>Matteo</strong> <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
-            <span class="muted" style="padding:0 10px;">•</span>
-            <strong>Sebiana</strong> <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
+            <span><strong>Matteo</strong> <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a></span>
+            <span class="muted sep" style="padding:0 10px;">•</span>
+            <span><strong>Sebiana</strong> <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a></span>
           </p>
         </div>
 
@@ -621,18 +639,15 @@
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Leone";
 
-    // Elementi pagina
     const lock = document.getElementById("lock");
     const site = document.getElementById("site");
 
-    // Blocca scroll finché bloccato
     function setLocked(isLocked){
       document.documentElement.style.overflow = isLocked ? "hidden" : "";
       document.body.style.overflow = isLocked ? "hidden" : "";
       document.body.style.touchAction = isLocked ? "none" : "";
     }
 
-    // Stato iniziale: sito nascosto, lock visibile
     site.hidden = true;
     lock.style.display = "flex";
     setLocked(true);
@@ -657,7 +672,6 @@
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 
-    // Occhietto mostra/nascondi password
     const togglePw = document.getElementById("togglePw");
     const eyeIcon = document.getElementById("eyeIcon");
 
@@ -681,7 +695,6 @@
       pw.focus();
     });
 
-    // Inject testi + link
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
     document.getElementById("villaAddr").textContent = "C.da Graffetta, 97014 Ispica (RG)";
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
@@ -697,7 +710,6 @@
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
-    // Copia IBAN
     const copyBtn = document.getElementById("copyIban");
     copyBtn.addEventListener("click", async ()=>{
       try{
