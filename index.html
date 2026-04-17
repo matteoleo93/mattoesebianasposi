@@ -473,76 +473,7 @@
       html{ scroll-behavior:auto; }
       .card{ transition:none !important; }
     }
-  
-
-    /* =====================================================
-       AFFINAMENTI (A+B+C+D)
-       - A) palette più burro, meno sabbia
-       - B) bottoni premium
-       - C) card meno "box" (editorial)
-       - D) spaziatura più web
-       Inseriti in coda per non alterare struttura/JS.
-       ===================================================== */
-
-    /* A) Palette: più burro, meno sabbia */
-    :root{
-      --cream:#FFF8F1;
-      --butter:#FFF9EE;
-      --butter2:#FFFCF6;
-      --sagewash:#F4F9F6;
-      --border:rgba(34,48,42,.10);
-    }
-
-    body{
-      background:
-        radial-gradient(1200px 560px at 12% -6%, rgba(78,140,120,.18), transparent 62%),
-        radial-gradient(1040px 560px at 92% 0%, rgba(255,242,226,.62), transparent 60%),
-        radial-gradient(980px 460px at 50% 18%, rgba(78,140,120,.06), transparent 66%),
-        linear-gradient(180deg, var(--cream), var(--butter2) 44%, #ffffff 100%);
-    }
-
-    /* D) Spaziatura: più respiro e ritmo */
-    section{ padding:32px 0; }
-    .stack{ gap:22px; }
-    @media (max-width:520px){
-      section{ padding:28px 0; }
-      .stack{ gap:18px; }
-    }
-
-    /* C) Card: più editorial, meno box */
-    .card{
-      background: linear-gradient(180deg, rgba(255,252,246,.96), rgba(243,249,246,.96));
-      border:1px solid rgba(34,48,42,.08);
-      padding:28px;
-    }
-    @media (max-width:520px){
-      .card{ padding:24px; }
-    }
-
-    /* B) Bottoni premium */
-    .btn{
-      padding:11px 18px;
-      font-weight:500;
-      border:1px solid rgba(47,110,91,.30);
-      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(243,249,246,.62));
-      box-shadow: 0 6px 14px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.86);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-    }
-    /* Hover base (alcuni browser lo applicano comunque) */
-    .btn:hover{
-      border-color: rgba(47,110,91,.42);
-      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(243,249,246,.72));
-    }
-    @media (hover:hover) and (pointer:fine){
-      .btn:hover{
-        transform: translateY(-1px);
-        box-shadow: 0 10px 22px rgba(0,0,0,.10), inset 0 1px 0 rgba(255,255,255,.92);
-      }
-    }
-
-</style>
+  </style>
 </head>
 
 <body>
