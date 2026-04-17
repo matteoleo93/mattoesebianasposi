@@ -142,7 +142,7 @@
     .label{ font-weight:700; font-size:13px; color:var(--sage2); letter-spacing:.25px; min-width:74px; }
     .value{ color:var(--text); font-size:14.7px; }
 
-    /* ====== ✅ EVENT LAYOUT ORGANICO (NUOVO) ====== */
+    /* ====== ✅ EVENT LAYOUT ORGANICO (AGGIORNATO) ====== */
     .event-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -154,27 +154,37 @@
     .event-col{
       display:flex;
       flex-direction:column;
-      gap:12px;
-      min-width: 0; /* evita overflow */
+      gap:12px;           /* ✅ ritmo uniforme */
+      min-width: 0;       /* evita overflow */
+    }
+
+    /* ✅ colonna destra: centra "Luogo" e bottone */
+    .event-col.right{
+      align-items:center;
+      text-align:center;
     }
 
     .event-row{
       display:flex;
       gap:12px;
-      align-items:baseline;
+      align-items:flex-start; /* ✅ invece di baseline: evita differenze ottiche tra righe */
       flex-wrap:wrap;
     }
 
+    /* ✅ Maps sotto Luogo e centrato */
     .event-actions{
       display:flex;
-      justify-content:flex-end;
+      justify-content:center;
       align-items:center;
-      margin-top:2px;
+      margin-top:0;
+      width:100%;
     }
 
     @media (max-width:640px){
       .event-grid{ grid-template-columns:1fr; }
-      .event-actions{ justify-content:flex-start; }
+      .event-actions{ justify-content:center; }
+      .event-col.right{ align-items:flex-start; text-align:left; } /* su mobile torna naturale */
+      .event-actions{ justify-content:flex-start; }               /* bottone a sinistra su mobile */
     }
 
     /* Buttons */
@@ -329,7 +339,7 @@
           Cerimonia
         </div>
 
-        <!-- ✅ NUOVA GRIGLIA ORGANICA -->
+        <!-- ✅ GRIGLIA ORGANICA -->
         <div class="event-grid">
           <div class="event-col">
             <div class="event-row">
@@ -340,7 +350,8 @@
             </div>
           </div>
 
-          <div class="event-col">
+          <!-- ✅ colonna destra centrata -->
+          <div class="event-col right">
             <div class="event-row">
               <div class="label">Luogo</div><div class="value">Chiesa Madre</div>
             </div>
@@ -368,7 +379,7 @@
           Festeggiamenti
         </div>
 
-        <!-- ✅ NUOVA GRIGLIA ORGANICA -->
+        <!-- ✅ GRIGLIA ORGANICA -->
         <div class="event-grid">
           <div class="event-col">
             <div class="event-row">
@@ -379,7 +390,8 @@
             </div>
           </div>
 
-          <div class="event-col">
+          <!-- ✅ colonna destra centrata -->
+          <div class="event-col right">
             <div class="event-row">
               <div class="label">Luogo</div><div class="value">Villa Anna</div>
             </div>
@@ -480,32 +492,21 @@
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Leone";
 
-    // ✅ micro-fix: blocco scroll sotto overlay
-    document.body.style.overflow = "hidden";
-
     // Password: richiesta sempre
     const lock = document.getElementById("lock");
     const pw = document.getElementById("pw");
     const err = document.getElementById("err");
     const btnEnter = document.getElementById("btnEnter");
 
-    function unlock(){
-      lock.style.display = "none";
-      document.body.style.overflow = ""; // ripristina scroll
-    }
-
+    function unlock(){ lock.style.display = "none"; }
     function check(){
       err.textContent = "";
       const v = (pw.value || "").trim();
       if(v === PASSWORD) unlock();
       else err.textContent = "Password non corretta. Riprova.";
     }
-
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
-
-    // ✅ micro-fix: focus automatico
-    window.addEventListener("load", ()=>{ try{ pw.focus(); }catch(e){} });
 
     // Inject testi + link
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
