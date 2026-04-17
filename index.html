@@ -9,85 +9,60 @@
 
   <style>
     :root{
-      /* Palette (tenue, “burro/crema/salvia”) */
       --sage:#4E8C78;
       --sage2:#2F6E5B;
       --cream:#FFF7EE;
-      --milk:#FBF7F2;
-      --paper:#FFFFFF;
+      --white:#FFFFFF;
 
       --text:#22302A;
-      --muted:#58645E;
-      --hairline:rgba(34,48,42,.12);
+      --muted:#5E6B64;
+      --border:rgba(34,48,42,.12);
 
-      /* “Oleissimo-like” = ombre molto morbide, bordi sottili */
-      --radius:18px;
-      --shadow:0 16px 40px rgba(25,35,30,.06);
-      --shadow2:0 10px 28px rgba(25,35,30,.05);
-
+      --radius:22px;
+      --shadow:0 18px 40px rgba(0,0,0,.09);
       --max:980px;
 
-      /* Serif elegante (editoriale) */
-      --display: ui-serif, "Didot", "Bodoni MT", "Baskerville", "Libre Baskerville", "Georgia", "Times New Roman", serif;
       --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Georgia", "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
-      /* Spaziature “editoriali” */
-      --space-1:10px;
-      --space-2:14px;
-      --space-3:18px;
-      --space-4:22px;
-      --space-5:28px;
-      --space-6:38px;
+      /* Font “wedding” (corsivo elegante, simile al precedente ma più raffinato) */
+      --wedding: ui-serif, "Baskerville", "Libre Baskerville", "Didot", "Bodoni MT", "Georgia", "Times New Roman", serif;
     }
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
+
     body{
       margin:0;
       color:var(--text);
       font-family:var(--sans);
       background:
-        radial-gradient(1100px 520px at 15% -10%, rgba(78,140,120,.10), transparent 55%),
-        radial-gradient(900px 520px at 90% 0%, rgba(242,226,207,.70), transparent 55%),
-        linear-gradient(180deg, var(--milk), var(--cream) 32%, var(--paper) 100%);
+        radial-gradient(900px 400px at 15% 0%, rgba(78,140,120,.18), transparent 55%),
+        radial-gradient(900px 400px at 90% 10%, rgba(242,226,207,.55), transparent 55%),
+        linear-gradient(180deg, var(--cream), var(--white) 40%, #ffffff 100%);
     }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
 
-    /* ===== “Oleissimo-style” header ===== */
-    header{
-      padding:88px 0 38px;
-      text-align:center;
-    }
+    /* ===== Header ===== */
+    header{ padding:84px 0 30px; text-align:center; }
 
     .name-row{
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:22px;
+      gap:18px;
       flex-wrap:wrap;
     }
 
-    /* Sticker PNG con ombra delicata */
-    .avatar-img{
-      width:140px;
-      height:auto;
-      max-height:160px;
-      object-fit:contain;
-      background:transparent;
-      border:none;
-      filter: drop-shadow(0 18px 32px rgba(0,0,0,.10));
-    }
-
-    /* Nomi: editoriale, raffinato, “stampato” */
+    /* Nomi */
     h1{
       margin:0;
-      font-family:var(--display);
+      font-family:var(--wedding);
       font-style:italic;
-      font-weight:500;
+      font-weight:520;
       letter-spacing:.35px;
-      font-size:44px;
+      font-size:46px;
       line-height:1.05;
       color:var(--sage2);
       text-rendering:optimizeLegibility;
@@ -97,192 +72,201 @@
 
     /* Data: stesso font dei nomi */
     .subtitle{
-      margin:16px 0 0;
+      margin:14px 0 0;
       color:var(--sage2);
-      font-family:var(--display);
+      font-family:var(--wedding);
       font-style:italic;
-      font-weight:520;
-      font-size:20px;
-      letter-spacing:.65px;
-    }
-
-    /* Micro-divider: linea sottilissima “editoriale” */
-    .hairline{
-      width:min(520px, 100%);
-      height:1px;
-      margin:28px auto 0;
-      background:linear-gradient(90deg, transparent, rgba(34,48,42,.18), transparent);
+      font-size:22px;
+      letter-spacing:.6px;
+      font-weight:560;
+      text-align:center;
     }
 
     @media (max-width:520px){
-      header{ padding:78px 0 32px; }
-      .avatar-img{ width:118px; max-height:140px; }
-      h1{ font-size:36px; }
-      .subtitle{ font-size:18px; }
+      header{ padding:74px 0 26px; }
+      h1{ font-size:38px; }
+      .subtitle{ font-size:20px; }
     }
 
-    /* ===== Layout sections ===== */
-    main{ padding-bottom:18px; }
-    section{ padding:20px 0; }
-    .stack{ display:grid; gap:18px; }
+    /* Sticker veri: PNG trasparente, niente box */
+    .avatar-img{
+      width:150px;
+      height:auto;
+      max-height:170px;
+      object-fit:contain;
+      background:transparent;
+      padding:0;
+      border:none;
+      outline:none;
+      filter: drop-shadow(0 18px 34px rgba(0,0,0,.14));
+    }
+    @media (max-width:520px){
+      .avatar-img{ width:125px; max-height:145px; }
+    }
 
-    /* Card “pagina” (meno boxy) */
+    /* ===== Layout cards ===== */
+    section{ padding:26px 0; }
+
     .card{
-      background:rgba(255,255,255,.86);
-      border:1px solid rgba(34,48,42,.10);
+      background:rgba(255,255,255,.94);
+      border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:24px 26px;
+      padding:26px;
       overflow:hidden;
     }
 
-    /* Titoli sezione: serif sobria */
+    .stack{ display:grid; gap:18px; }
+
     .title{
       display:flex;
       align-items:center;
       gap:12px;
       margin:0 0 12px;
       font-family:var(--serif);
-      font-weight:520;
-      letter-spacing:.35px;
-      font-size:20px;
+      font-weight:500;
+      letter-spacing:.4px;
+      font-size:22px;
     }
 
-    /* Icone titolo: un filo più leggere */
+    /* ✅ Nuove icone “sticker” per i titoli sezione */
+    .sticker-icon{
+      width:52px;
+      height:auto;
+      flex:0 0 52px;
+      object-fit:contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.12));
+    }
+    @media (max-width:520px){
+      .sticker-icon{ width:46px; flex-basis:46px; }
+    }
+
+    /* Icone titoli (vecchie SVG - lasciate in CSS ma non più usate nei 4 titoli) */
     .ico{
-      width:44px;
-      height:44px;
-      flex:0 0 44px;
+      width:46px;
+      height:46px;
+      flex:0 0 46px;
       stroke:var(--sage);
-      fill:rgba(78,140,120,.14);
-      stroke-width:2.4;
+      fill:rgba(78,140,120,.18);
+      stroke-width:2.6;
       stroke-linecap:round;
       stroke-linejoin:round;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,.10));
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.14));
     }
 
-    p{
-      margin:10px 0;
-      line-height:1.78;
-      font-size:14.9px;
-      color:var(--text);
-    }
+    p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
     .muted{ color:var(--muted); }
 
-    /* ===== EVENTI (editoriale, compatto, senza vuoto) ===== */
+    /* Riga “normale” */
+    .row{ display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
+    .label{ font-weight:700; font-size:13px; color:var(--sage2); letter-spacing:.25px; min-width:74px; }
+    .value{ color:var(--text); font-size:14.7px; }
+
+    /* ====== EVENTI (ridotto spazio vuoto, uguali tra loro) ====== */
     .event-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px 34px;
-      margin-top: 8px;
+      gap: 18px 28px;
+      margin-top: 6px;
       align-items:start;
     }
 
     .event-col{
       display:flex;
       flex-direction:column;
-      gap:12px;
+      gap:12px;            /* stesso ritmo */
       min-width:0;
     }
+
     .event-col.right{
       align-items:center;
       text-align:center;
-      gap:12px;
+      gap:12px;            /* stesso ritmo anche a destra */
     }
 
-    /* Riga evento: grid per allineamento perfetto */
+    /* allineamenti perfetti e testo sulla stessa riga */
     .event-row{
       display:grid;
-      grid-template-columns: 122px 1fr;
+      grid-template-columns: 118px 1fr;
       column-gap:12px;
-      align-items:center; /* evita “testo più alto” */
+      align-items:center;
     }
 
     .event-row .label{
+      min-width:0;
       display:inline-flex;
       align-items:center;
       gap:10px;
       font-weight:700;
-      font-size:12.8px;
+      font-size:13px;
       color:var(--sage2);
-      letter-spacing:.22px;
+      letter-spacing:.25px;
+      line-height:1.25;
       white-space:nowrap;
-      line-height:1.2;
     }
 
     .event-row .value{
       min-width:0;
-      font-size:14.8px;
       line-height:1.55;
     }
 
-    /* Icone Luogo/Indirizzo (più grandi come richiesto) */
+    /* Icone Luogo/Indirizzo */
     .mini-ico{
       width:18px;
       height:18px;
       flex:0 0 18px;
       stroke:var(--sage2);
       fill:rgba(78,140,120,.14);
-      stroke-width:2.35;
+      stroke-width:2.4;
       stroke-linecap:round;
       stroke-linejoin:round;
       opacity:.98;
     }
 
-    /* Bottone Maps: “non sembra bottone” */
+    /* Maps centrato */
     .event-actions{
       display:flex;
       justify-content:center;
+      align-items:center;
+      margin-top:0;
       width:100%;
-      margin-top:4px;
     }
 
+    @media (max-width:640px){
+      .event-grid{ grid-template-columns:1fr; }
+      .event-actions{ justify-content:center; }
+      .event-col.right{ align-items:center; text-align:center; }
+      .event-row{ grid-template-columns: 110px 1fr; }
+    }
+
+    /* Buttons */
+    .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
     .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:999px;
-      text-decoration:none;
-      font-size:13.8px;
-      border:1px solid rgba(47,110,91,.22);
-      background:rgba(255,255,255,.72);
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px; border-radius:999px;
+      text-decoration:none; font-size:14px;
+      border:1px solid rgba(47,110,91,.25);
+      background:rgba(78,140,120,.10);
       color:var(--sage2);
       transition:transform .15s ease, background .15s ease, border-color .15s ease;
       white-space:nowrap;
     }
     .btn:hover{
       transform:translateY(-1px);
-      border-color:rgba(47,110,91,.36);
-      background:rgba(78,140,120,.08);
+      border-color:rgba(47,110,91,.45);
+      background:rgba(78,140,120,.14);
     }
 
-    @media (max-width:640px){
-      .event-grid{ grid-template-columns:1fr; }
-      .event-row{ grid-template-columns: 112px 1fr; }
-      .event-col.right{ align-items:center; text-align:center; }
-      .event-actions{ justify-content:center; }
-    }
-
-    /* Forzo indirizzo chiesa su una riga (come richiesto) con fallback “…” su schermi stretti */
-    #churchAddr{
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      display:block;
-      max-width:100%;
-    }
-
-    /* ===== GIFT ===== */
+    /* Gift box */
     .gift-box{
       margin-top:12px;
       padding:14px 14px;
-      border-radius:16px;
-      background:linear-gradient(180deg, rgba(242,226,207,.42), rgba(255,255,255,.82));
-      border:1px solid rgba(34,48,42,.09);
-      box-shadow:var(--shadow2);
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(242,226,207,.45), rgba(255,255,255,.85));
+      border:1px solid rgba(34,48,42,.10);
     }
 
+    /* monospace SOLO per IBAN */
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size:13.6px;
@@ -291,7 +275,7 @@
 
     .copy{
       display:inline-flex; align-items:center; gap:8px;
-      border:1px solid rgba(34,48,42,.12);
+      border:1px solid rgba(34,48,42,.14);
       background:rgba(255,255,255,.90);
       border-radius:999px;
       padding:9px 12px;
@@ -299,85 +283,67 @@
       cursor:pointer;
     }
 
-    /* Link “soft” (ma nei contatti senza tratteggio) */
     a.softlink{
       color:var(--sage2);
       text-decoration:none;
-      border-bottom:1px solid rgba(47,110,91,.18);
+      border-bottom:1px dashed rgba(47,110,91,.45);
     }
-    a.softlink:hover{ border-bottom-color: rgba(47,110,91,.34); }
+    a.softlink:hover{ border-bottom-style:solid; }
 
-    .contacts a.softlink{ border-bottom:none !important; } /* come richiesto */
+    /* Contatti: niente tratteggio */
+    .contacts a.softlink{ border-bottom:none !important; }
 
+    /* Telefono Floresta più piccolo */
     .small-phone{ font-size:13px; }
 
-    /* ===== Footer editoriale ===== */
-    footer{
-      text-align:center;
-      padding:62px 18px 70px;
-      color:var(--muted);
-    }
-    .finale{
-      font-family:var(--serif);
-      font-size:18px;
-      color:var(--text);
-      margin:0 0 8px;
-      letter-spacing:.18px;
-    }
+    /* Footer */
+    footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
+    .finale{ font-family:var(--serif); font-size:18px; color:var(--text); margin:0 0 8px; letter-spacing:.2px; }
     footer small{ display:block; font-size:13px; margin-top:10px; }
 
-    /* ===== Password overlay (pulito, elegante) ===== */
+    /* ===== Password overlay ===== */
     #lock{
       position:fixed; inset:0; z-index:9999;
       display:flex; align-items:center; justify-content:center;
       padding:18px;
       background:
-        radial-gradient(900px 420px at 50% -100px, rgba(242,226,207,.88), transparent 62%),
-        linear-gradient(180deg, var(--milk), rgba(255,255,255,.98));
-      backdrop-filter:saturate(1.05);
+        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.85), transparent 60%),
+        linear-gradient(180deg, var(--cream), rgba(255,255,255,.96));
     }
     .lock-box{
       width:min(420px, 100%);
-      background:rgba(255,255,255,.90);
-      border:1px solid rgba(34,48,42,.10);
+      background:rgba(255,255,255,.94);
+      border:1px solid rgba(34,48,42,.12);
       border-radius:24px;
       box-shadow:var(--shadow);
-      padding:30px 24px 22px;
+      padding:28px 24px 22px;
       text-align:center;
     }
     .badge{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       margin:0 auto 12px; padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(47,110,91,.22);
-      background:rgba(78,140,120,.08);
+      border:1px solid rgba(47,110,91,.25);
+      background:rgba(78,140,120,.10);
       font-size:13px;
       color:var(--sage2);
     }
 
-    /* Login title: stesso font “editoriale” */
+    /* Login title: stesso font wedding */
     .lock-box h2{
       margin:0 0 6px;
-      font-family:var(--display);
+      font-family:var(--wedding);
       font-style:italic;
       font-weight:520;
       letter-spacing:.35px;
       color:var(--sage2);
     }
-    .lock-box p{
-      margin:0 0 16px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.45;
-    }
 
-    .lock-row{
-      display:flex;
-      gap:10px;
-      margin-top:10px;
-      align-items:center;
-    }
+    .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
 
+    .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
+
+    /* Wrapper input + occhio */
     .pw-wrap{
       flex:1;
       position:relative;
@@ -388,20 +354,19 @@
     .lock-row input{
       width:100%;
       border-radius:999px;
-      border:1px solid rgba(34,48,42,.16);
-      padding:12px 44px 12px 14px;
-      font-size:14px;
-      outline:none;
-      background:white;
+      border:1px solid rgba(34,48,42,.18);
+      padding:12px 44px 12px 14px; /* spazio per l’occhio */
+      font-size:14px; outline:none; background:white;
     }
 
+    /* ✅ Occhietto */
     .pw-toggle{
       position:absolute;
       right:10px;
       width:34px;
       height:34px;
       border-radius:999px;
-      border:1px solid rgba(34,48,42,.12);
+      border:1px solid rgba(34,48,42,.14);
       background:rgba(255,255,255,.92);
       display:inline-flex;
       align-items:center;
@@ -420,22 +385,22 @@
     }
 
     .lock-row button#btnEnter{
-      border-radius:999px;
-      border:0;
-      padding:12px 16px;
-      font-size:14px;
+      border-radius:999px; border:0; padding:12px 16px; font-size:14px;
       cursor:pointer;
       background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
-      color:white;
-      white-space:nowrap;
+      color:white; white-space:nowrap;
     }
+
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
+
+    /* Forzo indirizzi su una riga dove serve */
+    #churchAddr{ white-space:nowrap; }
   </style>
 </head>
 
 <body>
 
-  <!-- 🔒 Accesso riservato -->
+  <!-- 🔒 Accesso riservato (password richiesta sempre) -->
   <div id="lock">
     <div class="lock-box">
       <div class="badge">🔒 Accesso riservato agli invitati</div>
@@ -446,6 +411,7 @@
         <div class="pw-wrap">
           <input id="pw" type="password" placeholder="Password" autocomplete="off" />
           <button class="pw-toggle" id="togglePw" type="button" aria-label="Mostra password" aria-pressed="false">
+            <!-- eye -->
             <svg id="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
               <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
@@ -461,7 +427,7 @@
     </div>
   </div>
 
-  <!-- ===== Header con sticker ===== -->
+  <!-- ===== Header con sticker PNG ===== -->
   <header>
     <div class="wrap">
       <div class="name-row">
@@ -470,7 +436,6 @@
         <img class="avatar-img" src="assets/sebiana.png" alt="Sticker Sebiana" />
       </div>
       <p class="subtitle">01.09.2026</p>
-      <div class="hairline" aria-hidden="true"></div>
     </div>
   </header>
 
@@ -489,11 +454,7 @@
       <!-- Cerimonia -->
       <div class="card">
         <div class="title">
-          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true">
-            <path d="M24 6v9"/><path d="M20 11h8"/><path d="M12 22l12-10 12 10"/>
-            <path d="M14 22v18h20V22"/><path d="M22 40V30c0-2 1.6-3.6 3.6-3.6S29.2 28 29.2 30v10"/>
-            <path d="M18 28h6"/><path d="M24 28h6"/>
-          </svg>
+          <img class="sticker-icon" src="assets/icons/icon-church.png" alt="" aria-hidden="true" />
           Cerimonia
         </div>
 
@@ -538,17 +499,7 @@
       <!-- Festeggiamenti -->
       <div class="card">
         <div class="title">
-          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true">
-            <path d="M8 22L24 10l16 12"/>
-            <path d="M12 22v18h24V22"/>
-            <path d="M21 40V29h6v11"/>
-            <path d="M16 28h4v4h-4z"/>
-            <path d="M28 28h4v4h-4z"/>
-            <path d="M32 12v-4h5v10"/>
-            <path d="M24 40v6"/>
-            <path d="M10 40v-6"/>
-            <path d="M7 34c1-2 3-3 5-3s4 1 5 3c-1 3-3 5-5 5s-4-2-5-5z"/>
-          </svg>
+          <img class="sticker-icon" src="assets/icons/icon-villa.png" alt="" aria-hidden="true" />
           Festeggiamenti
         </div>
 
@@ -593,13 +544,7 @@
       <!-- Regalo / IBAN + Floresta -->
       <div class="card">
         <div class="title">
-          <svg class="ico" viewBox="0 0 48 48" aria-hidden="true">
-            <path d="M8 22h32v18H8z"/>
-            <path d="M24 22v18"/>
-            <path d="M8 22v-8h32v8"/>
-            <path d="M18 14c-3 0-6-2.2-6-5 0-2 1.6-3.6 3.6-3.6 2.5 0 4.7 2.6 6.4 8.6"/>
-            <path d="M30 14c3 0 6-2.2 6-5 0-2-1.6-3.6-3.6-3.6-2.5 0-4.7 2.6-6.4 8.6"/>
-          </svg>
+          <img class="sticker-icon" src="assets/icons/icon-gift.png" alt="" aria-hidden="true" />
           Un pensiero per noi
         </div>
 
@@ -645,7 +590,11 @@
 
       <!-- Contatti -->
       <div class="card contacts">
-        <div class="title">Contatti</div>
+        <div class="title">
+          <img class="sticker-icon" src="assets/icons/icon-phone.png" alt="" aria-hidden="true" />
+          Contatti
+        </div>
+
         <p style="margin:0;">
           <strong>Matteo</strong> <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
           <span class="muted" style="padding:0 10px;">•</span>
@@ -756,3 +705,4 @@
 
 </body>
 </html>
+``
