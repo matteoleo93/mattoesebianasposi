@@ -127,6 +127,30 @@
       font-weight:500;
       letter-spacing:.4px;
       font-size:22px;
+      min-width:0; /* per sicurezza in caso di wrap */
+    }
+
+    /* ✅ DIVIDER ELEGANTE (hairline) */
+    .title::after{
+      content:"";
+      flex:1 1 auto;
+      height:1px;
+      margin-left:12px;
+      background:linear-gradient(
+        90deg,
+        rgba(47,110,91,.38),
+        rgba(47,110,91,.12) 55%,
+        rgba(47,110,91,0)
+      );
+      transform: translateY(1px);
+    }
+
+    /* Se il titolo va a capo (mobile), la linea non deve “rompere” il layout */
+    @media (max-width:520px){
+      .title::after{
+        margin-left:10px;
+        opacity:.95;
+      }
     }
 
     /* ✅ Icone “sticker” nei titoli sezione (base) */
@@ -239,7 +263,7 @@
       .event-grid{ grid-template-columns:1fr; }
       .event-actions{ justify-content:center; }
       .event-col.right{ align-items:stretch; text-align:left; }
-      .event-row{ grid-template-columns: 104px 1fr; } /* ✅ un filo più compatto su mobile */
+      .event-row{ grid-template-columns: 104px 1fr; }
     }
 
     /* ✅ Wrap su mobile per TUTTI gli indirizzi (chiesa, villa, floresta) */
@@ -262,7 +286,7 @@
       color:var(--sage2);
       transition:transform .15s ease, background .15s ease, border-color .15s ease;
       white-space:nowrap;
-      -webkit-tap-highlight-color: transparent; /* ✅ tap più “pulito” su mobile */
+      -webkit-tap-highlight-color: transparent;
     }
     .btn:hover{
       transform:translateY(-1px);
@@ -589,7 +613,6 @@
           </p>
 
           <div class="gift-box" style="margin-top:12px;">
-            <!-- ✅ RIMOSSO: "Lista nozze – Floresta" (ridondante) -->
             <div class="value" id="florestaAddr"></div>
 
             <div class="muted small-phone" style="margin-top:10px;">
@@ -653,7 +676,6 @@
       document.body.style.touchAction = isLocked ? "none" : "";
     }
 
-    // Stato iniziale
     site.hidden = true;
     lock.style.display = "flex";
     setLocked(true);
@@ -678,10 +700,9 @@
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 
-    // Autofocus (alcuni browser mobile ignorano l'attributo, qui ci proviamo comunque)
-    try{ pw.focus(); } catch(e){}
+    // Autofocus (alcuni browser mobile ignorano l'attributo)
+    try{ pw.focus(); }catch(e){}
 
-    // Occhietto mostra/nascondi password
     const togglePw = document.getElementById("togglePw");
     const eyeIcon = document.getElementById("eyeIcon");
 
@@ -705,7 +726,6 @@
       pw.focus();
     });
 
-    // Inject testi + link
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
     document.getElementById("villaAddr").textContent = "C.da Graffetta, 97014 Ispica (RG)";
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
@@ -721,11 +741,8 @@
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
-    // Copia IBAN
     const copyBtn = document.getElementById("copyIban");
-    function resetCopyLabel(){
-      copyBtn.textContent = "Copia IBAN";
-    }
+    function resetCopyLabel(){ copyBtn.textContent = "Copia IBAN"; }
     resetCopyLabel();
 
     copyBtn.addEventListener("click", async ()=>{
