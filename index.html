@@ -11,21 +11,30 @@
     :root{
       --sage:#4E8C78;
       --sage2:#2F6E5B;
+
+      /* Base palette */
       --cream:#FFF7EE;
       --white:#FFFFFF;
+      --butter:#FFF7EA;             /* burro caldo */
+      --butter2:#FFFBF3;            /* burro più chiaro */
+      --sagewash:#F2F7F4;           /* salvia chiarissima */
 
       --text:#22302A;
       --muted:#5E6B64;
       --border:rgba(34,48,42,.12);
 
       --radius:22px;
-      --shadow:0 18px 40px rgba(0,0,0,.09);
+
+      /* Ombre più “reali” e meno da box */
+      --shadow: 0 22px 52px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.03);
+      --shadowHover: 0 26px 64px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.04);
+
       --max:980px;
 
       --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Georgia", "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 
-      /* Font “wedding” (corsivo elegante, simile al precedente ma più raffinato) */
+      /* Font “wedding” */
       --wedding: ui-serif, "Baskerville", "Libre Baskerville", "Didot", "Bodoni MT", "Georgia", "Times New Roman", serif;
     }
 
@@ -36,10 +45,13 @@
       margin:0;
       color:var(--text);
       font-family:var(--sans);
+
+      /* Background più “materico” e avvolgente */
       background:
-        radial-gradient(900px 400px at 15% 0%, rgba(78,140,120,.18), transparent 55%),
-        radial-gradient(900px 400px at 90% 10%, rgba(242,226,207,.55), transparent 55%),
-        linear-gradient(180deg, var(--cream), var(--white) 40%, #ffffff 100%);
+        radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.22), transparent 58%),
+        radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.72), transparent 56%),
+        radial-gradient(900px 420px at 50% 20%, rgba(78,140,120,.08), transparent 60%),
+        linear-gradient(180deg, var(--cream), var(--butter2) 40%, #ffffff 100%);
     }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
@@ -55,7 +67,6 @@
       flex-wrap:wrap;
     }
 
-    /* Nomi */
     h1{
       margin:0;
       font-family:var(--wedding);
@@ -70,7 +81,6 @@
       font-feature-settings:"kern","liga","clig";
     }
 
-    /* Data: stesso font dei nomi */
     .subtitle{
       margin:14px 0 0;
       color:var(--sage2);
@@ -88,7 +98,6 @@
       .subtitle{ font-size:20px; }
     }
 
-    /* Sticker veri: PNG trasparente, niente box */
     .avatar-img{
       width:150px;
       height:auto;
@@ -106,17 +115,38 @@
 
     /* ===== Layout cards ===== */
     section{ padding:26px 0; }
+    .stack{ display:grid; gap:18px; }
 
+    /* ✅ STEP 1: card “burro/salvia” + shadow morbida + transizioni */
     .card{
-      background:rgba(255,255,255,.94);
-      border:1px solid var(--border);
+      background:
+        linear-gradient(180deg,
+          rgba(255, 248, 238, .94),
+          rgba(242, 249, 246, .94)
+        );
+      border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:26px;
       overflow:hidden;
+
+      /* base “web feel” */
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
+      will-change: transform, box-shadow;
+
+      /* animazione ingresso controllata via classi JS */
+      opacity:1;
+      transform:none;
     }
 
-    .stack{ display:grid; gap:18px; }
+    /* Hover delicato solo su device con hover */
+    @media (hover:hover) and (pointer:fine){
+      .card:hover{
+        transform: translateY(-3px);
+        box-shadow:var(--shadowHover);
+        border-color: rgba(47,110,91,.18);
+      }
+    }
 
     .title{
       display:flex;
@@ -127,10 +157,10 @@
       font-weight:500;
       letter-spacing:.4px;
       font-size:22px;
-      min-width:0; /* per sicurezza in caso di wrap */
+      min-width:0;
     }
 
-    /* ✅ DIVIDER ELEGANTE (hairline) */
+    /* ✅ Divider elegante nei titoli (hairline) */
     .title::after{
       content:"";
       flex:1 1 auto;
@@ -139,30 +169,24 @@
       background:linear-gradient(
         90deg,
         rgba(47,110,91,.38),
-        rgba(47,110,91,.12) 55%,
+        rgba(47,110,91,.14) 55%,
         rgba(47,110,91,0)
       );
       transform: translateY(1px);
     }
 
-    /* Se il titolo va a capo (mobile), la linea non deve “rompere” il layout */
     @media (max-width:520px){
-      .title::after{
-        margin-left:10px;
-        opacity:.95;
-      }
+      .title::after{ margin-left:10px; }
     }
 
-    /* ✅ Icone “sticker” nei titoli sezione (base) */
     .sticker-icon{
-      width:72px;                 /* più grande e leggibile */
+      width:72px;
       height:auto;
       flex:0 0 72px;
       object-fit:contain;
       filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
     }
 
-    /* ✅ Override: Chiesa e Festeggiamenti più grandi (icone “orizzontali”) */
     .title .sticker-icon.icon-church,
     .title .sticker-icon.icon-festeggiamenti{
       width:86px;
@@ -170,10 +194,7 @@
     }
 
     @media (max-width:520px){
-      .sticker-icon{
-        width:60px;
-        flex-basis:60px;
-      }
+      .sticker-icon{ width:60px; flex-basis:60px; }
       .title .sticker-icon.icon-church,
       .title .sticker-icon.icon-festeggiamenti{
         width:72px;
@@ -184,7 +205,6 @@
     p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
     .muted{ color:var(--muted); }
 
-    /* Riga “normale” */
     .row{ display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
     .label{ font-weight:700; font-size:13px; color:var(--sage2); letter-spacing:.25px; min-width:74px; }
     .value{ color:var(--text); font-size:14.7px; }
@@ -231,7 +251,6 @@
       white-space:nowrap;
     }
 
-    /* Wrap sicuro per testi lunghi su mobile */
     .event-row .value{
       min-width:0;
       line-height:1.55;
@@ -263,10 +282,10 @@
       .event-grid{ grid-template-columns:1fr; }
       .event-actions{ justify-content:center; }
       .event-col.right{ align-items:stretch; text-align:left; }
-      .event-row{ grid-template-columns: 104px 1fr; }
+      .event-row{ grid-template-columns: 104px 1fr; } /* più spazio alle value su mobile */
     }
 
-    /* ✅ Wrap su mobile per TUTTI gli indirizzi (chiesa, villa, floresta) */
+    /* Wrap su mobile per TUTTI gli indirizzi */
     #churchAddr,
     #villaAddr,
     #florestaAddr{
@@ -303,7 +322,6 @@
       border:1px solid rgba(34,48,42,.10);
     }
 
-    /* monospace SOLO per IBAN */
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size:13.6px;
@@ -328,13 +346,9 @@
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
-    /* Contatti: niente tratteggio */
     .contacts a.softlink{ border-bottom:none !important; }
-
-    /* ✅ Evita spezzare i numeri telefono */
     .contacts a.softlink{ white-space:nowrap; }
 
-    /* ✅ Mobile: Sebiana va a capo (righe separate) */
     @media (max-width:520px){
       .contacts p{
         display:flex;
@@ -344,10 +358,8 @@
       .contacts .sep{ display:none; }
     }
 
-    /* Telefono Floresta più piccolo */
     .small-phone{ font-size:13px; }
 
-    /* Footer */
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
     .finale{ font-family:var(--serif); font-size:18px; color:var(--text); margin:0 0 8px; letter-spacing:.2px; }
     footer small{ display:block; font-size:13px; margin-top:10px; }
@@ -380,7 +392,6 @@
       color:var(--sage2);
     }
 
-    /* Login title: stesso font wedding */
     .lock-box h2{
       margin:0 0 6px;
       font-family:var(--wedding);
@@ -393,7 +404,6 @@
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
 
-    /* Wrapper input + occhio */
     .pw-wrap{
       flex:1;
       position:relative;
@@ -405,11 +415,10 @@
       width:100%;
       border-radius:999px;
       border:1px solid rgba(34,48,42,.18);
-      padding:12px 44px 12px 14px; /* spazio per l’occhio */
+      padding:12px 44px 12px 14px;
       font-size:14px; outline:none; background:white;
     }
 
-    /* ✅ Occhietto */
     .pw-toggle{
       position:absolute;
       right:10px;
@@ -444,6 +453,26 @@
     }
 
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
+
+    /* ===== STEP 1: animazione elegante on-scroll (classi) ===== */
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform:none;
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .reveal, .reveal.is-visible{
+        opacity:1 !important;
+        transform:none !important;
+        transition:none !important;
+      }
+      html{ scroll-behavior:auto; }
+      .card{ transition:none !important; }
+    }
   </style>
 </head>
 
@@ -494,7 +523,7 @@
       <section class="stack">
 
         <!-- Benvenuti -->
-        <div class="card">
+        <div class="card reveal">
           <div class="title">Benvenuti</div>
           <p>
             Siamo felici di condividere con voi questo giorno speciale.
@@ -503,7 +532,7 @@
         </div>
 
         <!-- Cerimonia -->
-        <div class="card">
+        <div class="card reveal">
           <div class="title">
             <img class="sticker-icon icon-church" src="assets/icons/icon-church.png" alt="Icona cerimonia (chiesa)" />
             Cerimonia
@@ -542,7 +571,7 @@
         </div>
 
         <!-- Festeggiamenti -->
-        <div class="card">
+        <div class="card reveal">
           <div class="title">
             <img class="sticker-icon icon-festeggiamenti" src="assets/icons/icon-festeggiamenti.png" alt="Icona festeggiamenti" />
             Festeggiamenti
@@ -580,8 +609,8 @@
           </div>
         </div>
 
-        <!-- Regalo / IBAN + Floresta -->
-        <div class="card">
+        <!-- Regalo -->
+        <div class="card reveal">
           <div class="title">
             <img class="sticker-icon icon-gift" src="assets/icons/icon-gift.png" alt="Icona regalo" />
             Un pensiero per noi
@@ -627,7 +656,7 @@
         </div>
 
         <!-- Contatti -->
-        <div class="card contacts">
+        <div class="card contacts reveal">
           <div class="title">
             <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti (telefono)" />
             Contatti
@@ -654,7 +683,6 @@
   <script>
     const PASSWORD = "villaanna2026";
 
-    // NBSP prima della provincia per evitare a capo su “(SR)”
     const CHURCH_ADDRESS   = "Via XX Settembre, 96010 Canicattini Bagni\u00A0(SR)";
     const VILLA_ADDRESS    = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
     const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
@@ -688,6 +716,9 @@
       lock.style.display = "none";
       site.hidden = false;
       setLocked(false);
+
+      // attiva reveal quando si sblocca
+      setupReveal();
     }
 
     function check(){
@@ -700,7 +731,6 @@
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 
-    // Autofocus (alcuni browser mobile ignorano l'attributo)
     try{ pw.focus(); }catch(e){}
 
     const togglePw = document.getElementById("togglePw");
@@ -761,6 +791,35 @@
         setTimeout(resetCopyLabel, 1600);
       }
     });
+
+    /* ===== STEP 1: reveal on scroll (elegante e leggero) ===== */
+    function setupReveal(){
+      const cards = document.querySelectorAll(".reveal");
+      if(!cards.length) return;
+
+      // se reduced motion: mostra tutto
+      if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+        cards.forEach(el => el.classList.add("is-visible"));
+        return;
+      }
+
+      // fallback se IntersectionObserver non supportato
+      if(!("IntersectionObserver" in window)){
+        cards.forEach(el => el.classList.add("is-visible"));
+        return;
+      }
+
+      const io = new IntersectionObserver((entries, obs)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+      cards.forEach(el => io.observe(el));
+    }
   </script>
 
 </body>
