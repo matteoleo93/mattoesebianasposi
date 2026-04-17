@@ -480,21 +480,32 @@
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Leone";
 
+    // ✅ micro-fix: blocco scroll sotto overlay
+    document.body.style.overflow = "hidden";
+
     // Password: richiesta sempre
     const lock = document.getElementById("lock");
     const pw = document.getElementById("pw");
     const err = document.getElementById("err");
     const btnEnter = document.getElementById("btnEnter");
 
-    function unlock(){ lock.style.display = "none"; }
+    function unlock(){
+      lock.style.display = "none";
+      document.body.style.overflow = ""; // ripristina scroll
+    }
+
     function check(){
       err.textContent = "";
       const v = (pw.value || "").trim();
       if(v === PASSWORD) unlock();
       else err.textContent = "Password non corretta. Riprova.";
     }
+
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
+
+    // ✅ micro-fix: focus automatico
+    window.addEventListener("load", ()=>{ try{ pw.focus(); }catch(e){} });
 
     // Inject testi + link
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
