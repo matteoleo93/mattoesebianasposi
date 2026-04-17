@@ -137,47 +137,45 @@
     p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
     .muted{ color:var(--muted); }
 
-    /* Event grid */
-    .event-grid{ display:grid; grid-template-columns:1fr; gap:10px; margin-top:6px; }
-
     /* Riga “normale” (rimane per altre sezioni) */
     .row{ display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
     .label{ font-weight:700; font-size:13px; color:var(--sage2); letter-spacing:.25px; min-width:74px; }
     .value{ color:var(--text); font-size:14.7px; }
 
-    /* Nuove righe “compatte” per Cerimonia/Festeggiamenti */
-    .row-2{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
+    /* ====== ✅ EVENT LAYOUT ORGANICO (NUOVO) ====== */
+    .event-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 28px;
+      margin-top: 6px;
+      align-items:start;
     }
-    .pair{
-      display:flex;
-      align-items:baseline;
-      gap:10px;
-      flex-wrap:wrap;
-      min-width: 220px;
-    }
-    .pair .label{ min-width:auto; }
 
-    .row-map{
+    .event-col{
       display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
+      flex-direction:column;
+      gap:12px;
+      min-width: 0; /* evita overflow */
     }
-    .row-map .left{
+
+    .event-row{
       display:flex;
+      gap:12px;
       align-items:baseline;
-      gap:10px;
       flex-wrap:wrap;
-      min-width: 220px;
     }
-    .row-map .label{ min-width:auto; }
-    .row-map .btn{ margin-top:0; }
+
+    .event-actions{
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      margin-top:2px;
+    }
+
+    @media (max-width:640px){
+      .event-grid{ grid-template-columns:1fr; }
+      .event-actions{ justify-content:flex-start; }
+    }
 
     /* Buttons */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
@@ -189,6 +187,7 @@
       background:rgba(78,140,120,.10);
       color:var(--sage2);
       transition:transform .15s ease, background .15s ease, border-color .15s ease;
+      white-space:nowrap;
     }
     .btn:hover{
       transform:translateY(-1px);
@@ -330,17 +329,24 @@
           Cerimonia
         </div>
 
+        <!-- ✅ NUOVA GRIGLIA ORGANICA -->
         <div class="event-grid">
-          <!-- Ore + Luogo nella stessa riga -->
-          <div class="row-2">
-            <div class="pair"><div class="label">Ore</div><div class="value">16:00</div></div>
-            <div class="pair"><div class="label">Luogo</div><div class="value">Chiesa Madre</div></div>
+          <div class="event-col">
+            <div class="event-row">
+              <div class="label">Ore</div><div class="value">16:00</div>
+            </div>
+            <div class="event-row">
+              <div class="label">Indirizzo</div><div class="value" id="churchAddr"></div>
+            </div>
           </div>
 
-          <!-- Indirizzo + Maps nella stessa riga -->
-          <div class="row-map">
-            <div class="left"><div class="label">Indirizzo</div><div class="value" id="churchAddr"></div></div>
-            <a class="btn" id="mapChurch" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+          <div class="event-col">
+            <div class="event-row">
+              <div class="label">Luogo</div><div class="value">Chiesa Madre</div>
+            </div>
+            <div class="event-actions">
+              <a class="btn" id="mapChurch" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+            </div>
           </div>
         </div>
       </div>
@@ -362,17 +368,24 @@
           Festeggiamenti
         </div>
 
+        <!-- ✅ NUOVA GRIGLIA ORGANICA -->
         <div class="event-grid">
-          <!-- Quando + Luogo nella stessa riga -->
-          <div class="row-2">
-            <div class="pair"><div class="label">Quando</div><div class="value">Dopo la cerimonia</div></div>
-            <div class="pair"><div class="label">Luogo</div><div class="value">Villa Anna</div></div>
+          <div class="event-col">
+            <div class="event-row">
+              <div class="label">Quando</div><div class="value">Dopo la cerimonia</div>
+            </div>
+            <div class="event-row">
+              <div class="label">Indirizzo</div><div class="value" id="villaAddr"></div>
+            </div>
           </div>
 
-          <!-- Indirizzo + Maps nella stessa riga -->
-          <div class="row-map">
-            <div class="left"><div class="label">Indirizzo</div><div class="value" id="villaAddr"></div></div>
-            <a class="btn" id="mapVilla" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+          <div class="event-col">
+            <div class="event-row">
+              <div class="label">Luogo</div><div class="value">Villa Anna</div>
+            </div>
+            <div class="event-actions">
+              <a class="btn" id="mapVilla" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+            </div>
           </div>
         </div>
       </div>
@@ -421,7 +434,6 @@
           <div class="muted" style="font-size:12.8px;margin-bottom:6px;">Lista nozze – Floresta</div>
           <div class="value" id="florestaAddr"></div>
 
-          <!-- Numero visibile (non duplico il link "tel:" qui), e tengo solo il bottone Chiama -->
           <div class="muted" style="margin-top:10px;">
             Tel. <span id="florestaPhoneText">0931 586747</span>
           </div>
@@ -437,7 +449,6 @@
       <div class="card">
         <div class="title">Contatti</div>
 
-        <!-- Matteo e Sebiana in un'unica riga, senza trattino -->
         <p style="margin:0;">
           <strong>Matteo</strong> <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
           <span class="muted" style="padding:0 10px;">•</span>
