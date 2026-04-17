@@ -138,7 +138,7 @@
       filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
     }
 
-    /* ✅ Override: Chiesa e Villa più grandi (icone “orizzontali”) */
+    /* ✅ Override: Chiesa e Festeggiamenti più grandi (icone “orizzontali”) */
     .title .sticker-icon.icon-church,
     .title .sticker-icon.icon-festeggiamenti{
       width:86px;
@@ -165,7 +165,7 @@
     .label{ font-weight:700; font-size:13px; color:var(--sage2); letter-spacing:.25px; min-width:74px; }
     .value{ color:var(--text); font-size:14.7px; }
 
-    /* ====== EVENTI (ridotto spazio vuoto, uguali tra loro) ====== */
+    /* ====== EVENTI ====== */
     .event-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -181,15 +181,12 @@
       min-width:0;
     }
 
-    /* ✅ MODIFICA: la colonna destra NON è più centrata.
-       Così "Indirizzo" si allinea alla riga sopra come impostazione/ritmo. */
     .event-col.right{
-      align-items:stretch;     /* prima era center */
-      text-align:left;         /* prima era center */
+      align-items:stretch;
+      text-align:left;
       gap:12px;
     }
 
-    /* allineamenti perfetti e testo sulla stessa riga */
     .event-row{
       display:grid;
       grid-template-columns: 118px 1fr;
@@ -210,12 +207,14 @@
       white-space:nowrap;
     }
 
+    /* ✅ miglior wrap generale nelle value (utile su mobile) */
     .event-row .value{
       min-width:0;
       line-height:1.55;
+      overflow-wrap:anywhere;
+      word-break:break-word;
     }
 
-    /* Icone Luogo/Indirizzo (restano SVG, ma noi abbiamo tolto "Luogo") */
     .mini-ico{
       width:18px;
       height:18px;
@@ -228,7 +227,6 @@
       opacity:.98;
     }
 
-    /* Maps centrato */
     .event-actions{
       display:flex;
       justify-content:center;
@@ -242,6 +240,13 @@
       .event-actions{ justify-content:center; }
       .event-col.right{ align-items:stretch; text-align:left; }
       .event-row{ grid-template-columns: 110px 1fr; }
+    }
+
+    /* ✅ Fix specifico: indirizzo chiesa deve andare a capo su mobile */
+    #churchAddr{
+      white-space:normal;
+      overflow-wrap:anywhere;
+      word-break:break-word;
     }
 
     /* Buttons */
@@ -295,13 +300,9 @@
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
-    /* Contatti: niente tratteggio */
     .contacts a.softlink{ border-bottom:none !important; }
-
-    /* Telefono Floresta più piccolo */
     .small-phone{ font-size:13px; }
 
-    /* Footer */
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
     .finale{ font-family:var(--serif); font-size:18px; color:var(--text); margin:0 0 8px; letter-spacing:.2px; }
     footer small{ display:block; font-size:13px; margin-top:10px; }
@@ -311,13 +312,16 @@
       position:fixed; inset:0; z-index:9999;
       display:flex; align-items:center; justify-content:center;
       padding:18px;
+
+      /* ✅ più coprente: evita “trasparenze” percepite */
       background:
-        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.85), transparent 60%),
-        linear-gradient(180deg, var(--cream), rgba(255,255,255,.96));
+        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.92), transparent 60%),
+        linear-gradient(180deg, rgba(255,247,238,.98), rgba(255,255,255,.98));
     }
+
     .lock-box{
       width:min(420px, 100%);
-      background:rgba(255,255,255,.94);
+      background:rgba(255,255,255,.96);
       border:1px solid rgba(34,48,42,.12);
       border-radius:24px;
       box-shadow:var(--shadow);
@@ -334,7 +338,6 @@
       color:var(--sage2);
     }
 
-    /* Login title: stesso font wedding */
     .lock-box h2{
       margin:0 0 6px;
       font-family:var(--wedding);
@@ -345,10 +348,8 @@
     }
 
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
-
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
 
-    /* Wrapper input + occhio */
     .pw-wrap{
       flex:1;
       position:relative;
@@ -360,11 +361,10 @@
       width:100%;
       border-radius:999px;
       border:1px solid rgba(34,48,42,.18);
-      padding:12px 44px 12px 14px; /* spazio per l’occhio */
+      padding:12px 44px 12px 14px;
       font-size:14px; outline:none; background:white;
     }
 
-    /* ✅ Occhietto */
     .pw-toggle{
       position:absolute;
       right:10px;
@@ -397,9 +397,6 @@
     }
 
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
-
-    /* Forzo indirizzi su una riga dove serve */
-    #churchAddr{ white-space:nowrap; }
   </style>
 </head>
 
@@ -431,179 +428,182 @@
     </div>
   </div>
 
-  <!-- ===== Header con sticker PNG ===== -->
-  <header>
-    <div class="wrap">
-      <div class="name-row">
-        <img class="avatar-img" src="assets/matteo.png" alt="Sticker Matteo" />
-        <h1>Matteo &amp; Sebiana</h1>
-        <img class="avatar-img" src="assets/sebiana.png" alt="Sticker Sebiana" />
+  <!-- ✅ SITO: nascosto finché non sblocchi (evita “intravedere” sotto il login) -->
+  <div id="site" hidden>
+
+    <!-- ===== Header con sticker PNG ===== -->
+    <header>
+      <div class="wrap">
+        <div class="name-row">
+          <img class="avatar-img" src="assets/matteo.png" alt="Sticker Matteo" />
+          <h1>Matteo &amp; Sebiana</h1>
+          <img class="avatar-img" src="assets/sebiana.png" alt="Sticker Sebiana" />
+        </div>
+        <p class="subtitle">01.09.2026</p>
       </div>
-      <p class="subtitle">01.09.2026</p>
-    </div>
-  </header>
+    </header>
 
-  <main class="wrap">
-    <section class="stack">
+    <main class="wrap">
+      <section class="stack">
 
-      <!-- Benvenuti -->
-      <div class="card">
-        <div class="title">Benvenuti</div>
-        <p>
-          Siamo felici di condividere con voi questo giorno speciale.
-          Qui trovate le informazioni essenziali su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
-        </p>
-      </div>
-
-      <!-- Cerimonia -->
-      <div class="card">
-        <div class="title">
-          <img class="sticker-icon icon-church" src="assets/icons/icon-church.png" alt="Icona cerimonia (chiesa)" />
-          Cerimonia
+        <!-- Benvenuti -->
+        <div class="card">
+          <div class="title">Benvenuti</div>
+          <p>
+            Siamo felici di condividere con voi questo giorno speciale.
+            Qui trovate le informazioni essenziali su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
+          </p>
         </div>
 
-        <div class="event-grid">
-          <div class="event-col">
-            <div class="event-row">
-              <div class="label">Ore</div>
-              <div class="value">16:00</div>
-            </div>
-
-            <div class="event-row">
-              <!-- ✅ MODIFICA: rimossa icona "Luogo" -->
-              <div class="label">Luogo</div>
-              <div class="value">Chiesa Madre</div>
-            </div>
+        <!-- Cerimonia -->
+        <div class="card">
+          <div class="title">
+            <img class="sticker-icon icon-church" src="assets/icons/icon-church.png" alt="Icona cerimonia (chiesa)" />
+            Cerimonia
           </div>
 
-          <div class="event-col right">
-            <div class="event-row">
-              <div class="label">
-                <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
-                  <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
-                </svg>
-                Indirizzo
+          <div class="event-grid">
+            <div class="event-col">
+              <div class="event-row">
+                <div class="label">Ore</div>
+                <div class="value">16:00</div>
               </div>
-              <div class="value" id="churchAddr"></div>
-            </div>
 
-            <div class="event-actions">
-              <a class="btn" id="mapChurch" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Festeggiamenti -->
-      <div class="card">
-        <div class="title">
-          <img class="sticker-icon icon-festeggiamenti" src="assets/icons/icon-festeggiamenti.png" alt="Icona festeggiamenti (festeggiamenti)" />
-          Festeggiamenti
-        </div>
-
-        <div class="event-grid">
-          <div class="event-col">
-            <div class="event-row">
-              <div class="label">Quando</div>
-              <div class="value">Dopo la cerimonia</div>
-            </div>
-
-            <div class="event-row">
-              <!-- ✅ MODIFICA: rimossa icona "Luogo" -->
-              <div class="label">Luogo</div>
-              <div class="value">Villa Anna</div>
-            </div>
-          </div>
-
-          <div class="event-col right">
-            <div class="event-row">
-              <div class="label">
-                <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
-                  <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
-                </svg>
-                Indirizzo
+              <div class="event-row">
+                <div class="label">Luogo</div>
+                <div class="value">Chiesa Madre</div>
               </div>
-              <div class="value" id="villaAddr"></div>
             </div>
 
-            <div class="event-actions">
-              <a class="btn" id="mapVilla" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+            <div class="event-col right">
+              <div class="event-row">
+                <div class="label">
+                  <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
+                    <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
+                  </svg>
+                  Indirizzo
+                </div>
+                <div class="value" id="churchAddr"></div>
+              </div>
+
+              <div class="event-actions">
+                <a class="btn" id="mapChurch" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Regalo / IBAN + Floresta -->
-      <div class="card">
-        <div class="title">
-          <img class="sticker-icon icon-gift" src="assets/icons/icon-gift.png" alt="Icona regalo" />
-          Un pensiero per noi
-        </div>
-
-        <p>
-          <strong>La vostra presenza è per noi il regalo più grande.</strong>
-          Se desiderate accompagnarci con un pensiero, potete contribuire al nostro progetto di vita insieme.
-        </p>
-
-        <div class="gift-box">
-          <div class="muted" style="font-size:12.8px;margin-bottom:6px;">IBAN</div>
-          <div class="mono" id="ibanText"></div>
-
-          <div style="margin-top:10px;">
-            <button class="copy" type="button" id="copyIban">Copia IBAN</button>
+        <!-- Festeggiamenti -->
+        <div class="card">
+          <div class="title">
+            <img class="sticker-icon icon-festeggiamenti" src="assets/icons/icon-festeggiamenti.png" alt="Icona festeggiamenti" />
+            Festeggiamenti
           </div>
 
-          <div class="muted" style="font-size:12.8px;margin:14px 0 6px;">Intestatario</div>
-          <div class="value" id="ibanName"></div>
+          <div class="event-grid">
+            <div class="event-col">
+              <div class="event-row">
+                <div class="label">Quando</div>
+                <div class="value">Dopo la cerimonia</div>
+              </div>
 
-          <div class="muted" style="font-size:12.8px;margin-top:10px;">
-            Causale suggerita: <span class="mono">Regalo di nozze</span>
+              <div class="event-row">
+                <div class="label">Luogo</div>
+                <div class="value">Villa Anna</div>
+              </div>
+            </div>
+
+            <div class="event-col right">
+              <div class="event-row">
+                <div class="label">
+                  <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
+                    <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
+                  </svg>
+                  Indirizzo
+                </div>
+                <div class="value" id="villaAddr"></div>
+              </div>
+
+              <div class="event-actions">
+                <a class="btn" id="mapVilla" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <p class="muted" style="margin-top:16px;">
-          Se invece preferite farci <strong>un dono</strong>, potete fare riferimento alla nostra <strong>lista nozze presso:</strong>
-        </p>
-
-        <div class="gift-box" style="margin-top:12px;">
-          <div class="muted" style="font-size:12.8px;margin-bottom:6px;">Lista nozze – Floresta</div>
-          <div class="value" id="florestaAddr"></div>
-
-          <div class="muted small-phone" style="margin-top:10px;">
-            Tel. <span id="florestaPhoneText">0931 586747</span>
+        <!-- Regalo / IBAN + Floresta -->
+        <div class="card">
+          <div class="title">
+            <img class="sticker-icon icon-gift" src="assets/icons/icon-gift.png" alt="Icona regalo" />
+            Un pensiero per noi
           </div>
 
-          <div class="btn-row" style="margin-top:12px;">
-            <a class="btn" id="mapFloresta" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
-            <a class="btn" id="telFloresta" aria-label="Chiama Floresta">☎️ Chiama</a>
+          <p>
+            <strong>La vostra presenza è per noi il regalo più grande.</strong>
+            Se desiderate accompagnarci con un pensiero, potete contribuire al nostro progetto di vita insieme.
+          </p>
+
+          <div class="gift-box">
+            <div class="muted" style="font-size:12.8px;margin-bottom:6px;">IBAN</div>
+            <div class="mono" id="ibanText"></div>
+
+            <div style="margin-top:10px;">
+              <button class="copy" type="button" id="copyIban">Copia IBAN</button>
+            </div>
+
+            <div class="muted" style="font-size:12.8px;margin:14px 0 6px;">Intestatario</div>
+            <div class="value" id="ibanName"></div>
+
+            <div class="muted" style="font-size:12.8px;margin-top:10px;">
+              Causale suggerita: <span class="mono">Regalo di nozze</span>
+            </div>
+          </div>
+
+          <p class="muted" style="margin-top:16px;">
+            Se invece preferite farci <strong>un dono</strong>, potete fare riferimento alla nostra <strong>lista nozze presso:</strong>
+          </p>
+
+          <div class="gift-box" style="margin-top:12px;">
+            <div class="muted" style="font-size:12.8px;margin-bottom:6px;">Lista nozze – Floresta</div>
+            <div class="value" id="florestaAddr"></div>
+
+            <div class="muted small-phone" style="margin-top:10px;">
+              Tel. <span id="florestaPhoneText">0931 586747</span>
+            </div>
+
+            <div class="btn-row" style="margin-top:12px;">
+              <a class="btn" id="mapFloresta" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+              <a class="btn" id="telFloresta" aria-label="Chiama Floresta">☎️ Chiama</a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Contatti -->
-      <div class="card contacts">
-        <div class="title">
-          <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti (telefono)" />
-          Contatti
+        <!-- Contatti -->
+        <div class="card contacts">
+          <div class="title">
+            <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti (telefono)" />
+            Contatti
+          </div>
+
+          <p style="margin:0;">
+            <strong>Matteo</strong> <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
+            <span class="muted" style="padding:0 10px;">•</span>
+            <strong>Sebiana</strong> <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
+          </p>
         </div>
 
-        <p style="margin:0;">
-          <strong>Matteo</strong> <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
-          <span class="muted" style="padding:0 10px;">•</span>
-          <strong>Sebiana</strong> <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
-        </p>
-      </div>
+      </section>
+    </main>
 
-    </section>
-  </main>
+    <footer>
+      <p class="finale">Non vediamo l’ora di condividere questo giorno con voi.</p>
+      <p class="muted" style="margin:0;">Grazie di cuore per esserci.</p>
+      <small>Matteo &amp; Sebiana · 01.09.2026</small>
+    </footer>
 
-  <footer>
-    <p class="finale">Non vediamo l’ora di condividere questo giorno con voi.</p>
-    <p class="muted" style="margin:0;">Grazie di cuore per esserci.</p>
-    <small>Matteo &amp; Sebiana · 01.09.2026</small>
-  </footer>
+  </div><!-- /#site -->
 
   <script>
     const PASSWORD = "villaanna2026";
@@ -621,19 +621,39 @@
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Leone";
 
-    // Password: richiesta sempre
+    // Elementi pagina
     const lock = document.getElementById("lock");
+    const site = document.getElementById("site");
+
+    // Blocca scroll finché bloccato
+    function setLocked(isLocked){
+      document.documentElement.style.overflow = isLocked ? "hidden" : "";
+      document.body.style.overflow = isLocked ? "hidden" : "";
+      document.body.style.touchAction = isLocked ? "none" : "";
+    }
+
+    // Stato iniziale: sito nascosto, lock visibile
+    site.hidden = true;
+    lock.style.display = "flex";
+    setLocked(true);
+
     const pw = document.getElementById("pw");
     const err = document.getElementById("err");
     const btnEnter = document.getElementById("btnEnter");
 
-    function unlock(){ lock.style.display = "none"; }
+    function unlock(){
+      lock.style.display = "none";
+      site.hidden = false;
+      setLocked(false);
+    }
+
     function check(){
       err.textContent = "";
       const v = (pw.value || "").trim();
       if(v === PASSWORD) unlock();
       else err.textContent = "Password non corretta. Riprova.";
     }
+
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 
