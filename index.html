@@ -22,9 +22,12 @@
       --shadow:0 18px 40px rgba(0,0,0,.09);
       --max:980px;
 
-      /* serif più elegante (resta “system”, ma più raffinato) */
+      /* serif elegante */
       --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Georgia", "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+      /* ✅ corsivo “più elegante possibile” (stack calligrafico di sistema) */
+      --script: "Snell Roundhand", "Apple Chancery", "Zapfino", "Segoe Script", "Bradley Hand", "Brush Script MT", cursive;
     }
 
     *{ box-sizing:border-box; }
@@ -53,16 +56,16 @@
       flex-wrap:wrap;
     }
 
-    /* ✅ Titolo: stesso colore della data + corsivo più elegante */
+    /* ✅ Titolo: leggermente più piccolo + corsivo più elegante + stesso colore della data */
     h1{
       margin:0;
-      font-family:var(--serif);
+      font-family:var(--script);
       font-style:italic;
-      font-weight:560;          /* più “raffinato” (meno pesante) */
-      letter-spacing:.4px;
-      font-size:50px;           /* come prima */
+      font-weight:500;
+      letter-spacing:.2px;
+      font-size:46px;            /* ✅ leggermente più piccolo */
       line-height:1.05;
-      color:var(--sage2);       /* ✅ uguale a 01.09.2026 */
+      color:var(--sage2);        /* ✅ uguale a 01.09.2026 */
       text-rendering:optimizeLegibility;
       font-kerning:normal;
       font-feature-settings:"kern","liga","clig";
@@ -80,7 +83,7 @@
 
     @media (max-width:520px){
       header{ padding:74px 0 26px; }
-      h1{ font-size:40px; }
+      h1{ font-size:38px; }      /* proporzionato */
       .subtitle{ font-size:20px; }
     }
 
@@ -141,18 +144,18 @@
     p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
     .muted{ color:var(--muted); }
 
-    /* Riga “normale” (rimane per altre sezioni) */
+    /* Riga “normale” */
     .row{ display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
     .label{ font-weight:700; font-size:13px; color:var(--sage2); letter-spacing:.25px; min-width:74px; }
     .value{ color:var(--text); font-size:14.7px; }
 
-    /* ====== ✅ EVENT LAYOUT ORGANICO (ALLINEAMENTI PERFETTI) ====== */
+    /* ====== ✅ EVENT LAYOUT (stessa grandezza/ritmo) ====== */
     .event-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px 28px;
       margin-top: 6px;
-      align-items:start;
+      align-items:stretch;          /* ✅ colonne “stirano” allo stesso modo */
     }
 
     .event-col{
@@ -160,23 +163,24 @@
       flex-direction:column;
       gap:12px;
       min-width:0;
+      height:100%;
     }
 
-    /* colonna destra centrata */
+    /* colonna destra centrata + stessa distribuzione verticale */
     .event-col.right{
       align-items:center;
       text-align:center;
+      justify-content:space-between; /* ✅ rende più simile l’altezza visiva tra le due card */
     }
 
-    /* ✅ Event row a GRID per allineare “Luogo” tra cerimonia e festeggiamenti */
+    /* ✅ Event row a grid: allineamento perfetto (Luogo tra cerimonia/festeggiamenti) */
     .event-row{
       display:grid;
-      grid-template-columns: 118px 1fr; /* fissa -> allineamento verticale perfetto */
+      grid-template-columns: 118px 1fr;
       column-gap:12px;
-      align-items:center;               /* ✅ stessa riga del testo (indirizzo non “alto”) */
+      align-items:center;            /* ✅ “(SR)” e testo sulla stessa linea */
     }
 
-    /* Label con iconcina */
     .event-row .label{
       min-width:0;
       display:inline-flex;
@@ -195,7 +199,7 @@
       line-height:1.55;
     }
 
-    /* ✅ Icone Luogo/Indirizzo più grandi */
+    /* ✅ Icone Luogo/Indirizzo più grandi (come richiesto in precedenza) */
     .mini-ico{
       width:18px;
       height:18px;
@@ -208,7 +212,7 @@
       opacity:.98;
     }
 
-    /* ✅ Maps sotto la riga della colonna destra e centrato (anche mobile) */
+    /* ✅ Maps centrato sotto la riga della colonna destra (anche mobile) */
     .event-actions{
       display:flex;
       justify-content:center;
@@ -220,7 +224,7 @@
     @media (max-width:640px){
       .event-grid{ grid-template-columns:1fr; }
       .event-actions{ justify-content:center; }
-      .event-col.right{ align-items:center; text-align:center; }
+      .event-col.right{ align-items:center; text-align:center; justify-content:flex-start; }
       .event-row{ grid-template-columns: 110px 1fr; }
     }
 
@@ -280,12 +284,9 @@
       border-bottom:none !important;
     }
 
-    /* ✅ Telefono Floresta più piccolo (come richiesto) */
+    /* ✅ Telefono Floresta più piccolo */
     .small-phone{
-      font-size:14.7px; /* come i numeri contatti (stessa size del testo value) */
-    }
-    .small-phone span{
-      font-size:13.2px; /* un filo più piccolo per il numero in sé */
+      font-size:13px;
     }
 
     /* Footer */
@@ -320,7 +321,17 @@
       font-size:13px;
       color:var(--sage2);
     }
-    .lock-box h2{ margin:0 0 6px; font-family:var(--serif); font-weight:500; letter-spacing:.4px; }
+
+    /* ✅ Login title: stesso font dei nomi */
+    .lock-box h2{
+      margin:0 0 6px;
+      font-family:var(--script);
+      font-style:italic;
+      font-weight:500;
+      letter-spacing:.2px;
+      color:var(--sage2);
+    }
+
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
     .lock-row{ display:flex; gap:10px; margin-top:10px; }
     .lock-row input{
@@ -389,7 +400,6 @@
           Cerimonia
         </div>
 
-        <!-- ✅ GRIGLIA (Luogo/Indirizzo invertiti + allineati) -->
         <div class="event-grid">
           <div class="event-col">
             <div class="event-row">
@@ -445,7 +455,6 @@
           Festeggiamenti
         </div>
 
-        <!-- ✅ GRIGLIA (Luogo/Indirizzo invertiti + allineati) -->
         <div class="event-grid">
           <div class="event-col">
             <div class="event-row">
@@ -498,7 +507,7 @@
         </div>
 
         <p>
-          La vostra presenza è per noi il regalo più grande.
+          <strong>La vostra presenza è per noi il regalo più grande.</strong>
           Se desiderate accompagnarci con un pensiero, potete contribuire al nostro progetto di vita insieme.
         </p>
 
@@ -506,7 +515,6 @@
           <div class="muted" style="font-size:12.8px;margin-bottom:6px;">IBAN</div>
           <div class="mono" id="ibanText"></div>
 
-          <!-- Copia vicino all’IBAN -->
           <div style="margin-top:10px;">
             <button class="copy" type="button" id="copyIban">Copia IBAN</button>
           </div>
@@ -519,7 +527,6 @@
           </div>
         </div>
 
-        <!-- ✅ Testo aggiornato: chiude con “lista nozze presso:” e toglie ripetizione Floresta/Siracusa -->
         <p class="muted" style="margin-top:16px;">
           Se invece preferite farci <strong>un dono</strong>, potete fare riferimento alla nostra <strong>lista nozze presso:</strong>
         </p>
@@ -528,7 +535,6 @@
           <div class="muted" style="font-size:12.8px;margin-bottom:6px;">Lista nozze – Floresta</div>
           <div class="value" id="florestaAddr"></div>
 
-          <!-- ✅ telefono più piccolo -->
           <div class="muted small-phone" style="margin-top:10px;">
             Tel. <span id="florestaPhoneText">0931 586747</span>
           </div>
@@ -563,9 +569,10 @@
   <script>
     const PASSWORD = "villaanna2026";
 
-    const CHURCH_ADDRESS   = "Via XX Settembre, 96010 Canicattini Bagni (SR)";
+    // ✅ NBSP prima della provincia per evitare che “(SR)” vada a capo
+    const CHURCH_ADDRESS   = "Via XX Settembre, 96010 Canicattini Bagni\u00A0(SR)";
     const VILLA_ADDRESS    = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
-    const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa (SR)";
+    const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
     const FLORESTA_PHONE   = "+390931586747";
 
     const MAP_CHURCH   = "https://www.google.com/maps?q=" + encodeURIComponent("Chiesa Madre, " + CHURCH_ADDRESS);
@@ -593,10 +600,7 @@
 
     // Inject testi + link
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
-
-    // ✅ indirizzo Villa: C.da (non c.da) e sulla stessa riga del testo
     document.getElementById("villaAddr").textContent = "C.da Graffetta, 97014 Ispica (RG)";
-
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
@@ -605,13 +609,12 @@
     document.getElementById("mapFloresta").href = MAP_FLORESTA;
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
-    // telefono testuale solo testo (non link)
     document.getElementById("florestaPhoneText").textContent = "0931 586747";
 
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
-    // Copia IBAN (vicino all’IBAN)
+    // Copia IBAN
     const copyBtn = document.getElementById("copyIban");
     copyBtn.addEventListener("click", async ()=>{
       try{
