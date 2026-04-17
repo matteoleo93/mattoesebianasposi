@@ -129,36 +129,32 @@
       font-size:22px;
     }
 
-    /* ✅ Nuove icone “sticker” per i titoli sezione */
-   
-.sticker-icon{
-  width:72px;              /* ✅ più grande e leggibile (raffinato) */
-  height:auto;
-  flex:0 0 72px;
-  object-fit:contain;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
-}
+    /* ✅ Icone “sticker” nei titoli sezione (base) */
+    .sticker-icon{
+      width:72px;                 /* più grande e leggibile */
+      height:auto;
+      flex:0 0 72px;
+      object-fit:contain;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
+    }
 
-@media (max-width:520px){
-  .sticker-icon{
-    width:60px;            /* ✅ proporzionato su mobile */
-    flex-basis:60px;
-  }
-}
-``
+    /* ✅ Override: Chiesa e Villa più grandi (icone “orizzontali”) */
+    .title .sticker-icon.icon-church,
+    .title .sticker-icon.icon-villa{
+      width:86px;
+      flex-basis:86px;
+    }
 
-
-    /* Icone titoli (vecchie SVG - lasciate in CSS ma non più usate nei 4 titoli) */
-    .ico{
-      width:46px;
-      height:46px;
-      flex:0 0 46px;
-      stroke:var(--sage);
-      fill:rgba(78,140,120,.18);
-      stroke-width:2.6;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      filter: drop-shadow(0 8px 18px rgba(0,0,0,.14));
+    @media (max-width:520px){
+      .sticker-icon{
+        width:60px;
+        flex-basis:60px;
+      }
+      .title .sticker-icon.icon-church,
+      .title .sticker-icon.icon-villa{
+        width:72px;
+        flex-basis:72px;
+      }
     }
 
     p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
@@ -217,7 +213,7 @@
       line-height:1.55;
     }
 
-    /* Icone Luogo/Indirizzo */
+    /* Icone Luogo/Indirizzo (restano SVG) */
     .mini-ico{
       width:18px;
       height:18px;
@@ -418,7 +414,6 @@
         <div class="pw-wrap">
           <input id="pw" type="password" placeholder="Password" autocomplete="off" />
           <button class="pw-toggle" id="togglePw" type="button" aria-label="Mostra password" aria-pressed="false">
-            <!-- eye -->
             <svg id="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
               <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
@@ -461,7 +456,7 @@
       <!-- Cerimonia -->
       <div class="card">
         <div class="title">
-          <img class="sticker-icon" src="assets/icons/icon-church.png" alt="" aria-hidden="true" />
+          <img class="sticker-icon icon-church" src="assets/icons/icon-church.png" alt="Icona cerimonia (chiesa)" />
           Cerimonia
         </div>
 
@@ -506,7 +501,7 @@
       <!-- Festeggiamenti -->
       <div class="card">
         <div class="title">
-          <img class="sticker-icon" src="assets/icons/icon-villa.png" alt="" aria-hidden="true" />
+          <img class="sticker-icon icon-villa" src="assets/icons/icon-villa.png" alt="Icona festeggiamenti (villa)" />
           Festeggiamenti
         </div>
 
@@ -551,7 +546,7 @@
       <!-- Regalo / IBAN + Floresta -->
       <div class="card">
         <div class="title">
-          <img class="sticker-icon" src="assets/icons/icon-gift.png" alt="" aria-hidden="true" />
+          <img class="sticker-icon icon-gift" src="assets/icons/icon-gift.png" alt="Icona regalo" />
           Un pensiero per noi
         </div>
 
@@ -598,7 +593,7 @@
       <!-- Contatti -->
       <div class="card contacts">
         <div class="title">
-          <img class="sticker-icon" src="assets/icons/icon-phone.png" alt="" aria-hidden="true" />
+          <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti (telefono)" />
           Contatti
         </div>
 
@@ -712,4 +707,3 @@
 
 </body>
 </html>
-``
