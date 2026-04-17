@@ -70,19 +70,26 @@
 
     /* ✅ NUOVO: immagini vicine sopra, nomi sotto */
     .couple-row{
-      display:flex;
-      align-items:flex-end;
-      justify-content:center;
-      gap:8px;              /* immagini vicine */
-      margin:0 0 10px;
-    }
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:8px;
+  margin:0 0 18px; /* ✅ più spazio tra immagini e titolo */
+}
+
+/* opzionale: titolo un filo più “arioso” */
+.couple-name{
+  margin:0;
+  text-align:center;
+  line-height:1.06;
+}
     .couple-name{
       margin:0;
       text-align:center;
     }
-    @media (max-width:520px){
-      .couple-row{ gap:6px; margin:0 0 8px; }
-    }
+   @media (max-width:520px){
+  .couple-row{ gap:6px; margin:0 0 14px; } /* ✅ più spazio anche su mobile */
+}
 
     h1{
       margin:0;
