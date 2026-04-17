@@ -130,16 +130,23 @@
     }
 
     /* ✅ Nuove icone “sticker” per i titoli sezione */
-    .sticker-icon{
-      width:52px;
-      height:auto;
-      flex:0 0 52px;
-      object-fit:contain;
-      filter: drop-shadow(0 8px 18px rgba(0,0,0,.12));
-    }
-    @media (max-width:520px){
-      .sticker-icon{ width:46px; flex-basis:46px; }
-    }
+   
+.sticker-icon{
+  width:72px;              /* ✅ più grande e leggibile (raffinato) */
+  height:auto;
+  flex:0 0 72px;
+  object-fit:contain;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
+}
+
+@media (max-width:520px){
+  .sticker-icon{
+    width:60px;            /* ✅ proporzionato su mobile */
+    flex-basis:60px;
+  }
+}
+``
+
 
     /* Icone titoli (vecchie SVG - lasciate in CSS ma non più usate nei 4 titoli) */
     .ico{
