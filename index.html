@@ -239,11 +239,13 @@
       .event-grid{ grid-template-columns:1fr; }
       .event-actions{ justify-content:center; }
       .event-col.right{ align-items:stretch; text-align:left; }
-      .event-row{ grid-template-columns: 110px 1fr; }
+      .event-row{ grid-template-columns: 104px 1fr; } /* ✅ un filo più compatto su mobile */
     }
 
-    /* ✅ Fix: indirizzo chiesa deve andare a capo su mobile (no taglio) */
-    #churchAddr{
+    /* ✅ Wrap su mobile per TUTTI gli indirizzi (chiesa, villa, floresta) */
+    #churchAddr,
+    #villaAddr,
+    #florestaAddr{
       white-space:normal;
       overflow-wrap:anywhere;
       word-break:break-word;
@@ -260,6 +262,7 @@
       color:var(--sage2);
       transition:transform .15s ease, background .15s ease, border-color .15s ease;
       white-space:nowrap;
+      -webkit-tap-highlight-color: transparent; /* ✅ tap più “pulito” su mobile */
     }
     .btn:hover{
       transform:translateY(-1px);
@@ -291,6 +294,7 @@
       padding:9px 12px;
       font-size:13px;
       cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
     a.softlink{
@@ -363,7 +367,6 @@
     }
 
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
-
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
 
     /* Wrapper input + occhio */
@@ -396,6 +399,7 @@
       justify-content:center;
       cursor:pointer;
       padding:0;
+      -webkit-tap-highlight-color: transparent;
     }
     .pw-toggle svg{
       width:18px;
@@ -412,6 +416,7 @@
       cursor:pointer;
       background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
       color:white; white-space:nowrap;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
@@ -429,7 +434,7 @@
 
       <div class="lock-row">
         <div class="pw-wrap">
-          <input id="pw" type="password" placeholder="Password" autocomplete="off" />
+          <input id="pw" type="password" placeholder="Password" autocomplete="off" autofocus />
           <button class="pw-toggle" id="togglePw" type="button" aria-label="Mostra password" aria-pressed="false">
             <svg id="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
@@ -648,6 +653,7 @@
       document.body.style.touchAction = isLocked ? "none" : "";
     }
 
+    // Stato iniziale
     site.hidden = true;
     lock.style.display = "flex";
     setLocked(true);
@@ -672,6 +678,10 @@
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 
+    // Autofocus (alcuni browser mobile ignorano l'attributo, qui ci proviamo comunque)
+    try{ pw.focus(); } catch(e){}
+
+    // Occhietto mostra/nascondi password
     const togglePw = document.getElementById("togglePw");
     const eyeIcon = document.getElementById("eyeIcon");
 
@@ -695,6 +705,7 @@
       pw.focus();
     });
 
+    // Inject testi + link
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
     document.getElementById("villaAddr").textContent = "C.da Graffetta, 97014 Ispica (RG)";
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
@@ -710,12 +721,18 @@
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
+    // Copia IBAN
     const copyBtn = document.getElementById("copyIban");
+    function resetCopyLabel(){
+      copyBtn.textContent = "Copia IBAN";
+    }
+    resetCopyLabel();
+
     copyBtn.addEventListener("click", async ()=>{
       try{
         await navigator.clipboard.writeText(IBAN);
         copyBtn.textContent = "Copiato ✓";
-        setTimeout(()=> copyBtn.textContent = "Copia IBAN", 1600);
+        setTimeout(resetCopyLabel, 1600);
       }catch(e){
         const t = document.createElement("textarea");
         t.value = IBAN;
@@ -724,7 +741,7 @@
         document.execCommand("copy");
         document.body.removeChild(t);
         copyBtn.textContent = "Copiato ✓";
-        setTimeout(()=> copyBtn.textContent = "Copia IBAN", 1600);
+        setTimeout(resetCopyLabel, 1600);
       }
     });
   </script>
