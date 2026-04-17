@@ -121,7 +121,7 @@
       font-size:22px;
     }
 
-    /* Icone più grandi e più vive */
+    /* Icone più grandi e più vive (titoli card) */
     .ico{
       width:46px;
       height:46px;
@@ -142,7 +142,7 @@
     .label{ font-weight:700; font-size:13px; color:var(--sage2); letter-spacing:.25px; min-width:74px; }
     .value{ color:var(--text); font-size:14.7px; }
 
-    /* ====== ✅ EVENT LAYOUT ORGANICO (AGGIORNATO) ====== */
+    /* ====== ✅ EVENT LAYOUT ORGANICO (ALLINEATO) ====== */
     .event-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -154,24 +154,58 @@
     .event-col{
       display:flex;
       flex-direction:column;
-      gap:12px;           /* ✅ ritmo uniforme */
+      gap:12px;           /* ritmo uniforme */
       min-width: 0;       /* evita overflow */
     }
 
-    /* ✅ colonna destra: centra "Luogo" e bottone */
+    /* colonna destra centrata (anche su mobile) */
     .event-col.right{
       align-items:center;
       text-align:center;
     }
 
+    /* ✅ RIGHE EVENTO: grid a 2 colonne per allineare perfettamente Luogo/Indirizzo */
     .event-row{
-      display:flex;
-      gap:12px;
-      align-items:flex-start; /* ✅ invece di baseline: evita differenze ottiche tra righe */
-      flex-wrap:wrap;
+      display:grid;
+      grid-template-columns: 108px 1fr; /* colonna label fissa -> allineamento perfetto tra le card */
+      column-gap:12px;
+      align-items:start;
     }
 
-    /* ✅ Maps sotto Luogo e centrato */
+    /* label e valore dentro event-row */
+    .event-row .label{
+      min-width:0;        /* la larghezza ora la gestisce la grid */
+      display:inline-flex;
+      align-items:center;
+      gap:8px;            /* spazio tra iconcina e testo */
+      font-weight:700;
+      font-size:13px;
+      color:var(--sage2);
+      letter-spacing:.25px;
+      line-height:1.25;
+      white-space:nowrap;
+    }
+
+    .event-row .value{
+      font-size:14.7px;
+      line-height:1.55;
+      min-width:0;
+    }
+
+    /* Iconcine piccole vicino alle label (Luogo/Indirizzo) */
+    .mini-ico{
+      width:14px;
+      height:14px;
+      flex:0 0 14px;
+      stroke:var(--sage2);
+      fill:rgba(78,140,120,.12);
+      stroke-width:2.2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      opacity:.95;
+    }
+
+    /* Maps sotto la riga della colonna destra e centrato */
     .event-actions{
       display:flex;
       justify-content:center;
@@ -182,9 +216,13 @@
 
     @media (max-width:640px){
       .event-grid{ grid-template-columns:1fr; }
+
+      /* su mobile: mantengo centrato come richiesto */
       .event-actions{ justify-content:center; }
-      .event-col.right{ align-items:flex-start; text-align:left; } /* su mobile torna naturale */
-      .event-actions{ justify-content:flex-start; }               /* bottone a sinistra su mobile */
+      .event-col.right{ align-items:center; text-align:center; }
+
+      /* su mobile: label meno larga, così non “spreca” spazio */
+      .event-row{ grid-template-columns: 96px 1fr; }
     }
 
     /* Buttons */
@@ -339,22 +377,38 @@
           Cerimonia
         </div>
 
-        <!-- ✅ GRIGLIA ORGANICA -->
+        <!-- ✅ GRIGLIA (Luogo/Indirizzo invertiti + allineati) -->
         <div class="event-grid">
           <div class="event-col">
             <div class="event-row">
-              <div class="label">Ore</div><div class="value">16:00</div>
+              <div class="label">Ore</div>
+              <div class="value">16:00</div>
             </div>
+
             <div class="event-row">
-              <div class="label">Indirizzo</div><div class="value" id="churchAddr"></div>
+              <div class="label">
+                <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3l9 7v11H3V10l9-7z"></path>
+                  <path d="M9 21v-7h6v7"></path>
+                </svg>
+                Luogo
+              </div>
+              <div class="value">Chiesa Madre</div>
             </div>
           </div>
 
-          <!-- ✅ colonna destra centrata -->
           <div class="event-col right">
             <div class="event-row">
-              <div class="label">Luogo</div><div class="value">Chiesa Madre</div>
+              <div class="label">
+                <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
+                  <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
+                </svg>
+                Indirizzo
+              </div>
+              <div class="value" id="churchAddr"></div>
             </div>
+
             <div class="event-actions">
               <a class="btn" id="mapChurch" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
             </div>
@@ -379,22 +433,38 @@
           Festeggiamenti
         </div>
 
-        <!-- ✅ GRIGLIA ORGANICA -->
+        <!-- ✅ GRIGLIA (Luogo/Indirizzo invertiti + allineati) -->
         <div class="event-grid">
           <div class="event-col">
             <div class="event-row">
-              <div class="label">Quando</div><div class="value">Dopo la cerimonia</div>
+              <div class="label">Quando</div>
+              <div class="value">Dopo la cerimonia</div>
             </div>
+
             <div class="event-row">
-              <div class="label">Indirizzo</div><div class="value" id="villaAddr"></div>
+              <div class="label">
+                <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3l9 7v11H3V10l9-7z"></path>
+                  <path d="M9 21v-7h6v7"></path>
+                </svg>
+                Luogo
+              </div>
+              <div class="value">Villa Anna</div>
             </div>
           </div>
 
-          <!-- ✅ colonna destra centrata -->
           <div class="event-col right">
             <div class="event-row">
-              <div class="label">Luogo</div><div class="value">Villa Anna</div>
+              <div class="label">
+                <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
+                  <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
+                </svg>
+                Indirizzo
+              </div>
+              <div class="value" id="villaAddr"></div>
             </div>
+
             <div class="event-actions">
               <a class="btn" id="mapVilla" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
             </div>
@@ -510,7 +580,10 @@
 
     // Inject testi + link
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
+
+    // qui lasciamo l’indirizzo “breve” come avevi impostato tu
     document.getElementById("villaAddr").textContent = "c.da Graffetta, 97014 Ispica (RG)";
+
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
