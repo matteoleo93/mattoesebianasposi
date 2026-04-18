@@ -5,23 +5,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Matteo &amp; Sebiana — 01.09.2026</title>
   <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
-  <!-- ✅ più champagne/luxury -->
-  <meta name="theme-color" content="#F2E2CF" />
+  <!-- ✅ più champagne/butter, look premium su mobile (barra browser) -->
+  <meta name="theme-color" content="#FFFBF3" />
 
   <style>
     :root{
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      --cream:#FFF7EE;
+      /* ✅ palette più burro/bianco/champagne */
+      --cream:#FFF8F0;
       --white:#FFFFFF;
       --butter:#FFF7EA;
       --butter2:#FFFBF3;
-      --sagewash:#F2F7F4;
+      --champ:#F2E2CF;     /* champagne */
+      --ivory:#FFFDF7;     /* “paper” premium */
 
-      --text:#22302A;
+      --text:#1F2A25;
       --muted:#5E6B64;
-      --border:rgba(34,48,42,.12);
+      --border:rgba(34,48,42,.10);
 
       --radius:22px;
 
@@ -43,13 +45,13 @@
       color:var(--text);
       font-family:var(--sans);
 
-      /* ✅ più burro/champagne, meno verde e meno sabbia */
+      /* ✅ luxury butter/white: tanto bianco caldo + champagne, verde solo accento */
       background:
-        radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.12), transparent 60%),
-        radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.86), transparent 56%),
-        radial-gradient(900px 420px at 52% 18%, rgba(255,247,234,.92), transparent 62%),
-        radial-gradient(820px 420px at 10% 26%, rgba(255,255,255,.78), transparent 60%),
-        linear-gradient(180deg, var(--butter2), var(--cream) 40%, #ffffff 100%);
+        radial-gradient(1050px 520px at 15% -6%, rgba(78,140,120,.08), transparent 62%),
+        radial-gradient(980px 560px at 92% 0%, rgba(242,226,207,.92), transparent 58%),
+        radial-gradient(980px 520px at 52% 18%, rgba(255,255,255,.90), transparent 62%),
+        radial-gradient(900px 520px at 40% 28%, rgba(255,247,234,.92), transparent 64%),
+        linear-gradient(180deg, var(--butter2), var(--cream) 42%, #ffffff 100%);
     }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
@@ -63,45 +65,46 @@
       align-items:flex-end;
       justify-content:center;
       gap:2px;
-      margin:0 0 18px;
+      margin:0 0 14px; /* un filo meno “stacco” */
     }
     .couple-row .avatar-img + .avatar-img{ margin-left:-14px; }
 
     @media (max-width:520px){
       header{ padding:74px 0 26px; }
-      .couple-row{ gap:2px; margin:0 0 14px; }
+      .couple-row{ gap:2px; margin:0 0 10px; }
       .couple-row .avatar-img + .avatar-img{ margin-left:-10px; }
     }
 
+    /* ✅ Nome NON bold + più in basso rispetto alle immagini */
     h1{
-      margin:0;
+      margin:16px 0 0;               /* ✅ abbassato rispetto agli sposi */
       font-family:var(--wedding);
       font-style:italic;
-      font-weight:520;
+      font-weight:440;               /* ✅ non grassetto */
       letter-spacing:.35px;
       font-size:46px;
       line-height:1.05;
-      color:var(--sage2);
+      color:rgba(47,110,91,.92);     /* verde profondo elegante */
       text-rendering:optimizeLegibility;
       font-kerning:normal;
       font-feature-settings:"kern","liga","clig";
     }
 
-    .couple-name{ margin:0; text-align:center; line-height:1.06; }
+    .couple-name{ text-align:center; }
 
     .subtitle{
-      margin:14px 0 0;
-      color:var(--sage2);
+      margin:12px 0 0;
+      color:rgba(47,110,91,.86);
       font-family:var(--wedding);
       font-style:italic;
       font-size:22px;
       letter-spacing:.6px;
-      font-weight:560;
+      font-weight:520;               /* ✅ più leggero */
       text-align:center;
     }
 
     @media (max-width:520px){
-      h1{ font-size:38px; }
+      h1{ font-size:38px; margin-top:14px; }
       .subtitle{ font-size:20px; }
     }
 
@@ -124,9 +127,10 @@
     section{ padding:26px 0; }
     .stack{ display:grid; gap:18px; }
 
+    /* ✅ Card più “paper premium” (ivory/white), meno verde/sabbia */
     .card{
-      /* ✅ più ivory/champagne, meno verde */
-      background: linear-gradient(180deg, rgba(255, 251, 243, .96), rgba(255, 247, 238, .92));
+      background:
+        linear-gradient(180deg, rgba(255, 253, 247, .98), rgba(255, 251, 243, .94));
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -134,8 +138,6 @@
       overflow:hidden;
       transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
       will-change: transform, box-shadow;
-      opacity:1;
-      transform:none;
       position:relative;
     }
 
@@ -143,7 +145,7 @@
       .card:hover{
         transform: translateY(-3px);
         box-shadow:var(--shadowHover);
-        border-color: rgba(47,110,91,.18);
+        border-color: rgba(34,48,42,.14);
       }
     }
 
@@ -154,17 +156,21 @@
       margin:0 0 12px;
       font-family:var(--serif);
       font-weight:500;
-      letter-spacing:.4px;
+      letter-spacing:.35px;
       font-size:22px;
       min-width:0;
     }
 
+    /* ✅ riga più champagne, meno verde */
     .title::after{
       content:"";
       flex:1 1 auto;
       height:1px;
       margin-left:12px;
-      background:linear-gradient(90deg, rgba(47,110,91,.32), rgba(242,226,207,.28) 55%, rgba(47,110,91,0));
+      background:linear-gradient(90deg,
+        rgba(242,226,207,.88),
+        rgba(242,226,207,.34) 55%,
+        rgba(242,226,207,0));
       transform: translateY(1px);
     }
 
@@ -201,8 +207,8 @@
       display:inline-flex; align-items:center; gap:8px;
       padding:10px 14px; border-radius:999px;
       text-decoration:none; font-size:14px;
-      border:1px solid rgba(47,110,91,.25);
-      background:rgba(78,140,120,.10);
+      border:1px solid rgba(47,110,91,.22);
+      background:rgba(242,226,207,.18);  /* ✅ più champagne, meno verde */
       color:var(--sage2);
       transition:transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       white-space:nowrap;
@@ -210,24 +216,24 @@
     }
     .btn:hover{
       transform:translateY(-1px);
-      border-color:rgba(47,110,91,.45);
-      background:rgba(78,140,120,.14);
+      border-color:rgba(34,48,42,.18);
+      background:rgba(242,226,207,.26);
     }
 
-    /* ✅ Bottone Maps più premium */
+    /* ✅ Bottone Maps più premium, più “hotel 5 stelle” */
     .btn.btn-premium{
       border: 1px solid rgba(34,48,42,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(242,226,207,.34));
+      background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(242,226,207,.38));
       color: rgba(47,110,91,.92);
       box-shadow: 0 14px 30px rgba(0,0,0,.06);
       padding: 11px 16px;
-      font-weight: 650;
-      letter-spacing: .15px;
+      font-weight: 680;
+      letter-spacing: .12px;
     }
     @media (hover:hover) and (pointer:fine){
       .btn.btn-premium:hover{
         transform: translateY(-1px);
-        background: linear-gradient(180deg, rgba(255,255,255,.97), rgba(242,226,207,.42));
+        background: linear-gradient(180deg, rgba(255,255,255,.99), rgba(242,226,207,.46));
         box-shadow: 0 18px 44px rgba(0,0,0,.075);
         border-color: rgba(34,48,42,.18);
       }
@@ -238,7 +244,7 @@
       margin-top:12px;
       padding:14px 14px;
       border-radius:18px;
-      background:linear-gradient(180deg, rgba(242,226,207,.42), rgba(255,255,255,.92));
+      background:linear-gradient(180deg, rgba(242,226,207,.34), rgba(255,255,255,.94));
       border:1px solid rgba(34,48,42,.10);
     }
 
@@ -251,7 +257,7 @@
     .copy{
       display:inline-flex; align-items:center; gap:8px;
       border:1px solid rgba(34,48,42,.14);
-      background:rgba(255,255,255,.90);
+      background:rgba(255,255,255,.92);
       border-radius:999px;
       padding:9px 12px;
       font-size:13px;
@@ -262,7 +268,7 @@
     a.softlink{
       color:var(--sage2);
       text-decoration:none;
-      border-bottom:1px dashed rgba(47,110,91,.45);
+      border-bottom:1px dashed rgba(47,110,91,.35);
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
@@ -302,8 +308,8 @@
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       margin:0 auto 12px; padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(47,110,91,.22);
-      background:rgba(242,226,207,.32);
+      border:1px solid rgba(34,48,42,.14);
+      background:rgba(242,226,207,.26);
       font-size:13px;
       color:var(--sage2);
     }
@@ -312,7 +318,7 @@
       margin:0 0 6px;
       font-family:var(--wedding);
       font-style:italic;
-      font-weight:520;
+      font-weight:480;
       letter-spacing:.35px;
       color:var(--sage2);
     }
@@ -358,7 +364,7 @@
     .lock-row button#btnEnter{
       border-radius:999px; border:0; padding:12px 16px; font-size:14px;
       cursor:pointer;
-      background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
+      background:linear-gradient(180deg, rgba(47,110,91,.95), rgba(35,84,69,.92));
       color:white; white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
     }
@@ -405,7 +411,7 @@
     .invite-ill{
       width: 100%;
       height: auto;
-      max-width: 200px;
+      max-width: 210px; /* leggermente più presente */
       object-fit: contain;
       filter: drop-shadow(0 10px 16px rgba(0,0,0,.09));
     }
@@ -424,12 +430,12 @@
       width: fit-content;
       padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(47,110,91,.18);
-      background: rgba(242,226,207,.34);
+      border: 1px solid rgba(34,48,42,.14);
+      background: rgba(242,226,207,.26);
       color: var(--sage2);
       font-size: 13px;
       letter-spacing: .2px;
-      font-weight: 650;
+      font-weight: 670;
     }
 
     .invite-place{
@@ -461,11 +467,11 @@
 
     @media (max-width:700px){
       .invite{ grid-template-columns: 1fr; }
-      .invite-ill{ max-width: 280px; }
+      .invite-ill{ max-width: 290px; }
       .invite-actions .btn{ width: 100%; justify-content:center; }
     }
 
-    /* ✅ wedding-text per allineare il font */
+    /* ✅ “wedding-text” */
     .wedding-text{
       font-family: var(--wedding);
       font-style: italic;
@@ -473,30 +479,27 @@
     }
 
     /* ==========================================================
-       ✅ FIX ICONONE: definisco sticker-icon (prima mancava)
+       ✅ ICONE “Regalo” + “Contatti”: un po’ più grandi ma controllate
        ========================================================== */
     .sticker-icon{
-      width:48px;
-      height:48px;
-      flex:0 0 48px;
+      width:56px;              /* ✅ più grande (prima 48) */
+      height:56px;
+      flex:0 0 56px;
       object-fit:contain;
       display:inline-block;
       transform: translateY(1px);
       filter: drop-shadow(0 10px 16px rgba(0,0,0,.10));
     }
-
     @media (max-width:520px){
       .sticker-icon{
-        width:44px;
-        height:44px;
-        flex-basis:44px;
+        width:50px;
+        height:50px;
+        flex-basis:50px;
       }
     }
-
-    /* se per caso una png enorme ha dimensioni "native" assurde, le taglio comunque */
     .icon-gift, .icon-phone{
-      max-width:48px;
-      max-height:48px;
+      max-width:56px;
+      max-height:56px;
     }
   </style>
 </head>
