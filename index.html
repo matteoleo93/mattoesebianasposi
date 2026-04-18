@@ -5,41 +5,37 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Matteo &amp; Sebiana — 01.09.2026</title>
   <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
-  <meta name="theme-color" content="#F3E7D6" />
+  <meta name="theme-color" content="#4E8C78" />
 
   <style>
     :root{
-      /* Accent (usato poco) */
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      /* Base “luxury”: burro/champagne/bianco */
+      /* Base palette */
+      --cream:#FFF7EE;
       --white:#FFFFFF;
-      --milk:#FFFEFB;
-      --butter:#FFF7EA;        /* burro caldo */
-      --butter2:#FFFBF3;       /* burro chiaro */
-      --champagne:#F4E8D6;     /* champagne */
-      --porcelain:#FBF7F1;     /* porcellana */
-      --blush: rgba(210, 142, 141, .07); /* romanticissimo ma quasi invisibile */
+      --butter:#FFF7EA;             /* burro caldo */
+      --butter2:#FFFBF3;            /* burro più chiaro */
+      --sagewash:#F2F7F4;           /* salvia chiarissima */
 
-      /* Testi (meno verdi, più neutri) */
-      --text:#1F2622;
-      --muted:#5F6A64;
-
-      /* Bordi più delicati */
-      --border: rgba(31,38,34,.10);
-      --border2: rgba(31,38,34,.08);
+      --text:#22302A;
+      --muted:#5E6B64;
+      --border:rgba(34,48,42,.12);
 
       --radius:22px;
+
+      /* Ombre più “reali” e meno da box */
+      --shadow: 0 22px 52px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.03);
+      --shadowHover: 0 26px 64px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.04);
+
       --max:980px;
 
       --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Georgia", "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      --wedding: ui-serif, "Baskerville", "Libre Baskerville", "Didot", "Bodoni MT", "Georgia", "Times New Roman", serif;
 
-      /* Ombre più “daylight”, meno contrasto = più premium */
-      --shadow: 0 14px 40px rgba(0,0,0,.06), 0 2px 10px rgba(0,0,0,.02);
-      --shadowHover: 0 18px 56px rgba(0,0,0,.075), 0 3px 12px rgba(0,0,0,.025);
+      /* Font “wedding” */
+      --wedding: ui-serif, "Baskerville", "Libre Baskerville", "Didot", "Bodoni MT", "Georgia", "Times New Roman", serif;
     }
 
     *{ box-sizing:border-box; }
@@ -49,16 +45,13 @@
       margin:0;
       color:var(--text);
       font-family:var(--sans);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
 
-      /* Background: più luce, meno verde */
+      /* Background più “materico” e avvolgente */
       background:
-        radial-gradient(1200px 600px at 12% -8%, rgba(244,232,214,.85), transparent 60%),
-        radial-gradient(980px 560px at 92% 0%, rgba(255,247,234,.90), transparent 58%),
-        radial-gradient(900px 520px at 46% 10%, var(--blush), transparent 62%),
-        radial-gradient(900px 520px at 55% 20%, rgba(78,140,120,.05), transparent 68%),
-        linear-gradient(180deg, var(--milk), var(--butter2) 44%, #ffffff 100%);
+        radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.22), transparent 58%),
+        radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.72), transparent 56%),
+        radial-gradient(900px 420px at 50% 20%, rgba(78,140,120,.08), transparent 60%),
+        linear-gradient(180deg, var(--cream), var(--butter2) 40%, #ffffff 100%);
     }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
@@ -66,15 +59,23 @@
     /* ===== Header ===== */
     header{ padding:84px 0 30px; text-align:center; }
 
+    /* (Lasciamo .name-row perché era nel file originale, ma non viene più usata) */
+    .name-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    /* ✅ immagini vicine sopra, nomi sotto */
     .couple-row{
       display:flex;
       align-items:flex-end;
       justify-content:center;
-      gap:2px;
+      gap:8px;
       margin:0 0 18px;
     }
-    /* overlap elegante */
-    .couple-row .avatar-img + .avatar-img{ margin-left:-14px; }
 
     .couple-name{
       margin:0;
@@ -83,9 +84,7 @@
     }
 
     @media (max-width:520px){
-      header{ padding:74px 0 26px; }
-      .couple-row{ gap:2px; margin:0 0 14px; }
-      .couple-row .avatar-img + .avatar-img{ margin-left:-10px; }
+      .couple-row{ gap:6px; margin:0 0 14px; }
     }
 
     h1{
@@ -96,8 +95,7 @@
       letter-spacing:.35px;
       font-size:46px;
       line-height:1.05;
-      /* titolo meno “verde”: più charcoal con sottotono salvia */
-      color: rgba(31,38,34,.92);
+      color:var(--sage2);
       text-rendering:optimizeLegibility;
       font-kerning:normal;
       font-feature-settings:"kern","liga","clig";
@@ -105,7 +103,7 @@
 
     .subtitle{
       margin:14px 0 0;
-      color: rgba(47,110,91,.82); /* salvia, ma meno saturo */
+      color:var(--sage2);
       font-family:var(--wedding);
       font-style:italic;
       font-size:22px;
@@ -115,6 +113,7 @@
     }
 
     @media (max-width:520px){
+      header{ padding:74px 0 26px; }
       h1{ font-size:38px; }
       .subtitle{ font-size:20px; }
     }
@@ -128,8 +127,7 @@
       padding:0;
       border:none;
       outline:none;
-      /* shadow più soft */
-      filter: drop-shadow(0 10px 22px rgba(0,0,0,.10));
+      filter: drop-shadow(0 18px 34px rgba(0,0,0,.14));
     }
     @media (max-width:520px){
       .avatar-img{ width:125px; max-height:145px; }
@@ -140,38 +138,29 @@
     .stack{ display:grid; gap:18px; }
 
     .card{
-      /* card porcellana/champagne */
       background:
-        linear-gradient(180deg, rgba(255,255,255,.88), rgba(251,247,241,.88));
-      border:1px solid var(--border2);
+        linear-gradient(180deg,
+          rgba(255, 248, 238, .94),
+          rgba(242, 249, 246, .94)
+        );
+      border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:26px;
       overflow:hidden;
-      transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease;
+
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
       will-change: transform, box-shadow;
+
       opacity:1;
       transform:none;
     }
 
-    /* micro accent top (molto sobrio) */
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:auto 22px auto 22px;
-      top:14px;
-      height:1px;
-      background: linear-gradient(90deg, rgba(78,140,120,.22), rgba(244,232,214,.35), transparent);
-      opacity:.8;
-      border-radius:999px;
-    }
-    .card{ position:relative; }
-
     @media (hover:hover) and (pointer:fine){
       .card:hover{
-        transform: translateY(-2px);
+        transform: translateY(-3px);
         box-shadow:var(--shadowHover);
-        border-color: rgba(31,38,34,.12);
+        border-color: rgba(47,110,91,.18);
       }
     }
 
@@ -181,11 +170,10 @@
       gap:12px;
       margin:0 0 12px;
       font-family:var(--serif);
-      font-weight:520;
-      letter-spacing:.35px;
+      font-weight:500;
+      letter-spacing:.4px;
       font-size:22px;
       min-width:0;
-      color: rgba(31,38,34,.92);
     }
 
     .title::after{
@@ -195,9 +183,9 @@
       margin-left:12px;
       background:linear-gradient(
         90deg,
-        rgba(31,38,34,.18),
-        rgba(244,232,214,.55) 52%,
-        rgba(31,38,34,0)
+        rgba(47,110,91,.38),
+        rgba(47,110,91,.14) 55%,
+        rgba(47,110,91,0)
       );
       transform: translateY(1px);
     }
@@ -211,8 +199,7 @@
       height:auto;
       flex:0 0 72px;
       object-fit:contain;
-      /* ancora più “soft” */
-      filter: drop-shadow(0 6px 14px rgba(0,0,0,.10));
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
     }
 
     .title .sticker-icon.icon-church,
@@ -230,75 +217,8 @@
       }
     }
 
-    p{ margin:10px 0; line-height:1.72; font-size:14.7px; }
+    p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
     .muted{ color:var(--muted); }
-
-    /* ====== EVENTI ====== */
-    .event-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px 28px;
-      margin-top: 6px;
-      align-items:start;
-    }
-
-    .event-col{ display:flex; flex-direction:column; gap:12px; min-width:0; }
-    .event-col.right{ align-items:stretch; text-align:left; gap:12px; }
-
-    .event-row{
-      display:grid;
-      grid-template-columns: 118px 1fr;
-      column-gap:12px;
-      align-items:center;
-    }
-
-    .event-row .label{
-      min-width:0;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      font-size:13px;
-      /* label meno verdi = più premium */
-      color: rgba(47,110,91,.78);
-      letter-spacing:.25px;
-      line-height:1.25;
-      white-space:nowrap;
-    }
-
-    .event-row .value{
-      min-width:0;
-      line-height:1.55;
-      overflow-wrap:anywhere;
-      word-break:break-word;
-    }
-
-    .mini-ico{
-      width:18px;
-      height:18px;
-      flex:0 0 18px;
-      stroke: rgba(47,110,91,.82);
-      fill: rgba(78,140,120,.08);
-      stroke-width:2.4;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-      opacity:.98;
-    }
-
-    .event-actions{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      margin-top:0;
-      width:100%;
-    }
-
-    @media (max-width:640px){
-      .event-grid{ grid-template-columns:1fr; }
-      .event-actions{ justify-content:center; }
-      .event-col.right{ align-items:stretch; text-align:left; }
-      .event-row{ grid-template-columns: 104px 1fr; }
-    }
 
     #churchAddr, #villaAddr, #florestaAddr{
       white-space:normal;
@@ -306,59 +226,51 @@
       word-break:break-word;
     }
 
-    /* Buttons: più “studio wedding” (puliti, chiari) */
+    /* Buttons (base) */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
-
     .btn{
       display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px;
-      border-radius:999px;
-      text-decoration:none;
-      font-size:14px;
-
-      border:1px solid rgba(31,38,34,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(244,232,214,.28));
-      color: rgba(47,110,91,.88);
-
-      transition:transform .14s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
+      padding:10px 14px; border-radius:999px;
+      text-decoration:none; font-size:14px;
+      border:1px solid rgba(47,110,91,.25);
+      background:rgba(78,140,120,.10);
+      color:var(--sage2);
+      transition:transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
     }
-
     .btn:hover{
       transform:translateY(-1px);
-      border-color: rgba(31,38,34,.18);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(244,232,214,.34));
-      box-shadow: 0 10px 26px rgba(0,0,0,.055);
+      border-color:rgba(47,110,91,.45);
+      background:rgba(78,140,120,.14);
     }
 
-    .btn svg{
-      width:16px;
-      height:16px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      opacity:.9;
+    /* ✅ Premium button (solo per Maps in Cerimonia/Festeggiamenti) */
+    .btn.btn-premium{
+      border: 1px solid rgba(34,48,42,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.30));
+      color: rgba(47,110,91,.92);
+      box-shadow: 0 14px 30px rgba(0,0,0,.06);
+      padding: 11px 16px;
+      font-weight: 650;
+      letter-spacing: .15px;
+    }
+    @media (hover:hover) and (pointer:fine){
+      .btn.btn-premium:hover{
+        transform: translateY(-1px);
+        background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(242,226,207,.38));
+        box-shadow: 0 18px 44px rgba(0,0,0,.075);
+        border-color: rgba(34,48,42,.18);
+      }
     }
 
-    .btn:focus-visible,
-    .copy:focus-visible,
-    .lock-row input:focus-visible,
-    .pw-toggle:focus-visible,
-    .lock-row button#btnEnter:focus-visible{
-      outline:none;
-      box-shadow: 0 0 0 4px rgba(78,140,120,.12);
-    }
-
-    /* Gift box: più chiara, champagne */
+    /* Gift box */
     .gift-box{
       margin-top:12px;
       padding:14px 14px;
       border-radius:18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(244,232,214,.28));
-      border:1px solid rgba(31,38,34,.10);
+      background:linear-gradient(180deg, rgba(242,226,207,.45), rgba(255,255,255,.85));
+      border:1px solid rgba(34,48,42,.10);
     }
 
     .mono{
@@ -369,27 +281,19 @@
 
     .copy{
       display:inline-flex; align-items:center; gap:8px;
-      border:1px solid rgba(31,38,34,.12);
-      background:rgba(255,255,255,.95);
+      border:1px solid rgba(34,48,42,.14);
+      background:rgba(255,255,255,.90);
       border-radius:999px;
       padding:9px 12px;
       font-size:13px;
       cursor:pointer;
       -webkit-tap-highlight-color: transparent;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
-      color: rgba(31,38,34,.88);
-    }
-    .copy:hover{
-      transform: translateY(-1px);
-      border-color: rgba(31,38,34,.18);
-      background: rgba(255,255,255,.98);
-      box-shadow: 0 10px 24px rgba(0,0,0,.05);
     }
 
     a.softlink{
-      color: rgba(47,110,91,.92);
+      color:var(--sage2);
       text-decoration:none;
-      border-bottom:1px dashed rgba(47,110,91,.32);
+      border-bottom:1px dashed rgba(47,110,91,.45);
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
@@ -397,7 +301,11 @@
     .contacts a.softlink{ white-space:nowrap; }
 
     @media (max-width:520px){
-      .contacts p{ display:flex; flex-direction:column; gap:10px; }
+      .contacts p{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+      }
       .contacts .sep{ display:none; }
     }
 
@@ -413,14 +321,13 @@
       display:flex; align-items:center; justify-content:center;
       padding:18px;
       background:
-        radial-gradient(900px 380px at 50% -80px, rgba(244,232,214,.92), transparent 60%),
-        radial-gradient(900px 520px at 44% 10%, var(--blush), transparent 62%),
-        linear-gradient(180deg, rgba(255,254,251,.98), rgba(255,255,255,.98));
+        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.92), transparent 60%),
+        linear-gradient(180deg, rgba(255,247,238,.98), rgba(255,255,255,.98));
     }
     .lock-box{
       width:min(420px, 100%);
-      background:rgba(255,255,255,.97);
-      border:1px solid rgba(31,38,34,.10);
+      background:rgba(255,255,255,.96);
+      border:1px solid rgba(34,48,42,.12);
       border-radius:24px;
       box-shadow:var(--shadow);
       padding:28px 24px 22px;
@@ -430,11 +337,10 @@
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       margin:0 auto 12px; padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(31,38,34,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(244,232,214,.26));
+      border:1px solid rgba(47,110,91,.25);
+      background:rgba(78,140,120,.10);
       font-size:13px;
-      color: rgba(47,110,91,.86);
-      letter-spacing:.2px;
+      color:var(--sage2);
     }
 
     .lock-box h2{
@@ -443,22 +349,26 @@
       font-style:italic;
       font-weight:520;
       letter-spacing:.35px;
-      color: rgba(31,38,34,.92);
+      color:var(--sage2);
     }
 
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
 
-    .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
+    .pw-wrap{
+      flex:1;
+      position:relative;
+      display:flex;
+      align-items:center;
+    }
 
     .lock-row input{
       width:100%;
       border-radius:999px;
-      border:1px solid rgba(31,38,34,.14);
+      border:1px solid rgba(34,48,42,.18);
       padding:12px 44px 12px 14px;
       font-size:14px; outline:none; background:white;
     }
-    .lock-row input:focus{ border-color: rgba(78,140,120,.30); }
 
     .pw-toggle{
       position:absolute;
@@ -466,7 +376,7 @@
       width:34px;
       height:34px;
       border-radius:999px;
-      border:1px solid rgba(31,38,34,.12);
+      border:1px solid rgba(34,48,42,.14);
       background:rgba(255,255,255,.92);
       display:inline-flex;
       align-items:center;
@@ -474,17 +384,11 @@
       cursor:pointer;
       padding:0;
       -webkit-tap-highlight-color: transparent;
-      transition: background .12s ease, border-color .12s ease, transform .12s ease;
-    }
-    .pw-toggle:hover{
-      transform: translateY(-1px);
-      border-color: rgba(31,38,34,.18);
-      background: rgba(255,255,255,.96);
     }
     .pw-toggle svg{
       width:18px;
       height:18px;
-      stroke: rgba(47,110,91,.88);
+      stroke:var(--sage2);
       stroke-width:2.2;
       fill:none;
       stroke-linecap:round;
@@ -494,17 +398,18 @@
     .lock-row button#btnEnter{
       border-radius:999px; border:0; padding:12px 16px; font-size:14px;
       cursor:pointer;
-      background:linear-gradient(180deg, rgba(78,140,120,.92), rgba(47,110,91,.90));
+      background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
       color:white; white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
-      transition: transform .12s ease, filter .12s ease;
     }
-    .lock-row button#btnEnter:hover{ transform: translateY(-1px); filter: saturate(1.02); }
 
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
 
     /* ===== reveal on scroll ===== */
-    .reveal{ opacity:0; transform: translateY(10px); }
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+    }
     .reveal.is-visible{
       opacity:1;
       transform:none;
@@ -519,6 +424,101 @@
       html{ scroll-behavior:auto; }
       .card{ transition:none !important; }
     }
+
+    /* ======================================================
+       ✅ LAYOUT “INVITO” PER CERIMONIA/FESTEGGIAMENTI
+       ====================================================== */
+    .invite{
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .invite-media{
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(242,226,207,.35));
+      border: 1px solid rgba(34,48,42,.08);
+      box-shadow: 0 14px 34px rgba(0,0,0,.06);
+      padding: 10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .invite-ill{
+      width: 100%;
+      height: auto;
+      max-width: 190px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.10));
+    }
+
+    .invite-body{
+      min-width: 0;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .invite-pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(47,110,91,.22);
+      background: rgba(78,140,120,.08);
+      color: var(--sage2);
+      font-size: 13px;
+      letter-spacing: .2px;
+      font-weight: 650;
+    }
+
+    .invite-place{
+      font-family: var(--wedding);
+      font-style: italic;
+      font-weight: 560;
+      letter-spacing: .25px;
+      font-size: 22px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-top: -2px;
+    }
+
+    .invite-addr{
+      font-size: 14.7px;
+      color: var(--text);
+      line-height: 1.55;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+    .invite-actions{
+      margin-top: 4px;
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+
+    @media (max-width:700px){
+      .invite{
+        grid-template-columns: 1fr;
+      }
+      .invite-media{
+        padding: 12px;
+      }
+      .invite-ill{
+        max-width: 260px;
+      }
+      .invite-actions .btn{
+        width: 100%;
+        justify-content:center;
+      }
+    }
   </style>
 </head>
 
@@ -527,13 +527,13 @@
   <!-- 🔒 Accesso riservato (password richiesta sempre) -->
   <div id="lock">
     <div class="lock-box">
-      <div class="badge">Accesso riservato agli invitati</div>
+      <div class="badge">🔒 Accesso riservato agli invitati</div>
       <h2>Matteo &amp; Sebiana</h2>
       <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
 
       <div class="lock-row">
         <div class="pw-wrap">
-          <input id="pw" type="password" placeholder="Password" autocomplete="current-password" autofocus />
+          <input id="pw" type="password" placeholder="Password" autocomplete="off" autofocus />
           <button class="pw-toggle" id="togglePw" type="button" aria-label="Mostra password" aria-pressed="false">
             <svg id="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
@@ -553,6 +553,7 @@
   <!-- ✅ SITO: nascosto finché non sblocchi -->
   <div id="site" hidden>
 
+    <!-- ===== Header con sticker PNG ===== -->
     <header>
       <div class="wrap">
         <div class="couple-row" aria-hidden="true">
@@ -568,6 +569,7 @@
     <main class="wrap">
       <section class="stack">
 
+        <!-- Benvenuti -->
         <div class="card reveal">
           <div class="title">Benvenuti</div>
           <p>
@@ -576,94 +578,57 @@
           </p>
         </div>
 
+        <!-- Cerimonia (layout invito) -->
         <div class="card reveal">
-          <div class="title">
-            <img class="sticker-icon icon-church" src="assets/icons/icon-church.png" alt="Icona cerimonia (chiesa)" />
-            Cerimonia
-          </div>
+          <div class="title">Cerimonia</div>
 
-          <div class="event-grid">
-            <div class="event-col">
-              <div class="event-row">
-                <div class="label">Ore</div>
-                <div class="value">16:00</div>
-              </div>
-
-              <div class="event-row">
-                <div class="label">Luogo</div>
-                <div class="value">Chiesa Madre</div>
-              </div>
+          <div class="invite">
+            <div class="invite-media">
+              <img class="invite-ill" src="assets/icons/hero-church.png" alt="Illustrazione Chiesa Madre" />
             </div>
 
-            <div class="event-col right">
-              <div class="event-row">
-                <div class="label">
-                  <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
-                    <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
-                  </svg>
-                  Indirizzo
-                </div>
-                <div class="value" id="churchAddr"></div>
+            <div class="invite-body">
+              <div class="invite-pill">Ore 16:00</div>
+              <div class="invite-place">Chiesa Madre</div>
+              <div class="invite-addr" id="churchAddr"></div>
+
+              <div class="invite-actions">
+                <a class="btn btn-premium" id="mapChurch" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <div class="event-actions">
-                <a class="btn" id="mapChurch" href="#" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
-                    <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
-                  </svg>
-                  Apri in Maps
-                </a>
-              </div>
+              <p class="muted" style="margin:0;font-size:13.2px;">
+                Consiglio: arrivate con qualche minuto di anticipo.
+              </p>
             </div>
           </div>
         </div>
 
+        <!-- Festeggiamenti (layout invito) -->
         <div class="card reveal">
-          <div class="title">
-            <img class="sticker-icon icon-festeggiamenti" src="assets/icons/icon-festeggiamenti.png" alt="Icona festeggiamenti" />
-            Festeggiamenti
-          </div>
+          <div class="title">Festeggiamenti</div>
 
-          <div class="event-grid">
-            <div class="event-col">
-              <div class="event-row">
-                <div class="label">Quando</div>
-                <div class="value">Dopo la cerimonia</div>
-              </div>
-
-              <div class="event-row">
-                <div class="label">Luogo</div>
-                <div class="value">Villa Anna</div>
-              </div>
+          <div class="invite">
+            <div class="invite-media">
+              <img class="invite-ill" src="assets/icons/hero-villa.png" alt="Illustrazione Villa Anna" />
             </div>
 
-            <div class="event-col right">
-              <div class="event-row">
-                <div class="label">
-                  <svg class="mini-ico" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
-                    <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
-                  </svg>
-                  Indirizzo
-                </div>
-                <div class="value" id="villaAddr"></div>
+            <div class="invite-body">
+              <div class="invite-pill">Dopo la cerimonia</div>
+              <div class="invite-place">Villa Anna</div>
+              <div class="invite-addr" id="villaAddr"></div>
+
+              <div class="invite-actions">
+                <a class="btn btn-premium" id="mapVilla" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <div class="event-actions">
-                <a class="btn" id="mapVilla" href="#" target="_blank" rel="noopener">
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
-                    <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
-                  </svg>
-                  Apri in Maps
-                </a>
-              </div>
+              <p class="muted" style="margin:0;font-size:13.2px;">
+                Se arrivate direttamente alla location, usate il link Maps per le indicazioni.
+              </p>
             </div>
           </div>
         </div>
 
+        <!-- Regalo -->
         <div class="card reveal">
           <div class="title">
             <img class="sticker-icon icon-gift" src="assets/icons/icon-gift.png" alt="Icona regalo" />
@@ -680,6 +645,7 @@
             <div class="mono" id="ibanText"></div>
 
             <div style="margin-top:10px;">
+              <!-- ✅ richiesto: pulsante “Copia” -->
               <button class="copy" type="button" id="copyIban">Copia</button>
             </div>
 
@@ -703,23 +669,13 @@
             </div>
 
             <div class="btn-row" style="margin-top:12px;">
-              <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
-                  <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
-                </svg>
-                Apri in Maps
-              </a>
-              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1A19.3 19.3 0 0 1 5.3 12.8 19.8 19.8 0 0 1 2.2 4.2 2 2 0 0 1 4.2 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6.2 6.2l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6A2 2 0 0 1 22 16.9z"></path>
-                </svg>
-                Chiama
-              </a>
+              <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">☎️ Chiama</a>
             </div>
           </div>
         </div>
 
+        <!-- Contatti -->
         <div class="card contacts reveal">
           <div class="title">
             <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti (telefono)" />
@@ -748,7 +704,13 @@
     const PASSWORD = "villaanna2026";
 
     const CHURCH_ADDRESS   = "Via XX Settembre, 96010 Canicattini Bagni\u00A0(SR)";
+
+    /* Maps completo (per ricerca migliore) */
     const VILLA_ADDRESS    = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
+
+    /* ✅ richiesto: in pagina mostrare solo “Contrada …” */
+    const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014 Ispica (RG)";
+
     const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
     const FLORESTA_PHONE   = "+390931586747";
 
@@ -819,11 +781,15 @@
     });
 
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
-    document.getElementById("villaAddr").textContent = VILLA_ADDRESS;
+
+    /* ✅ display “solo contrada” */
+    document.getElementById("villaAddr").textContent = VILLA_ADDR_DISPLAY;
+
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
     document.getElementById("mapVilla").href = MAP_VILLA;
+
     document.getElementById("mapFloresta").href = MAP_FLORESTA;
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
