@@ -12,7 +12,6 @@
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      /* Base palette */
       --cream:#FFF7EE;
       --white:#FFFFFF;
       --butter:#FFF7EA;
@@ -42,7 +41,6 @@
       margin:0;
       color:var(--text);
       font-family:var(--sans);
-
       background:
         radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.22), transparent 58%),
         radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.72), transparent 56%),
@@ -123,19 +121,17 @@
     .stack{ display:grid; gap:18px; }
 
     .card{
-      background:
-        linear-gradient(180deg, rgba(255, 248, 238, .94), rgba(242, 249, 246, .94));
+      background: linear-gradient(180deg, rgba(255, 248, 238, .94), rgba(242, 249, 246, .94));
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:26px;
       overflow:hidden;
-
       transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
       will-change: transform, box-shadow;
-
       opacity:1;
       transform:none;
+      position:relative;
     }
 
     @media (hover:hover) and (pointer:fine){
@@ -182,7 +178,6 @@
       min-width:74px;
     }
 
-    /* ✅ “Matteo Leone” e “Regalo di nozze” devono avere stesso font */
     .value{
       color:var(--text);
       font-size:14.7px;
@@ -214,7 +209,7 @@
       background:rgba(78,140,120,.14);
     }
 
-    /* ✅ Bottone Maps più premium (solo per Cerimonia/Festeggiamenti) */
+    /* ✅ Bottone Maps più premium */
     .btn.btn-premium{
       border: 1px solid rgba(34,48,42,.14);
       background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.30));
@@ -270,11 +265,7 @@
     .contacts a.softlink{ white-space:nowrap; }
 
     @media (max-width:520px){
-      .contacts p{
-        display:flex;
-        flex-direction:column;
-        gap:10px;
-      }
+      .contacts p{ display:flex; flex-direction:column; gap:10px; }
       .contacts .sep{ display:none; }
     }
 
@@ -395,12 +386,15 @@
       align-items: center;
     }
 
+    /* ✅ QUI la correzione chiave:
+       il contenitore NON deve sembrare una cornice/foto incollata.
+       Quindi background quasi nullo, niente box-shadow, bordo super soft. */
     .invite-media{
       border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(242,226,207,.35));
-      border: 1px solid rgba(34,48,42,.08);
-      box-shadow: 0 14px 34px rgba(0,0,0,.06);
-      padding: 10px;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -409,9 +403,10 @@
     .invite-ill{
       width: 100%;
       height: auto;
-      max-width: 190px;
+      max-width: 200px;
       object-fit: contain;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,.10));
+      /* shadow più delicata: effetto “sticker naturale” */
+      filter: drop-shadow(0 10px 16px rgba(0,0,0,.09));
     }
 
     .invite-body{
@@ -465,9 +460,15 @@
 
     @media (max-width:700px){
       .invite{ grid-template-columns: 1fr; }
-      .invite-media{ padding: 12px; }
-      .invite-ill{ max-width: 260px; }
+      .invite-ill{ max-width: 280px; }
       .invite-actions .btn{ width: 100%; justify-content:center; }
+    }
+
+    /* ✅ “wedding-text” per allineare il font di “Regalo di nozze” a “Matteo Leone” */
+    .wedding-text{
+      font-family: var(--wedding);
+      font-style: italic;
+      letter-spacing: .25px;
     }
   </style>
 </head>
@@ -543,8 +544,7 @@
               <div class="invite-actions">
                 <a class="btn btn-premium" id="mapChurch" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
-
-              <!-- ✅ rimosso “arrivate prima” -->
+              <!-- ✅ tolto il consiglio -->
             </div>
           </div>
         </div>
@@ -598,7 +598,7 @@
             <div class="value" id="ibanName"></div>
 
             <div class="muted" style="font-size:12.8px;margin-top:10px;">
-              Causale suggerita: <span class="value">Regalo di nozze</span>
+              Causale suggerita: <span class="value wedding-text">Regalo di nozze</span>
             </div>
           </div>
 
@@ -650,10 +650,7 @@
 
     const CHURCH_ADDRESS   = "Via XX Settembre, 96010 Canicattini Bagni\u00A0(SR)";
 
-    // Maps completo (ricerca migliore)
     const VILLA_ADDRESS    = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
-
-    // ✅ Display: solo contrada
     const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014 Ispica (RG)";
 
     const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
@@ -731,7 +728,6 @@
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
     document.getElementById("mapVilla").href = MAP_VILLA;
-
     document.getElementById("mapFloresta").href = MAP_FLORESTA;
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
