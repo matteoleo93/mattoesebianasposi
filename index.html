@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Matteo &amp; Sebiana — 01.09.2026</title>
   <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
-  <meta name="theme-color" content="#4E8C78" />
+  <!-- ✅ più champagne/luxury -->
+  <meta name="theme-color" content="#F2E2CF" />
 
   <style>
     :root{
@@ -41,11 +42,14 @@
       margin:0;
       color:var(--text);
       font-family:var(--sans);
+
+      /* ✅ più burro/champagne, meno verde e meno sabbia */
       background:
-        radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.22), transparent 58%),
-        radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.72), transparent 56%),
-        radial-gradient(900px 420px at 50% 20%, rgba(78,140,120,.08), transparent 60%),
-        linear-gradient(180deg, var(--cream), var(--butter2) 40%, #ffffff 100%);
+        radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.12), transparent 60%),
+        radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.86), transparent 56%),
+        radial-gradient(900px 420px at 52% 18%, rgba(255,247,234,.92), transparent 62%),
+        radial-gradient(820px 420px at 10% 26%, rgba(255,255,255,.78), transparent 60%),
+        linear-gradient(180deg, var(--butter2), var(--cream) 40%, #ffffff 100%);
     }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
@@ -121,7 +125,8 @@
     .stack{ display:grid; gap:18px; }
 
     .card{
-      background: linear-gradient(180deg, rgba(255, 248, 238, .94), rgba(242, 249, 246, .94));
+      /* ✅ più ivory/champagne, meno verde */
+      background: linear-gradient(180deg, rgba(255, 251, 243, .96), rgba(255, 247, 238, .92));
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -159,7 +164,7 @@
       flex:1 1 auto;
       height:1px;
       margin-left:12px;
-      background:linear-gradient(90deg, rgba(47,110,91,.38), rgba(47,110,91,.14) 55%, rgba(47,110,91,0));
+      background:linear-gradient(90deg, rgba(47,110,91,.32), rgba(242,226,207,.28) 55%, rgba(47,110,91,0));
       transform: translateY(1px);
     }
 
@@ -212,7 +217,7 @@
     /* ✅ Bottone Maps più premium */
     .btn.btn-premium{
       border: 1px solid rgba(34,48,42,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.30));
+      background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(242,226,207,.34));
       color: rgba(47,110,91,.92);
       box-shadow: 0 14px 30px rgba(0,0,0,.06);
       padding: 11px 16px;
@@ -222,7 +227,7 @@
     @media (hover:hover) and (pointer:fine){
       .btn.btn-premium:hover{
         transform: translateY(-1px);
-        background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(242,226,207,.38));
+        background: linear-gradient(180deg, rgba(255,255,255,.97), rgba(242,226,207,.42));
         box-shadow: 0 18px 44px rgba(0,0,0,.075);
         border-color: rgba(34,48,42,.18);
       }
@@ -233,7 +238,7 @@
       margin-top:12px;
       padding:14px 14px;
       border-radius:18px;
-      background:linear-gradient(180deg, rgba(242,226,207,.45), rgba(255,255,255,.85));
+      background:linear-gradient(180deg, rgba(242,226,207,.42), rgba(255,255,255,.92));
       border:1px solid rgba(34,48,42,.10);
     }
 
@@ -282,7 +287,7 @@
       padding:18px;
       background:
         radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.92), transparent 60%),
-        linear-gradient(180deg, rgba(255,247,238,.98), rgba(255,255,255,.98));
+        linear-gradient(180deg, rgba(255,251,243,.98), rgba(255,255,255,.98));
     }
     .lock-box{
       width:min(420px, 100%);
@@ -297,8 +302,8 @@
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       margin:0 auto 12px; padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(47,110,91,.25);
-      background:rgba(78,140,120,.10);
+      border:1px solid rgba(47,110,91,.22);
+      background:rgba(242,226,207,.32);
       font-size:13px;
       color:var(--sage2);
     }
@@ -386,9 +391,6 @@
       align-items: center;
     }
 
-    /* ✅ QUI la correzione chiave:
-       il contenitore NON deve sembrare una cornice/foto incollata.
-       Quindi background quasi nullo, niente box-shadow, bordo super soft. */
     .invite-media{
       border-radius: 18px;
       background: transparent;
@@ -405,7 +407,6 @@
       height: auto;
       max-width: 200px;
       object-fit: contain;
-      /* shadow più delicata: effetto “sticker naturale” */
       filter: drop-shadow(0 10px 16px rgba(0,0,0,.09));
     }
 
@@ -423,8 +424,8 @@
       width: fit-content;
       padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(47,110,91,.22);
-      background: rgba(78,140,120,.08);
+      border: 1px solid rgba(47,110,91,.18);
+      background: rgba(242,226,207,.34);
       color: var(--sage2);
       font-size: 13px;
       letter-spacing: .2px;
@@ -464,11 +465,38 @@
       .invite-actions .btn{ width: 100%; justify-content:center; }
     }
 
-    /* ✅ “wedding-text” per allineare il font di “Regalo di nozze” a “Matteo Leone” */
+    /* ✅ wedding-text per allineare il font */
     .wedding-text{
       font-family: var(--wedding);
       font-style: italic;
       letter-spacing: .25px;
+    }
+
+    /* ==========================================================
+       ✅ FIX ICONONE: definisco sticker-icon (prima mancava)
+       ========================================================== */
+    .sticker-icon{
+      width:48px;
+      height:48px;
+      flex:0 0 48px;
+      object-fit:contain;
+      display:inline-block;
+      transform: translateY(1px);
+      filter: drop-shadow(0 10px 16px rgba(0,0,0,.10));
+    }
+
+    @media (max-width:520px){
+      .sticker-icon{
+        width:44px;
+        height:44px;
+        flex-basis:44px;
+      }
+    }
+
+    /* se per caso una png enorme ha dimensioni "native" assurde, le taglio comunque */
+    .icon-gift, .icon-phone{
+      max-width:48px;
+      max-height:48px;
     }
   </style>
 </head>
@@ -544,7 +572,6 @@
               <div class="invite-actions">
                 <a class="btn btn-premium" id="mapChurch" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
-              <!-- ✅ tolto il consiglio -->
             </div>
           </div>
         </div>
