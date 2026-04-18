@@ -5,39 +5,41 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Matteo &amp; Sebiana — 01.09.2026</title>
   <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
-  <meta name="theme-color" content="#4E8C78" />
+  <meta name="theme-color" content="#F3E7D6" />
 
   <style>
     :root{
+      /* Accent (usato poco) */
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      /* Base palette (romantica ma sobria) */
-      --cream:#FFF7EE;
+      /* Base “luxury”: burro/champagne/bianco */
       --white:#FFFFFF;
-      --butter:#FFF5E6;             /* burro caldo */
-      --butter2:#FFFBF4;            /* burro più chiaro */
-      --champagne:#F6E9D9;          /* champagne */
-      --blush: rgba(210, 142, 141, .10); /* rosa cipria super soft */
-      --sagewash:#F2F7F4;
+      --milk:#FFFEFB;
+      --butter:#FFF7EA;        /* burro caldo */
+      --butter2:#FFFBF3;       /* burro chiaro */
+      --champagne:#F4E8D6;     /* champagne */
+      --porcelain:#FBF7F1;     /* porcellana */
+      --blush: rgba(210, 142, 141, .07); /* romanticissimo ma quasi invisibile */
 
-      --text:#22302A;
-      --muted:#5E6B64;
-      --border:rgba(34,48,42,.12);
+      /* Testi (meno verdi, più neutri) */
+      --text:#1F2622;
+      --muted:#5F6A64;
+
+      /* Bordi più delicati */
+      --border: rgba(31,38,34,.10);
+      --border2: rgba(31,38,34,.08);
 
       --radius:22px;
-
-      /* Ombre più “premium editorial” */
-      --shadow: 0 18px 44px rgba(0,0,0,.075), 0 2px 10px rgba(0,0,0,.026);
-      --shadowHover: 0 22px 58px rgba(0,0,0,.092), 0 3px 12px rgba(0,0,0,.032);
-
       --max:980px;
 
       --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Georgia", "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-
-      /* Font “wedding” */
       --wedding: ui-serif, "Baskerville", "Libre Baskerville", "Didot", "Bodoni MT", "Georgia", "Times New Roman", serif;
+
+      /* Ombre più “daylight”, meno contrasto = più premium */
+      --shadow: 0 14px 40px rgba(0,0,0,.06), 0 2px 10px rgba(0,0,0,.02);
+      --shadowHover: 0 18px 56px rgba(0,0,0,.075), 0 3px 12px rgba(0,0,0,.025);
     }
 
     *{ box-sizing:border-box; }
@@ -50,12 +52,13 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
 
-      /* Background più “luxury romantico”: caldo + blush leggerissimo */
+      /* Background: più luce, meno verde */
       background:
-        radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.18), transparent 58%),
-        radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.62), transparent 56%),
-        radial-gradient(900px 520px at 46% 10%, var(--blush), transparent 60%),
-        linear-gradient(180deg, var(--cream), var(--butter2) 42%, #ffffff 100%);
+        radial-gradient(1200px 600px at 12% -8%, rgba(244,232,214,.85), transparent 60%),
+        radial-gradient(980px 560px at 92% 0%, rgba(255,247,234,.90), transparent 58%),
+        radial-gradient(900px 520px at 46% 10%, var(--blush), transparent 62%),
+        radial-gradient(900px 520px at 55% 20%, rgba(78,140,120,.05), transparent 68%),
+        linear-gradient(180deg, var(--milk), var(--butter2) 44%, #ffffff 100%);
     }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
@@ -63,28 +66,16 @@
     /* ===== Header ===== */
     header{ padding:84px 0 30px; text-align:center; }
 
-    /* (Lasciamo .name-row perché era nel file originale, ma non viene più usata) */
-    .name-row{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-
-    /* ✅ NUOVO: immagini più vicine (anche leggermente sovrapposte) */
     .couple-row{
       display:flex;
       align-items:flex-end;
       justify-content:center;
-      gap:2px;              /* più vicino */
+      gap:2px;
       margin:0 0 18px;
     }
-    .couple-row .avatar-img + .avatar-img{
-      margin-left:-14px;    /* sovrapposizione elegante */
-    }
+    /* overlap elegante */
+    .couple-row .avatar-img + .avatar-img{ margin-left:-14px; }
 
-    /* titolo un filo più “arioso” */
     .couple-name{
       margin:0;
       text-align:center;
@@ -92,6 +83,7 @@
     }
 
     @media (max-width:520px){
+      header{ padding:74px 0 26px; }
       .couple-row{ gap:2px; margin:0 0 14px; }
       .couple-row .avatar-img + .avatar-img{ margin-left:-10px; }
     }
@@ -104,7 +96,8 @@
       letter-spacing:.35px;
       font-size:46px;
       line-height:1.05;
-      color:var(--sage2);
+      /* titolo meno “verde”: più charcoal con sottotono salvia */
+      color: rgba(31,38,34,.92);
       text-rendering:optimizeLegibility;
       font-kerning:normal;
       font-feature-settings:"kern","liga","clig";
@@ -112,7 +105,7 @@
 
     .subtitle{
       margin:14px 0 0;
-      color:var(--sage2);
+      color: rgba(47,110,91,.82); /* salvia, ma meno saturo */
       font-family:var(--wedding);
       font-style:italic;
       font-size:22px;
@@ -122,7 +115,6 @@
     }
 
     @media (max-width:520px){
-      header{ padding:74px 0 26px; }
       h1{ font-size:38px; }
       .subtitle{ font-size:20px; }
     }
@@ -136,8 +128,8 @@
       padding:0;
       border:none;
       outline:none;
-      /* shadow più soft e raffinata */
-      filter: drop-shadow(0 12px 24px rgba(0,0,0,.115));
+      /* shadow più soft */
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.10));
     }
     @media (max-width:520px){
       .avatar-img{ width:125px; max-height:145px; }
@@ -148,30 +140,38 @@
     .stack{ display:grid; gap:18px; }
 
     .card{
-      /* più “paper / editorial”: caldo, organico */
+      /* card porcellana/champagne */
       background:
-        linear-gradient(180deg,
-          rgba(255, 252, 248, .94),
-          rgba(242, 248, 246, .92)
-        );
-      border:1px solid rgba(34,48,42,.10);
+        linear-gradient(180deg, rgba(255,255,255,.88), rgba(251,247,241,.88));
+      border:1px solid var(--border2);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:26px;
       overflow:hidden;
-
-      transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease, background .26s ease;
+      transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease;
       will-change: transform, box-shadow;
-
       opacity:1;
       transform:none;
     }
+
+    /* micro accent top (molto sobrio) */
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:auto 22px auto 22px;
+      top:14px;
+      height:1px;
+      background: linear-gradient(90deg, rgba(78,140,120,.22), rgba(244,232,214,.35), transparent);
+      opacity:.8;
+      border-radius:999px;
+    }
+    .card{ position:relative; }
 
     @media (hover:hover) and (pointer:fine){
       .card:hover{
         transform: translateY(-2px);
         box-shadow:var(--shadowHover);
-        border-color: rgba(47,110,91,.18);
+        border-color: rgba(31,38,34,.12);
       }
     }
 
@@ -185,6 +185,7 @@
       letter-spacing:.35px;
       font-size:22px;
       min-width:0;
+      color: rgba(31,38,34,.92);
     }
 
     .title::after{
@@ -194,9 +195,9 @@
       margin-left:12px;
       background:linear-gradient(
         90deg,
-        rgba(47,110,91,.32),
-        rgba(210,142,141,.12) 55%,
-        rgba(47,110,91,0)
+        rgba(31,38,34,.18),
+        rgba(244,232,214,.55) 52%,
+        rgba(31,38,34,0)
       );
       transform: translateY(1px);
     }
@@ -210,8 +211,8 @@
       height:auto;
       flex:0 0 72px;
       object-fit:contain;
-      /* meno “giocattolo”, più premium */
-      filter: drop-shadow(0 7px 16px rgba(0,0,0,.12));
+      /* ancora più “soft” */
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.10));
     }
 
     .title .sticker-icon.icon-church,
@@ -232,10 +233,6 @@
     p{ margin:10px 0; line-height:1.72; font-size:14.7px; }
     .muted{ color:var(--muted); }
 
-    .row{ display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
-    .label{ font-weight:700; font-size:13px; color:var(--sage2); letter-spacing:.25px; min-width:74px; }
-    .value{ color:var(--text); font-size:14.7px; }
-
     /* ====== EVENTI ====== */
     .event-grid{
       display:grid;
@@ -245,18 +242,8 @@
       align-items:start;
     }
 
-    .event-col{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      min-width:0;
-    }
-
-    .event-col.right{
-      align-items:stretch;
-      text-align:left;
-      gap:12px;
-    }
+    .event-col{ display:flex; flex-direction:column; gap:12px; min-width:0; }
+    .event-col.right{ align-items:stretch; text-align:left; gap:12px; }
 
     .event-row{
       display:grid;
@@ -272,7 +259,8 @@
       gap:10px;
       font-weight:700;
       font-size:13px;
-      color:var(--sage2);
+      /* label meno verdi = più premium */
+      color: rgba(47,110,91,.78);
       letter-spacing:.25px;
       line-height:1.25;
       white-space:nowrap;
@@ -289,8 +277,8 @@
       width:18px;
       height:18px;
       flex:0 0 18px;
-      stroke:var(--sage2);
-      fill:rgba(78,140,120,.11);
+      stroke: rgba(47,110,91,.82);
+      fill: rgba(78,140,120,.08);
       stroke-width:2.4;
       stroke-linecap:round;
       stroke-linejoin:round;
@@ -312,24 +300,26 @@
       .event-row{ grid-template-columns: 104px 1fr; }
     }
 
-    #churchAddr,
-    #villaAddr,
-    #florestaAddr{
+    #churchAddr, #villaAddr, #florestaAddr{
       white-space:normal;
       overflow-wrap:anywhere;
       word-break:break-word;
     }
 
-    /* Buttons (premium romantico: puliti, senza emoji, micro-icona svg) */
+    /* Buttons: più “studio wedding” (puliti, chiari) */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
 
     .btn{
       display:inline-flex; align-items:center; gap:8px;
-      padding:10px 14px; border-radius:999px;
-      text-decoration:none; font-size:14px;
-      border:1px solid rgba(47,110,91,.20);
-      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(78,140,120,.06));
-      color:var(--sage2);
+      padding:10px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      font-size:14px;
+
+      border:1px solid rgba(31,38,34,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(244,232,214,.28));
+      color: rgba(47,110,91,.88);
+
       transition:transform .14s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
       white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
@@ -337,9 +327,9 @@
 
     .btn:hover{
       transform:translateY(-1px);
-      border-color:rgba(47,110,91,.32);
-      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(78,140,120,.09));
-      box-shadow: 0 10px 26px rgba(0,0,0,.06);
+      border-color: rgba(31,38,34,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(244,232,214,.34));
+      box-shadow: 0 10px 26px rgba(0,0,0,.055);
     }
 
     .btn svg{
@@ -350,26 +340,25 @@
       stroke-width: 2.2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      opacity:.92;
+      opacity:.9;
     }
 
-    /* focus accessibile e “designer” */
     .btn:focus-visible,
     .copy:focus-visible,
     .lock-row input:focus-visible,
     .pw-toggle:focus-visible,
     .lock-row button#btnEnter:focus-visible{
       outline:none;
-      box-shadow: 0 0 0 4px rgba(78,140,120,.16);
+      box-shadow: 0 0 0 4px rgba(78,140,120,.12);
     }
 
-    /* Gift box */
+    /* Gift box: più chiara, champagne */
     .gift-box{
       margin-top:12px;
       padding:14px 14px;
       border-radius:18px;
-      background:linear-gradient(180deg, rgba(246,233,217,.38), rgba(255,255,255,.88));
-      border:1px solid rgba(34,48,42,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.84), rgba(244,232,214,.28));
+      border:1px solid rgba(31,38,34,.10);
     }
 
     .mono{
@@ -380,26 +369,27 @@
 
     .copy{
       display:inline-flex; align-items:center; gap:8px;
-      border:1px solid rgba(34,48,42,.14);
-      background:rgba(255,255,255,.94);
+      border:1px solid rgba(31,38,34,.12);
+      background:rgba(255,255,255,.95);
       border-radius:999px;
       padding:9px 12px;
       font-size:13px;
       cursor:pointer;
       -webkit-tap-highlight-color: transparent;
       transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
+      color: rgba(31,38,34,.88);
     }
     .copy:hover{
       transform: translateY(-1px);
-      border-color: rgba(47,110,91,.22);
-      background: rgba(255,255,255,.97);
+      border-color: rgba(31,38,34,.18);
+      background: rgba(255,255,255,.98);
       box-shadow: 0 10px 24px rgba(0,0,0,.05);
     }
 
     a.softlink{
-      color:var(--sage2);
+      color: rgba(47,110,91,.92);
       text-decoration:none;
-      border-bottom:1px dashed rgba(47,110,91,.40);
+      border-bottom:1px dashed rgba(47,110,91,.32);
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
@@ -407,11 +397,7 @@
     .contacts a.softlink{ white-space:nowrap; }
 
     @media (max-width:520px){
-      .contacts p{
-        display:flex;
-        flex-direction:column;
-        gap:10px;
-      }
+      .contacts p{ display:flex; flex-direction:column; gap:10px; }
       .contacts .sep{ display:none; }
     }
 
@@ -427,14 +413,14 @@
       display:flex; align-items:center; justify-content:center;
       padding:18px;
       background:
-        radial-gradient(900px 380px at 50% -80px, rgba(246,233,217,.90), transparent 60%),
-        radial-gradient(900px 520px at 44% 10%, rgba(210,142,141,.10), transparent 62%),
-        linear-gradient(180deg, rgba(255,247,238,.98), rgba(255,255,255,.98));
+        radial-gradient(900px 380px at 50% -80px, rgba(244,232,214,.92), transparent 60%),
+        radial-gradient(900px 520px at 44% 10%, var(--blush), transparent 62%),
+        linear-gradient(180deg, rgba(255,254,251,.98), rgba(255,255,255,.98));
     }
     .lock-box{
       width:min(420px, 100%);
-      background:rgba(255,255,255,.965);
-      border:1px solid rgba(34,48,42,.12);
+      background:rgba(255,255,255,.97);
+      border:1px solid rgba(31,38,34,.10);
       border-radius:24px;
       box-shadow:var(--shadow);
       padding:28px 24px 22px;
@@ -444,10 +430,10 @@
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       margin:0 auto 12px; padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(47,110,91,.20);
-      background:linear-gradient(180deg, rgba(255,255,255,.76), rgba(78,140,120,.06));
+      border:1px solid rgba(31,38,34,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(244,232,214,.26));
       font-size:13px;
-      color:var(--sage2);
+      color: rgba(47,110,91,.86);
       letter-spacing:.2px;
     }
 
@@ -457,29 +443,22 @@
       font-style:italic;
       font-weight:520;
       letter-spacing:.35px;
-      color:var(--sage2);
+      color: rgba(31,38,34,.92);
     }
 
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
 
-    .pw-wrap{
-      flex:1;
-      position:relative;
-      display:flex;
-      align-items:center;
-    }
+    .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
 
     .lock-row input{
       width:100%;
       border-radius:999px;
-      border:1px solid rgba(34,48,42,.18);
+      border:1px solid rgba(31,38,34,.14);
       padding:12px 44px 12px 14px;
       font-size:14px; outline:none; background:white;
     }
-    .lock-row input:focus{
-      border-color: rgba(47,110,91,.30);
-    }
+    .lock-row input:focus{ border-color: rgba(78,140,120,.30); }
 
     .pw-toggle{
       position:absolute;
@@ -487,7 +466,7 @@
       width:34px;
       height:34px;
       border-radius:999px;
-      border:1px solid rgba(34,48,42,.14);
+      border:1px solid rgba(31,38,34,.12);
       background:rgba(255,255,255,.92);
       display:inline-flex;
       align-items:center;
@@ -499,13 +478,13 @@
     }
     .pw-toggle:hover{
       transform: translateY(-1px);
-      border-color: rgba(47,110,91,.20);
+      border-color: rgba(31,38,34,.18);
       background: rgba(255,255,255,.96);
     }
     .pw-toggle svg{
       width:18px;
       height:18px;
-      stroke:var(--sage2);
+      stroke: rgba(47,110,91,.88);
       stroke-width:2.2;
       fill:none;
       stroke-linecap:round;
@@ -515,7 +494,7 @@
     .lock-row button#btnEnter{
       border-radius:999px; border:0; padding:12px 16px; font-size:14px;
       cursor:pointer;
-      background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
+      background:linear-gradient(180deg, rgba(78,140,120,.92), rgba(47,110,91,.90));
       color:white; white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
       transition: transform .12s ease, filter .12s ease;
@@ -525,10 +504,7 @@
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
 
     /* ===== reveal on scroll ===== */
-    .reveal{
-      opacity:0;
-      transform: translateY(10px);
-    }
+    .reveal{ opacity:0; transform: translateY(10px); }
     .reveal.is-visible{
       opacity:1;
       transform:none;
@@ -577,19 +553,14 @@
   <!-- ✅ SITO: nascosto finché non sblocchi -->
   <div id="site" hidden>
 
-    <!-- ===== Header con sticker PNG ===== -->
     <header>
       <div class="wrap">
-
-        <!-- ✅ immagini vicine sopra -->
         <div class="couple-row" aria-hidden="true">
           <img class="avatar-img" src="assets/matteo.png" alt="" />
           <img class="avatar-img" src="assets/sebiana.png" alt="" />
         </div>
 
-        <!-- ✅ nomi sotto -->
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
-
         <p class="subtitle">01.09.2026</p>
       </div>
     </header>
@@ -597,7 +568,6 @@
     <main class="wrap">
       <section class="stack">
 
-        <!-- Benvenuti -->
         <div class="card reveal">
           <div class="title">Benvenuti</div>
           <p>
@@ -606,7 +576,6 @@
           </p>
         </div>
 
-        <!-- Cerimonia -->
         <div class="card reveal">
           <div class="title">
             <img class="sticker-icon icon-church" src="assets/icons/icon-church.png" alt="Icona cerimonia (chiesa)" />
@@ -651,7 +620,6 @@
           </div>
         </div>
 
-        <!-- Festeggiamenti -->
         <div class="card reveal">
           <div class="title">
             <img class="sticker-icon icon-festeggiamenti" src="assets/icons/icon-festeggiamenti.png" alt="Icona festeggiamenti" />
@@ -696,7 +664,6 @@
           </div>
         </div>
 
-        <!-- Regalo -->
         <div class="card reveal">
           <div class="title">
             <img class="sticker-icon icon-gift" src="assets/icons/icon-gift.png" alt="Icona regalo" />
@@ -753,7 +720,6 @@
           </div>
         </div>
 
-        <!-- Contatti -->
         <div class="card contacts reveal">
           <div class="title">
             <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti (telefono)" />
@@ -853,15 +819,11 @@
     });
 
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
-
-    /* Fix coerenza: ora mostriamo la stessa stringa usata per Maps */
     document.getElementById("villaAddr").textContent = VILLA_ADDRESS;
-
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
     document.getElementById("mapVilla").href = MAP_VILLA;
-
     document.getElementById("mapFloresta").href = MAP_FLORESTA;
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
