@@ -15,9 +15,9 @@
       /* Base palette */
       --cream:#FFF7EE;
       --white:#FFFFFF;
-      --butter:#FFF7EA;             /* burro caldo */
-      --butter2:#FFFBF3;            /* burro più chiaro */
-      --sagewash:#F2F7F4;           /* salvia chiarissima */
+      --butter:#FFF7EA;
+      --butter2:#FFFBF3;
+      --sagewash:#F2F7F4;
 
       --text:#22302A;
       --muted:#5E6B64;
@@ -25,7 +25,6 @@
 
       --radius:22px;
 
-      /* Ombre più “reali” e meno da box */
       --shadow: 0 22px 52px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.03);
       --shadowHover: 0 26px 64px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.04);
 
@@ -33,8 +32,6 @@
 
       --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, "Georgia", "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-
-      /* Font “wedding” */
       --wedding: ui-serif, "Baskerville", "Libre Baskerville", "Didot", "Bodoni MT", "Georgia", "Times New Roman", serif;
     }
 
@@ -46,7 +43,6 @@
       color:var(--text);
       font-family:var(--sans);
 
-      /* Background più “materico” e avvolgente */
       background:
         radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.22), transparent 58%),
         radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.72), transparent 56%),
@@ -59,32 +55,20 @@
     /* ===== Header ===== */
     header{ padding:84px 0 30px; text-align:center; }
 
-    /* (Lasciamo .name-row perché era nel file originale, ma non viene più usata) */
-    .name-row{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-
-    /* ✅ immagini vicine sopra, nomi sotto */
+    /* ✅ Sposi più vicini (overlap elegante) */
     .couple-row{
       display:flex;
       align-items:flex-end;
       justify-content:center;
-      gap:8px;
+      gap:2px;
       margin:0 0 18px;
     }
-
-    .couple-name{
-      margin:0;
-      text-align:center;
-      line-height:1.06;
-    }
+    .couple-row .avatar-img + .avatar-img{ margin-left:-14px; }
 
     @media (max-width:520px){
-      .couple-row{ gap:6px; margin:0 0 14px; }
+      header{ padding:74px 0 26px; }
+      .couple-row{ gap:2px; margin:0 0 14px; }
+      .couple-row .avatar-img + .avatar-img{ margin-left:-10px; }
     }
 
     h1{
@@ -101,6 +85,8 @@
       font-feature-settings:"kern","liga","clig";
     }
 
+    .couple-name{ margin:0; text-align:center; line-height:1.06; }
+
     .subtitle{
       margin:14px 0 0;
       color:var(--sage2);
@@ -113,7 +99,6 @@
     }
 
     @media (max-width:520px){
-      header{ padding:74px 0 26px; }
       h1{ font-size:38px; }
       .subtitle{ font-size:20px; }
     }
@@ -139,10 +124,7 @@
 
     .card{
       background:
-        linear-gradient(180deg,
-          rgba(255, 248, 238, .94),
-          rgba(242, 249, 246, .94)
-        );
+        linear-gradient(180deg, rgba(255, 248, 238, .94), rgba(242, 249, 246, .94));
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -181,12 +163,7 @@
       flex:1 1 auto;
       height:1px;
       margin-left:12px;
-      background:linear-gradient(
-        90deg,
-        rgba(47,110,91,.38),
-        rgba(47,110,91,.14) 55%,
-        rgba(47,110,91,0)
-      );
+      background:linear-gradient(90deg, rgba(47,110,91,.38), rgba(47,110,91,.14) 55%, rgba(47,110,91,0));
       transform: translateY(1px);
     }
 
@@ -194,31 +171,23 @@
       .title::after{ margin-left:10px; }
     }
 
-    .sticker-icon{
-      width:72px;
-      height:auto;
-      flex:0 0 72px;
-      object-fit:contain;
-      filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
-    }
-
-    .title .sticker-icon.icon-church,
-    .title .sticker-icon.icon-festeggiamenti{
-      width:86px;
-      flex-basis:86px;
-    }
-
-    @media (max-width:520px){
-      .sticker-icon{ width:60px; flex-basis:60px; }
-      .title .sticker-icon.icon-church,
-      .title .sticker-icon.icon-festeggiamenti{
-        width:72px;
-        flex-basis:72px;
-      }
-    }
-
     p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
     .muted{ color:var(--muted); }
+
+    .label{
+      font-weight:700;
+      font-size:13px;
+      color:var(--sage2);
+      letter-spacing:.25px;
+      min-width:74px;
+    }
+
+    /* ✅ “Matteo Leone” e “Regalo di nozze” devono avere stesso font */
+    .value{
+      color:var(--text);
+      font-size:14.7px;
+      font-family: var(--sans);
+    }
 
     #churchAddr, #villaAddr, #florestaAddr{
       white-space:normal;
@@ -226,7 +195,7 @@
       word-break:break-word;
     }
 
-    /* Buttons (base) */
+    /* Buttons base */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
     .btn{
       display:inline-flex; align-items:center; gap:8px;
@@ -245,7 +214,7 @@
       background:rgba(78,140,120,.14);
     }
 
-    /* ✅ Premium button (solo per Maps in Cerimonia/Festeggiamenti) */
+    /* ✅ Bottone Maps più premium (solo per Cerimonia/Festeggiamenti) */
     .btn.btn-premium{
       border: 1px solid rgba(34,48,42,.14);
       background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.30));
@@ -355,12 +324,7 @@
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
 
-    .pw-wrap{
-      flex:1;
-      position:relative;
-      display:flex;
-      align-items:center;
-    }
+    .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
 
     .lock-row input{
       width:100%;
@@ -406,10 +370,7 @@
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
 
     /* ===== reveal on scroll ===== */
-    .reveal{
-      opacity:0;
-      transform: translateY(10px);
-    }
+    .reveal{ opacity:0; transform: translateY(10px); }
     .reveal.is-visible{
       opacity:1;
       transform:none;
@@ -425,9 +386,7 @@
       .card{ transition:none !important; }
     }
 
-    /* ======================================================
-       ✅ LAYOUT “INVITO” PER CERIMONIA/FESTEGGIAMENTI
-       ====================================================== */
+    /* ===== Layout “invito” Cerimonia/Festeggiamenti ===== */
     .invite{
       margin-top: 10px;
       display: grid;
@@ -505,26 +464,17 @@
     }
 
     @media (max-width:700px){
-      .invite{
-        grid-template-columns: 1fr;
-      }
-      .invite-media{
-        padding: 12px;
-      }
-      .invite-ill{
-        max-width: 260px;
-      }
-      .invite-actions .btn{
-        width: 100%;
-        justify-content:center;
-      }
+      .invite{ grid-template-columns: 1fr; }
+      .invite-media{ padding: 12px; }
+      .invite-ill{ max-width: 260px; }
+      .invite-actions .btn{ width: 100%; justify-content:center; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 🔒 Accesso riservato (password richiesta sempre) -->
+  <!-- 🔒 Accesso riservato -->
   <div id="lock">
     <div class="lock-box">
       <div class="badge">🔒 Accesso riservato agli invitati</div>
@@ -550,10 +500,9 @@
     </div>
   </div>
 
-  <!-- ✅ SITO: nascosto finché non sblocchi -->
+  <!-- SITO -->
   <div id="site" hidden>
 
-    <!-- ===== Header con sticker PNG ===== -->
     <header>
       <div class="wrap">
         <div class="couple-row" aria-hidden="true">
@@ -569,7 +518,6 @@
     <main class="wrap">
       <section class="stack">
 
-        <!-- Benvenuti -->
         <div class="card reveal">
           <div class="title">Benvenuti</div>
           <p>
@@ -578,7 +526,7 @@
           </p>
         </div>
 
-        <!-- Cerimonia (layout invito) -->
+        <!-- Cerimonia -->
         <div class="card reveal">
           <div class="title">Cerimonia</div>
 
@@ -596,14 +544,12 @@
                 <a class="btn btn-premium" id="mapChurch" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <p class="muted" style="margin:0;font-size:13.2px;">
-                Consiglio: arrivate con qualche minuto di anticipo.
-              </p>
+              <!-- ✅ rimosso “arrivate prima” -->
             </div>
           </div>
         </div>
 
-        <!-- Festeggiamenti (layout invito) -->
+        <!-- Festeggiamenti -->
         <div class="card reveal">
           <div class="title">Festeggiamenti</div>
 
@@ -622,7 +568,7 @@
               </div>
 
               <p class="muted" style="margin:0;font-size:13.2px;">
-                Se arrivate direttamente alla location, usate il link Maps per le indicazioni.
+                Al vostro arrivo, un caldo aperitivo vi attenderà.
               </p>
             </div>
           </div>
@@ -645,7 +591,6 @@
             <div class="mono" id="ibanText"></div>
 
             <div style="margin-top:10px;">
-              <!-- ✅ richiesto: pulsante “Copia” -->
               <button class="copy" type="button" id="copyIban">Copia</button>
             </div>
 
@@ -669,8 +614,8 @@
             </div>
 
             <div class="btn-row" style="margin-top:12px;">
-              <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
-              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">☎️ Chiama</a>
+              <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">Apri su Maps</a>
+              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">Chiama</a>
             </div>
           </div>
         </div>
@@ -678,7 +623,7 @@
         <!-- Contatti -->
         <div class="card contacts reveal">
           <div class="title">
-            <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti (telefono)" />
+            <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti" />
             Contatti
           </div>
 
@@ -705,10 +650,10 @@
 
     const CHURCH_ADDRESS   = "Via XX Settembre, 96010 Canicattini Bagni\u00A0(SR)";
 
-    /* Maps completo (per ricerca migliore) */
+    // Maps completo (ricerca migliore)
     const VILLA_ADDRESS    = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
 
-    /* ✅ richiesto: in pagina mostrare solo “Contrada …” */
+    // ✅ Display: solo contrada
     const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014 Ispica (RG)";
 
     const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
@@ -781,10 +726,7 @@
     });
 
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
-
-    /* ✅ display “solo contrada” */
     document.getElementById("villaAddr").textContent = VILLA_ADDR_DISPLAY;
-
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
