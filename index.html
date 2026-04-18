@@ -25,9 +25,9 @@
 
       --radius:22px;
 
-      /* Ombre più “reali” e meno da box */
-      --shadow: 0 22px 52px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.03);
-      --shadowHover: 0 26px 64px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.04);
+      /* Ombre più “reali” e meno da box (tuning premium) */
+      --shadow: 0 18px 44px rgba(0,0,0,.075), 0 2px 10px rgba(0,0,0,.028);
+      --shadowHover: 0 22px 56px rgba(0,0,0,.095), 0 3px 12px rgba(0,0,0,.032);
 
       --max:980px;
 
@@ -45,12 +45,14 @@
       margin:0;
       color:var(--text);
       font-family:var(--sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
 
-      /* Background più “materico” e avvolgente */
+      /* Background più “materico” e avvolgente (tuning più sobrio) */
       background:
-        radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.22), transparent 58%),
-        radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.72), transparent 56%),
-        radial-gradient(900px 420px at 50% 20%, rgba(78,140,120,.08), transparent 60%),
+        radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.18), transparent 58%),
+        radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.62), transparent 56%),
+        radial-gradient(900px 420px at 50% 20%, rgba(78,140,120,.06), transparent 60%),
         linear-gradient(180deg, var(--cream), var(--butter2) 40%, #ffffff 100%);
     }
 
@@ -68,28 +70,24 @@
       flex-wrap:wrap;
     }
 
-    /* ✅ NUOVO: immagini vicine sopra, nomi sotto */
+    /* ✅ immagini vicine sopra, nomi sotto */
     .couple-row{
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  gap:8px;
-  margin:0 0 18px; /* ✅ più spazio tra immagini e titolo */
-}
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      gap:8px;
+      margin:0 0 18px; /* più spazio tra immagini e titolo */
+    }
 
-/* opzionale: titolo un filo più “arioso” */
-.couple-name{
-  margin:0;
-  text-align:center;
-  line-height:1.06;
-}
     .couple-name{
       margin:0;
       text-align:center;
+      line-height:1.06;
     }
-   @media (max-width:520px){
-  .couple-row{ gap:6px; margin:0 0 14px; } /* ✅ più spazio anche su mobile */
-}
+
+    @media (max-width:520px){
+      .couple-row{ gap:6px; margin:0 0 14px; }
+    }
 
     h1{
       margin:0;
@@ -131,7 +129,8 @@
       padding:0;
       border:none;
       outline:none;
-      filter: drop-shadow(0 18px 34px rgba(0,0,0,.14));
+      /* shadow più sobria e premium */
+      filter: drop-shadow(0 14px 28px rgba(0,0,0,.12));
     }
     @media (max-width:520px){
       .avatar-img{ width:125px; max-height:145px; }
@@ -142,10 +141,11 @@
     .stack{ display:grid; gap:18px; }
 
     .card{
+      /* più “paper / editorial” (meno cartoon) */
       background:
         linear-gradient(180deg,
-          rgba(255, 248, 238, .94),
-          rgba(242, 249, 246, .94)
+          rgba(255, 251, 246, .94),
+          rgba(243, 248, 246, .94)
         );
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
@@ -153,7 +153,7 @@
       padding:26px;
       overflow:hidden;
 
-      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
+      transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease, background .26s ease;
       will-change: transform, box-shadow;
 
       opacity:1;
@@ -162,7 +162,7 @@
 
     @media (hover:hover) and (pointer:fine){
       .card:hover{
-        transform: translateY(-3px);
+        transform: translateY(-2px); /* più discreto */
         box-shadow:var(--shadowHover);
         border-color: rgba(47,110,91,.18);
       }
@@ -174,8 +174,8 @@
       gap:12px;
       margin:0 0 12px;
       font-family:var(--serif);
-      font-weight:500;
-      letter-spacing:.4px;
+      font-weight:520; /* appena più “autorevole” */
+      letter-spacing:.35px;
       font-size:22px;
       min-width:0;
     }
@@ -187,8 +187,8 @@
       margin-left:12px;
       background:linear-gradient(
         90deg,
-        rgba(47,110,91,.38),
-        rgba(47,110,91,.14) 55%,
+        rgba(47,110,91,.34),
+        rgba(47,110,91,.12) 55%,
         rgba(47,110,91,0)
       );
       transform: translateY(1px);
@@ -203,7 +203,8 @@
       height:auto;
       flex:0 0 72px;
       object-fit:contain;
-      filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
+      /* shadow ridotta: meno “giocattolo” */
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.13));
     }
 
     .title .sticker-icon.icon-church,
@@ -221,7 +222,7 @@
       }
     }
 
-    p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
+    p{ margin:10px 0; line-height:1.72; font-size:14.7px; }
     .muted{ color:var(--muted); }
 
     .row{ display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
@@ -282,7 +283,7 @@
       height:18px;
       flex:0 0 18px;
       stroke:var(--sage2);
-      fill:rgba(78,140,120,.14);
+      fill:rgba(78,140,120,.12); /* più soft */
       stroke-width:2.4;
       stroke-linecap:round;
       stroke-linejoin:round;
@@ -312,23 +313,34 @@
       word-break:break-word;
     }
 
-    /* Buttons */
+    /* Buttons (più premium: niente emoji, più “calmi”) */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
     .btn{
       display:inline-flex; align-items:center; gap:8px;
       padding:10px 14px; border-radius:999px;
       text-decoration:none; font-size:14px;
-      border:1px solid rgba(47,110,91,.25);
-      background:rgba(78,140,120,.10);
+      border:1px solid rgba(47,110,91,.22);
+      background: rgba(78,140,120,.08);
       color:var(--sage2);
-      transition:transform .15s ease, background .15s ease, border-color .15s ease;
+      transition:transform .14s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
       white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
     }
     .btn:hover{
       transform:translateY(-1px);
-      border-color:rgba(47,110,91,.45);
-      background:rgba(78,140,120,.14);
+      border-color:rgba(47,110,91,.34);
+      background:rgba(78,140,120,.12);
+      box-shadow: 0 10px 26px rgba(0,0,0,.06);
+    }
+
+    /* focus accessibile e “designer” */
+    .btn:focus-visible,
+    .copy:focus-visible,
+    .lock-row input:focus-visible,
+    .pw-toggle:focus-visible,
+    .lock-row button#btnEnter:focus-visible{
+      outline:none;
+      box-shadow: 0 0 0 4px rgba(78,140,120,.16);
     }
 
     /* Gift box */
@@ -336,7 +348,7 @@
       margin-top:12px;
       padding:14px 14px;
       border-radius:18px;
-      background:linear-gradient(180deg, rgba(242,226,207,.45), rgba(255,255,255,.85));
+      background:linear-gradient(180deg, rgba(242,226,207,.38), rgba(255,255,255,.86));
       border:1px solid rgba(34,48,42,.10);
     }
 
@@ -349,18 +361,24 @@
     .copy{
       display:inline-flex; align-items:center; gap:8px;
       border:1px solid rgba(34,48,42,.14);
-      background:rgba(255,255,255,.90);
+      background:rgba(255,255,255,.92);
       border-radius:999px;
       padding:9px 12px;
       font-size:13px;
       cursor:pointer;
       -webkit-tap-highlight-color: transparent;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .copy:hover{
+      transform: translateY(-1px);
+      border-color: rgba(47,110,91,.22);
+      background: rgba(255,255,255,.96);
     }
 
     a.softlink{
       color:var(--sage2);
       text-decoration:none;
-      border-bottom:1px dashed rgba(47,110,91,.45);
+      border-bottom:1px dashed rgba(47,110,91,.40);
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
@@ -388,7 +406,7 @@
       display:flex; align-items:center; justify-content:center;
       padding:18px;
       background:
-        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.92), transparent 60%),
+        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.88), transparent 60%),
         linear-gradient(180deg, rgba(255,247,238,.98), rgba(255,255,255,.98));
     }
     .lock-box{
@@ -404,10 +422,11 @@
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       margin:0 auto 12px; padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(47,110,91,.25);
-      background:rgba(78,140,120,.10);
+      border:1px solid rgba(47,110,91,.22);
+      background:rgba(78,140,120,.09);
       font-size:13px;
       color:var(--sage2);
+      letter-spacing:.2px;
     }
 
     .lock-box h2{
@@ -436,6 +455,9 @@
       padding:12px 44px 12px 14px;
       font-size:14px; outline:none; background:white;
     }
+    .lock-row input:focus{
+      border-color: rgba(47,110,91,.30);
+    }
 
     .pw-toggle{
       position:absolute;
@@ -451,6 +473,12 @@
       cursor:pointer;
       padding:0;
       -webkit-tap-highlight-color: transparent;
+      transition: background .12s ease, border-color .12s ease, transform .12s ease;
+    }
+    .pw-toggle:hover{
+      transform: translateY(-1px);
+      border-color: rgba(47,110,91,.20);
+      background: rgba(255,255,255,.96);
     }
     .pw-toggle svg{
       width:18px;
@@ -468,7 +496,9 @@
       background:linear-gradient(180deg, rgba(78,140,120,.96), rgba(47,110,91,.92));
       color:white; white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
+      transition: transform .12s ease, filter .12s ease;
     }
+    .lock-row button#btnEnter:hover{ transform: translateY(-1px); filter: saturate(1.02); }
 
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
 
@@ -499,13 +529,14 @@
   <!-- 🔒 Accesso riservato (password richiesta sempre) -->
   <div id="lock">
     <div class="lock-box">
-      <div class="badge">🔒 Accesso riservato agli invitati</div>
+      <!-- (tuning premium: tolta emoji) -->
+      <div class="badge">Accesso riservato agli invitati</div>
       <h2>Matteo &amp; Sebiana</h2>
       <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
 
       <div class="lock-row">
         <div class="pw-wrap">
-          <input id="pw" type="password" placeholder="Password" autocomplete="off" autofocus />
+          <input id="pw" type="password" placeholder="Password" autocomplete="current-password" autofocus />
           <button class="pw-toggle" id="togglePw" type="button" aria-label="Mostra password" aria-pressed="false">
             <svg id="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
@@ -529,13 +560,13 @@
     <header>
       <div class="wrap">
 
-        <!-- ✅ Nuovo: immagini vicine sopra -->
+        <!-- immagini vicine sopra -->
         <div class="couple-row" aria-hidden="true">
           <img class="avatar-img" src="assets/matteo.png" alt="" />
           <img class="avatar-img" src="assets/sebiana.png" alt="" />
         </div>
 
-        <!-- ✅ Nuovo: nomi sotto -->
+        <!-- nomi sotto -->
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
 
         <p class="subtitle">01.09.2026</p>
@@ -587,7 +618,8 @@
               </div>
 
               <div class="event-actions">
-                <a class="btn" id="mapChurch" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+                <!-- (tuning premium: tolta emoji + href placeholder) -->
+                <a class="btn" id="mapChurch" href="#" target="_blank" rel="noopener">Apri su Maps</a>
               </div>
             </div>
           </div>
@@ -626,7 +658,8 @@
               </div>
 
               <div class="event-actions">
-                <a class="btn" id="mapVilla" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
+                <!-- (tuning premium: tolta emoji + href placeholder) -->
+                <a class="btn" id="mapVilla" href="#" target="_blank" rel="noopener">Apri su Maps</a>
               </div>
             </div>
           </div>
@@ -649,7 +682,8 @@
             <div class="mono" id="ibanText"></div>
 
             <div style="margin-top:10px;">
-              <button class="copy" type="button" id="copyIban">Copia IBAN</button>
+              <!-- ✅ (1) cambiato label -->
+              <button class="copy" type="button" id="copyIban">Copia</button>
             </div>
 
             <div class="muted" style="font-size:12.8px;margin:14px 0 6px;">Intestatario</div>
@@ -672,8 +706,9 @@
             </div>
 
             <div class="btn-row" style="margin-top:12px;">
-              <a class="btn" id="mapFloresta" target="_blank" rel="noopener">🗺️ Apri su Maps</a>
-              <a class="btn" id="telFloresta" aria-label="Chiama Floresta">☎️ Chiama</a>
+              <!-- (tuning premium: tolta emoji + href placeholder) -->
+              <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">Apri su Maps</a>
+              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">Chiama</a>
             </div>
           </div>
         </div>
@@ -778,7 +813,10 @@
     });
 
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
-    document.getElementById("villaAddr").textContent = "C.da Graffetta, 97014 Ispica (RG)";
+
+    /* ✅ (3) Fix coerenza: ora mostriamo lo stesso testo usato per MAP_VILLA */
+    document.getElementById("villaAddr").textContent = VILLA_ADDRESS;
+
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
@@ -793,7 +831,9 @@
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
     const copyBtn = document.getElementById("copyIban");
-    function resetCopyLabel(){ copyBtn.textContent = "Copia IBAN"; }
+
+    /* ✅ (1) reset label = “Copia” */
+    function resetCopyLabel(){ copyBtn.textContent = "Copia"; }
     resetCopyLabel();
 
     copyBtn.addEventListener("click", async ()=>{
