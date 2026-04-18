@@ -12,12 +12,14 @@
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      /* Base palette */
+      /* Base palette (romantica ma sobria) */
       --cream:#FFF7EE;
       --white:#FFFFFF;
-      --butter:#FFF7EA;             /* burro caldo */
-      --butter2:#FFFBF3;            /* burro più chiaro */
-      --sagewash:#F2F7F4;           /* salvia chiarissima */
+      --butter:#FFF5E6;             /* burro caldo */
+      --butter2:#FFFBF4;            /* burro più chiaro */
+      --champagne:#F6E9D9;          /* champagne */
+      --blush: rgba(210, 142, 141, .10); /* rosa cipria super soft */
+      --sagewash:#F2F7F4;
 
       --text:#22302A;
       --muted:#5E6B64;
@@ -25,9 +27,9 @@
 
       --radius:22px;
 
-      /* Ombre più “reali” e meno da box (tuning premium) */
-      --shadow: 0 18px 44px rgba(0,0,0,.075), 0 2px 10px rgba(0,0,0,.028);
-      --shadowHover: 0 22px 56px rgba(0,0,0,.095), 0 3px 12px rgba(0,0,0,.032);
+      /* Ombre più “premium editorial” */
+      --shadow: 0 18px 44px rgba(0,0,0,.075), 0 2px 10px rgba(0,0,0,.026);
+      --shadowHover: 0 22px 58px rgba(0,0,0,.092), 0 3px 12px rgba(0,0,0,.032);
 
       --max:980px;
 
@@ -48,12 +50,12 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
 
-      /* Background più “materico” e avvolgente (tuning più sobrio) */
+      /* Background più “luxury romantico”: caldo + blush leggerissimo */
       background:
         radial-gradient(1100px 520px at 12% -6%, rgba(78,140,120,.18), transparent 58%),
         radial-gradient(980px 520px at 92% 0%, rgba(242,226,207,.62), transparent 56%),
-        radial-gradient(900px 420px at 50% 20%, rgba(78,140,120,.06), transparent 60%),
-        linear-gradient(180deg, var(--cream), var(--butter2) 40%, #ffffff 100%);
+        radial-gradient(900px 520px at 46% 10%, var(--blush), transparent 60%),
+        linear-gradient(180deg, var(--cream), var(--butter2) 42%, #ffffff 100%);
     }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
@@ -70,15 +72,19 @@
       flex-wrap:wrap;
     }
 
-    /* ✅ immagini vicine sopra, nomi sotto */
+    /* ✅ NUOVO: immagini più vicine (anche leggermente sovrapposte) */
     .couple-row{
       display:flex;
       align-items:flex-end;
       justify-content:center;
-      gap:8px;
-      margin:0 0 18px; /* più spazio tra immagini e titolo */
+      gap:2px;              /* più vicino */
+      margin:0 0 18px;
+    }
+    .couple-row .avatar-img + .avatar-img{
+      margin-left:-14px;    /* sovrapposizione elegante */
     }
 
+    /* titolo un filo più “arioso” */
     .couple-name{
       margin:0;
       text-align:center;
@@ -86,7 +92,8 @@
     }
 
     @media (max-width:520px){
-      .couple-row{ gap:6px; margin:0 0 14px; }
+      .couple-row{ gap:2px; margin:0 0 14px; }
+      .couple-row .avatar-img + .avatar-img{ margin-left:-10px; }
     }
 
     h1{
@@ -129,8 +136,8 @@
       padding:0;
       border:none;
       outline:none;
-      /* shadow più sobria e premium */
-      filter: drop-shadow(0 14px 28px rgba(0,0,0,.12));
+      /* shadow più soft e raffinata */
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.115));
     }
     @media (max-width:520px){
       .avatar-img{ width:125px; max-height:145px; }
@@ -141,11 +148,11 @@
     .stack{ display:grid; gap:18px; }
 
     .card{
-      /* più “paper / editorial” (meno cartoon) */
+      /* più “paper / editorial”: caldo, organico */
       background:
         linear-gradient(180deg,
-          rgba(255, 251, 246, .94),
-          rgba(243, 248, 246, .94)
+          rgba(255, 252, 248, .94),
+          rgba(242, 248, 246, .92)
         );
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
@@ -162,7 +169,7 @@
 
     @media (hover:hover) and (pointer:fine){
       .card:hover{
-        transform: translateY(-2px); /* più discreto */
+        transform: translateY(-2px);
         box-shadow:var(--shadowHover);
         border-color: rgba(47,110,91,.18);
       }
@@ -174,7 +181,7 @@
       gap:12px;
       margin:0 0 12px;
       font-family:var(--serif);
-      font-weight:520; /* appena più “autorevole” */
+      font-weight:520;
       letter-spacing:.35px;
       font-size:22px;
       min-width:0;
@@ -187,8 +194,8 @@
       margin-left:12px;
       background:linear-gradient(
         90deg,
-        rgba(47,110,91,.34),
-        rgba(47,110,91,.12) 55%,
+        rgba(47,110,91,.32),
+        rgba(210,142,141,.12) 55%,
         rgba(47,110,91,0)
       );
       transform: translateY(1px);
@@ -203,8 +210,8 @@
       height:auto;
       flex:0 0 72px;
       object-fit:contain;
-      /* shadow ridotta: meno “giocattolo” */
-      filter: drop-shadow(0 8px 18px rgba(0,0,0,.13));
+      /* meno “giocattolo”, più premium */
+      filter: drop-shadow(0 7px 16px rgba(0,0,0,.12));
     }
 
     .title .sticker-icon.icon-church,
@@ -283,7 +290,7 @@
       height:18px;
       flex:0 0 18px;
       stroke:var(--sage2);
-      fill:rgba(78,140,120,.12); /* più soft */
+      fill:rgba(78,140,120,.11);
       stroke-width:2.4;
       stroke-linecap:round;
       stroke-linejoin:round;
@@ -313,24 +320,37 @@
       word-break:break-word;
     }
 
-    /* Buttons (più premium: niente emoji, più “calmi”) */
+    /* Buttons (premium romantico: puliti, senza emoji, micro-icona svg) */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+
     .btn{
       display:inline-flex; align-items:center; gap:8px;
       padding:10px 14px; border-radius:999px;
       text-decoration:none; font-size:14px;
-      border:1px solid rgba(47,110,91,.22);
-      background: rgba(78,140,120,.08);
+      border:1px solid rgba(47,110,91,.20);
+      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(78,140,120,.06));
       color:var(--sage2);
       transition:transform .14s ease, background .14s ease, border-color .14s ease, box-shadow .14s ease;
       white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
     }
+
     .btn:hover{
       transform:translateY(-1px);
-      border-color:rgba(47,110,91,.34);
-      background:rgba(78,140,120,.12);
+      border-color:rgba(47,110,91,.32);
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(78,140,120,.09));
       box-shadow: 0 10px 26px rgba(0,0,0,.06);
+    }
+
+    .btn svg{
+      width:16px;
+      height:16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity:.92;
     }
 
     /* focus accessibile e “designer” */
@@ -348,7 +368,7 @@
       margin-top:12px;
       padding:14px 14px;
       border-radius:18px;
-      background:linear-gradient(180deg, rgba(242,226,207,.38), rgba(255,255,255,.86));
+      background:linear-gradient(180deg, rgba(246,233,217,.38), rgba(255,255,255,.88));
       border:1px solid rgba(34,48,42,.10);
     }
 
@@ -361,18 +381,19 @@
     .copy{
       display:inline-flex; align-items:center; gap:8px;
       border:1px solid rgba(34,48,42,.14);
-      background:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.94);
       border-radius:999px;
       padding:9px 12px;
       font-size:13px;
       cursor:pointer;
       -webkit-tap-highlight-color: transparent;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, box-shadow .12s ease;
     }
     .copy:hover{
       transform: translateY(-1px);
       border-color: rgba(47,110,91,.22);
-      background: rgba(255,255,255,.96);
+      background: rgba(255,255,255,.97);
+      box-shadow: 0 10px 24px rgba(0,0,0,.05);
     }
 
     a.softlink{
@@ -406,12 +427,13 @@
       display:flex; align-items:center; justify-content:center;
       padding:18px;
       background:
-        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.88), transparent 60%),
+        radial-gradient(900px 380px at 50% -80px, rgba(246,233,217,.90), transparent 60%),
+        radial-gradient(900px 520px at 44% 10%, rgba(210,142,141,.10), transparent 62%),
         linear-gradient(180deg, rgba(255,247,238,.98), rgba(255,255,255,.98));
     }
     .lock-box{
       width:min(420px, 100%);
-      background:rgba(255,255,255,.96);
+      background:rgba(255,255,255,.965);
       border:1px solid rgba(34,48,42,.12);
       border-radius:24px;
       box-shadow:var(--shadow);
@@ -422,8 +444,8 @@
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
       margin:0 auto 12px; padding:8px 14px;
       border-radius:999px;
-      border:1px solid rgba(47,110,91,.22);
-      background:rgba(78,140,120,.09);
+      border:1px solid rgba(47,110,91,.20);
+      background:linear-gradient(180deg, rgba(255,255,255,.76), rgba(78,140,120,.06));
       font-size:13px;
       color:var(--sage2);
       letter-spacing:.2px;
@@ -529,7 +551,6 @@
   <!-- 🔒 Accesso riservato (password richiesta sempre) -->
   <div id="lock">
     <div class="lock-box">
-      <!-- (tuning premium: tolta emoji) -->
       <div class="badge">Accesso riservato agli invitati</div>
       <h2>Matteo &amp; Sebiana</h2>
       <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
@@ -560,13 +581,13 @@
     <header>
       <div class="wrap">
 
-        <!-- immagini vicine sopra -->
+        <!-- ✅ immagini vicine sopra -->
         <div class="couple-row" aria-hidden="true">
           <img class="avatar-img" src="assets/matteo.png" alt="" />
           <img class="avatar-img" src="assets/sebiana.png" alt="" />
         </div>
 
-        <!-- nomi sotto -->
+        <!-- ✅ nomi sotto -->
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
 
         <p class="subtitle">01.09.2026</p>
@@ -618,8 +639,13 @@
               </div>
 
               <div class="event-actions">
-                <!-- (tuning premium: tolta emoji + href placeholder) -->
-                <a class="btn" id="mapChurch" href="#" target="_blank" rel="noopener">Apri su Maps</a>
+                <a class="btn" id="mapChurch" href="#" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
+                    <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
+                  </svg>
+                  Apri in Maps
+                </a>
               </div>
             </div>
           </div>
@@ -658,8 +684,13 @@
               </div>
 
               <div class="event-actions">
-                <!-- (tuning premium: tolta emoji + href placeholder) -->
-                <a class="btn" id="mapVilla" href="#" target="_blank" rel="noopener">Apri su Maps</a>
+                <a class="btn" id="mapVilla" href="#" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
+                    <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
+                  </svg>
+                  Apri in Maps
+                </a>
               </div>
             </div>
           </div>
@@ -682,7 +713,6 @@
             <div class="mono" id="ibanText"></div>
 
             <div style="margin-top:10px;">
-              <!-- ✅ (1) cambiato label -->
               <button class="copy" type="button" id="copyIban">Copia</button>
             </div>
 
@@ -706,9 +736,19 @@
             </div>
 
             <div class="btn-row" style="margin-top:12px;">
-              <!-- (tuning premium: tolta emoji + href placeholder) -->
-              <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">Apri su Maps</a>
-              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">Chiama</a>
+              <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 21s7-4.4 7-11a7 7 0 10-14 0c0 6.6 7 11 7 11z"></path>
+                  <path d="M12 10.5a2.2 2.2 0 110-4.4 2.2 2.2 0 010 4.4z"></path>
+                </svg>
+                Apri in Maps
+              </a>
+              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1A19.3 19.3 0 0 1 5.3 12.8 19.8 19.8 0 0 1 2.2 4.2 2 2 0 0 1 4.2 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6.2 6.2l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6A2 2 0 0 1 22 16.9z"></path>
+                </svg>
+                Chiama
+              </a>
             </div>
           </div>
         </div>
@@ -814,7 +854,7 @@
 
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
 
-    /* ✅ (3) Fix coerenza: ora mostriamo lo stesso testo usato per MAP_VILLA */
+    /* Fix coerenza: ora mostriamo la stessa stringa usata per Maps */
     document.getElementById("villaAddr").textContent = VILLA_ADDRESS;
 
     document.getElementById("florestaAddr").textContent = FLORESTA_ADDRESS;
@@ -831,8 +871,6 @@
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
     const copyBtn = document.getElementById("copyIban");
-
-    /* ✅ (1) reset label = “Copia” */
     function resetCopyLabel(){ copyBtn.textContent = "Copia"; }
     resetCopyLabel();
 
