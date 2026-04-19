@@ -58,7 +58,7 @@
     /* ===== Header ===== */
     header{ padding:84px 0 28px; text-align:center; }
 
-    /* ✅ 1) Sposi ancora più vicini */
+    /* ✅ 2) Sposi ancora più vicini (leggero) */
     .couple-row{
       display:flex;
       align-items:flex-end;
@@ -66,12 +66,12 @@
       gap:0;
       margin:0 0 12px;
     }
-    .couple-row .avatar-img + .avatar-img{ margin-left:-28px; }
+    .couple-row .avatar-img + .avatar-img{ margin-left:-34px; } /* era -28 */
 
     @media (max-width:520px){
       header{ padding:74px 0 24px; }
       .couple-row{ margin:0 0 10px; }
-      .couple-row .avatar-img + .avatar-img{ margin-left:-19px; }
+      .couple-row .avatar-img + .avatar-img{ margin-left:-24px; } /* era -19 */
     }
 
     .avatar-img{
@@ -89,14 +89,14 @@
       .avatar-img{ width:125px; max-height:145px; }
     }
 
-    /* ✅ 2) titolo più in basso + un filo più piccolo, non bold */
+    /* ✅ 3) titolo più in basso + più piccolo, non bold */
     h1{
-      margin:26px 0 0; /* più in basso */
+      margin:32px 0 0; /* era 26: più in basso */
       font-family:var(--wedding);
       font-style:italic;
       font-weight:440;
       letter-spacing:.32px;
-      font-size:40px; /* un filo più piccolo */
+      font-size:38px; /* era 40: leggermente più piccolo */
       line-height:1.05;
       color:rgba(47,110,91,.92);
       text-rendering:optimizeLegibility;
@@ -117,7 +117,7 @@
     }
 
     @media (max-width:520px){
-      h1{ font-size:34px; margin-top:20px; }
+      h1{ font-size:32px; margin-top:26px; } /* era 34 / 20 */
       .subtitle{ font-size:18.5px; }
     }
 
@@ -131,36 +131,43 @@
       color:rgba(31,42,37,.92);
       font-family:var(--serif);
     }
+
+    /* ✅ 1) Countdown più “gioiello” */
     .cd-chip{
       display:inline-flex;
       align-items:baseline;
       gap:8px;
-      padding:8px 12px;
+      padding:9px 13px;
       border-radius:999px;
-      border:1px solid rgba(34,48,42,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.22));
-      box-shadow: 0 12px 26px rgba(0,0,0,.042);
+      border:1px solid rgba(34,48,42,.09);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.94), rgba(242,226,207,.16));
+      box-shadow:
+        0 14px 32px rgba(0,0,0,.038),
+        inset 0 1px 0 rgba(255,255,255,.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
     .cd-num{
       font-variant-numeric: tabular-nums;
       font-size:18px;
-      letter-spacing:.2px;
+      letter-spacing:.18px;
       color:rgba(35,84,69,.92);
-      font-weight:650;
+      font-weight:720; /* più premium */
     }
     .cd-lbl{
-      font-size:12.6px;
-      letter-spacing:.22px;
+      font-size:12.4px;
+      letter-spacing:.28px; /* micro tracking */
       color:rgba(94,107,100,.92);
       transform: translateY(-1px);
     }
     /* ✅ 3) tolta la scritta: mantengo il nodo ma lo rendo “vuoto” */
-    .cd-note{
-      display:none;
-    }
+    .cd-note{ display:none; }
+
     @media (max-width:520px){
-      .cd-chip{ padding:7px 11px; }
+      .cd-chip{ padding:8px 12px; }
       .cd-num{ font-size:17px; }
+      .cd-lbl{ font-size:12.2px; }
     }
 
     /* ===== Layout cards ===== */
@@ -301,7 +308,16 @@
     .small-phone{ font-size:13px; }
 
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
-    .finale{ font-family:var(--serif); font-size:18px; color:var(--text); margin:0 0 8px; letter-spacing:.2px; }
+
+    /* ✅ 5) frase finale in corsivo ma stesso font */
+    .finale{
+      font-family:var(--serif);
+      font-style: italic;
+      font-size:18px;
+      color:var(--text);
+      margin:0 0 8px;
+      letter-spacing:.2px;
+    }
     footer small{ display:block; font-size:13px; margin-top:10px; }
 
     /* ===== Password overlay ===== */
@@ -643,8 +659,9 @@
                 <a class="btn btn-premium" id="mapVilla" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
+              <!-- ✅ 4) frase come richiesto + “frizzante aperitivo” in grassetto -->
               <p class="muted" style="margin:0; margin-top:6px; font-size:13.2px;">
-                Al vostro arrivo, un <strong>frizzante</strong> aperitivo vi attenderà.
+                Al vostro arrivo, vi attenderà un <strong>frizzante aperitivo</strong>.
               </p>
             </div>
           </div>
@@ -680,7 +697,7 @@
           </div>
 
           <p style="margin-top:16px;">
-            Se invece preferite farci <strong>un dono</strong>, potete fare riferimento alla nostra <strong>lista nozze presso:</strong>
+            Se invece preferite farci <strong>un dono</strong>, potete fare riferimento alla nostra <strong>lista nozze</strong> presso:
           </p>
 
           <div class="gift-box" style="margin-top:12px;">
@@ -704,7 +721,7 @@
             Contatti
           </div>
 
-          <!-- ✅ 5) allineamento e stacco numeri -->
+          <!-- ✅ allineamento e stacco numeri -->
           <div class="contacts-grid">
             <div class="contact-name">Matteo</div>
             <div class="contact-phone">
@@ -907,7 +924,7 @@
       mEl.textContent = pad2(mins);
       sEl.textContent = pad2(secs);
 
-      /* ✅ 3) niente scritta */
+      /* ✅ niente scritta */
       if(note) note.textContent = "";
     }
 
