@@ -22,11 +22,9 @@
       --muted:#5E6B64;
 
       --radius:22px;
+
       --shadow: 0 22px 52px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.03);
       --shadowHover: 0 26px 64px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.04);
-
-      --space-hero-bottom: 18px;
-      --space-after-intro: 8px;
 
       --max:980px;
 
@@ -60,7 +58,6 @@
 
     /* ===== Header ===== */
     header{ padding:84px 0 28px; text-align:center; }
-    header + main{ padding-top: var(--space-hero-bottom); }
 
     .couple-row{
       display:flex;
@@ -73,7 +70,6 @@
 
     @media (max-width:520px){
       header{ padding:74px 0 24px; }
-      header + main{ padding-top: 14px; }
       .couple-row{ margin:0 0 10px; }
       .couple-row .avatar-img + .avatar-img{ margin-left:-24px; }
     }
@@ -106,6 +102,8 @@
       font-kerning:normal;
       font-feature-settings:"kern","liga","clig";
     }
+    .couple-name{ text-align:center; }
+
     .subtitle{
       margin:12px 0 0;
       color:rgba(47,110,91,.82);
@@ -116,6 +114,7 @@
       font-weight:520;
       text-align:center;
     }
+
     @media (max-width:520px){
       h1{ font-size:32px; margin-top:26px; }
       .subtitle{ font-size:18.5px; }
@@ -174,9 +173,9 @@
       .cd-lbl{ font-size:12.2px; }
     }
 
-    /* ===== Cards ===== */
+    /* ===== Layout cards ===== */
     section{ padding:26px 0; }
-    .stack{ display:grid; gap:18px; min-width:0; }
+    .stack{ display:grid; gap:18px; }
 
     .card{
       background: linear-gradient(180deg, rgba(255, 254, 250, .99), rgba(255, 251, 243, .94));
@@ -222,7 +221,6 @@
       .title::after{ margin-left:10px; min-width:34px; }
     }
 
-    /* ✅ Base paragraphs: no balancing, no hyphenation tricks */
     p{
       margin: 10px 0;
       line-height: 1.78;
@@ -235,6 +233,12 @@
     p + p{ margin-top: 12px; }
 
     .muted{ color:var(--muted); }
+
+    #churchAddr, #villaAddr, #florestaAddr{
+      white-space:normal;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
 
     /* Buttons */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
@@ -254,6 +258,7 @@
       border-color:rgba(34,48,42,.18);
       background:rgba(242,226,207,.26);
     }
+
     .btn.btn-premium{
       position:relative;
       border: 1px solid rgba(34,48,42,.14);
@@ -282,7 +287,7 @@
       }
     }
 
-    /* Gift */
+    /* Gift box */
     .gift-box{
       margin-top:12px;
       padding:14px 14px;
@@ -314,20 +319,23 @@
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
-    /* Footer */
+    .small-phone{ font-size:13px; }
+
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
+
+    /* Footer: una riga + font più piccolo */
     .finale{
       font-family:var(--serif);
       font-style: italic;
-      font-size: clamp(14px, 4.1vw, 16px); /* più piccolo */
+      font-size: clamp(14px, 4.1vw, 16px);
       color:var(--text);
       margin:0 0 8px;
       letter-spacing:.2px;
-      white-space: nowrap; /* una sola riga */
+      white-space: nowrap;
     }
     footer small{ display:block; font-size:13px; margin-top:10px; }
 
-    /* Password overlay */
+    /* ===== Password overlay ===== */
     #lock{
       position:fixed; inset:0; z-index:9999;
       display:flex; align-items:center; justify-content:center;
@@ -364,6 +372,7 @@
       color:var(--sage2);
     }
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
+
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
     .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
     .lock-row input{
@@ -519,9 +528,8 @@
       box-shadow: 0 16px 36px rgba(0,0,0,.055), 0 2px 8px rgba(0,0,0,.022);
       padding: 28px 28px 30px;
     }
-    .stack .card.intro + .card{ margin-top: var(--space-after-intro); }
 
-    /* ===== CONTATTI: FIX DEFINITIVO + SPAZIO ===== */
+    /* Contatti: layout + WhatsApp */
     .contacts-grid{
       display:grid;
       grid-template-columns: 120px 1fr;
@@ -534,41 +542,39 @@
       color:var(--text);
       letter-spacing:.15px;
     }
-    .contact-phone{
-      justify-self:start;
-      padding-left:6px;
-      font-variant-numeric: tabular-nums;
-      letter-spacing:.2px;
+    .contact-links{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
       min-width:0;
     }
-
-    /* ✅ 1) Wrapping super-blindato solo per i paragrafi nei Contatti */
-    .card.contacts p{
-      display:block !important;
-      width:100% !important;
-      max-width:100% !important;
-      white-space:normal !important;
-      overflow-wrap:anywhere !important;
-      word-break:normal !important;
-      hyphens:none !important;
-      text-wrap:wrap !important; /* dove supportato */
-    }
-
-    /* ✅ 2) Spazio extra (una riga) prima della griglia */
-    .card.contacts p:last-of-type{ margin-bottom: 18px !important; }
-
-    /* Numeri: desktop una riga, mobile spezzabile (evita layout strani) */
-    .contacts a.softlink{
-      border-bottom:none !important;
+    .wa-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(34,48,42,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.97), rgba(242,226,207,.26));
+      color: rgba(47,110,91,.92);
+      text-decoration:none;
+      font-size:13.3px;
+      font-weight:650;
       white-space:nowrap;
+      -webkit-tap-highlight-color: transparent;
     }
+    @media (hover:hover) and (pointer:fine){
+      .wa-link:hover{ transform: translateY(-1px); }
+    }
+
     @media (max-width:520px){
       .contacts-grid{
         grid-template-columns: 1fr;
         gap: 10px;
       }
-      .contact-phone{ padding-left:0; }
-      .contacts a.softlink{ white-space:normal; overflow-wrap:anywhere; }
+      .contact-links{ gap:8px; }
+      .wa-link{ width:fit-content; }
     }
   </style>
 </head>
@@ -618,6 +624,7 @@
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
         <p class="subtitle">01.09.2026</p>
 
+        <!-- Countdown -->
         <div class="countdown" role="status" aria-live="polite">
           <div class="cd-chip"><span class="cd-num" id="cdDays">—</span><span class="cd-lbl">giorni</span></div>
           <div class="cd-chip"><span class="cd-num" id="cdHours">—</span><span class="cd-lbl">ore</span></div>
@@ -673,7 +680,9 @@
             </div>
 
             <div class="invite-body">
-              <div class="invite-pill"><span>Dopo la cerimonia</span></div>
+              <div class="invite-pill">
+                <span>Dopo la cerimonia</span>
+              </div>
 
               <h3 class="invite-place">Villa Anna</h3>
               <div class="invite-addr" id="villaAddr"></div>
@@ -682,7 +691,7 @@
                 <a class="btn btn-premium" id="mapVilla" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <!-- ✅ stesso colore del testo normale -->
+              <!-- stesso colore del testo normale (non muted) -->
               <p style="margin:0; margin-top:6px; font-size:13.2px;">
                 Al vostro arrivo, vi attenderà un <strong>frizzante aperitivo</strong>.
               </p>
@@ -693,7 +702,7 @@
         <!-- Regalo -->
         <div class="card reveal">
           <div class="title">
-            <img class="sticker-icon icon-gift" src="assets/icons/icon-gift.png" alt="Icona regalo" />
+            <img class="sticker-icon" src="assets/icons/icon-gift.png" alt="Icona regalo" />
             Un pensiero per noi
           </div>
 
@@ -711,11 +720,11 @@
             </div>
 
             <div class="muted" style="font-size:12.8px;margin:14px 0 0;">
-              Intestatario: <span id="ibanName"></span>
+              Intestatario: <span class="value" id="ibanName"></span>
             </div>
 
             <div class="muted" style="font-size:12.8px;margin-top:10px;">
-              Causale suggerita: <span>Regalo di nozze</span>
+              Causale suggerita: <span class="value">Regalo di nozze</span>
             </div>
           </div>
 
@@ -740,22 +749,25 @@
         <!-- Contatti -->
         <div class="card contacts reveal">
           <div class="title">
-            <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti" />
+            <img class="sticker-icon" src="assets/icons/icon-phone.png" alt="Icona contatti" />
             Contatti
           </div>
 
-          <p>Se lo desiderate, potete contattarci direttamente per qualsiasi esigenza organizzativa.</p>
-          <p>Vi saremmo grati se poteste comunicarci la vostra presenza.</p>
+          <!-- ✅ testo consigliato (breve e coerente) -->
+          <p>Per qualsiasi esigenza, potete contattarci direttamente.</p>
+          <p style="margin-bottom:18px;">Vi saremmo grati se poteste comunicarci la vostra presenza.</p>
 
           <div class="contacts-grid">
             <div class="contact-name">Matteo</div>
-            <div class="contact-phone">
+            <div class="contact-links">
               <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
+              <a class="wa-link" href="https://wa.me/393200750337" target="_blank" rel="noopener" aria-label="Scrivi su WhatsApp a Matteo">WhatsApp</a>
             </div>
 
             <div class="contact-name">Sebiana</div>
-            <div class="contact-phone">
+            <div class="contact-links">
               <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
+              <a class="wa-link" href="https://wa.me/393888843281" target="_blank" rel="noopener" aria-label="Scrivi su WhatsApp a Sebiana">WhatsApp</a>
             </div>
           </div>
         </div>
@@ -824,6 +836,8 @@
 
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
+
+    try{ pw.focus(); }catch(e){}
 
     const togglePw = document.getElementById("togglePw");
     const eyeIcon = document.getElementById("eyeIcon");
@@ -907,6 +921,7 @@
           }
         });
       }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
       cards.forEach(el => io.observe(el));
     }
 
