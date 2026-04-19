@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Matteo &amp; Sebiana="theme-color" content="#FFFBF3" />  <title>Matteo &amp; Sebiana — 01.09.2026</title>
+  <title>Matteo &amp; Sebiana — 01.09.2026</title>
+  <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
+  <meta name="theme-color" content="#FFFBF3" />
 
   <style>
     :root{
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      /* ✅ palette B: champagne-hotel (burro/bianco caldo) */
+      /* ✅ palette B: champagne-hotel */
       --cream:#FFF8F0;
       --white:#FFFFFF;
       --butter:#FFF7EA;
@@ -42,7 +44,6 @@
       color:var(--text);
       font-family:var(--sans);
 
-      /* ✅ B: più burro/bianco, verde solo accento */
       background:
         radial-gradient(1050px 520px at 15% -6%, rgba(78,140,120,.07), transparent 62%),
         radial-gradient(980px 560px at 92% 0%, rgba(242,226,207,.94), transparent 58%),
@@ -54,7 +55,7 @@
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
 
     /* ===== Header ===== */
-    header{ padding:84px 0 30px; text-align:center; }
+    header{ padding:84px 0 28px; text-align:center; }
 
     /* ✅ Sposi ancora più vicini */
     .couple-row{
@@ -64,22 +65,21 @@
       gap:0px;
       margin:0 0 12px;
     }
-    .couple-row .avatar-img + .avatar-img{ margin-left:-20px; }
+    .couple-row .avatar-img + .avatar-img{ margin-left:-22px; }
 
     @media (max-width:520px){
-      header{ padding:74px 0 26px; }
+      header{ padding:74px 0 24px; }
       .couple-row{ margin:0 0 10px; }
-      .couple-row .avatar-img + .avatar-img{ margin-left:-14px; }
+      .couple-row .avatar-img + .avatar-img{ margin-left:-16px; }
     }
 
-    /* ✅ Titolo: più in basso, più piccolo, non bold */
     h1{
-      margin:22px 0 0;              /* ✅ abbassato rispetto alle immagini */
+      margin:22px 0 0;
       font-family:var(--wedding);
       font-style:italic;
-      font-weight:440;              /* ✅ non grassetto */
+      font-weight:440;
       letter-spacing:.32px;
-      font-size:42px;               /* ✅ leggermente più piccolo */
+      font-size:42px;
       line-height:1.05;
       color:rgba(47,110,91,.92);
       text-rendering:optimizeLegibility;
@@ -119,12 +119,56 @@
       .avatar-img{ width:125px; max-height:145px; }
     }
 
+    /* ===== Countdown (premium, non-boxy) ===== */
+    .countdown{
+      margin:14px auto 0;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      color:rgba(31,42,37,.92);
+      font-family:var(--serif);
+    }
+    .cd-chip{
+      display:inline-flex;
+      align-items:baseline;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(34,48,42,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(242,226,207,.26));
+      box-shadow: 0 12px 26px rgba(0,0,0,.045);
+    }
+    .cd-num{
+      font-variant-numeric: tabular-nums;
+      font-size:18px;
+      letter-spacing:.2px;
+      color:rgba(35,84,69,.92);
+      font-weight:650;
+    }
+    .cd-lbl{
+      font-size:12.6px;
+      letter-spacing:.22px;
+      color:rgba(94,107,100,.92);
+      transform: translateY(-1px);
+    }
+    .cd-note{
+      width:100%;
+      margin-top:4px;
+      font-family:var(--sans);
+      font-size:12.8px;
+      color:rgba(94,107,100,.92);
+    }
+    @media (max-width:520px){
+      .cd-chip{ padding:7px 11px; }
+      .cd-num{ font-size:17px; }
+    }
+
     /* ===== Layout cards ===== */
     section{ padding:26px 0; }
     .stack{ display:grid; gap:18px; }
 
     .card{
-      /* ✅ paper premium */
       background: linear-gradient(180deg, rgba(255, 253, 247, .98), rgba(255, 251, 243, .94));
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
@@ -156,11 +200,10 @@
       min-width:0;
     }
 
-    /* ✅ riga champagne + garantita anche con icone grandi */
     .title::after{
       content:"";
       flex:1 1 auto;
-      min-width:44px; /* ✅ garantisce la presenza della riga */
+      min-width:44px;
       height:1px;
       margin-left:12px;
       background:linear-gradient(90deg,
@@ -189,7 +232,7 @@
       word-break:break-word;
     }
 
-    /* Buttons base */
+    /* Buttons */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
     .btn{
       display:inline-flex; align-items:center; gap:8px;
@@ -208,7 +251,6 @@
       background:rgba(242,226,207,.26);
     }
 
-    /* ✅ Bottone Maps premium */
     .btn.btn-premium{
       border: 1px solid rgba(34,48,42,.14);
       background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(242,226,207,.38));
@@ -302,8 +344,8 @@
       color:var(--sage2);
     }
 
-    /* ✅ Login: abbasso Matteo & Sebiana + resto sotto (ma NON la riga finale) */
-    .lock-content{ margin-top:10px; }
+    /* ✅ login: abbasso leggermente (come richiesto) */
+    .lock-content{ margin-top:16px; }
 
     .lock-box h2{
       margin:0 0 6px;
@@ -407,6 +449,15 @@
       filter: drop-shadow(0 10px 16px rgba(0,0,0,.09));
     }
 
+    /* ✅ workaround: la villa sembra “incollata”? ammorbidisco leggermente */
+    .invite-ill.is-villa{
+      filter:
+        drop-shadow(0 9px 14px rgba(0,0,0,.075))
+        saturate(0.96)
+        contrast(0.98);
+      opacity:0.995;
+    }
+
     .invite-body{
       min-width: 0;
       display:flex;
@@ -421,7 +472,7 @@
       justify-content:center;
       width: fit-content;
       padding: 6px 11px;
-      border-radius: 14px; /* meno “bottone” */
+      border-radius: 14px;
       border: 1px solid rgba(34,48,42,.10);
       background: rgba(255,255,255,.72);
       color: rgba(35,84,69,.92);
@@ -467,10 +518,10 @@
     }
 
     /* ==========================================================
-       ✅ Icone (Regalo + Contatti) un po’ più grandi, coerenti
+       ✅ Icone (Regalo + Contatti) grandi e coerenti
        ========================================================== */
     .sticker-icon{
-      width:62px;   /* ✅ più grande */
+      width:62px;
       height:62px;
       flex:0 0 62px;
       object-fit:contain;
@@ -499,7 +550,6 @@
     <div class="lock-box">
       <div class="badge">🔒 Accesso riservato agli invitati</div>
 
-      <!-- ✅ tutto ciò che vuoi abbassare sta qui -->
       <div class="lock-content">
         <h2>Matteo &amp; Sebiana</h2>
         <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
@@ -521,7 +571,6 @@
         <div id="err" class="error"></div>
       </div>
 
-      <!-- ✅ questa riga resta “com’era”, non influenzata dal lock-content -->
       <p class="muted" style="margin-top:10px;font-size:12.5px;">(La password verrà richiesta ad ogni accesso)</p>
     </div>
   </div>
@@ -538,6 +587,15 @@
 
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
         <p class="subtitle">01.09.2026</p>
+
+        <!-- ✅ Countdown -->
+        <div class="countdown" role="status" aria-live="polite">
+          <div class="cd-chip"><span class="cd-num" id="cdDays">—</span><span class="cd-lbl">giorni</span></div>
+          <div class="cd-chip"><span class="cd-num" id="cdHours">—</span><span class="cd-lbl">ore</span></div>
+          <div class="cd-chip"><span class="cd-num" id="cdMins">—</span><span class="cd-lbl">min</span></div>
+          <div class="cd-chip"><span class="cd-num" id="cdSecs">—</span><span class="cd-lbl">sec</span></div>
+          <div class="cd-note" id="cdNote"></div>
+        </div>
       </div>
     </header>
 
@@ -579,7 +637,7 @@
 
           <div class="invite">
             <div class="invite-media">
-              <img class="invite-ill" src="assets/icons/hero-villa.png" alt="Illustrazione Villa Anna" />
+              <img class="invite-ill is-villa" src="assets/icons/hero-villa.png" alt="Illustrazione Villa Anna" />
             </div>
 
             <div class="invite-body">
@@ -618,12 +676,10 @@
               <button class="copy" type="button" id="copyIban">Copia</button>
             </div>
 
-            <!-- ✅ Intestatario su una riga -->
             <div class="muted" style="font-size:12.8px;margin:14px 0 0;">
               Intestatario: <span class="value" id="ibanName"></span>
             </div>
 
-            <!-- ✅ font uguale (niente corsivo) -->
             <div class="muted" style="font-size:12.8px;margin-top:10px;">
               Causale suggerita: <span class="value">Regalo di nozze</span>
             </div>
@@ -692,6 +748,9 @@
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Leone";
 
+    /* ✅ Countdown target: 01/09/2026 16:00 CEST (+02:00) */
+    const WEDDING_TARGET = new Date("2026-09-01T16:00:00+02:00");
+
     const lock = document.getElementById("lock");
     const site = document.getElementById("site");
 
@@ -714,6 +773,7 @@
       site.hidden = false;
       setLocked(false);
       setupReveal();
+      startCountdown();
     }
 
     function check(){
@@ -811,8 +871,53 @@
 
       cards.forEach(el => io.observe(el));
     }
+
+    /* ===== Countdown logic ===== */
+    let cdTimer = null;
+    function pad2(n){ return String(n).padStart(2, "0"); }
+
+    function tickCountdown(){
+      const now = new Date();
+      const diff = WEDDING_TARGET.getTime() - now.getTime();
+
+      const dEl = document.getElementById("cdDays");
+      const hEl = document.getElementById("cdHours");
+      const mEl = document.getElementById("cdMins");
+      const sEl = document.getElementById("cdSecs");
+      const note = document.getElementById("cdNote");
+
+      if(diff <= 0){
+        dEl.textContent = "0";
+        hEl.textContent = "00";
+        mEl.textContent = "00";
+        sEl.textContent = "00";
+        note.textContent = "È il grande giorno! ✨";
+        if(cdTimer) clearInterval(cdTimer);
+        cdTimer = null;
+        return;
+      }
+
+      const totalSec = Math.floor(diff / 1000);
+      const days = Math.floor(totalSec / (24*3600));
+      const rem = totalSec % (24*3600);
+      const hours = Math.floor(rem / 3600);
+      const mins = Math.floor((rem % 3600) / 60);
+      const secs = rem % 60;
+
+      dEl.textContent = String(days);
+      hEl.textContent = pad2(hours);
+      mEl.textContent = pad2(mins);
+      sEl.textContent = pad2(secs);
+
+      note.textContent = "Countdown al matrimonio";
+    }
+
+    function startCountdown(){
+      tickCountdown();
+      if(cdTimer) clearInterval(cdTimer);
+      cdTimer = setInterval(tickCountdown, 1000);
+    }
   </script>
 
 </body>
 </html>
-  <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
