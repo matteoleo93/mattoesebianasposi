@@ -12,7 +12,6 @@
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      /* extra luxury: più burro/bianco */
       --cream:#FFFBF3;
       --white:#FFFFFF;
       --butter:#FFF7EA;
@@ -29,7 +28,6 @@
       --shadow: 0 22px 52px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.03);
       --shadowHover: 0 26px 64px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.04);
 
-      /* ritmo verticale */
       --space-hero-bottom: 18px;
       --space-after-intro: 8px;
 
@@ -149,9 +147,7 @@
       border-radius:999px;
       border:1px solid rgba(34,48,42,.09);
       background: linear-gradient(180deg, rgba(255,255,255,.94), rgba(242,226,207,.16));
-      box-shadow:
-        0 14px 32px rgba(0,0,0,.038),
-        inset 0 1px 0 rgba(255,255,255,.72);
+      box-shadow: 0 14px 32px rgba(0,0,0,.038), inset 0 1px 0 rgba(255,255,255,.72);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
       white-space:nowrap;
@@ -237,7 +233,7 @@
       .title::after{ margin-left:10px; min-width:34px; }
     }
 
-    /* ✅ FIX definitivo wrapping: niente "pretty", comportamento stabile */
+    /* ✅ tipografia base: stabile (niente wrapping “intelligente”) */
     p{
       margin: 10px 0;
       line-height: 1.78;
@@ -342,7 +338,7 @@
 
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
 
-    /* ✅ Footer: una riga sola + font più piccolo/adattivo */
+    /* ✅ footer: una riga sola */
     .finale{
       font-family:var(--serif);
       font-style: italic;
@@ -454,7 +450,7 @@
       .card{ transition:none !important; }
     }
 
-    /* ===== Layout “invito” Cerimonia/Festeggiamenti ===== */
+    /* ===== Layout invito ===== */
     .invite{
       margin-top: 10px;
       display: grid;
@@ -537,7 +533,7 @@
       .invite-actions .btn{ width: 100%; justify-content:center; }
     }
 
-    /* Icone (Regalo + Contatti) */
+    /* Icone */
     .sticker-icon{
       width:62px;
       height:62px;
@@ -548,17 +544,10 @@
       filter: drop-shadow(0 10px 16px rgba(0,0,0,.10));
     }
     @media (max-width:520px){
-      .sticker-icon{
-        width:54px;
-        height:54px;
-        flex-basis:54px;
-      }
-    }
-    .icon-gift, .icon-phone{
-      max-width:62px;
-      max-height:62px;
+      .sticker-icon{ width:54px; height:54px; flex-basis:54px; }
     }
 
+    /* Intro card */
     .card.intro{
       border-color: rgba(34,48,42,.08);
       box-shadow: 0 16px 36px rgba(0,0,0,.055), 0 2px 8px rgba(0,0,0,.022);
@@ -566,7 +555,24 @@
     }
     .stack .card.intro + .card{ margin-top: var(--space-after-intro); }
 
-    /* Contatti */
+    /* ===== CONTATTI (FIX DEFINITIVO) ===== */
+
+    /* ✅ Fix: forza wrapping “normale” e larghezza piena nei contatti */
+    .card.contacts p{
+      display:block;
+      width:100%;
+      max-width:100%;
+      white-space:normal;
+      text-wrap: wrap;            /* dove supportato: disattiva bilanciamenti */
+      overflow-wrap:anywhere;     /* sicurezza: niente comportamenti strani */
+      word-break:normal;
+    }
+
+    /* ✅ più spazio (una riga circa) tra testo e nomi/numeri */
+    .card.contacts p:last-of-type{
+      margin-bottom: 18px;
+    }
+
     .contacts-grid{
       display:grid;
       grid-template-columns: 120px 1fr;
@@ -645,7 +651,6 @@
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
         <p class="subtitle">01.09.2026</p>
 
-        <!-- Countdown -->
         <div class="countdown" role="status" aria-live="polite">
           <div class="cd-chip"><span class="cd-num" id="cdDays">—</span><span class="cd-lbl">giorni</span></div>
           <div class="cd-chip"><span class="cd-num" id="cdHours">—</span><span class="cd-lbl">ore</span></div>
@@ -714,7 +719,7 @@
 
               <!-- ✅ stesso colore del testo normale -->
               <p style="margin:0; margin-top:6px; font-size:13.2px;">
-                Al vostro arrivo vi attenderà un <strong>frizzante aperitivo</strong>.
+                Al vostro arrivo, vi attenderà un <strong>frizzante aperitivo</strong>.
               </p>
             </div>
           </div>
@@ -955,14 +960,12 @@
       const hEl = document.getElementById("cdHours");
       const mEl = document.getElementById("cdMins");
       const sEl = document.getElementById("cdSecs");
-      const note = document.getElementById("cdNote");
 
       if(diff <= 0){
         dEl.textContent = "0";
         hEl.textContent = "00";
         mEl.textContent = "00";
         sEl.textContent = "00";
-        if(note) note.textContent = "";
         if(cdTimer) clearInterval(cdTimer);
         cdTimer = null;
         return;
@@ -979,8 +982,6 @@
       hEl.textContent = pad2(hours);
       mEl.textContent = pad2(mins);
       sEl.textContent = pad2(secs);
-
-      if(note) note.textContent = "";
     }
 
     function startCountdown(){
