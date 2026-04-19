@@ -17,14 +17,11 @@
       --butter:#FFF7EA;
       --butter2:#FFFEFA;
       --champ:#F2E2CF;
-      --ivory:#FFFDF7;
 
       --text:#1F2A25;
       --muted:#5E6B64;
-      --border:rgba(34,48,42,.10);
 
       --radius:22px;
-
       --shadow: 0 22px 52px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.03);
       --shadowHover: 0 26px 64px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.04);
 
@@ -62,10 +59,7 @@
     }
 
     /* ===== Header ===== */
-    header{
-      padding:84px 0 28px;
-      text-align:center;
-    }
+    header{ padding:84px 0 28px; text-align:center; }
     header + main{ padding-top: var(--space-hero-bottom); }
 
     .couple-row{
@@ -112,8 +106,6 @@
       font-kerning:normal;
       font-feature-settings:"kern","liga","clig";
     }
-    .couple-name{ text-align:center; }
-
     .subtitle{
       margin:12px 0 0;
       color:rgba(47,110,91,.82);
@@ -184,7 +176,7 @@
 
     /* ===== Cards ===== */
     section{ padding:26px 0; }
-    .stack{ display:grid; gap:18px; }
+    .stack{ display:grid; gap:18px; min-width:0; }
 
     .card{
       background: linear-gradient(180deg, rgba(255, 254, 250, .99), rgba(255, 251, 243, .94));
@@ -193,9 +185,9 @@
       box-shadow:var(--shadow);
       padding:26px;
       overflow:hidden;
-      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
-      will-change: transform, box-shadow;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
       position:relative;
+      min-width:0;
     }
     @media (hover:hover) and (pointer:fine){
       .card:hover{
@@ -222,10 +214,7 @@
       min-width:44px;
       height:1px;
       margin-left:12px;
-      background:linear-gradient(90deg,
-        rgba(242,226,207,.78),
-        rgba(242,226,207,.26) 55%,
-        rgba(242,226,207,0));
+      background:linear-gradient(90deg, rgba(242,226,207,.78), rgba(242,226,207,.26) 55%, rgba(242,226,207,0));
       transform: translateY(1px);
       opacity:.9;
     }
@@ -233,12 +222,12 @@
       .title::after{ margin-left:10px; min-width:34px; }
     }
 
-    /* ✅ tipografia base: stabile (niente wrapping “intelligente”) */
+    /* ✅ Base paragraphs: no balancing, no hyphenation tricks */
     p{
       margin: 10px 0;
       line-height: 1.78;
       font-size:14.7px;
-      text-wrap: normal;
+      white-space: normal;
       overflow-wrap: normal;
       word-break: normal;
       hyphens: none;
@@ -246,12 +235,6 @@
     p + p{ margin-top: 12px; }
 
     .muted{ color:var(--muted); }
-
-    #churchAddr, #villaAddr, #florestaAddr{
-      white-space:normal;
-      overflow-wrap:anywhere;
-      word-break:break-word;
-    }
 
     /* Buttons */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
@@ -271,7 +254,6 @@
       border-color:rgba(34,48,42,.18);
       background:rgba(242,226,207,.26);
     }
-
     .btn.btn-premium{
       position:relative;
       border: 1px solid rgba(34,48,42,.14);
@@ -300,7 +282,7 @@
       }
     }
 
-    /* Gift box */
+    /* Gift */
     .gift-box{
       margin-top:12px;
       padding:14px 14px;
@@ -308,13 +290,11 @@
       background:linear-gradient(180deg, rgba(242,226,207,.32), rgba(255,255,255,.95));
       border:1px solid rgba(34,48,42,.10);
     }
-
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       font-size:13.6px;
       word-break:break-word;
     }
-
     .copy{
       display:inline-flex; align-items:center; gap:8px;
       border:1px solid rgba(34,48,42,.14);
@@ -334,23 +314,20 @@
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
-    .small-phone{ font-size:13px; }
-
+    /* Footer */
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
-
-    /* ✅ footer: una riga sola */
     .finale{
       font-family:var(--serif);
       font-style: italic;
-      font-size: clamp(14px, 4.2vw, 17px);
+      font-size: clamp(14px, 4.1vw, 16px); /* più piccolo */
       color:var(--text);
       margin:0 0 8px;
       letter-spacing:.2px;
-      white-space: nowrap;
+      white-space: nowrap; /* una sola riga */
     }
     footer small{ display:block; font-size:13px; margin-top:10px; }
 
-    /* ===== Password overlay ===== */
+    /* Password overlay */
     #lock{
       position:fixed; inset:0; z-index:9999;
       display:flex; align-items:center; justify-content:center;
@@ -378,7 +355,6 @@
       color:var(--sage2);
     }
     .lock-content{ margin-top:16px; }
-
     .lock-box h2{
       margin:0 0 6px;
       font-family:var(--wedding);
@@ -390,7 +366,6 @@
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
     .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
-
     .lock-row input{
       width:100%;
       border-radius:999px;
@@ -398,7 +373,6 @@
       padding:12px 44px 12px 14px;
       font-size:14px; outline:none; background:white;
     }
-
     .pw-toggle{
       position:absolute;
       right:10px;
@@ -423,7 +397,6 @@
       stroke-linecap:round;
       stroke-linejoin:round;
     }
-
     .lock-row button#btnEnter{
       border-radius:999px; border:0; padding:12px 16px; font-size:14px;
       cursor:pointer;
@@ -433,7 +406,7 @@
     }
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
 
-    /* ===== reveal on scroll ===== */
+    /* reveal */
     .reveal{ opacity:0; transform: translateY(10px); }
     .reveal.is-visible{
       opacity:1;
@@ -450,7 +423,7 @@
       .card{ transition:none !important; }
     }
 
-    /* ===== Layout invito ===== */
+    /* Invite */
     .invite{
       margin-top: 10px;
       display: grid;
@@ -481,7 +454,6 @@
       flex-direction: column;
       gap: 10px;
     }
-
     .invite-pill{
       display:inline-flex;
       align-items:center;
@@ -495,12 +467,8 @@
       font-size: 12.4px;
       letter-spacing: .20px;
       font-weight: 680;
-      box-shadow: none;
-      cursor: default;
       user-select: none;
     }
-    .invite-pill time{ font-variant-numeric: tabular-nums; }
-
     .invite-place{
       font-family: var(--wedding);
       font-style: italic;
@@ -511,7 +479,6 @@
       color: var(--text);
       margin: -2px 0 0;
     }
-
     .invite-addr{
       font-size: 14.7px;
       color: rgba(31,42,37,.90);
@@ -519,7 +486,6 @@
       overflow-wrap:anywhere;
       word-break:break-word;
     }
-
     .invite-actions{
       margin-top: 4px;
       display:flex;
@@ -533,7 +499,7 @@
       .invite-actions .btn{ width: 100%; justify-content:center; }
     }
 
-    /* Icone */
+    /* Icons */
     .sticker-icon{
       width:62px;
       height:62px;
@@ -555,24 +521,7 @@
     }
     .stack .card.intro + .card{ margin-top: var(--space-after-intro); }
 
-    /* ===== CONTATTI (FIX DEFINITIVO) ===== */
-
-    /* ✅ Fix: forza wrapping “normale” e larghezza piena nei contatti */
-    .card.contacts p{
-      display:block;
-      width:100%;
-      max-width:100%;
-      white-space:normal;
-      text-wrap: wrap;            /* dove supportato: disattiva bilanciamenti */
-      overflow-wrap:anywhere;     /* sicurezza: niente comportamenti strani */
-      word-break:normal;
-    }
-
-    /* ✅ più spazio (una riga circa) tra testo e nomi/numeri */
-    .card.contacts p:last-of-type{
-      margin-bottom: 18px;
-    }
-
+    /* ===== CONTATTI: FIX DEFINITIVO + SPAZIO ===== */
     .contacts-grid{
       display:grid;
       grid-template-columns: 120px 1fr;
@@ -592,6 +541,23 @@
       letter-spacing:.2px;
       min-width:0;
     }
+
+    /* ✅ 1) Wrapping super-blindato solo per i paragrafi nei Contatti */
+    .card.contacts p{
+      display:block !important;
+      width:100% !important;
+      max-width:100% !important;
+      white-space:normal !important;
+      overflow-wrap:anywhere !important;
+      word-break:normal !important;
+      hyphens:none !important;
+      text-wrap:wrap !important; /* dove supportato */
+    }
+
+    /* ✅ 2) Spazio extra (una riga) prima della griglia */
+    .card.contacts p:last-of-type{ margin-bottom: 18px !important; }
+
+    /* Numeri: desktop una riga, mobile spezzabile (evita layout strani) */
     .contacts a.softlink{
       border-bottom:none !important;
       white-space:nowrap;
@@ -602,6 +568,7 @@
         gap: 10px;
       }
       .contact-phone{ padding-left:0; }
+      .contacts a.softlink{ white-space:normal; overflow-wrap:anywhere; }
     }
   </style>
 </head>
@@ -706,9 +673,7 @@
             </div>
 
             <div class="invite-body">
-              <div class="invite-pill">
-                <span>Dopo la cerimonia</span>
-              </div>
+              <div class="invite-pill"><span>Dopo la cerimonia</span></div>
 
               <h3 class="invite-place">Villa Anna</h3>
               <div class="invite-addr" id="villaAddr"></div>
@@ -746,11 +711,11 @@
             </div>
 
             <div class="muted" style="font-size:12.8px;margin:14px 0 0;">
-              Intestatario: <span class="value" id="ibanName"></span>
+              Intestatario: <span id="ibanName"></span>
             </div>
 
             <div class="muted" style="font-size:12.8px;margin-top:10px;">
-              Causale suggerita: <span class="value">Regalo di nozze</span>
+              Causale suggerita: <span>Regalo di nozze</span>
             </div>
           </div>
 
@@ -860,8 +825,6 @@
     btnEnter.addEventListener("click", check);
     pw.addEventListener("keydown", (e)=>{ if(e.key === "Enter") check(); });
 
-    try{ pw.focus(); }catch(e){}
-
     const togglePw = document.getElementById("togglePw");
     const eyeIcon = document.getElementById("eyeIcon");
 
@@ -944,11 +907,9 @@
           }
         });
       }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-
       cards.forEach(el => io.observe(el));
     }
 
-    /* Countdown */
     let cdTimer = null;
     function pad2(n){ return String(n).padStart(2, "0"); }
 
