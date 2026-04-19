@@ -315,10 +315,12 @@
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
+    .small-phone{ font-size:13px; }
+
     /* ===== Footer ===== */
     footer{ text-align:center; padding:56px 18px 64px; }
 
-    /* Frasi principali: uguali per font, grandezza e colore */
+    /* (1) leggermente più piccolo, sempre una riga */
     .finale{
       font-family:var(--serif);
       font-style: italic;
@@ -328,17 +330,21 @@
       letter-spacing:.2px;
       white-space: nowrap;
     }
+    /* (2) stessa dimensione/font, solo colore muted */
+    .finale.mutedline{
+      color: var(--muted);
+    }
 
-    /* Firma finale: più piccola e più staccata */
+    /* (5) footer: stesso font/char tra nome e data (wedding) */
     .footer-sign{
       display:block;
-      margin-top:22px; /* più stacco evidente */
+      margin-top:10px;
       font-family:var(--wedding);
       font-style:italic;
       font-weight:520;
       letter-spacing:.35px;
       color:rgba(47,110,91,.78);
-      font-size:12.6px; /* molto più piccolo */
+      font-size:14px;
     }
 
     /* ===== Password overlay ===== */
@@ -378,21 +384,12 @@
       color:var(--sage2);
     }
 
-    /* Istruzione login NON muted */
+    /* (4) istruzione login NON muted */
     .lock-instruction{
       color: var(--text) !important;
     }
 
-    /* p di default nel lock-box restano muted... */
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
-
-    /* ...ma la nota tra parentesi deve essere NON muted e stesso font */
-    .lock-note{
-      color: var(--text) !important;
-      font-size:12.5px !important; /* stesso carattere di adesso */
-      margin-top:10px;
-    }
-
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
     .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
     .lock-row input{
@@ -569,6 +566,7 @@
       flex-wrap:wrap;
       min-width:0;
     }
+    /* rimuove la sottolineatura tratteggiata SOLO nei contatti */
     .contacts .softlink{
       border-bottom:none !important;
       text-decoration:none !important;
@@ -598,6 +596,7 @@
       .contact-links{ gap:8px; }
     }
 
+    /* Floresta: stesso stile degli indirizzi chiesa/villa */
     #florestaAddr{
       font-size: 14.7px;
       color: rgba(31,42,37,.90);
@@ -618,6 +617,7 @@
 
       <div class="lock-content">
         <h2>Matteo &amp; Sebiana</h2>
+        <!-- (4) qui: NON muted -->
         <p class="lock-instruction">Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
 
         <div class="lock-row">
@@ -637,8 +637,7 @@
         <div id="err" class="error"></div>
       </div>
 
-      <!-- ✅ (1) NOTA TRA PARENTESI: NON MUTED, stesso stile -->
-      <p class="lock-note">(La password verrà richiesta ad ogni accesso)</p>
+      <p class="muted" style="margin-top:10px;font-size:12.5px;">(La password verrà richiesta ad ogni accesso)</p>
     </div>
   </div>
 
@@ -648,8 +647,8 @@
     <header>
       <div class="wrap">
         <div class="couple-row" aria-hidden="true">
-          assets/matteo.png
-          assets/sebiana.png
+          <img class="avatar-img" src="assets/matteo.png" alt="" />
+          <img class="avatar-img" src="assets/sebiana.png" alt="" />
         </div>
 
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
@@ -683,7 +682,7 @@
 
           <div class="invite">
             <div class="invite-media">
-              assets/icons/hero-church.png
+              <img class="invite-ill" src="assets/icons/hero-church.png" alt="Illustrazione Chiesa Madre" />
             </div>
 
             <div class="invite-body">
@@ -695,7 +694,7 @@
               <div class="invite-addr" id="churchAddr"></div>
 
               <div class="invite-actions">
-                #Apri in Maps</a>
+                <a class="btn btn-premium" id="mapChurch" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
             </div>
           </div>
@@ -707,7 +706,7 @@
 
           <div class="invite">
             <div class="invite-media">
-              assets/icons/hero-villa.png
+              <img class="invite-ill" src="assets/icons/hero-villa.png" alt="Illustrazione Villa Anna" />
             </div>
 
             <div class="invite-body">
@@ -719,10 +718,10 @@
               <div class="invite-addr" id="villaAddr"></div>
 
               <div class="invite-actions">
-                #Apri in Maps</a>
+                <a class="btn btn-premium" id="mapVilla" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <!-- ✅ frizzante NON bold, solo aperitivo bold -->
+              <!-- (3) frizzante NON bold, solo aperitivo bold -->
               <p style="margin:0; margin-top:6px;">
                 Al vostro arrivo, vi attenderà un frizzante <strong>aperitivo</strong>.
               </p>
@@ -733,7 +732,7 @@
         <!-- Regalo -->
         <div class="card reveal">
           <div class="title">
-            assets/icons/icon-gift.png
+            <img class="sticker-icon" src="assets/icons/icon-gift.png" alt="Icona regalo" />
             Un pensiero per noi
           </div>
 
@@ -771,8 +770,8 @@
             </div>
 
             <div class="btn-row" style="margin-top:12px;">
-              #Apri su Maps</a>
-              #Chiama</a>
+              <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">Apri su Maps</a>
+              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">Chiama</a>
             </div>
           </div>
         </div>
@@ -780,7 +779,7 @@
         <!-- Contatti -->
         <div class="card contacts reveal">
           <div class="title">
-            assets/icons/icon-phone.png
+            <img class="sticker-icon" src="assets/icons/icon-phone.png" alt="Icona contatti" />
             Contatti
           </div>
 
@@ -790,14 +789,14 @@
           <div class="contacts-grid">
             <div class="contact-name">Matteo</div>
             <div class="contact-links">
-              tel:+393200750337+39 320 075 0337</a>
-              https://wa.me/393200750337WhatsApp</a>
+              <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
+              <a class="wa-link" href="https://wa.me/393200750337" target="_blank" rel="noopener" aria-label="Scrivi a Matteo su WhatsApp">WhatsApp</a>
             </div>
 
             <div class="contact-name">Sebiana</div>
             <div class="contact-links">
-              tel:+393888843281+39 388 884 3281</a>
-              https://wa.me/393888843281WhatsApp</a>
+              <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
+              <a class="wa-link" href="https://wa.me/393888843281" target="_blank" rel="noopener" aria-label="Scrivi a Sebiana su WhatsApp">WhatsApp</a>
             </div>
           </div>
         </div>
@@ -806,11 +805,8 @@
     </main>
 
     <footer>
-      <!-- ✅ stesso colore + stessa grandezza -->
       <p class="finale">Sarà per noi una gioia avervi al nostro fianco.</p>
-      <p class="finale">Grazie di cuore per esserci.</p>
-
-      <!-- ✅ più piccolo + più staccato -->
+      <p class="finale mutedline">Grazie di cuore per esserci.</p>
       <span class="footer-sign">Matteo &amp; Sebiana · 01.09.2026</span>
     </footer>
 
@@ -820,6 +816,7 @@
     const PASSWORD = "matteoesebianasposi";
 
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
+
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
     const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014, Ispica (RG)";
 
@@ -1001,4 +998,4 @@
   </script>
 
 </body>
-</html>
+</html>.
