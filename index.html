@@ -594,6 +594,23 @@
     .card.contacts p{
   text-wrap: normal;
 }
+    /* ✅ Contatti: testo introduttivo sempre a larghezza piena */
+.contacts-intro{
+  display:block;
+  width:100%;
+  max-width:100%;
+}
+
+.contacts-intro p{
+  display:block;
+  width:100%;
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  text-wrap: normal; /* se il browser supporta */
+}
+``
     .contacts-note{
   margin: 0 0 12px;
   color: var(--muted);
