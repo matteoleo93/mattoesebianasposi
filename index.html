@@ -3,23 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Matteo &amp; Sebiana — 01.09.2026</title>
-  <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
-  <!-- ✅ più champagne/butter, look premium su mobile (barra browser) -->
-  <meta name="theme-color" content="#FFFBF3" />
+  <title>Matteo &amp; Sebiana="theme-color" content="#FFFBF3" />  <title>Matteo &amp; Sebiana — 01.09.2026</title>
 
   <style>
     :root{
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      /* ✅ palette più burro/bianco/champagne */
+      /* ✅ palette B: champagne-hotel (burro/bianco caldo) */
       --cream:#FFF8F0;
       --white:#FFFFFF;
       --butter:#FFF7EA;
       --butter2:#FFFBF3;
-      --champ:#F2E2CF;     /* champagne */
-      --ivory:#FFFDF7;     /* “paper” premium */
+      --champ:#F2E2CF;
+      --ivory:#FFFDF7;
 
       --text:#1F2A25;
       --muted:#5E6B64;
@@ -45,12 +42,12 @@
       color:var(--text);
       font-family:var(--sans);
 
-      /* ✅ luxury butter/white: tanto bianco caldo + champagne, verde solo accento */
+      /* ✅ B: più burro/bianco, verde solo accento */
       background:
-        radial-gradient(1050px 520px at 15% -6%, rgba(78,140,120,.08), transparent 62%),
-        radial-gradient(980px 560px at 92% 0%, rgba(242,226,207,.92), transparent 58%),
-        radial-gradient(980px 520px at 52% 18%, rgba(255,255,255,.90), transparent 62%),
-        radial-gradient(900px 520px at 40% 28%, rgba(255,247,234,.92), transparent 64%),
+        radial-gradient(1050px 520px at 15% -6%, rgba(78,140,120,.07), transparent 62%),
+        radial-gradient(980px 560px at 92% 0%, rgba(242,226,207,.94), transparent 58%),
+        radial-gradient(980px 520px at 52% 18%, rgba(255,255,255,.92), transparent 62%),
+        radial-gradient(900px 520px at 40% 28%, rgba(255,247,234,.94), transparent 64%),
         linear-gradient(180deg, var(--butter2), var(--cream) 42%, #ffffff 100%);
     }
 
@@ -59,53 +56,52 @@
     /* ===== Header ===== */
     header{ padding:84px 0 30px; text-align:center; }
 
-    /* ✅ Sposi più vicini (overlap elegante) */
+    /* ✅ Sposi ancora più vicini */
     .couple-row{
       display:flex;
       align-items:flex-end;
       justify-content:center;
-      gap:2px;
-      margin:0 0 14px; /* un filo meno “stacco” */
+      gap:0px;
+      margin:0 0 12px;
     }
-    .couple-row .avatar-img + .avatar-img{ margin-left:-14px; }
+    .couple-row .avatar-img + .avatar-img{ margin-left:-20px; }
 
     @media (max-width:520px){
       header{ padding:74px 0 26px; }
-      .couple-row{ gap:2px; margin:0 0 10px; }
-      .couple-row .avatar-img + .avatar-img{ margin-left:-10px; }
+      .couple-row{ margin:0 0 10px; }
+      .couple-row .avatar-img + .avatar-img{ margin-left:-14px; }
     }
 
-    /* ✅ Nome NON bold + più in basso rispetto alle immagini */
+    /* ✅ Titolo: più in basso, più piccolo, non bold */
     h1{
-      margin:16px 0 0;               /* ✅ abbassato rispetto agli sposi */
+      margin:22px 0 0;              /* ✅ abbassato rispetto alle immagini */
       font-family:var(--wedding);
       font-style:italic;
-      font-weight:440;               /* ✅ non grassetto */
-      letter-spacing:.35px;
-      font-size:46px;
+      font-weight:440;              /* ✅ non grassetto */
+      letter-spacing:.32px;
+      font-size:42px;               /* ✅ leggermente più piccolo */
       line-height:1.05;
-      color:rgba(47,110,91,.92);     /* verde profondo elegante */
+      color:rgba(47,110,91,.92);
       text-rendering:optimizeLegibility;
       font-kerning:normal;
       font-feature-settings:"kern","liga","clig";
     }
-
     .couple-name{ text-align:center; }
 
     .subtitle{
       margin:12px 0 0;
-      color:rgba(47,110,91,.86);
+      color:rgba(47,110,91,.84);
       font-family:var(--wedding);
       font-style:italic;
-      font-size:22px;
+      font-size:21px;
       letter-spacing:.6px;
-      font-weight:520;               /* ✅ più leggero */
+      font-weight:520;
       text-align:center;
     }
 
     @media (max-width:520px){
-      h1{ font-size:38px; margin-top:14px; }
-      .subtitle{ font-size:20px; }
+      h1{ font-size:35px; margin-top:18px; }
+      .subtitle{ font-size:19px; }
     }
 
     .avatar-img{
@@ -127,10 +123,9 @@
     section{ padding:26px 0; }
     .stack{ display:grid; gap:18px; }
 
-    /* ✅ Card più “paper premium” (ivory/white), meno verde/sabbia */
     .card{
-      background:
-        linear-gradient(180deg, rgba(255, 253, 247, .98), rgba(255, 251, 243, .94));
+      /* ✅ paper premium */
+      background: linear-gradient(180deg, rgba(255, 253, 247, .98), rgba(255, 251, 243, .94));
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -161,10 +156,11 @@
       min-width:0;
     }
 
-    /* ✅ riga più champagne, meno verde */
+    /* ✅ riga champagne + garantita anche con icone grandi */
     .title::after{
       content:"";
       flex:1 1 auto;
+      min-width:44px; /* ✅ garantisce la presenza della riga */
       height:1px;
       margin-left:12px;
       background:linear-gradient(90deg,
@@ -175,19 +171,11 @@
     }
 
     @media (max-width:520px){
-      .title::after{ margin-left:10px; }
+      .title::after{ margin-left:10px; min-width:34px; }
     }
 
     p{ margin:10px 0; line-height:1.7; font-size:14.7px; }
     .muted{ color:var(--muted); }
-
-    .label{
-      font-weight:700;
-      font-size:13px;
-      color:var(--sage2);
-      letter-spacing:.25px;
-      min-width:74px;
-    }
 
     .value{
       color:var(--text);
@@ -207,8 +195,8 @@
       display:inline-flex; align-items:center; gap:8px;
       padding:10px 14px; border-radius:999px;
       text-decoration:none; font-size:14px;
-      border:1px solid rgba(47,110,91,.22);
-      background:rgba(242,226,207,.18);  /* ✅ più champagne, meno verde */
+      border:1px solid rgba(47,110,91,.18);
+      background:rgba(242,226,207,.18);
       color:var(--sage2);
       transition:transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       white-space:nowrap;
@@ -220,7 +208,7 @@
       background:rgba(242,226,207,.26);
     }
 
-    /* ✅ Bottone Maps più premium, più “hotel 5 stelle” */
+    /* ✅ Bottone Maps premium */
     .btn.btn-premium{
       border: 1px solid rgba(34,48,42,.14);
       background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(242,226,207,.38));
@@ -268,7 +256,7 @@
     a.softlink{
       color:var(--sage2);
       text-decoration:none;
-      border-bottom:1px dashed rgba(47,110,91,.35);
+      border-bottom:1px dashed rgba(47,110,91,.28);
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
@@ -313,6 +301,9 @@
       font-size:13px;
       color:var(--sage2);
     }
+
+    /* ✅ Login: abbasso Matteo & Sebiana + resto sotto (ma NON la riga finale) */
+    .lock-content{ margin-top:10px; }
 
     .lock-box h2{
       margin:0 0 6px;
@@ -411,7 +402,7 @@
     .invite-ill{
       width: 100%;
       height: auto;
-      max-width: 210px; /* leggermente più presente */
+      max-width: 210px;
       object-fit: contain;
       filter: drop-shadow(0 10px 16px rgba(0,0,0,.09));
     }
@@ -423,19 +414,23 @@
       gap: 10px;
     }
 
+    /* ✅ meno “pulsante”: più tag editoriale */
     .invite-pill{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       width: fit-content;
-      padding: 7px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(34,48,42,.14);
-      background: rgba(242,226,207,.26);
-      color: var(--sage2);
-      font-size: 13px;
-      letter-spacing: .2px;
-      font-weight: 670;
+      padding: 6px 11px;
+      border-radius: 14px; /* meno “bottone” */
+      border: 1px solid rgba(34,48,42,.10);
+      background: rgba(255,255,255,.72);
+      color: rgba(35,84,69,.92);
+      font-size: 12.6px;
+      letter-spacing: .18px;
+      font-weight: 650;
+      box-shadow: none;
+      cursor: default;
+      user-select: none;
     }
 
     .invite-place{
@@ -471,20 +466,13 @@
       .invite-actions .btn{ width: 100%; justify-content:center; }
     }
 
-    /* ✅ “wedding-text” */
-    .wedding-text{
-      font-family: var(--wedding);
-      font-style: italic;
-      letter-spacing: .25px;
-    }
-
     /* ==========================================================
-       ✅ ICONE “Regalo” + “Contatti”: un po’ più grandi ma controllate
+       ✅ Icone (Regalo + Contatti) un po’ più grandi, coerenti
        ========================================================== */
     .sticker-icon{
-      width:56px;              /* ✅ più grande (prima 48) */
-      height:56px;
-      flex:0 0 56px;
+      width:62px;   /* ✅ più grande */
+      height:62px;
+      flex:0 0 62px;
       object-fit:contain;
       display:inline-block;
       transform: translateY(1px);
@@ -492,14 +480,14 @@
     }
     @media (max-width:520px){
       .sticker-icon{
-        width:50px;
-        height:50px;
-        flex-basis:50px;
+        width:54px;
+        height:54px;
+        flex-basis:54px;
       }
     }
     .icon-gift, .icon-phone{
-      max-width:56px;
-      max-height:56px;
+      max-width:62px;
+      max-height:62px;
     }
   </style>
 </head>
@@ -510,24 +498,30 @@
   <div id="lock">
     <div class="lock-box">
       <div class="badge">🔒 Accesso riservato agli invitati</div>
-      <h2>Matteo &amp; Sebiana</h2>
-      <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
 
-      <div class="lock-row">
-        <div class="pw-wrap">
-          <input id="pw" type="password" placeholder="Password" autocomplete="off" autofocus />
-          <button class="pw-toggle" id="togglePw" type="button" aria-label="Mostra password" aria-pressed="false">
-            <svg id="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
-              <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
-            </svg>
-          </button>
+      <!-- ✅ tutto ciò che vuoi abbassare sta qui -->
+      <div class="lock-content">
+        <h2>Matteo &amp; Sebiana</h2>
+        <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
+
+        <div class="lock-row">
+          <div class="pw-wrap">
+            <input id="pw" type="password" placeholder="Password" autocomplete="off" autofocus />
+            <button class="pw-toggle" id="togglePw" type="button" aria-label="Mostra password" aria-pressed="false">
+              <svg id="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path>
+                <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <button id="btnEnter" type="button">Accedi</button>
         </div>
 
-        <button id="btnEnter" type="button">Accedi</button>
+        <div id="err" class="error"></div>
       </div>
 
-      <div id="err" class="error"></div>
+      <!-- ✅ questa riga resta “com’era”, non influenzata dal lock-content -->
       <p class="muted" style="margin-top:10px;font-size:12.5px;">(La password verrà richiesta ad ogni accesso)</p>
     </div>
   </div>
@@ -554,7 +548,7 @@
           <div class="title">Benvenuti</div>
           <p>
             Siamo felici di condividere con voi questo giorno speciale.
-            Qui trovate le informazioni essenziali su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
+            Qui trovate le informazioni <strong>più importanti</strong> su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
           </p>
         </div>
 
@@ -597,8 +591,8 @@
                 <a class="btn btn-premium" id="mapVilla" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <p class="muted" style="margin:0;font-size:13.2px;">
-                Al vostro arrivo, un caldo aperitivo vi attenderà.
+              <p class="muted" style="margin:0; margin-top:6px; font-size:13.2px;">
+                Al vostro arrivo, un <strong>frizzante</strong> aperitivo vi attenderà.
               </p>
             </div>
           </div>
@@ -624,11 +618,14 @@
               <button class="copy" type="button" id="copyIban">Copia</button>
             </div>
 
-            <div class="muted" style="font-size:12.8px;margin:14px 0 6px;">Intestatario</div>
-            <div class="value" id="ibanName"></div>
+            <!-- ✅ Intestatario su una riga -->
+            <div class="muted" style="font-size:12.8px;margin:14px 0 0;">
+              Intestatario: <span class="value" id="ibanName"></span>
+            </div>
 
+            <!-- ✅ font uguale (niente corsivo) -->
             <div class="muted" style="font-size:12.8px;margin-top:10px;">
-              Causale suggerita: <span class="value wedding-text">Regalo di nozze</span>
+              Causale suggerita: <span class="value">Regalo di nozze</span>
             </div>
           </div>
 
@@ -676,12 +673,14 @@
   </div><!-- /#site -->
 
   <script>
-    const PASSWORD = "villaanna2026";
+    /* ✅ nuova password */
+    const PASSWORD = "matteoesebianasposi";
 
-    const CHURCH_ADDRESS   = "Via XX Settembre, 96010 Canicattini Bagni\u00A0(SR)";
+    /* ✅ virgola prima della città */
+    const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
 
-    const VILLA_ADDRESS    = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
-    const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014 Ispica (RG)";
+    const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
+    const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014, Ispica (RG)";
 
     const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
     const FLORESTA_PHONE   = "+390931586747";
@@ -816,3 +815,4 @@
 
 </body>
 </html>
+  <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
