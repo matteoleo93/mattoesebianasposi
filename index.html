@@ -320,26 +320,32 @@
     /* ===== Footer ===== */
     footer{ text-align:center; padding:56px 18px 64px; }
 
-    /* (1) più grande ma una riga */
+    /* (1) leggermente più piccolo, sempre una riga */
     .finale{
       font-family:var(--serif);
       font-style: italic;
-      font-size: clamp(15px, 4.3vw, 17.5px);
+      font-size: clamp(14.4px, 4.1vw, 16.2px);
       color:var(--text);
       margin:0 0 6px;
       letter-spacing:.2px;
       white-space: nowrap;
     }
-    /* (2) stesso font/char di .finale */
-    .finale-sub{
-      font-family:var(--serif);
-      font-style: italic;
-      color:var(--muted);
-      margin:0;
-      font-size: clamp(13px, 3.6vw, 15px);
-      letter-spacing:.15px;
+    /* (2) stessa dimensione/font, solo colore muted */
+    .finale.mutedline{
+      color: var(--muted);
     }
-    footer small{ display:block; font-size:13px; margin-top:10px; color:var(--muted); }
+
+    /* (5) footer: stesso font/char tra nome e data (wedding) */
+    .footer-sign{
+      display:block;
+      margin-top:10px;
+      font-family:var(--wedding);
+      font-style:italic;
+      font-weight:520;
+      letter-spacing:.35px;
+      color:rgba(47,110,91,.78);
+      font-size:14px;
+    }
 
     /* ===== Password overlay ===== */
     #lock{
@@ -377,6 +383,12 @@
       letter-spacing:.35px;
       color:var(--sage2);
     }
+
+    /* (4) istruzione login NON muted */
+    .lock-instruction{
+      color: var(--text) !important;
+    }
+
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
     .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
@@ -554,7 +566,7 @@
       flex-wrap:wrap;
       min-width:0;
     }
-    /* (6) rimuove la sottolineatura tratteggiata SOLO nei contatti */
+    /* rimuove la sottolineatura tratteggiata SOLO nei contatti */
     .contacts .softlink{
       border-bottom:none !important;
       text-decoration:none !important;
@@ -580,14 +592,11 @@
     }
 
     @media (max-width:520px){
-      .contacts-grid{
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
+      .contacts-grid{ grid-template-columns: 1fr; gap: 10px; }
       .contact-links{ gap:8px; }
     }
 
-    /* (4) Floresta: stesso stile degli indirizzi chiesa/villa */
+    /* Floresta: stesso stile degli indirizzi chiesa/villa */
     #florestaAddr{
       font-size: 14.7px;
       color: rgba(31,42,37,.90);
@@ -608,7 +617,8 @@
 
       <div class="lock-content">
         <h2>Matteo &amp; Sebiana</h2>
-        <p>Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
+        <!-- (4) qui: NON muted -->
+        <p class="lock-instruction">Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
 
         <div class="lock-row">
           <div class="pw-wrap">
@@ -711,9 +721,9 @@
                 <a class="btn btn-premium" id="mapVilla" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <!-- (7) stesso font/colore del resto: solo aperitivo in bold -->
+              <!-- (3) frizzante NON bold, solo aperitivo bold -->
               <p style="margin:0; margin-top:6px;">
-                Al vostro arrivo, vi attenderà un <strong>frizzante aperitivo</strong>.
+                Al vostro arrivo, vi attenderà un frizzante <strong>aperitivo</strong>.
               </p>
             </div>
           </div>
@@ -773,7 +783,6 @@
             Contatti
           </div>
 
-          <!-- (3) testo modificato -->
           <p>Per qualsiasi esigenza, potete contattarci.</p>
           <p style="margin-bottom:18px;">Vi saremmo grati se poteste comunicarci la vostra presenza.</p>
 
@@ -797,8 +806,8 @@
 
     <footer>
       <p class="finale">Sarà per noi una gioia avervi al nostro fianco.</p>
-      <p class="finale-sub">Grazie di cuore per esserci.</p>
-      <small>Matteo &amp; Sebiana · 01.09.2026</small>
+      <p class="finale mutedline">Grazie di cuore per esserci.</p>
+      <span class="footer-sign">Matteo &amp; Sebiana · 01.09.2026</span>
     </footer>
 
   </div><!-- /#site -->
@@ -886,7 +895,6 @@
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
     document.getElementById("villaAddr").textContent = VILLA_ADDR_DISPLAY;
 
-    // (4) Floresta: bold solo sul nome + (5) virgola dopo 96100
     const florestaEl = document.getElementById("florestaAddr");
     florestaEl.innerHTML = "<strong>Floresta</strong>, Viale Polibio 59/B, 96100, Siracusa\u00A0(SR)";
 
