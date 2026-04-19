@@ -22,9 +22,11 @@
       --muted:#5E6B64;
 
       --radius:22px;
-
       --shadow: 0 22px 52px rgba(0,0,0,.08), 0 3px 10px rgba(0,0,0,.03);
       --shadowHover: 0 26px 64px rgba(0,0,0,.10), 0 4px 12px rgba(0,0,0,.04);
+
+      --space-hero-bottom: 18px;
+      --space-after-intro: 8px;
 
       --max:980px;
 
@@ -114,7 +116,6 @@
       font-weight:520;
       text-align:center;
     }
-
     @media (max-width:520px){
       h1{ font-size:32px; margin-top:26px; }
       .subtitle{ font-size:18.5px; }
@@ -234,12 +235,6 @@
 
     .muted{ color:var(--muted); }
 
-    #churchAddr, #villaAddr, #florestaAddr{
-      white-space:normal;
-      overflow-wrap:anywhere;
-      word-break:break-word;
-    }
-
     /* Buttons */
     .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
     .btn{
@@ -312,6 +307,7 @@
       box-shadow: 0 10px 18px rgba(0,0,0,.028);
     }
 
+    /* Link stile generale */
     a.softlink{
       color:var(--sage2);
       text-decoration:none;
@@ -321,19 +317,29 @@
 
     .small-phone{ font-size:13px; }
 
-    footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
+    /* ===== Footer ===== */
+    footer{ text-align:center; padding:56px 18px 64px; }
 
-    /* Footer: una riga + font più piccolo */
+    /* (1) più grande ma una riga */
     .finale{
       font-family:var(--serif);
       font-style: italic;
-      font-size: clamp(14px, 4.1vw, 16px);
+      font-size: clamp(15px, 4.3vw, 17.5px);
       color:var(--text);
-      margin:0 0 8px;
+      margin:0 0 6px;
       letter-spacing:.2px;
       white-space: nowrap;
     }
-    footer small{ display:block; font-size:13px; margin-top:10px; }
+    /* (2) stesso font/char di .finale */
+    .finale-sub{
+      font-family:var(--serif);
+      font-style: italic;
+      color:var(--muted);
+      margin:0;
+      font-size: clamp(13px, 3.6vw, 15px);
+      letter-spacing:.15px;
+    }
+    footer small{ display:block; font-size:13px; margin-top:10px; color:var(--muted); }
 
     /* ===== Password overlay ===== */
     #lock{
@@ -372,7 +378,6 @@
       color:var(--sage2);
     }
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
-
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
     .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
     .lock-row input{
@@ -529,7 +534,7 @@
       padding: 28px 28px 30px;
     }
 
-    /* Contatti: layout + WhatsApp */
+    /* ===== Contatti: call + whatsapp ===== */
     .contacts-grid{
       display:grid;
       grid-template-columns: 120px 1fr;
@@ -549,6 +554,12 @@
       flex-wrap:wrap;
       min-width:0;
     }
+    /* (6) rimuove la sottolineatura tratteggiata SOLO nei contatti */
+    .contacts .softlink{
+      border-bottom:none !important;
+      text-decoration:none !important;
+    }
+
     .wa-link{
       display:inline-flex;
       align-items:center;
@@ -574,7 +585,16 @@
         gap: 10px;
       }
       .contact-links{ gap:8px; }
-      .wa-link{ width:fit-content; }
+    }
+
+    /* (4) Floresta: stesso stile degli indirizzi chiesa/villa */
+    #florestaAddr{
+      font-size: 14.7px;
+      color: rgba(31,42,37,.90);
+      line-height: 1.55;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+      font-family: var(--sans);
     }
   </style>
 </head>
@@ -691,8 +711,8 @@
                 <a class="btn btn-premium" id="mapVilla" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <!-- stesso colore del testo normale (non muted) -->
-              <p style="margin:0; margin-top:6px; font-size:13.2px;">
+              <!-- (7) stesso font/colore del resto: solo aperitivo in bold -->
+              <p style="margin:0; margin-top:6px;">
                 Al vostro arrivo, vi attenderà un <strong>frizzante aperitivo</strong>.
               </p>
             </div>
@@ -733,7 +753,7 @@
           </p>
 
           <div class="gift-box" style="margin-top:12px;">
-            <div class="value" id="florestaAddr"></div>
+            <div id="florestaAddr"></div>
 
             <div class="muted small-phone" style="margin-top:10px;">
               Tel. <span id="florestaPhoneText">0931 586747</span>
@@ -753,21 +773,21 @@
             Contatti
           </div>
 
-          <!-- ✅ testo consigliato (breve e coerente) -->
-          <p>Per qualsiasi esigenza, potete contattarci direttamente.</p>
+          <!-- (3) testo modificato -->
+          <p>Per qualsiasi esigenza, potete contattarci.</p>
           <p style="margin-bottom:18px;">Vi saremmo grati se poteste comunicarci la vostra presenza.</p>
 
           <div class="contacts-grid">
             <div class="contact-name">Matteo</div>
             <div class="contact-links">
               <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
-              <a class="wa-link" href="https://wa.me/393200750337" target="_blank" rel="noopener" aria-label="Scrivi su WhatsApp a Matteo">WhatsApp</a>
+              <a class="wa-link" href="https://wa.me/393200750337" target="_blank" rel="noopener" aria-label="Scrivi a Matteo su WhatsApp">WhatsApp</a>
             </div>
 
             <div class="contact-name">Sebiana</div>
             <div class="contact-links">
               <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
-              <a class="wa-link" href="https://wa.me/393888843281" target="_blank" rel="noopener" aria-label="Scrivi su WhatsApp a Sebiana">WhatsApp</a>
+              <a class="wa-link" href="https://wa.me/393888843281" target="_blank" rel="noopener" aria-label="Scrivi a Sebiana su WhatsApp">WhatsApp</a>
             </div>
           </div>
         </div>
@@ -777,7 +797,7 @@
 
     <footer>
       <p class="finale">Sarà per noi una gioia avervi al nostro fianco.</p>
-      <p class="muted" style="margin:0;">Grazie di cuore per esserci.</p>
+      <p class="finale-sub">Grazie di cuore per esserci.</p>
       <small>Matteo &amp; Sebiana · 01.09.2026</small>
     </footer>
 
@@ -787,10 +807,11 @@
     const PASSWORD = "matteoesebianasposi";
 
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
+
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
     const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014, Ispica (RG)";
 
-    const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
+    const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100, Siracusa\u00A0(SR)";
     const FLORESTA_PHONE   = "+390931586747";
 
     const MAP_CHURCH   = "https://www.google.com/maps?q=" + encodeURIComponent("Chiesa Madre, " + CHURCH_ADDRESS);
@@ -865,8 +886,9 @@
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
     document.getElementById("villaAddr").textContent = VILLA_ADDR_DISPLAY;
 
+    // (4) Floresta: bold solo sul nome + (5) virgola dopo 96100
     const florestaEl = document.getElementById("florestaAddr");
-    florestaEl.innerHTML = "<strong>Floresta</strong>, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
+    florestaEl.innerHTML = "<strong>Floresta</strong>, Viale Polibio 59/B, 96100, Siracusa\u00A0(SR)";
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
     document.getElementById("mapVilla").href = MAP_VILLA;
