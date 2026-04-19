@@ -320,31 +320,29 @@
     /* ===== Footer ===== */
     footer{ text-align:center; padding:56px 18px 64px; }
 
-    /* (1) leggermente più piccolo, sempre una riga */
+    /* Footer: due frasi identiche (font/dimensione/colore) – leggermente più piccolo */
     .finale{
       font-family:var(--serif);
       font-style: italic;
-      font-size: clamp(14.4px, 4.1vw, 16.2px);
+      font-size: clamp(14.0px, 4.0vw, 15.8px); /* leggermente più piccolo */
       color:var(--text);
       margin:0 0 6px;
       letter-spacing:.2px;
       white-space: nowrap;
     }
-    /* (2) stessa dimensione/font, solo colore muted */
-    .finale.mutedline{
-      color: var(--muted);
-    }
+    /* Mantengo la classe per compatibilità, ma non viene più usata */
+    .finale.mutedline{ color: var(--muted); }
 
-    /* (5) footer: stesso font/char tra nome e data (wedding) */
+    /* Firma: stesso font esatto (wedding), più piccola e più distante */
     .footer-sign{
       display:block;
-      margin-top:10px;
-      font-family:var(--wedding);
+      margin-top:24px;              /* più stacco evidente */
+      font-family:var(--wedding);   /* stesso font esatto */
       font-style:italic;
       font-weight:520;
       letter-spacing:.35px;
       color:rgba(47,110,91,.78);
-      font-size:14px;
+      font-size:12.4px;             /* più piccola */
     }
 
     /* ===== Password overlay ===== */
@@ -384,12 +382,25 @@
       color:var(--sage2);
     }
 
-    /* (4) istruzione login NON muted */
+    /* Login: istruzione NON muted e stessa dimensione della nota (12.5px) */
     .lock-instruction{
       color: var(--text) !important;
+      font-size:12.5px !important;
+      line-height:1.45;
+      margin:0 0 14px;
     }
 
+    /* p di default nel lock-box restano muted... */
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
+
+    /* ...ma la nota tra parentesi deve essere NON muted e stessa dimensione */
+    .lock-note{
+      color: var(--text) !important;
+      font-size:12.5px !important;
+      line-height:1.45;
+      margin-top:10px;
+    }
+
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
     .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
     .lock-row input{
@@ -617,7 +628,8 @@
 
       <div class="lock-content">
         <h2>Matteo &amp; Sebiana</h2>
-        <!-- (4) qui: NON muted -->
+
+        <!-- stessa grandezza della nota (12.5px) e non muted -->
         <p class="lock-instruction">Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
 
         <div class="lock-row">
@@ -637,7 +649,8 @@
         <div id="err" class="error"></div>
       </div>
 
-      <p class="muted" style="margin-top:10px;font-size:12.5px;">(La password verrà richiesta ad ogni accesso)</p>
+      <!-- Nota: non muted + 12.5px -->
+      <p class="lock-note">(La password verrà richiesta ad ogni accesso)</p>
     </div>
   </div>
 
@@ -721,7 +734,6 @@
                 <a class="btn btn-premium" id="mapVilla" href="#" target="_blank" rel="noopener">Apri in Maps</a>
               </div>
 
-              <!-- (3) frizzante NON bold, solo aperitivo bold -->
               <p style="margin:0; margin-top:6px;">
                 Al vostro arrivo, vi attenderà un frizzante <strong>aperitivo</strong>.
               </p>
@@ -806,7 +818,7 @@
 
     <footer>
       <p class="finale">Sarà per noi una gioia avervi al nostro fianco.</p>
-      <p class="finale mutedline">Grazie di cuore per esserci.</p>
+      <p class="finale">Grazie di cuore per esserci.</p>
       <span class="footer-sign">Matteo &amp; Sebiana · 01.09.2026</span>
     </footer>
 
@@ -816,10 +828,8 @@
     const PASSWORD = "matteoesebianasposi";
 
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
-
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
     const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014, Ispica (RG)";
-
     const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100, Siracusa\u00A0(SR)";
     const FLORESTA_PHONE   = "+390931586747";
 
