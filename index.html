@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Matteo &amp; Sebiana — 01.09.2026</title>
   <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
-  <meta name="theme-color" content="#FFFBF3" />
+  <meta name="theme-color" content="#FFFEFA" />
 
   <style>
     :root{
       --sage:#4E8C78;
       --sage2:#2F6E5B;
 
-      /* ✅ palette B: champagne-hotel */
-      --cream:#FFF8F0;
+      /* ✅ extra luxury: più burro/bianco */
+      --cream:#FFFBF3;
       --white:#FFFFFF;
       --butter:#FFF7EA;
-      --butter2:#FFFBF3;
+      --butter2:#FFFEFA;
       --champ:#F2E2CF;
       --ivory:#FFFDF7;
 
@@ -44,12 +44,13 @@
       color:var(--text);
       font-family:var(--sans);
 
+      /* ✅ extra-butter/white (B++): riduco ancora il verde */
       background:
-        radial-gradient(1050px 520px at 15% -6%, rgba(78,140,120,.07), transparent 62%),
-        radial-gradient(980px 560px at 92% 0%, rgba(242,226,207,.94), transparent 58%),
-        radial-gradient(980px 520px at 52% 18%, rgba(255,255,255,.92), transparent 62%),
-        radial-gradient(900px 520px at 40% 28%, rgba(255,247,234,.94), transparent 64%),
-        linear-gradient(180deg, var(--butter2), var(--cream) 42%, #ffffff 100%);
+        radial-gradient(1150px 560px at 90% -8%, rgba(242,226,207,.92), transparent 60%),
+        radial-gradient(1050px 520px at 48% 14%, rgba(255,255,255,.96), transparent 62%),
+        radial-gradient(900px 520px at 20% 26%, rgba(255,247,234,.94), transparent 64%),
+        radial-gradient(980px 520px at 12% -6%, rgba(78,140,120,.045), transparent 64%),
+        linear-gradient(180deg, var(--butter2), var(--cream) 46%, #ffffff 100%);
     }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
@@ -57,51 +58,20 @@
     /* ===== Header ===== */
     header{ padding:84px 0 28px; text-align:center; }
 
-    /* ✅ Sposi ancora più vicini */
+    /* ✅ 1) Sposi ancora più vicini */
     .couple-row{
       display:flex;
       align-items:flex-end;
       justify-content:center;
-      gap:0px;
+      gap:0;
       margin:0 0 12px;
     }
-    .couple-row .avatar-img + .avatar-img{ margin-left:-22px; }
+    .couple-row .avatar-img + .avatar-img{ margin-left:-28px; }
 
     @media (max-width:520px){
       header{ padding:74px 0 24px; }
       .couple-row{ margin:0 0 10px; }
-      .couple-row .avatar-img + .avatar-img{ margin-left:-16px; }
-    }
-
-    h1{
-      margin:22px 0 0;
-      font-family:var(--wedding);
-      font-style:italic;
-      font-weight:440;
-      letter-spacing:.32px;
-      font-size:42px;
-      line-height:1.05;
-      color:rgba(47,110,91,.92);
-      text-rendering:optimizeLegibility;
-      font-kerning:normal;
-      font-feature-settings:"kern","liga","clig";
-    }
-    .couple-name{ text-align:center; }
-
-    .subtitle{
-      margin:12px 0 0;
-      color:rgba(47,110,91,.84);
-      font-family:var(--wedding);
-      font-style:italic;
-      font-size:21px;
-      letter-spacing:.6px;
-      font-weight:520;
-      text-align:center;
-    }
-
-    @media (max-width:520px){
-      h1{ font-size:35px; margin-top:18px; }
-      .subtitle{ font-size:19px; }
+      .couple-row .avatar-img + .avatar-img{ margin-left:-19px; }
     }
 
     .avatar-img{
@@ -119,7 +89,39 @@
       .avatar-img{ width:125px; max-height:145px; }
     }
 
-    /* ===== Countdown (premium, non-boxy) ===== */
+    /* ✅ 2) titolo più in basso + un filo più piccolo, non bold */
+    h1{
+      margin:26px 0 0; /* più in basso */
+      font-family:var(--wedding);
+      font-style:italic;
+      font-weight:440;
+      letter-spacing:.32px;
+      font-size:40px; /* un filo più piccolo */
+      line-height:1.05;
+      color:rgba(47,110,91,.92);
+      text-rendering:optimizeLegibility;
+      font-kerning:normal;
+      font-feature-settings:"kern","liga","clig";
+    }
+    .couple-name{ text-align:center; }
+
+    .subtitle{
+      margin:12px 0 0;
+      color:rgba(47,110,91,.82);
+      font-family:var(--wedding);
+      font-style:italic;
+      font-size:20px;
+      letter-spacing:.6px;
+      font-weight:520;
+      text-align:center;
+    }
+
+    @media (max-width:520px){
+      h1{ font-size:34px; margin-top:20px; }
+      .subtitle{ font-size:18.5px; }
+    }
+
+    /* ===== Countdown (premium, no testo “countdown matrimonio”) ===== */
     .countdown{
       margin:14px auto 0;
       display:flex;
@@ -136,8 +138,8 @@
       padding:8px 12px;
       border-radius:999px;
       border:1px solid rgba(34,48,42,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(242,226,207,.26));
-      box-shadow: 0 12px 26px rgba(0,0,0,.045);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.22));
+      box-shadow: 0 12px 26px rgba(0,0,0,.042);
     }
     .cd-num{
       font-variant-numeric: tabular-nums;
@@ -152,12 +154,9 @@
       color:rgba(94,107,100,.92);
       transform: translateY(-1px);
     }
+    /* ✅ 3) tolta la scritta: mantengo il nodo ma lo rendo “vuoto” */
     .cd-note{
-      width:100%;
-      margin-top:4px;
-      font-family:var(--sans);
-      font-size:12.8px;
-      color:rgba(94,107,100,.92);
+      display:none;
     }
     @media (max-width:520px){
       .cd-chip{ padding:7px 11px; }
@@ -169,7 +168,7 @@
     .stack{ display:grid; gap:18px; }
 
     .card{
-      background: linear-gradient(180deg, rgba(255, 253, 247, .98), rgba(255, 251, 243, .94));
+      background: linear-gradient(180deg, rgba(255, 254, 250, .99), rgba(255, 251, 243, .94));
       border:1px solid rgba(34,48,42,.10);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -179,7 +178,6 @@
       will-change: transform, box-shadow;
       position:relative;
     }
-
     @media (hover:hover) and (pointer:fine){
       .card:hover{
         transform: translateY(-3px);
@@ -199,7 +197,6 @@
       font-size:22px;
       min-width:0;
     }
-
     .title::after{
       content:"";
       flex:1 1 auto;
@@ -212,7 +209,6 @@
         rgba(242,226,207,0));
       transform: translateY(1px);
     }
-
     @media (max-width:520px){
       .title::after{ margin-left:10px; min-width:34px; }
     }
@@ -253,7 +249,7 @@
 
     .btn.btn-premium{
       border: 1px solid rgba(34,48,42,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.96), rgba(242,226,207,.38));
+      background: linear-gradient(180deg, rgba(255,255,255,.97), rgba(242,226,207,.38));
       color: rgba(47,110,91,.92);
       box-shadow: 0 14px 30px rgba(0,0,0,.06);
       padding: 11px 16px;
@@ -274,7 +270,7 @@
       margin-top:12px;
       padding:14px 14px;
       border-radius:18px;
-      background:linear-gradient(180deg, rgba(242,226,207,.34), rgba(255,255,255,.94));
+      background:linear-gradient(180deg, rgba(242,226,207,.32), rgba(255,255,255,.95));
       border:1px solid rgba(34,48,42,.10);
     }
 
@@ -302,14 +298,6 @@
     }
     a.softlink:hover{ border-bottom-style:solid; }
 
-    .contacts a.softlink{ border-bottom:none !important; }
-    .contacts a.softlink{ white-space:nowrap; }
-
-    @media (max-width:520px){
-      .contacts p{ display:flex; flex-direction:column; gap:10px; }
-      .contacts .sep{ display:none; }
-    }
-
     .small-phone{ font-size:13px; }
 
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
@@ -322,8 +310,8 @@
       display:flex; align-items:center; justify-content:center;
       padding:18px;
       background:
-        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.92), transparent 60%),
-        linear-gradient(180deg, rgba(255,251,243,.98), rgba(255,255,255,.98));
+        radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.90), transparent 60%),
+        linear-gradient(180deg, rgba(255,254,250,.98), rgba(255,255,255,.98));
     }
     .lock-box{
       width:min(420px, 100%);
@@ -339,12 +327,10 @@
       margin:0 auto 12px; padding:8px 14px;
       border-radius:999px;
       border:1px solid rgba(34,48,42,.14);
-      background:rgba(242,226,207,.26);
+      background:rgba(242,226,207,.22);
       font-size:13px;
       color:var(--sage2);
     }
-
-    /* ✅ login: abbasso leggermente (come richiesto) */
     .lock-content{ margin-top:16px; }
 
     .lock-box h2{
@@ -355,10 +341,8 @@
       letter-spacing:.35px;
       color:var(--sage2);
     }
-
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
     .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
-
     .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
 
     .lock-row input{
@@ -401,7 +385,6 @@
       color:white; white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
     }
-
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
 
     /* ===== reveal on scroll ===== */
@@ -429,7 +412,6 @@
       gap: 18px;
       align-items: center;
     }
-
     .invite-media{
       border-radius: 18px;
       background: transparent;
@@ -440,7 +422,6 @@
       align-items:center;
       justify-content:center;
     }
-
     .invite-ill{
       width: 100%;
       height: auto;
@@ -448,24 +429,12 @@
       object-fit: contain;
       filter: drop-shadow(0 10px 16px rgba(0,0,0,.09));
     }
-
-    /* ✅ workaround: la villa sembra “incollata”? ammorbidisco leggermente */
-    .invite-ill.is-villa{
-      filter:
-        drop-shadow(0 9px 14px rgba(0,0,0,.075))
-        saturate(0.96)
-        contrast(0.98);
-      opacity:0.995;
-    }
-
     .invite-body{
       min-width: 0;
       display:flex;
       flex-direction: column;
       gap: 10px;
     }
-
-    /* ✅ meno “pulsante”: più tag editoriale */
     .invite-pill{
       display:inline-flex;
       align-items:center;
@@ -483,7 +452,6 @@
       cursor: default;
       user-select: none;
     }
-
     .invite-place{
       font-family: var(--wedding);
       font-style: italic;
@@ -494,7 +462,6 @@
       color: var(--text);
       margin-top: -2px;
     }
-
     .invite-addr{
       font-size: 14.7px;
       color: var(--text);
@@ -502,7 +469,6 @@
       overflow-wrap:anywhere;
       word-break:break-word;
     }
-
     .invite-actions{
       margin-top: 4px;
       display:flex;
@@ -510,16 +476,13 @@
       flex-wrap: wrap;
       align-items:center;
     }
-
     @media (max-width:700px){
       .invite{ grid-template-columns: 1fr; }
       .invite-ill{ max-width: 290px; }
       .invite-actions .btn{ width: 100%; justify-content:center; }
     }
 
-    /* ==========================================================
-       ✅ Icone (Regalo + Contatti) grandi e coerenti
-       ========================================================== */
+    /* Icone (Regalo + Contatti) */
     .sticker-icon{
       width:62px;
       height:62px;
@@ -539,6 +502,37 @@
     .icon-gift, .icon-phone{
       max-width:62px;
       max-height:62px;
+    }
+
+    /* ✅ 5) Contatti: layout pulito e allineato */
+    .contacts-grid{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap: 12px 18px;
+      align-items:baseline;
+      margin-top:4px;
+    }
+    .contact-name{
+      font-weight:650;
+      color:var(--text);
+      letter-spacing:.15px;
+    }
+    .contact-phone{
+      justify-self:start;
+      padding-left:6px; /* “stacco” percepito dal nome */
+      font-variant-numeric: tabular-nums;
+      letter-spacing:.2px;
+    }
+    .contacts a.softlink{
+      border-bottom:none !important;
+      white-space:nowrap;
+    }
+    @media (max-width:520px){
+      .contacts-grid{
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .contact-phone{ padding-left:0; }
     }
   </style>
 </head>
@@ -588,7 +582,7 @@
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
         <p class="subtitle">01.09.2026</p>
 
-        <!-- ✅ Countdown -->
+        <!-- Countdown -->
         <div class="countdown" role="status" aria-live="polite">
           <div class="cd-chip"><span class="cd-num" id="cdDays">—</span><span class="cd-lbl">giorni</span></div>
           <div class="cd-chip"><span class="cd-num" id="cdHours">—</span><span class="cd-lbl">ore</span></div>
@@ -606,7 +600,7 @@
           <div class="title">Benvenuti</div>
           <p>
             Siamo felici di condividere con voi questo giorno speciale.
-            Qui trovate le informazioni <strong>più importanti</strong> su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
+            Qui trovate le <strong>informazioni</strong> <strong>più importanti</strong> su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
           </p>
         </div>
 
@@ -637,7 +631,7 @@
 
           <div class="invite">
             <div class="invite-media">
-              <img class="invite-ill is-villa" src="assets/icons/hero-villa.png" alt="Illustrazione Villa Anna" />
+              <img class="invite-ill" src="assets/icons/hero-villa.png" alt="Illustrazione Villa Anna" />
             </div>
 
             <div class="invite-body">
@@ -710,11 +704,18 @@
             Contatti
           </div>
 
-          <p style="margin:0;">
-            <span><strong>Matteo</strong> <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a></span>
-            <span class="muted sep" style="padding:0 10px;">•</span>
-            <span><strong>Sebiana</strong> <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a></span>
-          </p>
+          <!-- ✅ 5) allineamento e stacco numeri -->
+          <div class="contacts-grid">
+            <div class="contact-name">Matteo</div>
+            <div class="contact-phone">
+              <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
+            </div>
+
+            <div class="contact-name">Sebiana</div>
+            <div class="contact-phone">
+              <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
+            </div>
+          </div>
         </div>
 
       </section>
@@ -729,10 +730,8 @@
   </div><!-- /#site -->
 
   <script>
-    /* ✅ nuova password */
     const PASSWORD = "matteoesebianasposi";
 
-    /* ✅ virgola prima della città */
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
 
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
@@ -748,7 +747,6 @@
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Leone";
 
-    /* ✅ Countdown target: 01/09/2026 16:00 CEST (+02:00) */
     const WEDDING_TARGET = new Date("2026-09-01T16:00:00+02:00");
 
     const lock = document.getElementById("lock");
@@ -872,7 +870,7 @@
       cards.forEach(el => io.observe(el));
     }
 
-    /* ===== Countdown logic ===== */
+    /* Countdown */
     let cdTimer = null;
     function pad2(n){ return String(n).padStart(2, "0"); }
 
@@ -891,7 +889,7 @@
         hEl.textContent = "00";
         mEl.textContent = "00";
         sEl.textContent = "00";
-        note.textContent = "È il grande giorno! ✨";
+        if(note) note.textContent = "";
         if(cdTimer) clearInterval(cdTimer);
         cdTimer = null;
         return;
@@ -909,7 +907,8 @@
       mEl.textContent = pad2(mins);
       sEl.textContent = pad2(secs);
 
-      note.textContent = "Countdown al matrimonio";
+      /* ✅ 3) niente scritta */
+      if(note) note.textContent = "";
     }
 
     function startCountdown(){
