@@ -69,8 +69,6 @@
       padding:84px 0 28px;
       text-align:center;
     }
-
-    /* ✅ Micro-intervento 1: più “respiro” dopo la hero */
     header + main{ padding-top: var(--space-hero-bottom); }
 
     /* Sposi più vicini */
@@ -131,7 +129,6 @@
       font-weight:520;
       text-align:center;
     }
-
     @media (max-width:520px){
       h1{ font-size:32px; margin-top:26px; }
       .subtitle{ font-size:18.5px; }
@@ -148,7 +145,6 @@
       font-family:var(--serif);
     }
 
-    /* Countdown più “gioiello” */
     .cd-chip{
       display:inline-flex;
       align-items:baseline;
@@ -179,7 +175,6 @@
     }
     .cd-note{ display:none; }
 
-    /* ✅ countdown sempre su UNA riga su mobile + safe overflow (senior) */
     @media (max-width:520px){
       .countdown{
         flex-wrap:nowrap;
@@ -229,8 +224,6 @@
       font-size:22px;
       min-width:0;
     }
-
-    /* Hairline più “editorial” */
     .title::after{
       content:"";
       flex:1 1 auto;
@@ -248,14 +241,13 @@
       .title::after{ margin-left:10px; min-width:34px; }
     }
 
-    /* ✅ Micro-intervento 3: micro-tipografia “stampa” */
+    /* ✅ Micro-tipografia “stampa”: tolto text-wrap: pretty (causava il problema) */
     p{
       margin: 10px 0;
-      line-height: 1.78;          /* era 1.7 */
+      line-height: 1.78;
       font-size:14.7px;
-      text-wrap: pretty;
     }
-    p + p{ margin-top: 12px; }     /* ritmo naturale tra paragrafi */
+    p + p{ margin-top: 12px; }
     .muted{ color:var(--muted); }
 
     .value{
@@ -289,7 +281,6 @@
       background:rgba(242,226,207,.26);
     }
 
-    /* Bottone premium “gioiello” */
     .btn.btn-premium{
       position:relative;
       border: 1px solid rgba(34,48,42,.14);
@@ -333,7 +324,6 @@
       word-break:break-word;
     }
 
-    /* Pulsante “Copia” leggermente più piccolo */
     .copy{
       display:inline-flex; align-items:center; gap:8px;
       border:1px solid rgba(34,48,42,.14);
@@ -357,7 +347,6 @@
 
     footer{ text-align:center; padding:56px 18px 64px; color:var(--muted); }
 
-    /* frase finale in corsivo ma stesso font */
     .finale{
       font-family:var(--serif);
       font-style: italic;
@@ -500,7 +489,6 @@
       gap: 10px;
     }
 
-    /* ✅ Micro-intervento 4: “Ora = dato”, semantica + look più netto */
     .invite-pill{
       display:inline-flex;
       align-items:center;
@@ -531,7 +519,6 @@
       margin: -2px 0 0;
     }
 
-    /* indirizzo come “metadato”: stesso colore, ma più silenzioso (senior IA) */
     .invite-addr{
       font-size: 14.7px;
       color: rgba(31,42,37,.90);
@@ -575,7 +562,7 @@
       max-height:62px;
     }
 
-    /* ✅ Micro-intervento 2: prima card “Benvenuti” più editoriale */
+    /* Prima card “Benvenuti” più editoriale */
     .card.intro{
       border-color: rgba(34,48,42,.08);
       box-shadow: 0 16px 36px rgba(0,0,0,.055), 0 2px 8px rgba(0,0,0,.022);
@@ -591,32 +578,6 @@
       align-items:baseline;
       margin-top:4px;
     }
-    .card.contacts p{
-  text-wrap: normal;
-}
-    /* ✅ Contatti: testo introduttivo sempre a larghezza piena */
-.contacts-intro{
-  display:block;
-  width:100%;
-  max-width:100%;
-}
-
-.contacts-intro p{
-  display:block;
-  width:100%;
-  max-width:100%;
-  white-space:normal;
-  overflow-wrap:anywhere;
-  word-break:normal;
-  text-wrap: normal; /* se il browser supporta */
-}
-``
-    .contacts-note{
-  margin: 0 0 12px;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.55;
-}
     .contact-name{
       font-weight:650;
       color:var(--text);
@@ -627,11 +588,15 @@
       padding-left:6px;
       font-variant-numeric: tabular-nums;
       letter-spacing:.2px;
+      min-width:0;
     }
+
+    /* lascio nowrap sui numeri (come volevi) */
     .contacts a.softlink{
       border-bottom:none !important;
       white-space:nowrap;
     }
+
     @media (max-width:520px){
       .contacts-grid{
         grid-template-columns: 1fr;
@@ -701,7 +666,7 @@
     <main class="wrap">
       <section class="stack">
 
-        <!-- ✅ intro card distinta -->
+        <!-- intro card distinta -->
         <div class="card intro reveal">
           <div class="title">Benvenuti</div>
           <p>
@@ -809,33 +774,28 @@
           </div>
         </div>
 
-<!-- Contatti -->
-<div class="card contacts reveal">
-  <div class="title">
-    <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti" />
-    Contatti
-  </div>
+        <!-- Contatti -->
+        <div class="card contacts reveal">
+          <div class="title">
+            <img class="sticker-icon icon-phone" src="assets/icons/icon-phone.png" alt="Icona contatti" />
+            Contatti
+          </div>
 
-  <p>
-    Se lo desiderate, potete contattarci direttamente per qualsiasi esigenza organizzativa.
-  </p>
+          <p>Se lo desiderate, potete contattarci direttamente per qualsiasi esigenza organizzativa.</p>
+          <p>Vi saremmo grati se poteste comunicarci la vostra presenza.</p>
 
-  <p>
-    Vi saremmo grati se poteste comunicarci la vostra presenza.
-  </p>
+          <div class="contacts-grid">
+            <div class="contact-name">Matteo</div>
+            <div class="contact-phone">
+              <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
+            </div>
 
-  <div class="contacts-grid">
-    <div class="contact-name">Matteo</div>
-    <div class="contact-phone">
-      <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
-    </div>
-
-    <div class="contact-name">Sebiana</div>
-    <div class="contact-phone">
-      <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
-    </div>
-  </div>
-</div>
+            <div class="contact-name">Sebiana</div>
+            <div class="contact-phone">
+              <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
+            </div>
+          </div>
+        </div>
 
       </section>
     </main>
@@ -852,7 +812,6 @@
     const PASSWORD = "matteoesebianasposi";
 
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
-
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
     const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014, Ispica (RG)";
 
@@ -931,7 +890,6 @@
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
     document.getElementById("villaAddr").textContent = VILLA_ADDR_DISPLAY;
 
-    /* “Floresta” in grassetto */
     const florestaEl = document.getElementById("florestaAddr");
     florestaEl.innerHTML = "<strong>Floresta</strong>, Viale Polibio 59/B, 96100 Siracusa\u00A0(SR)";
 
