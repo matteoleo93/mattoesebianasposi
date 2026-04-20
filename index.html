@@ -59,8 +59,13 @@
     }
 
     /* ===== Header ===== */
-    header{ padding:84px 0 28px; text-align:center; }
+    header{ padding:84px 0 20px; text-align:center; }
 
+/* Ammorbidisce lo stacco header → contenuto */
+header + main{
+  margin-top: -6px;
+}
+``
     .couple-row{
       display:flex;
       align-items:flex-end;
@@ -505,6 +510,7 @@
       letter-spacing: .20px;
       font-weight: 680;
       user-select: none;
+      margin-bottom: 6px;
     }
     .invite-place{
       font-family: var(--wedding);
@@ -774,7 +780,7 @@ a, button{
 
           <p>
             <strong>Essere circondati dalle persone che amiamo è per noi il dono più prezioso.</strong>
-            Se lo desiderate, ogni vostro pensiero sarà parte del nostro percorso insieme.
+            Se lo desiderate, il vostro pensiero contribuirà a costruire il nostro futuro insieme e a rendere speciale la luna di miele che sogniamo.
           </p>
 
           <div class="gift-box">
@@ -820,7 +826,7 @@ a, button{
           </div>
 
           <p>Per qualsiasi esigenza, potete contattarci.</p>
-          <p style="margin-bottom:18px;">Vi saremmo grati se poteste comunicarci la vostra presenza.</p>
+          <p style="margin-top:6px; margin-bottom:18px;">Vi saremmo grati se poteste comunicarci la vostra presenza.</p>
 
           <div class="contacts-grid">
             <div class="contact-name">Matteo</div>
