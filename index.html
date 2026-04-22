@@ -61,10 +61,11 @@
     /* ===== Header ===== */
     header{ padding:84px 0 20px; text-align:center; }
 
-/* Ammorbidisce lo stacco header → contenuto */
-header + main{
-  margin-top: -6px;
-}
+    /* Ammorbidisce lo stacco header → contenuto */
+    header + main{
+      margin-top: -6px;
+    }
+
     .couple-row{
       display:flex;
       align-items:flex-end;
@@ -555,16 +556,16 @@ header + main{
       .sticker-icon{ width:54px; height:54px; flex-basis:54px; }
     }
 
-.card.intro{
-  border-color: rgba(34,48,42,.05);
-  box-shadow: 0 12px 28px rgba(0,0,0,.045);
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,.98),
-    rgba(255,251,243,.88)
-  );
-  padding: 30px 30px 32px;
-}
+    .card.intro{
+      border-color: rgba(34,48,42,.05);
+      box-shadow: 0 12px 28px rgba(0,0,0,.045);
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.98),
+        rgba(255,251,243,.88)
+      );
+      padding: 30px 30px 32px;
+    }
 
     /* ===== Contatti: call + whatsapp ===== */
     .contacts-grid{
@@ -625,26 +626,78 @@ header + main{
       word-break:break-word;
       font-family: var(--sans);
     }
-    /* === MODIFICA 3: stabilità immagini (no layout shift) === */
-.avatar-img,
-.invite-ill,
-.sticker-icon{
-  height: auto;
-  max-width: 100%;
-}
-/* === MODIFICA 4: feedback tap mobile === */
-a, button{
-  touch-action: manipulation;
-}
 
-@media (hover:none){
-  .btn:active,
-  .wa-link:active,
-  .btn.btn-premium:active{
-    transform: translateY(1px);
-    filter: brightness(0.97);
-  }
-}
+    /* === MODIFICA 3: stabilità immagini (no layout shift) === */
+    .avatar-img,
+    .invite-ill,
+    .sticker-icon{
+      height: auto;
+      max-width: 100%;
+    }
+
+    /* === MODIFICA 4: feedback tap mobile === */
+    a, button{
+      touch-action: manipulation;
+    }
+
+    @media (hover:none){
+      .btn:active,
+      .wa-link:active,
+      .btn.btn-premium:active{
+        transform: translateY(1px);
+        filter: brightness(0.97);
+      }
+    }
+
+    /* ===== RSVP dentro Contatti (luxury, mobile-first) ===== */
+    .rsvp-box{
+      margin-top: 14px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(34,48,42,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.18));
+    }
+
+    .rsvp-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-family: var(--serif);
+      font-size: 14.4px;
+      letter-spacing: .20px;
+      color: rgba(31,42,37,.92);
+      margin: 0 0 8px;
+    }
+
+    .rsvp-sub{
+      margin: 0;
+      font-size: 13.9px;
+      color: rgba(94,107,100,.95);
+      line-height: 1.55;
+    }
+
+    .rsvp-actions{
+      margin-top: 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    /* su mobile: bottoni a tutta larghezza, molto comodi */
+    .rsvp-actions .wa-link{
+      width: 100%;
+      justify-content: center;
+      padding: 10px 12px;
+      font-size: 13.6px;
+    }
+
+    /* su schermi un po' più larghi: tornano "inline" */
+    @media (min-width:520px){
+      .rsvp-actions .wa-link{
+        width: auto;
+      }
+    }
   </style>
 </head>
 
@@ -827,6 +880,20 @@ a, button{
           <p>Per qualsiasi esigenza, potete contattarci.</p>
           <p style="margin-top:6px; margin-bottom:18px;">Vi saremmo grati se poteste comunicarci la vostra presenza.</p>
 
+          <!-- RSVP (inserito qui) -->
+          <div class="rsvp-box" aria-label="RSVP - Conferma presenza">
+            <p class="rsvp-label">💌 RSVP · Conferma presenza</p>
+            <p class="rsvp-sub">
+              Ti chiediamo gentilmente di comunicarci la tua presenza con un messaggio WhatsApp.
+            </p>
+
+            <div class="rsvp-actions">
+              <a class="wa-link" id="rsvpMatteo" href="#" target="_blank" rel="noopener" aria-label="Conferma presenza su WhatsApp con Matteo">Conferma su WhatsApp (Matteo)</a>
+              <a class="wa-link" id="rsvpSebiana" href="#" target="_blank" rel="noopener" aria-label="Conferma presenza su WhatsApp con Sebiana">Conferma su WhatsApp (Sebiana)</a>
+            </div>
+          </div>
+          <!-- /RSVP -->
+
           <div class="contacts-grid">
             <div class="contact-name">Matteo</div>
             <div class="contact-links">
@@ -943,6 +1010,22 @@ a, button{
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
     document.getElementById("florestaPhoneText").textContent = "0931 586747";
+
+    // ===== RSVP WhatsApp (messaggio precompilato) =====
+    const RSVP_TEXT =
+      "Ciao! Confermo la mia presenza al matrimonio di Matteo e Sebiana il 01/09/2026. " +
+      "Siamo in __ persone. " +
+      "Eventuali allergie/intolleranze: __. " +
+      "Grazie!";
+
+    const RSVP_MATTEO = "https://wa.me/393200750337?text=" + encodeURIComponent(RSVP_TEXT);
+    const RSVP_SEBIANA = "https://wa.me/393888843281?text=" + encodeURIComponent(RSVP_TEXT);
+
+    const rsvpM = document.getElementById("rsvpMatteo");
+    const rsvpS = document.getElementById("rsvpSebiana");
+    if (rsvpM) rsvpM.href = RSVP_MATTEO;
+    if (rsvpS) rsvpS.href = RSVP_SEBIANA;
+    // ===== /RSVP =====
 
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
