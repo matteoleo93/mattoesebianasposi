@@ -645,56 +645,7 @@ a, button{
     filter: brightness(0.97);
   }
 }
-
-/* ===== RSVP (luxury, mobile-first) ===== */
-.rsvp-box{
-  margin-top: 14px;
-  padding: 14px 14px;
-  border-radius: 18px;
-  border: 1px solid rgba(34,48,42,.10);
-  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.18));
-}
-.rsvp-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom: 10px;
-}
-.rsvp-label{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-family: var(--serif);
-  font-size: 14.2px;
-  letter-spacing: .18px;
-  color: rgba(31,42,37,.92);
-}
-.rsvp-sub{
-  font-size: 13.6px;
-  color: rgba(94,107,100,.95);
-  margin: 0;
-  line-height: 1.55;
-}
-.rsvp-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top: 12px;
-}
-.rsvp-actions .btn,
-.rsvp-actions .wa-link{
-  width: 100%;
-  justify-content: center;
-}
-@media (min-width:520px){
-  .rsvp-actions .btn,
-  .rsvp-actions .wa-link{
-    width: auto;
-  }
-}
-
-</style>
+  </style>
 </head>
 
 <body>
@@ -765,24 +716,6 @@ a, button{
             Siamo felici di condividere con voi questo giorno speciale.
             Qui trovate le <strong>informazioni</strong> <strong>più importanti</strong> su <strong>cerimonia</strong> e <strong>festeggiamenti</strong>.
           </p>
-          <div class="rsvp-box" aria-label="Conferma presenza">
-    <div class="rsvp-top">
-      <div class="rsvp-label">💌 RSVP · Conferma presenza</div>
-    </div>
-
-    <p class="rsvp-sub">
-      Ti chiediamo gentilmente di comunicarci la tua presenza con un messaggio WhatsApp.
-    </p>
-
-    <div class="rsvp-actions">
-      <a class="btn btn-premium" id="rsvpMatteo" href="#" target="_blank" rel="noopener">
-        Conferma su WhatsApp (Matteo)
-      </a>
-      <a class="btn" id="rsvpSebiana" href="#" target="_blank" rel="noopener">
-        Conferma su WhatsApp (Sebiana)
-      </a>
-    </div>
-  </div>
         </div>
 
         <!-- Cerimonia -->
@@ -1010,15 +943,7 @@ a, button{
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
     document.getElementById("florestaPhoneText").textContent = "0931 586747";
-// ===== RSVP WhatsApp (messaggio precompilato) =====
-const RSVP_TEXT = "Ciao! Confermo la mia presenza al matrimonio di Matteo e Sebiana il 01/09/2026. Siamo in __ persone. Grazie!";
-const RSVP_MATTEO = "https://wa.me/393200750337?text=" + encodeURIComponent(RSVP_TEXT);
-const RSVP_SEBIANA = "https://wa.me/393888843281?text=" + encodeURIComponent(RSVP_TEXT);
 
-const rsvpM = document.getElementById("rsvpMatteo");
-const rsvpS = document.getElementById("rsvpSebiana");
-if(rsvpM) rsvpM.href = RSVP_MATTEO;
-if(rsvpS) rsvpS.href = RSVP_SEBIANA;
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
