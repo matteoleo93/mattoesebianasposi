@@ -219,9 +219,9 @@
       min-width:44px;
       height:1px;
       margin-left:12px;
-      background:linear-gradient(90deg, rgba(242,226,207,.78), rgba(242,226,207,.26) 55%, rgba(242,226,207,0));
+      background:linear-gradient(90deg, rgba(242,226,207,.60), rgba(242,226,207,.22) 55%, rgba(242,226,207,0));
       transform: translateY(1px);
-      opacity:.9;
+      opacity:.85;
     }
     @media (max-width:520px){
       .title::after{ margin-left:10px; min-width:34px; }
@@ -573,7 +573,7 @@
       grid-template-columns: 120px 1fr;
       gap: 12px 18px;
       align-items:baseline;
-      margin-top:12px;
+      margin-top:18px;
     }
     .contact-name{
       font-weight:650;
@@ -607,6 +607,7 @@
       font-weight:650;
       white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
+      margin-left:14px;
     }
     @media (hover:hover) and (pointer:fine){
       .wa-link:hover{ transform: translateY(-1px); }
@@ -616,7 +617,7 @@
       .contacts-grid{ grid-template-columns: 1fr; gap: 10px; }
       .contact-links{ gap:8px; }
     }
-
+.wa-link{ margin-left:0; }
     /* Floresta: stesso stile degli indirizzi chiesa/villa */
     #florestaAddr{
       font-size: 14.7px;
@@ -877,7 +878,10 @@
   </div>
 
   <p>
-    Per qualsiasi esigenza e per confermare la vostra presenza, potete chiamarci o contattarci su WhatsApp.
+ Per qualsiasi esigenza e per confermare la vostra presenza
+  <strong>entro il 25 luglio 2026</strong>,
+  potete chiamarci o contattarci su WhatsApp.
+
   </p>
 
   <div class="contacts-grid">
@@ -1007,23 +1011,6 @@
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
     document.getElementById("florestaPhoneText").textContent = "0931 586747";
-
-    // ===== RSVP WhatsApp (messaggio precompilato) =====
-    const RSVP_TEXT =
-      "Ciao! Confermo la mia presenza al matrimonio di Matteo e Sebiana il 01/09/2026. " +
-      "Siamo in __ persone. " +
-      "Eventuali allergie/intolleranze: __. " +
-      "Grazie!";
-
-    const RSVP_MATTEO = "https://wa.me/393200750337?text=" + encodeURIComponent(RSVP_TEXT);
-    const RSVP_SEBIANA = "https://wa.me/393888843281?text=" + encodeURIComponent(RSVP_TEXT);
-
-    const rsvpM = document.getElementById("rsvpMatteo");
-    const rsvpS = document.getElementById("rsvpSebiana");
-    if (rsvpM) rsvpM.href = RSVP_MATTEO;
-    if (rsvpS) rsvpS.href = RSVP_SEBIANA;
-    // ===== /RSVP =====
-
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
