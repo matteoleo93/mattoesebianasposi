@@ -62,9 +62,7 @@
     header{ padding:84px 0 20px; text-align:center; }
 
     /* Ammorbidisce lo stacco header → contenuto */
-    header + main{
-      margin-top: -6px;
-    }
+    header + main{ margin-top: -6px; }
 
     .couple-row{
       display:flex;
@@ -325,29 +323,26 @@
     /* ===== Footer ===== */
     footer{ text-align:center; padding:56px 18px 64px; }
 
-    /* Footer: due frasi identiche (font/dimensione/colore) – leggermente più piccolo */
     .finale{
       font-family:var(--serif);
       font-style: italic;
-      font-size: clamp(14.0px, 4.0vw, 15.8px); /* leggermente più piccolo */
+      font-size: clamp(14.0px, 4.0vw, 15.8px);
       color:var(--text);
       margin:0 0 6px;
       letter-spacing:.2px;
       white-space: nowrap;
     }
-    /* Mantengo la classe per compatibilità, ma non viene più usata */
     .finale.mutedline{ color: var(--muted); }
 
-    /* Firma: stesso font esatto (wedding), più piccola e più distante */
     .footer-sign{
       display:block;
-      margin-top:24px;              /* più stacco evidente */
-      font-family:var(--wedding);   /* stesso font esatto */
+      margin-top:24px;
+      font-family:var(--wedding);
       font-style:italic;
       font-weight:520;
       letter-spacing:.35px;
       color:rgba(47,110,91,.78);
-      font-size:12.4px;             /* più piccola */
+      font-size:12.4px;
     }
 
     /* ===== Password overlay ===== */
@@ -387,7 +382,6 @@
       color:var(--sage2);
     }
 
-    /* Login: istruzione NON muted e stessa dimensione della nota (12.5px) */
     .lock-instruction{
       color: var(--text) !important;
       font-size:12.5px !important;
@@ -395,10 +389,8 @@
       margin:0 0 14px;
     }
 
-    /* p di default nel lock-box restano muted... */
     .lock-box p{ margin:0 0 16px; color:var(--muted); font-size:14px; line-height:1.45; }
 
-    /* ...ma la nota tra parentesi deve essere NON muted e stessa dimensione */
     .lock-note{
       color: var(--text) !important;
       font-size:12.5px !important;
@@ -559,11 +551,7 @@
     .card.intro{
       border-color: rgba(34,48,42,.05);
       box-shadow: 0 12px 28px rgba(0,0,0,.045);
-      background: linear-gradient(
-        180deg,
-        rgba(255,255,255,.98),
-        rgba(255,251,243,.88)
-      );
+      background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,251,243,.88));
       padding: 30px 30px 32px;
     }
 
@@ -587,7 +575,6 @@
       flex-wrap:wrap;
       min-width:0;
     }
-    /* rimuove la sottolineatura tratteggiata SOLO nei contatti */
     .contacts .softlink{
       border-bottom:none !important;
       text-decoration:none !important;
@@ -617,8 +604,9 @@
       .contacts-grid{ grid-template-columns: 1fr; gap: 10px; }
       .contact-links{ gap:8px; }
     }
-.wa-link{ margin-left:0; }
-    /* Floresta: stesso stile degli indirizzi chiesa/villa */
+    .wa-link{ margin-left:0; }
+
+    /* Lista nozze: stesso stile degli indirizzi chiesa/villa */
     #florestaAddr{
       font-size: 14.7px;
       color: rgba(31,42,37,.90);
@@ -628,23 +616,12 @@
       font-family: var(--sans);
     }
 
-    /* === MODIFICA 3: stabilità immagini (no layout shift) === */
-    .avatar-img,
-    .invite-ill,
-    .sticker-icon{
-      height: auto;
-      max-width: 100%;
-    }
+    .avatar-img, .invite-ill, .sticker-icon{ height:auto; max-width:100%; }
 
-    /* === MODIFICA 4: feedback tap mobile === */
-    a, button{
-      touch-action: manipulation;
-    }
+    a, button{ touch-action: manipulation; }
 
     @media (hover:none){
-      .btn:active,
-      .wa-link:active,
-      .btn.btn-premium:active{
+      .btn:active, .wa-link:active, .btn.btn-premium:active{
         transform: translateY(1px);
         filter: brightness(0.97);
       }
@@ -658,7 +635,6 @@
       border: 1px solid rgba(34,48,42,.10);
       background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,226,207,.18));
     }
-
     .rsvp-label{
       display:inline-flex;
       align-items:center;
@@ -669,14 +645,12 @@
       color: rgba(31,42,37,.92);
       margin: 0 0 8px;
     }
-
     .rsvp-sub{
       margin: 0;
       font-size: 13.9px;
       color: rgba(94,107,100,.95);
       line-height: 1.55;
     }
-
     .rsvp-actions{
       margin-top: 12px;
       display:flex;
@@ -684,20 +658,14 @@
       flex-wrap:wrap;
       align-items:center;
     }
-
-    /* su mobile: bottoni a tutta larghezza, molto comodi */
     .rsvp-actions .wa-link{
       width: 100%;
       justify-content: center;
       padding: 10px 12px;
       font-size: 13.6px;
     }
-
-    /* su schermi un po' più larghi: tornano "inline" */
     @media (min-width:520px){
-      .rsvp-actions .wa-link{
-        width: auto;
-      }
+      .rsvp-actions .wa-link{ width:auto; }
     }
   </style>
 </head>
@@ -712,7 +680,6 @@
       <div class="lock-content">
         <h2>Matteo &amp; Sebiana</h2>
 
-        <!-- stessa grandezza della nota (12.5px) e non muted -->
         <p class="lock-instruction">Inserisci la password condivisa con l’invito per accedere alle informazioni.</p>
 
         <div class="lock-row">
@@ -732,7 +699,6 @@
         <div id="err" class="error"></div>
       </div>
 
-      <!-- Nota: non muted + 12.5px -->
       <p class="lock-note">(La password verrà richiesta ad ogni accesso)</p>
     </div>
   </div>
@@ -750,7 +716,6 @@
         <h1 class="couple-name">Matteo &amp; Sebiana</h1>
         <p class="subtitle">01.09.2026</p>
 
-        <!-- Countdown -->
         <div class="countdown" role="status" aria-live="polite">
           <div class="cd-chip"><span class="cd-num" id="cdDays">—</span><span class="cd-lbl">giorni</span></div>
           <div class="cd-chip"><span class="cd-num" id="cdHours">—</span><span class="cd-lbl">ore</span></div>
@@ -861,55 +826,56 @@
             <div id="florestaAddr"></div>
 
             <div class="muted small-phone" style="margin-top:10px;">
-              Tel. <span id="florestaPhoneText">0931 586747</span>
+              Tel. <span id="florestaPhoneText">338 415 7301</span>
             </div>
 
             <div class="btn-row" style="margin-top:12px;">
               <a class="btn" id="mapFloresta" href="#" target="_blank" rel="noopener">Apri in Maps</a>
-              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Floresta">Chiama</a>
+              <a class="btn" id="telFloresta" href="#" aria-label="Chiama Merola Home">Chiama</a>
             </div>
           </div>
         </div>
-<!-- Conferma e contatti -->
-<div class="card contacts reveal">
-  <div class="title">
-    <img class="sticker-icon" src="assets/icons/icon-phone.png" alt="Icona contatti" />
-    Conferma e contatti
-  </div>
 
-  <p>
- Per qualsiasi esigenza e per confermare la vostra presenza
-  <strong>entro il 25 luglio 2026</strong>,
-  potete chiamarci o contattarci su WhatsApp.
+        <!-- Conferma e contatti -->
+        <div class="card contacts reveal">
+          <div class="title">
+            <img class="sticker-icon" src="assets/icons/icon-phone.png" alt="Icona contatti" />
+            Conferma e contatti
+          </div>
 
-  </p>
+          <p>
+            Per qualsiasi esigenza e per confermare la vostra presenza
+            <strong>entro il 25 luglio 2026</strong>,
+            potete chiamarci o contattarci su WhatsApp.
+          </p>
 
-  <div class="contacts-grid">
-    <div class="contact-name">Matteo</div>
-    <div class="contact-links">
-      <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
-      <a class="wa-link"
-         href="https://wa.me/393200750337"
-         target="_blank"
-         rel="noopener"
-         aria-label="Scrivi a Matteo su WhatsApp">
-        WhatsApp
-      </a>
-    </div>
+          <div class="contacts-grid">
+            <div class="contact-name">Matteo</div>
+            <div class="contact-links">
+              <a class="softlink" href="tel:+393200750337">+39 320 075 0337</a>
+              <a class="wa-link"
+                 href="https://wa.me/393200750337"
+                 target="_blank"
+                 rel="noopener"
+                 aria-label="Scrivi a Matteo su WhatsApp">
+                WhatsApp
+              </a>
+            </div>
 
-    <div class="contact-name">Sebiana</div>
-    <div class="contact-links">
-      <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
-      <a class="wa-link"
-         href="https://wa.me/393888843281"
-         target="_blank"
-         rel="noopener"
-         aria-label="Scrivi a Sebiana su WhatsApp">
-        WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
+            <div class="contact-name">Sebiana</div>
+            <div class="contact-links">
+              <a class="softlink" href="tel:+393888843281">+39 388 884 3281</a>
+              <a class="wa-link"
+                 href="https://wa.me/393888843281"
+                 target="_blank"
+                 rel="noopener"
+                 aria-label="Scrivi a Sebiana su WhatsApp">
+                WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
       </section>
     </main>
 
@@ -927,8 +893,10 @@
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
     const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014, Ispica (RG)";
-    const FLORESTA_ADDRESS = "Floresta, Viale Polibio 59/B, 96100, Siracusa\u00A0(SR)";
-    const FLORESTA_PHONE   = "+390931586747";
+
+    // ✅ LISTA NOZZE (aggiornata): Merola Home
+    const FLORESTA_ADDRESS = "Merola Home, Via Tagliamento 14/16, 96100, Siracusa\u00A0(SR)";
+    const FLORESTA_PHONE   = "+393384157301"; // prefisso +39 per link tel:
 
     const MAP_CHURCH   = "https://www.google.com/maps?q=" + encodeURIComponent("Chiesa Madre, " + CHURCH_ADDRESS);
     const MAP_VILLA    = "https://www.google.com/maps?q=" + encodeURIComponent(VILLA_ADDRESS);
@@ -1002,15 +970,16 @@
     document.getElementById("churchAddr").textContent = CHURCH_ADDRESS;
     document.getElementById("villaAddr").textContent = VILLA_ADDR_DISPLAY;
 
+    // ✅ Testo lista nozze (Merola Home)
     const florestaEl = document.getElementById("florestaAddr");
-    florestaEl.innerHTML = "<strong>Floresta</strong>, Viale Polibio 59/B, 96100, Siracusa\u00A0(SR)";
+    florestaEl.innerHTML = "<strong>Merola Home</strong>, Via Tagliamento 14/16, 96100, Siracusa\u00A0(SR)";
 
     document.getElementById("mapChurch").href = MAP_CHURCH;
     document.getElementById("mapVilla").href = MAP_VILLA;
     document.getElementById("mapFloresta").href = MAP_FLORESTA;
     document.getElementById("telFloresta").href = "tel:" + FLORESTA_PHONE;
 
-    document.getElementById("florestaPhoneText").textContent = "0931 586747";
+    document.getElementById("florestaPhoneText").textContent = "338 415 7301";
     document.getElementById("ibanText").textContent = IBAN;
     document.getElementById("ibanName").textContent = IBAN_NAME;
 
