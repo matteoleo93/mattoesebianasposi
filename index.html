@@ -893,14 +893,15 @@
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
     const VILLA_ADDR_DISPLAY = "C.da Graffetta, 97014, Ispica (RG)";
-
-    // ✅ LISTA NOZZE (aggiornata): Merola Home
-    const FLORESTA_ADDRESS = "Merola Home, Via Tagliamento 14/16, 96100, Siracusa\u00A0(SR)";
+    
+// Lista nozze: Maps deve puntare SOLO all’indirizzo (senza nome attività)
+const FLORESTA_ADDRESS = "Via Tagliamento 14/16, 96100, Siracusa\u00A0(SR)";
     const FLORESTA_PHONE   = "+393384157301"; // prefisso +39 per link tel:
 
     const MAP_CHURCH   = "https://www.google.com/maps?q=" + encodeURIComponent("Chiesa Madre, " + CHURCH_ADDRESS);
     const MAP_VILLA    = "https://www.google.com/maps?q=" + encodeURIComponent(VILLA_ADDRESS);
-    const MAP_FLORESTA = "https://www.google.com/maps?q=" + encodeURIComponent(FLORESTA_ADDRESS);
+  // Variante più robusta: apre Maps come ricerca diretta della query
+const MAP_FLORESTA = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(FLORESTA_ADDRESS);
 
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
     const IBAN_NAME = "Matteo Leone";
