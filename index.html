@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no">
   <title>Matteo &amp; Sebiana — 01.09.2026</title>
   <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
   <meta name="theme-color" content="#FFFEFA" />
@@ -355,6 +356,15 @@
       border-bottom:1px dashed rgba(47,110,91,.28);
     }
     a.softlink:hover{ border-bottom-style:solid; }
+    /* ✅ iOS: neutralizza lo stile automatico dei “data detectors” */
+a[x-apple-data-detectors],
+a[x-apple-data-detectors]:hover,
+a[x-apple-data-detectors]:active,
+a[x-apple-data-detectors]:focus{
+  color: inherit !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
 
     .small-phone{ font-size:13px; }
 
@@ -625,7 +635,13 @@
       border-bottom:none !important;
       text-decoration:none !important;
     }
-
+/* ✅ uniforma dimensione numeri telefono (Android troppo grande) */
+.contacts-grid .softlink{
+  font-size:14.7px;
+  line-height:1.2;
+  font-weight: var(--fw-medium);
+  letter-spacing:.12px;
+}
     .wa-link{
       display:inline-flex;
       align-items:center;
@@ -934,7 +950,7 @@
   </div><!-- /#site -->
 
   <script>
-    const PASSWORD = "matteoesebianasposi";
+    const PASSWORD = "matteoesebiana";
 
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
