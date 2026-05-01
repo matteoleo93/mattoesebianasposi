@@ -459,9 +459,22 @@ a[x-apple-data-detectors]:focus{
       width:100%;
       border-radius:999px;
       border:1px solid rgba(34,48,42,.18);
-      padding:12px 44px 12px 14px;
-      font-size:16px; outline:none; background:white;
+      padding:10px 44px 10px 14px;
+      font-size:15.5px;
+letter-spacing:.15px;
+font-weight:500; outline:none; background:white;
     }
+    /* ✅ iOS: mantieni 16px nell'input per evitare zoom automatico (stabilità layout) */
+@supports (-webkit-touch-callout: none){
+  .lock-row input{
+    font-size:16px;
+  }
+}
+    .lock-row input::placeholder{
+  font-size:13.5px;
+  color: rgba(94,107,100,.78);
+  letter-spacing:.2px;
+}
     .pw-toggle{
       position:absolute;
       right:10px;
