@@ -666,10 +666,15 @@ font-weight:400; outline:none; background:white;
       color: rgba(47,110,91,.92);
       text-decoration:none;
       font-size:13.3px;
+      font-family: var(--sans);      /* stesso font */
+  font-weight: var(--fw-semi);   /* stesso peso (già c'è, lo ribadiamo se vuoi) */
+  letter-spacing: .12px;         /* stessa “aria” tipografica del premium */
+  color: rgba(47,110,91,.92);    /* stesso colore (già c'è, ma lo fissiamo) */
       font-weight: var(--fw-semi); /* ✅ MODIFICA 1 (era 650) */
       white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
       margin-left:14px;
+      text-rendering: optimizeLegibility;
     }
     @media (hover:hover) and (pointer:fine){
       .wa-link:hover{ transform: translateY(-1px); }
