@@ -41,6 +41,12 @@
       --wedding: "Playfair Display", ui-serif, "Times New Roman", serif;
 
       color-scheme: light;
+
+      /* ✅ MODIFICA 1: scala pesi “deterministica” (parità iOS/Android) */
+      --fw-regular: 400;
+      --fw-medium: 500;
+      --fw-semi: 600;
+      --fw-bold: 700;
     }
 
     *{ box-sizing:border-box; }
@@ -72,6 +78,8 @@
       margin:0;
       color:var(--text);
       font-family:var(--sans);
+      font-weight: var(--fw-regular); /* ✅ MODIFICA 1 */
+      background-color: var(--butter2);
       background:
         radial-gradient(1150px 560px at 90% -8%, rgba(242,226,207,.78), transparent 60%),
         radial-gradient(1050px 520px at 48% 14%, rgba(255,255,255,.96), transparent 62%),
@@ -87,6 +95,9 @@
       outline-offset: 3px;
       border-radius: 14px;
     }
+
+    /* ✅ MODIFICA 1: strong coerente */
+    strong{ font-weight: var(--fw-semi); }
 
     /* ===== Header ===== */
     header{ padding:84px 0 20px; text-align:center; }
@@ -128,7 +139,7 @@
       margin:32px 0 0;
       font-family:var(--wedding);
       font-style:italic;
-      font-weight:440;
+      font-weight: var(--fw-regular); /* ✅ MODIFICA 1 (era 440) */
       letter-spacing:.32px;
       font-size:38px;
       line-height:1.05;
@@ -143,7 +154,7 @@
       font-style:italic;
       font-size:20px;
       letter-spacing:.6px;
-      font-weight:520;
+      font-weight: var(--fw-medium); /* ✅ MODIFICA 1 (era 520) */
       text-align:center;
     }
     @media (max-width:520px){
@@ -179,7 +190,7 @@
       font-size:18px;
       letter-spacing:.18px;
       color:rgba(35,84,69,.92);
-      font-weight:720;
+      font-weight: var(--fw-bold); /* ✅ MODIFICA 1 (era 720) */
     }
     .cd-lbl{
       font-size:12.4px;
@@ -233,7 +244,7 @@
       gap:12px;
       margin:0 0 12px;
       font-family:var(--serif);
-      font-weight:500;
+      font-weight: var(--fw-medium); /* ✅ MODIFICA 1 (era 500, ok ma uniformiamo) */
       letter-spacing:.35px;
       font-size:22px;
       min-width:0;
@@ -291,7 +302,7 @@
       color: rgba(47,110,91,.92);
       box-shadow: 0 14px 30px rgba(0,0,0,.06);
       padding: 11px 16px;
-      font-weight: 680;
+      font-weight: var(--fw-semi); /* ✅ MODIFICA 1 (era 680) */
       letter-spacing: .12px;
       overflow:hidden;
     }
@@ -366,7 +377,7 @@
       margin-top:24px;
       font-family:var(--wedding);
       font-style:italic;
-      font-weight:520;
+      font-weight: var(--fw-medium); /* ✅ MODIFICA 1 (era 520) */
       letter-spacing:.35px;
       color:rgba(47,110,91,.78);
       font-size:12.4px;
@@ -380,8 +391,12 @@
       background:
         radial-gradient(900px 380px at 50% -80px, rgba(242,226,207,.90), transparent 60%),
         linear-gradient(180deg, rgba(255,254,250,.98), rgba(255,255,255,.98));
-      min-height: 100vh;
-      min-height: 100dvh;
+
+      /* ✅ MODIFICA 2: iOS keyboard-safe viewport */
+      height: var(--vh, 100dvh);
+      min-height: 0;
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
     }
     .lock-box{
       width:min(420px, 100%);
@@ -391,6 +406,7 @@
       box-shadow:var(--shadow);
       padding:28px 24px 22px;
       text-align:center;
+      margin:auto; /* ✅ MODIFICA 2 */
     }
     .badge{
       display:inline-flex; align-items:center; justify-content:center; gap:8px;
@@ -406,7 +422,7 @@
       margin:0 0 6px;
       font-family:var(--wedding);
       font-style:italic;
-      font-weight:480;
+      font-weight: var(--fw-regular); /* ✅ MODIFICA 1 (era 480) */
       letter-spacing:.35px;
       color:var(--sage2);
     }
@@ -466,6 +482,7 @@
       background:linear-gradient(180deg, rgba(47,110,91,.95), rgba(35,84,69,.92));
       color:white; white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
+      font-weight: var(--fw-semi); /* ✅ MODIFICA 1 */
     }
     .error{ margin-top:10px; color:#8a2f2f; font-size:13px; min-height:18px; }
 
@@ -529,14 +546,14 @@
       color: rgba(35,84,69,.92);
       font-size: 12.4px;
       letter-spacing: .20px;
-      font-weight: 680;
+      font-weight: var(--fw-bold); /* ✅ MODIFICA 1 */
       user-select: none;
       margin-bottom: 6px;
     }
     .invite-place{
       font-family: var(--wedding);
       font-style: italic;
-      font-weight: 580;
+      font-weight: var(--fw-semi); /* ✅ MODIFICA 1 (era 580) */
       letter-spacing: .25px;
       font-size: 22px;
       line-height: 1.15;
@@ -593,7 +610,7 @@
       margin-top:18px;
     }
     .contact-name{
-      font-weight:650;
+      font-weight: var(--fw-semi); /* ✅ MODIFICA 1 (era 650) */
       color:var(--text);
       letter-spacing:.15px;
     }
@@ -620,7 +637,7 @@
       color: rgba(47,110,91,.92);
       text-decoration:none;
       font-size:13.3px;
-      font-weight:650;
+      font-weight: var(--fw-semi); /* ✅ MODIFICA 1 (era 650) */
       white-space:nowrap;
       -webkit-tap-highlight-color: transparent;
       margin-left:14px;
@@ -929,7 +946,8 @@
 
     const MAP_CHURCH   = "https://www.google.com/maps?q=" + encodeURIComponent("Chiesa Madre, " + CHURCH_ADDRESS);
     const MAP_VILLA    = "https://www.google.com/maps?q=" + encodeURIComponent(VILLA_ADDRESS);
-    // Variante più robusta: apre Maps come ricerca diretta della query
+
+    // ✅ MODIFICA 4: qui NON deve esserci &amp; ma &
     const MAP_FLORESTA = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(FLORESTA_ADDRESS);
 
     const IBAN = "ITXX XXXX XXXX XXXX XXXX XXXX XXX";
@@ -939,6 +957,14 @@
 
     const lock = document.getElementById("lock");
     const site = document.getElementById("site");
+
+    /* ✅ MODIFICA 2: iOS viewport height fix (keyboard-safe) */
+    function setVH(){
+      const h = window.innerHeight;
+      document.documentElement.style.setProperty('--vh', `${h}px`);
+    }
+    setVH();
+    window.addEventListener('resize', setVH);
 
     function setLocked(isLocked){
       document.documentElement.style.overflow = isLocked ? "hidden" : "";
