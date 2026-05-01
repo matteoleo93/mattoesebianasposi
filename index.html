@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="format-detection" content="telephone=no">
   <title>Matteo &amp; Sebiana — 01.09.2026</title>
   <meta name="description" content="Informazioni per gli invitati — Matrimonio di Matteo e Sebiana, 01.09.2026." />
   <meta name="theme-color" content="#FFFEFA" />
@@ -355,7 +356,15 @@
       border-bottom:1px dashed rgba(47,110,91,.28);
     }
     a.softlink:hover{ border-bottom-style:solid; }
-
+    /* ✅ iOS: disattiva stile automatico su numeri/indirizzi (Apple data detectors) */
+a[x-apple-data-detectors],
+a[x-apple-data-detectors]:hover,
+a[x-apple-data-detectors]:active,
+a[x-apple-data-detectors]:focus{
+  color: inherit !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
     .small-phone{ font-size:13px; }
 
     /* ===== Footer ===== */
@@ -443,15 +452,25 @@
       margin-top:10px;
     }
 
-    .lock-row{ display:flex; gap:10px; margin-top:10px; align-items:center; }
-    .pw-wrap{ flex:1; position:relative; display:flex; align-items:center; }
     .lock-row input{
-      width:100%;
-      border-radius:999px;
-      border:1px solid rgba(34,48,42,.18);
-      padding:12px 44px 12px 14px;
-      font-size:16px; outline:none; background:white;
-    }
+  width:100%;
+  border-radius:999px;
+  border:1px solid rgba(34,48,42,.18);
+
+  /* input più “slim” e coerente col box */
+  padding:10px 44px 10px 14px;
+  line-height:1.2;
+
+  /* NON scendere sotto 16px (evita zoom iOS) */
+  font-size:16px;
+  outline:none;
+  background:white;
+}
+    .lock-row input::placeholder{
+  font-size:13.5px;
+  color: rgba(94,107,100,.80);
+  letter-spacing:.2px;
+}
     .pw-toggle{
       position:absolute;
       right:10px;
@@ -625,7 +644,14 @@
       border-bottom:none !important;
       text-decoration:none !important;
     }
-
+    /* ✅ Parità iOS/Android: numeri telefono in “Conferma e contatti” */
+.contacts-grid .softlink{
+  font-size:14.7px;
+  line-height:1.2;
+  font-weight:500;
+  letter-spacing:.15px;
+  color: rgba(31,42,37,.92);
+}
     .wa-link{
       display:inline-flex;
       align-items:center;
@@ -934,7 +960,7 @@
   </div><!-- /#site -->
 
   <script>
-    const PASSWORD = "matteoesebianasposi";
+    const PASSWORD = "matteoesebiana";
 
     const CHURCH_ADDRESS = "Via XX Settembre, 96010, Canicattini Bagni\u00A0(SR)";
     const VILLA_ADDRESS = "Villa Anna eventi e ricevimenti, C.da Graffetta, 97014 Ispica (RG)";
